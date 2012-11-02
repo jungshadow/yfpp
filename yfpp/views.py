@@ -135,7 +135,7 @@ def get_fucking_election_shit(reg_address):
             return (result.get('pollingLocations',[]),
             result.get('contests', []))
 
-    return addresses
+    return ([], [])
 
 def fucking_check(request):
     if not request.POST['address']:
