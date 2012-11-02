@@ -1,21 +1,32 @@
+
 {% extends "yfpp/base.html" %}
 {% block content %}
+<div class="restart"><a class="link toggle-button closed" href="#" title="Find your fucking polling place">Look for your fucking polling place, again? I apparently have nothing better to do than help your ass all fucking day.</a>
+<form class="address-form group toggle-container" action="fucking-check/" method="post">
+{% csrf_token %}
+<fieldset>
+  <label for="address">Your Fucking Address</label>
+  <input type="text" name="address" class="text-field" placeholder="Your fucking address goes here" />
+
+<span class="icon-search"><input class='submit' type="submit" value="Find It Already" /></span></fieldset>
+</form></div>
 <h2>{{ greeting.value }}</h2>
-<h3 class="locations-heading">You can vote at th{{ addresses|length|pluralize:"is,ese"  }} fucking location{{ addresses|length|pluralize }}:</h3>
+<div class="address-container clearfix sixcol first">
+<h3 class="locations-heading"><i class="icon-arrow-down"></i>You can vote at th{{ addresses|length|pluralize:"is,ese"  }} fucking location{{ addresses|length|pluralize }}:</h3>
 {% for address in addresses %}
   {% if forloop.first %}
 <ul class="address-list">
   {% endif %}  
-    <li class="address-list-item">
+    <li class="address-list-item"><i class="icon-location"></i>
       <address itemscope itemtype="http://data-vocabulary.org/Organization">
-	<header>
-	  <h2 itemprop="name">{{ address.location_name|safe }}</h2>
-	</header>
+	
+	 <h2 itemprop="name">{{ address.locationName|capfirst|safe }}</h2>
+	
 	<div itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
-	  <p itemprop="street-address">{{ address.line1 }}</p>
-	  <p><span itemprop="locality">{{ address.city }}</span>,
-	  <span itemprop="region">{{ address.state }}</span>
-	  <span itemprop="postal-code">{{ address.zip }}</span></p>
+	 <p itemprop="street-address">{{ address.line1|capfirst }}</p>
+<p><span itemprop="locality">{{ address.city|capfirst }}</span>,
+<span itemprop="region">{{ address.state|upper }}</span>
+<span itemprop="postal-code">{{ address.zip }}</span></p>
 	</div>
       </address>
     </li>
@@ -26,6 +37,6 @@
 {% empty %}
   <p>Fuck off...I can't find your fucking polling location.<p>
 {% endfor %}
+</div>
 
-<p class="restart"><a class="link" href="/" title="Find your fucking polling place">Look for your fucking polling place, again? I apparently have nothing better to do than help your ass all fucking day.</a></p>
 {% endblock %}

@@ -35,7 +35,12 @@ TOOLS
 	white-space: nowrap;
 	overflow: hidden;
 }
-
+.js .toggle-container{
+	display: none;
+	position: relative;
+	z-index: 999;
+	
+}
 /*********************
 COLORS
 Need help w/ choosing your colors? Try this site out:
@@ -216,18 +221,25 @@ TYPOGRAPHY
 	speak: none;
 	font-weight: normal;
 	-webkit-font-smoothing: antialiased;
+	position: absolute;
 }
 .icon-location:before {
 	content: "\23";
 }
-.icon-facebook:before {
-	content: "\21";
-}
-.icon-twitter:before {
-	content: "\22";
-}
 .icon-search:before {
 	content: "\28";
+}
+.icon-arrow-down:before {
+	content: "\21";
+}
+.icon-facebook:before {
+	content: "\22";
+}
+.icon-twitter:before {
+	content: "\24";
+}
+.icon-user:before {
+	content: "\25";
 }
 
 /* text alignment */
