@@ -60,6 +60,11 @@ margin:0 auto;
 		text-decoration: none;
 		font-style: italic;
 		color: #565656;
+		margin-bottom: 15px;
+		display: block;
+		font-size: .85em;
+		text-align: center;
+		
 	}
 }
 /*********************
@@ -73,7 +78,6 @@ fieldset{
 	padding: 15px;
 	.boxShadowInset(2px, 4px, 5px, 0, rgba(0,0,0,.5));
 	.border-radius(10px);
-	 .fadeInRightBig;
 	 .animated;
 }
 .address-form{
@@ -139,9 +143,9 @@ input{
 RESULTS
 *********************/
 .address-container{
-	.transition(all .5s);
+	
 }
-.locations-heading{
+.locations-heading, .candidate-heading{
 	font-family: @sans-serif-bold;
 	font-size: 1.5em;
 	color:@red;
@@ -164,12 +168,12 @@ address{
 		margin: 0 0 5px;
 	}
 }
-.address-list-item{
+.address-list-item, .candidate-list-item{
 	position: relative;
 	padding-left: 25px;
 }
 
-.icon-location{
+.icon-location, .icon-user{
 	
 	&:before{
 		font-size: 25px;
@@ -267,7 +271,7 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
-	margin-top: 8em;
+	margin-top: 15em;
 }
 .social{
 	width: 50%;
