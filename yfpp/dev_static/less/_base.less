@@ -1,0 +1,222 @@
+/******************************************************************
+Site Name: 	yourfuckingpollingplace.com
+Author:	Jay Johnson
+
+Stylesheet: Base Mobile Stylesheet
+
+******************************************************************/
+
+
+
+
+/*********************
+GENERAL STYLES
+*********************/
+
+body {
+	font-family: $serif;
+	font-size: 100%;
+	line-height: 1.5;
+	color: #565656;
+	
+}
+header{
+	margin-top: 5em;
+}
+h1{
+	 font-family: 'CodeProDemoRegular';
+	 display: block;
+	 text-align: center;
+	 color: @red;
+	 
+	
+	.where{
+		 font-family: 'CodeProLightDemoRegular';
+		 display: block;
+		 font-size: 1.55em;
+		line-height: .8em;
+		.transition(all .5s);
+	}
+	.fucking{
+		display: block;
+		font-size: 2.0em;
+		line-height: .8em;
+		.transition(all .85s);
+	}
+	.poll{
+		display: block;
+		font-size: 1.15em;
+		line-height: .8em;
+		.transition(all .5s);
+	}
+}
+
+/*********************
+FORM STYLES
+*********************/
+fieldset{
+	border: none;
+	margin:0;
+	background: @red;
+	border:0;
+	padding: 15px;
+	.boxShadowInset(2px, 4px, 5px, 0, rgba(0,0,0,.5));
+	.border-radius(10px);
+}
+.address-form{
+	.transition(all .5s);
+	width: 350px;
+	margin: 0 auto;
+	
+	
+	label{
+		position: absolute;
+		display: block;
+		.image-replacement;
+		
+	}
+}
+input{
+	float: left;
+	width: 90%;
+	margin:0;
+	background:none;
+	border: none;
+	padding: 15px 0;
+	
+	&.submit{
+	.image-replacement;
+	width: 10%;
+	float: left;
+	position: relative;
+	
+	}
+}
+.icon-search{
+	float: right;
+	height: 25px;
+	width: 25px;
+	position: relative;
+	
+	&:before{
+		position: absolute;
+		height: 25px;
+		width: 25px;
+		display: inline-block;
+		font-size: 35px;
+		color: #fff;
+		top: -3px;
+		left: -15px;
+		
+		
+	}
+}
+::-webkit-input-placeholder {
+   color: #fff;
+   font-family: 'RobotoItalic';
+}
+
+:-moz-placeholder {  
+   color: #fff; 
+   font-family: 'RobotoItalic';
+}
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+	width: 96%;
+	margin: 0 auto;
+}
+
+/*********************
+LINK STYLES
+*********************/
+
+a, a:visited {
+	color: @link-color;
+
+	/* on hover */
+	&:hover, &:focus {
+		color: @link-hover;
+	}
+
+	/* on click */
+	&:active {
+
+	}
+
+	/* mobile tap color */
+	&:link {
+		/*
+		this highlights links on iPhones/iPads.
+		so it basically works like the :hover selector
+		for mobile devices.
+		*/
+		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+	}
+}
+
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+	
+	text-rendering: optimizelegibility;
+	font-weight: 500;
+	/*
+	if you're going to use webfonts, be sure to check your weights
+	http://css-tricks.com/watch-your-font-weight/
+	*/
+
+	/* removing text decoration from all headline links */
+	a {
+		text-decoration: none;
+	}
+}
+
+h1 {
+	font-size: 2.5em;
+	line-height: 1.333em;
+}
+
+h2 {
+	font-size: 1.75em;
+	line-height: 1.4em;
+	margin-bottom: 0.375em;
+}
+
+h3 {
+	font-size: 1.125em;
+}
+
+h4 {
+	font-size: 1.1em;
+	font-weight: 700;
+}
+
+h5 {
+	font-size: 0.846em;
+	line-height: 2.09em;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+/*********************
+FOOTER STYLES
+*********************/
+
+.footer {
+	clear: both;
+	margin-top: 8em;
+}
+.social{
+	width: 80%;
+	margin: 0 auto;
+}
+
+	
+
+.copyright {}
+

@@ -1,0 +1,31 @@
+{% extends "yfpp/base.html" %}
+{% block content %}
+<h2>{{ greeting.value }}</h2>
+<h3 class="locations-heading">You can vote at th{{ addresses|length|pluralize:"is,ese"  }} fucking location{{ addresses|length|pluralize }}:</h3>
+{% for address in addresses %}
+  {% if forloop.first %}
+<ul class="address-list">
+  {% endif %}  
+    <li class="address-list-item">
+      <address itemscope itemtype="http://data-vocabulary.org/Organization">
+	<header>
+	  <h2 itemprop="name">{{ address.location_name|safe }}</h2>
+	</header>
+	<div itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+	  <p itemprop="street-address">{{ address.line1 }}</p>
+	  <p><span itemprop="locality">{{ address.city }}</span>,
+	  <span itemprop="region">{{ address.state }}</span>
+	  <span itemprop="postal-code">{{ address.zip }}</span></p>
+	</div>
+      </address>
+    </li>
+{% if forloop.last %}
+</ul>
+{% endif %}
+
+{% empty %}
+  <p>Fuck off...I can't find your fucking polling location.<p>
+{% endfor %}
+
+<p class="restart"><a class="link" href="/" title="Find your fucking polling place">Look for your fucking polling place, again? I apparently have nothing better to do than help your ass all fucking day.</a></p>
+{% endblock %}
