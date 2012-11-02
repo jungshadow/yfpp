@@ -18,6 +18,9 @@ body {
 	font-size: 100%;
 	line-height: 1.5;
 	color: #565656;
+	background: url('../images/bgnoise_lg.png') repeat left top;
+	
+	
 	
 }
 header{
@@ -28,6 +31,7 @@ h1{
 	 display: block;
 	 text-align: center;
 	 color: @red;
+	 text-shadow: 1px 1px 1px rgba(255,255,255,.75);
 	 .fadeInDownBig;
 	 .animated;
 	 
@@ -109,6 +113,9 @@ input{
 	position: relative;
 	z-index:999999;
 	
+	
+		
+	
 	}
 }
 .icon-search{
@@ -116,16 +123,25 @@ input{
 	height: 25px;
 	width: 25px;
 	position: relative;
+	color: #fff;
+	font-size: 35px;
+	
+	&:hover , &:focus {
+		font-size: 37px;
+			
+		}
 	
 	&:before{
 		position: absolute;
 		height: 25px;
 		width: 25px;
 		display: inline-block;
-		font-size: 35px;
-		color: #fff;
+		
+		
 		top: -3px;
 		left: -15px;
+		
+		
 		
 		
 	}
