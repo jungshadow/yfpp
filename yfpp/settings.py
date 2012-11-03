@@ -169,3 +169,9 @@ LOGGING = {
         },
     }
 }
+
+# Import from localsettings
+try:
+    from yfpp.localsettings import *
+except ImportError:
+    pass
