@@ -1,4 +1,5 @@
-$(".toggle-button").click(function () {
+$(".toggle-button").click(function (e) {
+		e.preventDefault();
         $(this).toggleClass("closed open").next('.toggle-container').slideToggle();
 
     });
