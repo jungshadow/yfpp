@@ -60,7 +60,7 @@ def fuck_addresses(addresses):
     return fucked_addresses
 
 def commence_douchebaggery(contests):
-    fucked_candidates = []
+    fucked_contests = {}
     middle_names = [
         "polliwog", 
         "foot",
@@ -91,13 +91,19 @@ def commence_douchebaggery(contests):
         "String Bean",
         "Wild Boar",
         "Pants",
-        "Kumquat"]
+        "Kumquat",
+        "McGeenus",
+        "The Tooth",
+        "Dicky Madoo",
+        "Big Kahuna Burger",
+        "Eye of the Tiger"]
 
     for contest in contests:
-        print contest
-        fucked_candidates.append(contest)
+        if 'office' in  contest:
+            print contest
+            fucked_contests[contest.get('office', "Some Fucking Office")] = ''
 
-    return fucked_candidates
+    return fucked_contests
 
 def call_api(address):
     """Queries the VIP Google API with the given address.
@@ -126,7 +132,7 @@ def call_api(address):
 
 def get_fucking_election_shit(reg_address):
     # get api call result
-    result = call_api(address=reg_address)
+    result = call_api(reg_address)
     addresses = []
 
     # figure out if there's anything of use
@@ -153,14 +159,16 @@ def fucking_check(request):
 
 def results(request):
     addresses = request.session['addresses']
+    contests = request.session['contests']
     original_address = request.session['original_address']
 
     if len(addresses) > 0:
         #directions_urls = directionalize(addresses)
         addresses = fuck_addresses(addresses)
+        contests = commence_douchebaggery(contests)
 
     return render_to_response('yfpp/results.html', {
             'addresses': addresses,
             'greeting': '',#get_greeting(),
             'original_address': original_address,
-    })
+    }, context_instance=RequestContext(request))
