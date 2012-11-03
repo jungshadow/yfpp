@@ -1,8 +1,7 @@
-
 {% extends "yfpp/base.html" %}
 {% block content %}
 <div class="restart"><a class="link toggle-button closed" href="#" title="Find your fucking polling place">Look for your fucking polling place, again? I apparently have nothing better to do than help your ass all fucking day.</a>
-<form class="address-form group toggle-container" action="fucking-check/" method="post">
+<form class="address-form group toggle-container" action="/fucking-check/" method="post">
 {% csrf_token %}
 <fieldset class="fadeInDownBig">
   <label for="address">Your Fucking Address</label>
@@ -41,7 +40,7 @@
 
 
 <!--<div class="candidate-container clearfix sixcol last">
-<h3 class="candidate-heading"><i class="icon-arrow-down"></i>You can vote for th{{ addresses|length|pluralize:"is,ese"  }} fucking people{{ addresses|length|pluralize }}:</h3>
+<h3 class="candidate-heading"><i class="icon-arrow-down"></i>You can vote for th{{ contests|length|pluralize:"is,ese"  }} fucking contest{{ contests|length|pluralize:",s" }}:</h3>
 {% for address in addresses %}
   {% if forloop.first %}
 <ul class="candidate-list">
