@@ -8,14 +8,14 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Jared Marcotte', 'jared@jungshadow.com'),
+    ('Jay Johnson', 'jay@jhjdesigns.com'),
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': os.environ['YFPP_DB_NAME'],                      # Or path to database file if using sqlite3.
         'USER': os.environ['YFPP_DB_USER'],                      # Not used with sqlite3.
         'PASSWORD': os.environ['YFPP_DB_PASS'],                  # Not used with sqlite3.
