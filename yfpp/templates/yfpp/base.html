@@ -26,60 +26,99 @@
 </head>
 <body>
 <div class="wrap">
-		<div class="page">
-				<header>
-						<h1><a href="/"><span class="where">Where's My</span><strong class="fucking">Fucking</strong><span class="poll">Polling Place</span></a></h1>
-				</header>
-				<section class="main wrap"> {% block content %}
-						
-						{% endblock %} </section>
-		</div>
-		<!-- end of #container -->
-		
-		<footer class="footer wrap clearfix">
-				<div class="social clearfix">
-						<div class="twitter-shit"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://bit.ly/twitter-api-announce" data-counturl="http://groups.google.com/group/twitter-api-announce" data-lang="en" data-count="vertical">Tweet</a></div>
-						<div class="fb-shit">
-								<div class="fb-like" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true" data-font="arial"></div>
-						</div>
-				</div>
-				<div class="attribution clearfix">
-						<h4>This shit was made by these mother-fuckers:</h4>
-						<ul class="clearfix">
-								<li class="jungshadow clearfix"><a href="https://twitter.com/jungshadow">@jungshadow</a><span class="twit-follow"><a href="https://twitter.com/jungshadow" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @jungshadow</a> 
-										<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></span></li>
-								<li class="gazamo clearfix"><a href="https://twitter.com/gazamo">@gazamo</a><span class="twit-follow"><a href="https://twitter.com/gazamo" class="twitter-follow-button" data-show-count="false">Follow @gazamo</a> 
-										<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></span></li>
-								<li class="sixbcreative clearfix"><a href="https://twitter.com/sixBcreative">@sixBcreative</a><span class="twit-follow"><a href="https://twitter.com/sixBcreative" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @sixBcreative</a> 
-										<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></span></li>
-						</ul>
-				</div>
-		</footer>
+        <div class="page">
+                <header>
+                        <h1><a href="/"><span class="where">Where's My</span><strong class="fucking">Fucking</strong><span class="poll">Polling Place</span></a></h1>
+                </header>
+                <section class="main wrap"> {% block content %}
+                        
+                        {% endblock %} </section>
+        </div>
+        <!-- end of #container -->
+        
+        <footer class="footer wrap clearfix">
+
+                <div class="social clearfix">
+                        <div class="twitter-shit"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://bit.ly/twitter-api-announce" data-counturl="http://groups.google.com/group/twitter-api-announce" data-lang="en" data-count="vertical">Tweet</a></div>
+                        <div class="fb-shit">
+                                <div class="fb-like" data-href="http://yourfuckingpollingplace.com/" data-send="false" data-layout="box_count" data-width="50" data-show-faces="true" data-font="verdana"></div>
+                        </div>
+                </div>
+                <div class="attribution clearfix">
+                        <h4>This shit was made by these mother-fuckers:</h4>
+                        <ul class="clearfix">
+                                <li class="jungshadow clearfix"><a href="https://twitter.com/jungshadow">@jungshadow</a><span class="twit-follow"><a href="https://twitter.com/jungshadow" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @jungshadow</a> 
+                                        </span></li>
+                                <li class="gazamo clearfix"><a href="https://twitter.com/gazamo">@gazamo</a><span class="twit-follow"><a href="https://twitter.com/gazamo" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @gazamo</a> 
+                                        </span></li>
+                                <li class="sixbcreative clearfix"><a href="https://twitter.com/sixBcreative">@sixBcreative</a><span class="twit-follow"><a href="https://twitter.com/sixBcreative" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @sixBcreative</a> 
+                                        </span></li>
+                                <li class="nickcatal clearfix"><a href="https://twitter.com/nickcatal">@nickcatal</a><span class="twit-follow"><a href="https://twitter.com/nickcatal" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @nickcatal</a> 
+                                        </span></li>
+                        </ul>
+                </div>
+        </footer>
 </div>
+<div id="fb-root"></div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
 <script>window.jQuery || document.write('<script src="{% static "js/vendor/jquery-1.8.2.min.js" %}"><\/script>')</script> 
+<script src="https://apis.google.com/js/client.js?onload=gloaded"></script>
 <script src="{% static "js/script.js" %}"></script> 
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script> 
-<script type="text/javascript">
+<script>// Google Analytics Code
+var _gaq = _gaq || [];
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-19447677-1']);
-  _gaq.push(['_trackPageview']);
+_gaq.push(
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+    ['_setAccount', 'UA-19447677-1'],
+    ['_trackPageview']
 
+);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+// Facebook Code
+window.fbAsyncInit = function() {
+  FB.init({
+    appId  : '382719335136154',
+    //channelUrl : '//channel.html',
+    status : true, // check login status
+    cookie : true, // enable cookies to allow the server to access the session
+    xfbml  : true  // parse XFBML
+  });
+
+  FB.Event.subscribe('edge.create', function(targetUrl) {
+    _gaq.push(['_trackSocial', 'facebook', 'like', targetUrl]);
+  });
+  FB.Event.subscribe('edge.remove', function(targetUrl) {
+    _gaq.push(['_trackSocial', 'facebook', 'unlike', targetUrl]);
+  });
+};
+
+(function() {
+  var e = document.createElement('script');
+  e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+  e.async = true;
+  document.getElementById('fb-root').appendChild(e);
+}());
+// Twitter Code
+!function(d,s,id){
+    var js,fjs=d.getElementsByTagName(s)[0];
+    if(!d.getElementById(id)){
+        js=d.createElement(s);
+        js.id=id;
+        js.src="https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js,fjs);
+    }
+}(document,"script","twitter-wjs");
+    window.twttr = (function (d,s,id) {
+      var t, js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+      js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+      return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+    }(document, "script", "twitter-wjs"));
 </script>
 </body>
 </html>
