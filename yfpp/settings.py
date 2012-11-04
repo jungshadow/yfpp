@@ -112,7 +112,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 # Django 1.4 cookie-based sessions make more sense here than hitting the DB for every request
-SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+#SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 
 ROOT_URLCONF = 'yfpp.urls'
 
