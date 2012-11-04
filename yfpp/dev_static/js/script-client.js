@@ -45,6 +45,9 @@ function render(response, rawresponse) {
         $('.address-container').fadeIn();
         $(".address-form").slideUp('slow')
         $('input.text-field', this).val("")
+        $('.sharelocation').attr("data-location", locationname);
+        $('.sharelocation').attr("data-city", city);
+        $('.sharelocation').attr("data-city", state);
         $('.tweet').attr("href","https://twitter.com/intent/tweet?text=" + encodeURIComponent('I vote at ' + locationname + ', where the fuck do you vote?') + '&url=http%3A%2F%2Fyourfuckingpollingplace.com%2F');
         twttr.widgets.load();
         _gaq.push(['_trackEvent', 'Address', 'Lookup', address.state]);
@@ -81,11 +84,14 @@ $(".toggle-button").click(function () {
     });
 
 $('.tell-friends').click(function () {
-    postToFeed(locationname);
+    datalocation = $(this).attr("data-location");
+    city = $(this).attr("data-city");
+    state = $(this).attr("data-state");
+    postToFeed(datalocation);
     return false;
 })
 
-function postToFeed(location) {
+function postToFeed(location, city, state) {
     var obj = {
         method: 'feed',
         link: 'http://www.yourfuckingpollingplace.com/',
