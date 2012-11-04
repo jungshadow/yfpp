@@ -69,8 +69,11 @@ var _gaq = _gaq || [];
 
 _gaq.push(
 	['_setAccount', 'UA-19447677-1'],
-    {% if state %}
-    ['_trackEvent', 'Address', 'Lookup', {{ state }}],
+    {% if normalized_address.state %}
+    ['_trackEvent', 'Address', 'Lookup', '{{ normalized_address.state }}'],
+    {% endif %}
+    {% if status != "success" %}
+    ['_trackEvent', 'Address', 'Failure', '{{ status }}'],
     {% endif %}
 	['_trackPageview']
 

@@ -140,17 +140,21 @@ def get_fucking_election_shit(reg_address):
     if result is not None:
         if result['status']=="success" :
             return (result.get('pollingLocations',[]),
-            result.get('contests', []))
+            result.get('contests', []),
+            result.get('normalizedInput',[]),
+            result['status'])
 
-    return ([], [])
+    return ([], [], [], result['status'])
 
 def fucking_check(request):
     if not request.POST['address']:
         return HttpResponseRedirect(reverse('home'))
     else:
-        addresses, contests = get_fucking_election_shit(request.POST['address'])
+        addresses, contests, normalized_address, status = get_fucking_election_shit(request.POST['address'])
         request.session['addresses'] = addresses
         request.session['contests'] = contests
+        request.session['normalized_address'] = normalized_address
+        request.session['status'] = status
         request.session['original_address'] = request.POST['address']
 
     # Always return an HttpResponseRedirect after successfully dealing
@@ -166,8 +170,9 @@ def federal_only(contests):
 def results(request):
     addresses = request.session['addresses']
     contests = request.session['contests']
+    normalized_address = request.session['normalized_address']
+    status = request.session['status']
     original_address = request.session['original_address']
-    state = None
 
     if len(addresses) > 0:
         #directions_urls = directionalize(addresses)
@@ -175,14 +180,14 @@ def results(request):
         #contests = commence_douchebaggery(contests)
         contests = federal_only(contests)
         #print contests
-        state = addresses[0]['state']
 
     return render_to_response('yfpp/results.html', {
             'addresses': addresses,
             'greeting': '',#get_greeting(),
             'original_address': original_address,
             'contests': contests,
-            'state': state
+            'normalized_address': normalized_address,
+            'status': status,
     }, context_instance=RequestContext(request))
 
 def client(request):
