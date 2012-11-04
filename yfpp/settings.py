@@ -104,7 +104,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
@@ -112,7 +112,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 # Django 1.4 cookie-based sessions make more sense here than hitting the DB for every request
-SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+#SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 
 ROOT_URLCONF = 'yfpp.urls'
 
