@@ -9,10 +9,10 @@ window.fbAsyncInit = function() {
   });
 
   FB.Event.subscribe('edge.create', function(targetUrl) {
-    _gaq.push(['_trackSocial', 'facebook', 'like', targetUrl]);
+    _gaq.push(['_trackSocial', 'facebook', 'like', targetUrl],['_trackEvent', 'facebook', 'like', targetUrl]);
   });
   FB.Event.subscribe('edge.remove', function(targetUrl) {
-    _gaq.push(['_trackSocial', 'facebook', 'unlike', targetUrl]);
+    _gaq.push(['_trackSocial', 'facebook', 'unlike', targetUrl],['_trackEvent', 'facebook', 'unlike', targetUrl]);
   });
 };
 
@@ -63,7 +63,7 @@ function postToFeed(location) {
         description: 'I vote at ' + location + ' in ' + city + ' ' + state + ', where the fuck do you vote? Visit YourFuckingPollingPlace.com to find out'
     }
     function callback(response) {
-        _gaq.push(['_trackSocial', 'facebook', 'post', response]);
+        _gaq.push(['_trackSocial', 'facebook', 'post', response],['_trackEvent', 'facebook', 'post', response]);
     }
     FB.ui(obj, callback);
 };
@@ -82,7 +82,7 @@ function trackTwitter(intent_event) {
     if (intent_event.target && intent_event.target.nodeName == 'IFRAME') {
           opt_target = extractParamFromUri(intent_event.target.src, 'url');
     }
-    _gaq.push(['_trackSocial', 'twitter', 'tweet', opt_pagePath]);
+    _gaq.push(['_trackSocial', 'twitter', 'tweet', opt_pagePath],['_trackEvent', 'twitter', 'tweet', opt_pagePath]);
   }
 }
 
@@ -91,7 +91,7 @@ twttr.ready(function (twttr) {
   //event bindings
   twttr.events.bind('tweet', trackTwitter);
   twttr.events.bind('follow', function(event) {
-      _gaq.push(['_trackSocial', 'twitter', 'follow', event.data.screen_name]);
+      _gaq.push(['_trackSocial', 'twitter', 'follow', event.data.screen_name],['_trackEvent', 'twitter', 'follow', event.data.screen_name]);
       });
 });
 
