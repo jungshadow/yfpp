@@ -40,9 +40,8 @@ def hit_api(method, **kwargs):
 
 def fuck_addresses(addresses):
     fucked_addresses = []
-
+    state = ""
     for address in addresses:
-        print address
         if 'locationName' in address['address'] and len(address['address']['locationName']) > 0:
             head,sep,tail = address['address']['locationName'].partition(' ')
 
@@ -54,10 +53,11 @@ def fuck_addresses(addresses):
         else:
             address['address']['locationName'] = 'Some Fucking Building'.upper()
         
+        state = address['address']['state']
         #address['directions_end'] = directionalize(address['address'])
         fucked_addresses.append(address['address'])
 
-    return fucked_addresses
+    return fucked_addresses, state
 
 def commence_douchebaggery(contests):
     fucked_contests = {}
@@ -101,7 +101,8 @@ def commence_douchebaggery(contests):
     for contest in contests:
         if 'office' in  contest:
             print contest
-            fucked_contests[contest.get('office', "Some Fucking Office")] = ''
+            choice(middle_names)
+            fucked_contests[contest.get('office', "Some Fucking Office")] = []
 
     return fucked_contests
 
@@ -161,14 +162,16 @@ def results(request):
     addresses = request.session['addresses']
     contests = request.session['contests']
     original_address = request.session['original_address']
+    state = ""
 
     if len(addresses) > 0:
         #directions_urls = directionalize(addresses)
-        addresses = fuck_addresses(addresses)
+        addresses, state = fuck_addresses(addresses)
         contests = commence_douchebaggery(contests)
 
     return render_to_response('yfpp/results.html', {
             'addresses': addresses,
             'greeting': '',#get_greeting(),
             'original_address': original_address,
+            'user_state': state,
     }, context_instance=RequestContext(request))
