@@ -109,10 +109,9 @@ h3{font-size:1.125em;}
 h4{font-size:1.1em;font-weight:700;}
 h5{font-size:0.846em;line-height:2.09em;text-transform:uppercase;letter-spacing:2px;}
 .footer{clear:both;margin-top:15em;}
-.social{width:165px;margin:0 auto;display:block;padding:20px 20px 10px;border:1px solid #d91a2a;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;height:101px;}
-.social .twitter-shit{float:left;width:50px;}
+.social{width:165px;height:101px;margin:0 auto;display:block;padding:20px 20px 10px;border:1px solid #d91a2a;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;}.social .twitter-shit{float:left;width:50px;}
 .social .fb-shit{float:right;width:50px;}
-.attribution{width:283px;margin:35px auto;border-top:1px dotted #d91a2a;height:216px;overflow:hidden;}.attribution h4{font-size:.85em;font-weight:normal;}
+.attribution{width:283px;margin:35px auto;border-top:1px dotted #d91a2a;}.attribution h4{font-size:.85em;font-weight:normal;}
 .attribution ul{text-align:center;}
 .attribution li{text-align:center;margin:10px;display:block;background:rgba(217, 26, 42, 0.5);padding:5px 15px;-webkit-border-radius:50px;-moz-border-radius:50px;border-radius:50px;}.attribution li a{text-decoration:none;color:#fff;float:left;margin-top:5px;}
 .attribution .twit-follow{display:block;float:left;margin:5px 5px 0;}
