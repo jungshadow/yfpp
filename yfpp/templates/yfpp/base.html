@@ -19,6 +19,7 @@
 <meta property="og:site_name" content="yourfuckingpollingplace.com">
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
+<meta property="fb:app_id" content="382719335136154"/>
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="{% static "css/style.css" %}">
 <script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>
@@ -39,7 +40,7 @@
         <footer class="footer wrap clearfix">
 
                 <div class="social clearfix">
-                        <div class="twitter-shit"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://bit.ly/twitter-api-announce" data-counturl="http://groups.google.com/group/twitter-api-announce" data-lang="en" data-count="vertical">Tweet</a></div>
+                        <div class="twitter-shit"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://yourfuckingpollingplace.com/" data-counturl="http://yourfuckingpollingplace.com/" data-lang="en" data-count="vertical">Tweet</a></div>
                         <div class="fb-shit">
                                 <div class="fb-like" data-href="http://yourfuckingpollingplace.com/" data-send="false" data-layout="box_count" data-width="50" data-show-faces="true" data-font="verdana"></div>
                         </div>
@@ -62,16 +63,13 @@
 <div id="fb-root"></div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
 <script>window.jQuery || document.write('<script src="{% static "js/vendor/jquery-1.8.2.min.js" %}"><\/script>')</script> 
-<script src="https://apis.google.com/js/client.js?onload=gloaded"></script>
-<script src="{% static "js/script.js" %}"></script> 
+{% block js %}<script src="{% static "js/script.js" %}"></script>{% endblock js %}
 <script>// Google Analytics Code
 var _gaq = _gaq || [];
 
 _gaq.push(
-
-    ['_setAccount', 'UA-19447677-1'],
-    ['_trackPageview']
-
+	['_setAccount', 'UA-19447677-1'],
+	['_trackPageview']
 );
 
 (function() {

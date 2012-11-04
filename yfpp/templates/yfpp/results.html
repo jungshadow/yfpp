@@ -27,6 +27,8 @@
 <span itemprop="postal-code">{{ address.zip }}</span></p>
 	</div>
       </address>
+      <span><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyourfuckingpollingplace.com%2F&" class="tell-friends" data-location="{{ address.locationName|capfirst|safe }}" data-city="{{ address.city|upper|capfirst }}" data-state="{{ address.state|upper }}">Tell My Facebook Friends</a> | 
+        <a href="https://twitter.com/intent/tweet?text=I%20vote%20at%20{{ address.locationName|capfirst|safe|urlencode }}%2C%20where%20the%20fuck%20do%20you%20vote%3F%20Find%20out%20at&url=http%3A%2F%2Fyourfuckingpollingplace.com%2F&original_referer=http://test.armygrade.com:8000/client/" class="tweet">Tweet that shit</a></span>
     </li>
 {% if forloop.last %}
 </ul>
