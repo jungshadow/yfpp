@@ -27,8 +27,9 @@
 <span itemprop="postal-code">{{ address.zip }}</span></p>
 	</div>
       </address>
-      <span><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyourfuckingpollingplace.com%2F&" class="tell-friends" data-location="{{ address.locationName|capfirst|safe }}" data-city="{{ address.city|upper|capfirst }}" data-state="{{ address.state|upper }}">Tell My Facebook Friends</a> | 
-        <a href="https://twitter.com/intent/tweet?text=I%20vote%20at%20{{ address.locationName|capfirst|safe|urlencode }}%2C%20where%20the%20fuck%20do%20you%20vote%3F%20Find%20out%20at&url=http%3A%2F%2Fyourfuckingpollingplace.com%2F&original_referer=http://test.armygrade.com:8000/client/" class="tweet">Tweet that shit</a></span>
+      <span><a href="https://maps.google.com/maps?q={{ address.line1|urlencode }}%20{{ address.city|capfirst|urlencode }}%2C%20{{ address.state }}%20{{ address.zip }}" class="map" target="_blank">This is a map</a><br />
+      <span><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyourfuckingpollingplace.com%2F&" class="tell-friends" data-location="{{ address.locationName|capfirst|safe }}" data-city="{{ address.city|upper|capfirst }}" data-state="{{ address.state|upper }}">Post this shit to Facebook</a> | 
+        <a href="https://twitter.com/intent/tweet?text=I%20vote%20at%20{{ address.locationName|capfirst|safe|urlencode }}%2C%20where%20the%20fuck%20do%20you%20vote%3F%20Find%20out%20at&url=http%3A%2F%2Fyourfuckingpollingplace.com%2F&original_referer=http://test.armygrade.com:8000/client/" class="tweet">Tweet this shit</a></span>
     </li>
 {% if forloop.last %}
 </ul>
