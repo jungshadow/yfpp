@@ -172,3 +172,6 @@ def results(request):
             'greeting': '',#get_greeting(),
             'original_address': original_address,
     }, context_instance=RequestContext(request))
+
+def client(request):
+    return render_to_response('yfpp/client.html', {},context_instance=RequestContext(request))

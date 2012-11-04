@@ -63,7 +63,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
 <script>window.jQuery || document.write('<script src="{% static "js/vendor/jquery-1.8.2.min.js" %}"><\/script>')</script> 
 <script src="https://apis.google.com/js/client.js?onload=gloaded"></script>
-<script src="{% static "js/script.js" %}"></script> 
+{% block js %}<script src="{% static "js/script.js" %}"></script>{% endblock js %}
 <script>// Google Analytics Code
 var _gaq = _gaq || [];
 

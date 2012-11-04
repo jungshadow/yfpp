@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     #url(r'^$', 'yfpp.views.home', name='home'),
     url(r'^fucking-check', 'yfpp.views.fucking_check', name='fucking_check'),
     url(r'^results/', 'yfpp.views.results', name='results'),
+    url(r'^client/', 'yfpp.views.client', name='client'),
     # url(r'^yfpp/', include('yfpp.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
