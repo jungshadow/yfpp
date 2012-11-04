@@ -72,8 +72,10 @@ _gaq.push(
     {% if normalized_address.state %}
     ['_trackEvent', 'Address', 'Lookup', '{{ normalized_address.state }}'],
     {% endif %}
+    {% if status %}
     {% if status != "success" %}
     ['_trackEvent', 'Address', 'Failure', '{{ status }}'],
+    {% endif %}
     {% endif %}
 	['_trackPageview']
 
