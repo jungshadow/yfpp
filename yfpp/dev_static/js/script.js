@@ -41,7 +41,6 @@ function postToFeed(location) {
         _gaq.push(['_trackSocial', 'facebook', 'post', response]);
     }
     FB.ui(obj, callback);
-    _gaq.push(['_trackSocial', 'facebook', 'opendialog', state]);
 };
 
 function trackTwitter(intent_event) {
