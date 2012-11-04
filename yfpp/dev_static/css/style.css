@@ -99,6 +99,8 @@ address{font-style:normal;}address h2{font-family:'RobotoBold',"Helvetica Neue",
 address p{margin:0 0 5px;}
 .address-list-item,.candidate-list-item{position:relative;padding-left:25px;}
 .icon-location:before,.icon-user:before{font-size:25px;left:0;color:#d91a2a;}
+.candidate-party{font-size:0.65em;font-weight:bold;}
+.channel-list{display:none;}
 .wrap{width:96%;margin:0 auto;}
 a,a:visited{color:#d91a2a;}a:hover,a:visited:hover,a:focus,a:visited:focus{color:#b01522;}
 a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0, 0, 0, 0.3);}

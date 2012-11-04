@@ -1,3 +1,28 @@
+// Facebook Code
+window.fbAsyncInit = function() {
+  FB.init({
+    appId  : '382719335136154',
+    //channelUrl : '//channel.html',
+    status : true, // check login status
+    cookie : true, // enable cookies to allow the server to access the session
+    xfbml  : true  // parse XFBML
+  });
+
+  FB.Event.subscribe('edge.create', function(targetUrl) {
+    _gaq.push(['_trackSocial', 'facebook', 'like', targetUrl]);
+  });
+  FB.Event.subscribe('edge.remove', function(targetUrl) {
+    _gaq.push(['_trackSocial', 'facebook', 'unlike', targetUrl]);
+  });
+};
+
+(function() {
+  var e = document.createElement('script');
+  e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+  e.async = true;
+  document.getElementById('fb-root').appendChild(e);
+}());
+
 $(".toggle-button").click(function (e) {
         e.preventDefault();
         $(this).toggleClass("closed open").next('.toggle-container').slideToggle();
@@ -26,7 +51,7 @@ $('.tell-friends').click(function () {
     state = $(this).attr("data-state");
     postToFeed(datalocation, city, state);
     return false;
-})
+});
 
 function postToFeed(location) {
     var obj = {
@@ -42,6 +67,14 @@ function postToFeed(location) {
     }
     FB.ui(obj, callback);
 };
+
+// Twitter Code
+    window.twttr = (function (d,s,id) {
+      var t, js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+      js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+      return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+    }(document, "script", "twitter-wjs"));
 
 function trackTwitter(intent_event) {
   if (intent_event) {
@@ -60,4 +93,14 @@ twttr.ready(function (twttr) {
   twttr.events.bind('follow', function(event) {
       _gaq.push(['_trackSocial', 'twitter', 'follow', event.data.screen_name]);
       });
+});
+
+$('.candidate-link').click(function () {
+  contest = $(this).attr("data-contest");
+  channeltype = $(this).attr("data-channeltype");
+  candidate = $(this).attr("data-candidate");
+  _gaq.push(
+    ['_trackEvent', 'Channel Click', channeltype, candidate],
+    ['_trackEvent', 'Candidate Click', contest, candidate]
+  );
 });

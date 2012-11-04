@@ -69,7 +69,11 @@ var _gaq = _gaq || [];
 
 _gaq.push(
 	['_setAccount', 'UA-19447677-1'],
+    {% if state %}
+    ['_trackEvent', 'Address', 'Lookup', {{ state }}],
+    {% endif %}
 	['_trackPageview']
+
 );
 
 (function() {
@@ -77,46 +81,7 @@ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async
 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
-// Facebook Code
-window.fbAsyncInit = function() {
-  FB.init({
-    appId  : '382719335136154',
-    //channelUrl : '//channel.html',
-    status : true, // check login status
-    cookie : true, // enable cookies to allow the server to access the session
-    xfbml  : true  // parse XFBML
-  });
 
-  FB.Event.subscribe('edge.create', function(targetUrl) {
-    _gaq.push(['_trackSocial', 'facebook', 'like', targetUrl]);
-  });
-  FB.Event.subscribe('edge.remove', function(targetUrl) {
-    _gaq.push(['_trackSocial', 'facebook', 'unlike', targetUrl]);
-  });
-};
-
-(function() {
-  var e = document.createElement('script');
-  e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-  e.async = true;
-  document.getElementById('fb-root').appendChild(e);
-}());
-// Twitter Code
-!function(d,s,id){
-    var js,fjs=d.getElementsByTagName(s)[0];
-    if(!d.getElementById(id)){
-        js=d.createElement(s);
-        js.id=id;
-        js.src="https://platform.twitter.com/widgets.js";
-        fjs.parentNode.insertBefore(js,fjs);
-    }
-}(document,"script","twitter-wjs");
-    window.twttr = (function (d,s,id) {
-      var t, js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
-      js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
-      return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
-    }(document, "script", "twitter-wjs"));
 </script>
 </body>
 </html>

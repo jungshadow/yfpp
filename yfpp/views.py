@@ -10,6 +10,7 @@ from urllib2 import urlopen
 from operator import itemgetter
 from pprint import pprint
 import requests
+import urllib2
 
 #from models import Greeting
 
@@ -42,7 +43,7 @@ def fuck_addresses(addresses):
     fucked_addresses = []
 
     for address in addresses:
-        print address
+        #print address
         if 'locationName' in address['address'] and len(address['address']['locationName']) > 0:
             head,sep,tail = address['address']['locationName'].partition(' ')
 
@@ -157,20 +158,31 @@ def fucking_check(request):
     # user hits the Back button.
     return HttpResponseRedirect(reverse('results'))
 
+def federal_only(contests):
+    for x in contests:
+        if 'level' in x and x['level'] == 'federal':
+            yield x
+
 def results(request):
     addresses = request.session['addresses']
     contests = request.session['contests']
     original_address = request.session['original_address']
+    state = None
 
     if len(addresses) > 0:
         #directions_urls = directionalize(addresses)
         addresses = fuck_addresses(addresses)
-        contests = commence_douchebaggery(contests)
+        #contests = commence_douchebaggery(contests)
+        contests = federal_only(contests)
+        #print contests
+        state = addresses[0]['state']
 
     return render_to_response('yfpp/results.html', {
             'addresses': addresses,
             'greeting': '',#get_greeting(),
             'original_address': original_address,
+            'contests': contests,
+            'state': state
     }, context_instance=RequestContext(request))
 
 def client(request):
