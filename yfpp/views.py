@@ -13,31 +13,6 @@ import requests
 
 #from models import Greeting
 
-def hit_api(method, **kwargs):
-    """Queries the VIP Google API with the given address.
-
-    Positional arguments:
-    method -- A string of the particular API call
-    
-    Keyword arguments:
-    **kwargs -- a dictionary of additional POST arguments
-    """
-
-
-    request = urllib2.Request(url, None, headers)
-
-    if kwargs:
-        request.add_data(urllib.urlencode(kwargs))
-
-    try:
-        response = json.load(urllib2.urlopen(request, None, 3))
-        return response
-    except urllib2.URLError as e:
-        return (address, { 'locations': '', 'error': e, 'status': 'API_ERROR' },)
-    except Exception as e:
-        # Something more low level
-        return (address, { 'locations': '', 'error': e, 'status': 'API_ERROR' },)
-
 def fuck_addresses(addresses):
     fucked_addresses = []
     state = ""
@@ -100,9 +75,19 @@ def commence_douchebaggery(contests):
 
     for contest in contests:
         if 'office' in  contest:
-            print contest
-            choice(middle_names)
-            fucked_contests[contest.get('office', "Some Fucking Office")] = []
+            pprint(contest)
+            
+            fucked_contests[contest.get('office', "Some Fucking Office").title()] = []
+            candidates = contest.get('candidates', [])
+
+            for candidate in candidates:
+                middle_name = choice(middle_names)
+                head,sep,tail = candidate.partition(' ')
+
+                if tail=='':
+                    fucked_contests[contest].append(' '.join([middle_name, head]).title())
+                else:
+                    fucked_contests[contest].append(' '.join([head, middle_name, tail]).title())
 
     return fucked_contests
 
@@ -117,8 +102,8 @@ def call_api(address):
     election_id = 4000
     headers = {
         "content-type": "application/json",
-#        "Accept-Encoding": "gzip",
-#        "User-Agent": "YFPP (gzip)",
+        "accept-encoding": "gzip",
+        "user-agent": "YFPP (gzip)",
     }
 
     request_url = CIVIC_API_BASE_URL.format(
