@@ -9,4 +9,3 @@ pycrypto==2.6
 pytz==2012f
 requests==0.14.2
 wsgiref==0.1.2
-dj-database-url==0.2.0

@@ -1,1 +1,0 @@
-web: gunicorn yfpp.herokuwsgi -b 0.0.0.0:$PORT
