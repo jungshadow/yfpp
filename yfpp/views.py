@@ -10,13 +10,13 @@ from urllib2 import urlopen
 from operator import itemgetter
 from pprint import pprint
 import requests
-
-#from models import Greeting
+import urllib2
 
 def fuck_addresses(addresses):
     fucked_addresses = []
     state = ""
     for address in addresses:
+
         if 'locationName' in address['address'] and len(address['address']['locationName']) > 0:
             head,sep,tail = address['address']['locationName'].partition(' ')
 
@@ -29,7 +29,7 @@ def fuck_addresses(addresses):
             address['address']['locationName'] = 'Some Fucking Building'.upper()
         
         state = address['address']['state']
-        #address['directions_end'] = directionalize(address['address'])
+
         fucked_addresses.append(address['address'])
 
     return fucked_addresses, state
@@ -125,17 +125,21 @@ def get_fucking_election_shit(reg_address):
     if result is not None:
         if result['status']=="success" :
             return (result.get('pollingLocations',[]),
-            result.get('contests', []))
+            result.get('contests', []),
+            result.get('normalizedInput',[]),
+            result['status'])
 
-    return ([], [])
+    return ([], [], [], result['status'])
 
 def fucking_check(request):
     if not request.POST['address']:
         return HttpResponseRedirect(reverse('home'))
     else:
-        addresses, contests = get_fucking_election_shit(request.POST['address'])
+        addresses, contests, normalized_address, status = get_fucking_election_shit(request.POST['address'])
         request.session['addresses'] = addresses
         request.session['contests'] = contests
+        request.session['normalized_address'] = normalized_address
+        request.session['status'] = status
         request.session['original_address'] = request.POST['address']
 
     # Always return an HttpResponseRedirect after successfully dealing
@@ -143,22 +147,33 @@ def fucking_check(request):
     # user hits the Back button.
     return HttpResponseRedirect(reverse('results'))
 
+def federal_only(contests):
+    for x in contests:
+        if 'level' in x and x['level'] == 'federal':
+            yield x
+
 def results(request):
     addresses = request.session['addresses']
     contests = request.session['contests']
+    normalized_address = request.session['normalized_address']
+    status = request.session['status']
     original_address = request.session['original_address']
     state = ""
 
     if len(addresses) > 0:
         #directions_urls = directionalize(addresses)
-        addresses, state = fuck_addresses(addresses)
-        contests = commence_douchebaggery(contests)
+        addresses = fuck_addresses(addresses)
+        #contests = commence_douchebaggery(contests)
+        contests = federal_only(contests)
+        #print contests
 
     return render_to_response('yfpp/results.html', {
             'addresses': addresses,
             'greeting': '',#get_greeting(),
             'original_address': original_address,
-            'user_state': state,
+            'contests': contests,
+            'normalized_address': normalized_address,
+            'status': status,
     }, context_instance=RequestContext(request))
 
 def client(request):
