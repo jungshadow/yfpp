@@ -10,7 +10,7 @@
 <span class="icon-search"><input class='submit' type="submit" value="Find It Already" /></span></fieldset>
 </form></div>
 <div class="address-container clearfix sixcol first">
-  {% if status == 'successful' %}
+{% if status == 'success' %}
 <h3 class="locations-heading"><i class="icon-arrow-down"></i>You can vote at th{{ addresses|length|pluralize:"is,ese"  }} fucking location{{ addresses|length|pluralize }}:</h3>{% endif %}
 {% for address in addresses %}
   {% if forloop.first %}
@@ -42,7 +42,7 @@
   {% if status == 'noStreetSegmentFound' %}<p>Our data provider couldn't find reliable data about the address you entered. Check with your state's fucking board of elections for your fucking polling location or <a href="/?ugh=tryagain" class="try-again">Try again</a></p>{% endif %}
 {% endfor %}
 </div>
-<!--
+
 {% if contests %}
 <div class="candidate-container clearfix sixcol last">
 <h3 class="candidate-heading"><i class="icon-arrow-down"></i>This is who you can fucking vote for:</h3>
@@ -68,7 +68,6 @@
 
 </div>
 {% endif %}
--->
 
 
 
