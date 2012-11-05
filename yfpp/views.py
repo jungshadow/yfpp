@@ -176,7 +176,6 @@ def clean_candidates(contests):
             if contests[x]['office'] == 'President & Vice President':
                 contests[x]['election'] = 'President'
                 contests[x]['priority'] = 1
-                print 'President'
             elif contests[x]['district']['scope'] == 'congressional':
                 contests[x]['election'] = 'House'
                 contests[x]['priority'] = 3

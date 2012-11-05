@@ -52,11 +52,11 @@
       <ul class="candidate-list">
         {% for candidate in contest.candidates %}
         <li class="candidate-list-item">
-          <span class="candidate-name">{% if candidate.candidateUrl %}<a href="{{ candidate.candidateUrl }}" class="candidate-homepage candidate-link" data-contest="{{ contest.election }}" data-candidate="{{ candidate.name }}" data-channeltype="homepage">{{ candidate.name }}</a>{% else %}{{ candidate.name }}{% endif %}</span> <span class="candidate-party">({{ candidate.party }})</span>
+          <span class="candidate-name">{% if candidate.candidateUrl %}<a href="{{ candidate.candidateUrl }}" class="candidate-homepage candidate-link" data-contest="{{ contest.election }}{% if contest.priority > 1 %} {{ normalized_address.state }}{% if contest.priority > 2 %} {{ contest.district.id }}{% endif %}{% endif %}" data-candidate="{{ candidate.name }}" data-channeltype="homepage">{{ candidate.name }}</a>{% else %}{{ candidate.name }}{% endif %}</span> <span class="candidate-party">({{ candidate.party }})</span>
           <ul class="channel-list">
           {% for channel in candidate.channels %}
             <li class="channel-list-item">
-             <a href="{{ channel.id }}" class="candidate-channel candidate-link {{ channel.type }}" data-channeltype="{{ channel.type }}" data-contest="{{ contest.election }}" data-candidate="{{ candidate.name }}">{{ channel.type }}</a>
+             <a href="{{ channel.id }}" class="candidate-channel candidate-link {{ channel.type }}" data-channeltype="{{ channel.type }}" data-contest="{{ contest.election }}{% if contest.priority > 1 %} {{ normalized_address.state }}{% if contest.priority > 2 %} {{ contest.district.id }}{% endif %}{% endif %}" data-candidate="{{ candidate.name }}">{{ channel.type }}</a>
           </li>
           {% endfor %}
           </ul>
