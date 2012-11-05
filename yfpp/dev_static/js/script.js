@@ -53,6 +53,10 @@ $('.tell-friends').click(function () {
     return false;
 });
 
+$('.try-again').click(function () {
+  _gaq.push(['_trackEvent', 'Action', 'Try Again']);
+});
+
 function postToFeed(location) {
     var obj = {
         method: 'feed',
