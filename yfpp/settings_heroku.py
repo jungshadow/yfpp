@@ -12,7 +12,7 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
+DATABASES = {}
 DATABASES['default'] =  dj_database_url.config()
 
 # Local time zone for this installation. Choices can be found here:
