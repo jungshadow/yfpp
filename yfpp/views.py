@@ -183,7 +183,7 @@ def results(request):
 
     if len(addresses) > 0:
         #directions_urls = directionalize(addresses)
-        addresses = fuck_addresses(addresses)
+        addresses, state = fuck_addresses(addresses)
         #contests = commence_douchebaggery(contests)
         contests = clean_candidates(federal_only(contests))
         #print contests
