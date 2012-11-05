@@ -152,6 +152,27 @@ def federal_only(contests):
         if 'level' in x and x['level'] == 'federal':
             yield x
 
+def clean_candidates(contests):
+    # This takes federal candidates and cleans them
+    contests = list(contests)
+    try:
+        x = len(contests) - 1
+        while x >= 0:
+            if contests[x]['office'] == 'President & Vice President':
+                contests[x]['election'] = 'President'
+                contests[x]['priority'] = 1
+            elif contests[x]['district']['scope'] == 'congressional':
+                contests[x]['election'] = 'House'
+                contests[x]['priority'] = 3
+            else:
+                contests[x]['election'] = 'Senate'
+                contests[x]['priority'] = 2
+            x = x - 1
+        contests = sorted(contests, key=lambda k: k['priority']) 
+    except Exception, e:
+        print e
+    return contests
+
 def results(request):
     addresses = request.session['addresses']
     contests = request.session['contests']
@@ -164,7 +185,7 @@ def results(request):
         #directions_urls = directionalize(addresses)
         addresses = fuck_addresses(addresses)
         #contests = commence_douchebaggery(contests)
-        contests = federal_only(contests)
+        contests = clean_candidates(federal_only(contests))
         #print contests
 
     return render_to_response('yfpp/results.html', {
