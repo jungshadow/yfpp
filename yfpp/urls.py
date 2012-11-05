@@ -1,12 +1,12 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.views.generic.simple import direct_to_template
+from django.views.generic.simple import direct_to_template, redirect_to
 
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
+    url(r'^favicon\.ico$', redirect_to, {'url': '/static/favicon.ico'}, name='favicon'),
     url(r'^$', direct_to_template, {'template': 'yfpp/address_form.html'}, name='home'),
     #url(r'^$', 'yfpp.views.home', name='home'),
     url(r'^fucking-check', 'yfpp.views.fucking_check', name='fucking_check'),
