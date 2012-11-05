@@ -52,7 +52,7 @@
       <ul class="candidate-list">
         {% for candidate in contest.candidates %}
         <li class="candidate-list-item">
-          <span class="candidate-name"><a href="{{ candidate.candidateUrl }}" class="candidate-homepage candidate-link" data-contest="{{ contest.office }}" data-candidate="{{ candidate.name }}" data-channeltype="homepage">{{ candidate.name }}</a></span> <span class="candidate-party">({{ candidate.party }})</span>
+          <span class="candidate-name">{% if candidate.candidateUrl %}<a href="{{ candidate.candidateUrl }}" class="candidate-homepage candidate-link" data-contest="{{ contest.office }}" data-candidate="{{ candidate.name }}" data-channeltype="homepage">{{ candidate.name }}</a>{% else %}{{ candidate.name }}{% endif %}</span> <span class="candidate-party">({{ candidate.party }})</span>
           <ul class="channel-list">
           {% for channel in candidate.channels %}
             <li class="channel-list-item">
