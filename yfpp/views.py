@@ -135,7 +135,12 @@ def fucking_check(request):
     if not request.POST['address']:
         return HttpResponseRedirect(reverse('home'))
     else:
-        addresses, contests, normalized_address, status = get_fucking_election_shit(request.POST['address'])
+        request.session['exception'] = 'None'
+        try:
+            addresses, contests, normalized_address, status = get_fucking_election_shit(request.POST['address'])
+        except Exception, e:
+            addresses, contests, normalized_address, status = get_fucking_election_shit(request.POST['address'])
+            request.session['exception'] = str(e)
         request.session['addresses'] = addresses
         request.session['contests'] = contests
         request.session['normalized_address'] = normalized_address
@@ -174,6 +179,7 @@ def clean_candidates(contests):
     return contests
 
 def results(request):
+    exception = request.session['exception']
     addresses = request.session['addresses']
     contests = request.session['contests']
     normalized_address = request.session['normalized_address']
@@ -195,6 +201,7 @@ def results(request):
             'contests': contests,
             'normalized_address': normalized_address,
             'status': status,
+            'exception': exception,
     }, context_instance=RequestContext(request))
 
 def client(request):
