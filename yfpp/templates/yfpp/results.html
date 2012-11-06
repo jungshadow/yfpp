@@ -13,7 +13,10 @@
 				<em class="example">eg: 1600 Pennsylvania Ave NW, Washington, DC 20500</em>	
 		</form>
 </div>
-<div class="address-container clearfix sixcol first"> {% if status == 'success' %}
+<div class="address-container clearfix sixcol first"> {% if normalized_address.state == 'NY' %}
+<p><strong>NEW YORK VOTERS IMPACTED BY HURRICANE SANDY PLEASE NOTE</strong></p>
+<p>On election day, voters in NASSAU, ROCKLAND, SUFFOLK, WESTCHESTER and all of NEW YORK CITY  will be allowed to vote at any polling location in the state using an affidavit ballot. These ballots will count for President and US Senate, plus any races that also appear on the ballot at their home polling location. For more details, see NY Governor Cuomo's <a href="http://www.governor.ny.gov/executiveorder/62">executive order</a> or visit <a href="http://bronx.ny1.com/content/top_stories/171855/cuomo-signs-executive-order-letting-nyers-vote-at-any-polling-place">this news article</a>.</p>
+{% endif %}{% if status == 'success' %}
 		<h2 class="locations-heading"><i class="icon-arrow-down"></i>You can vote at th{{ addresses|length|pluralize:"is,ese"  }} fucking location{{ addresses|length|pluralize }}:</h2>
 		{% endif %}
 		{% for address in addresses %}
@@ -36,14 +39,16 @@
 		{% endif %}
 		
 		{% empty %}
-		<p>What the fuck is this?</p>
+		<p>What the fuck is this? We couldn't find any polling addresses.</p>
 		{% if status == 'addressUnparseable' %}
 		<p>We couldn't find your fucking address. Did you enter your full street address? It needs to be "Your Fucking Street, Your Fucking Town, CA 12345" <a href="/?ugh=tryagain" class="try-again">Try again</a></p>
 		{% endif %}
 		{% if status == 'noStreetSegmentFound' %}
 		<p>Our data provider couldn't find reliable data about the address you entered. Check with your state's fucking board of elections for your fucking polling location or <a href="/?ugh=tryagain" class="try-again">Try again</a></p>
 		{% endif %}
-		{% endfor %} </div>
+		{% endfor %} 
+
+	</div>
 {% if contests %}
 <div class="candidate-container clearfix sixcol last">
 		<h2 class="candidate-heading"><i class="icon-arrow-down"></i>This is who you can fucking vote for:</h2>
