@@ -6,10 +6,11 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^favicon\.ico$', redirect_to, {'url': '/static/favicon.ico'}, name='favicon'),
+#    url(r'^favicon\.ico$', redirect_to, {'url': '/static/favicon.ico'}, name='favicon'),
     url(r'^$', direct_to_template, {'template': 'yfpp/address_form.html'}, name='home'),
-    #url(r'^$', 'yfpp.views.home', name='home'),
-    url(r'^fucking-check', 'yfpp.views.fucking_check', name='fucking_check'),
+#    url(r'^$', direct_to_template, {'template': 'yfpp/thanks.html'}, name='thanks'),
+    url(r'^privacy/', direct_to_template, {'template': 'yfpp/privacy.html'}, name='thanks'),
+    url(r'^fucking-check/', 'yfpp.views.fucking_check', name='fucking_check'),
     url(r'^results/', 'yfpp.views.results', name='results'),
     url(r'^client/', 'yfpp.views.client', name='client'),
     # url(r'^yfpp/', include('yfpp.foo.urls')),
