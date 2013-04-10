@@ -191,8 +191,7 @@ def results(request):
         #directions_urls = directionalize(addresses)
         addresses, state = fuck_addresses(addresses)
         #contests = commence_douchebaggery(contests)
-        contests = clean_candidates(federal_only(contests))
-        #print contests
+    contests = clean_candidates(federal_only(contests))
 
     return render_to_response('yfpp/results.html', {
             'addresses': addresses,
