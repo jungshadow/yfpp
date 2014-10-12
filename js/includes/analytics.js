@@ -1,0 +1,6 @@
+/*
+Your Fucking Polling Place
+Analytics JavaScript
+by Nick Catalano
+www.nickcatalano.com
+*/
