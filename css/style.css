@@ -852,6 +852,9 @@ h1 .poll {
   transition: all 0.5s 0.2s ease-in-out;
   -webkit-backface-visibility: hidden;
 }
+.user-address {
+  text-align: center;
+}
 .restart {
   width: 283px;
   margin: 0 auto;
@@ -941,6 +944,9 @@ fieldset {
   -o-animation-name: fadeInRightBig;
   animation-name: fadeInRightBig;
 }
+.desktop-addrfield {
+  display: none;
+}
 input {
   float: left;
   width: 90%;
@@ -948,7 +954,7 @@ input {
   background: none;
   border: none;
   padding: 15px 0;
-  font-size: 13px;
+  font-size: 1.15em;
   color: #fff;
 }
 input.submit {
@@ -975,11 +981,11 @@ input.submit {
 }
 .icon-search:before {
   position: absolute;
-  height: 25px;
+  height: 15px;
   width: 25px;
   display: inline-block;
   top: -3px;
-  left: -15px;
+  left: -5px;
 }
 ::-webkit-input-placeholder {
   color: #fff;
@@ -1449,6 +1455,12 @@ FORM SYTLES
   .address-form,
   .restart {
     width: 530px;
+  }
+  .desktop-addrfield {
+    display: block;
+  }
+  .mobile-addrfield {
+    display: none;
   }
   /*********************
 FOOTER STYLES
