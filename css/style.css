@@ -865,10 +865,15 @@ h1 .poll {
   text-decoration: none;
   font-style: italic;
   color: #565656;
+  color: #d91a2a;
   margin-bottom: 15px;
   display: block;
   font-size: .85em;
   text-align: center;
+}
+.error {
+  text-align: center;
+  color: #d91a2a;
 }
 small,
 .small {
@@ -926,7 +931,7 @@ fieldset {
 .example {
   font-family: 'RobotoItalic';
   font-style: normal;
-  margin: 10px 15px;
+  margin: 10px 15px 4px;
   font-size: 12px;
   display: block;
   -webkit-animation-fill-mode: both;

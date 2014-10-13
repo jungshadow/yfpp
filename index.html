@@ -48,7 +48,9 @@
 <span class="icon-search"><input class='submit' type="submit" value="Find It Already" /></span>
 </fieldset>
 <em class="example">eg: 1600 Pennsylvania Ave NW, Washington, DC 20500</em>
+<div class="error"></div>
 </form>
+
 
 
 </div><!-- /#main-content -->
@@ -97,7 +99,9 @@
 <span class="icon-search"><input class='submit' type="submit" value="Find It Already" /></span>
 </fieldset>
 <em class="example">eg: 1600 Pennsylvania Ave NW, Washington, DC 20500</em>
+<div class="error"></div>
 </form>
+
 
 </script>
 
@@ -112,13 +116,16 @@
   <form class="address-form group toggle-container closed" action="#" method="GET" style="display: none;">
     <fieldset class="fadeInDownBig">
       <label for="address">Your Fucking Address</label>
-      <input type="text" name="address" id="address" class="text-field" placeholder="Your fucking address goes here" />
+      <input type="text" name="address" class="text-field mobile-addrfield" id="address-mobile" placeholder="Your f'ing address here"/>
+      <input type="text" name="address" class="text-field desktop-addrfield" id="address-desktop" placeholder="Your fucking address here"/>
       <span class="icon-search">
     <input class='submit' type="submit" value="Find It Already" />
       </span>
     </fieldset>
-    <em class="example">eg: 1600 Pennsylvania Ave NW, Washington, DC 20500</em> 
+    <em class="example">eg: 1600 Pennsylvania Ave NW, Washington, DC 20500</em>
+    <div class="error"></div>
   </form>
+
 </div>
 
 <div class="address-container clearfix sixcol first">

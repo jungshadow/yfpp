@@ -368,11 +368,13 @@ www.nickcatalano.com
         });
         amplify.subscribe("displayFailure lookupFailure", function(result) {
             console.log("Well, we made it to the failure");
-            var context = {
+            /*var context = {
                 result: result
             };
-            var html = failure_template(context);
-            $('#main-content').html(html);
+            //var html = failure_template(context);
+            //$('#main-content').html(html);
+            */
+            $('.error').html(result.error.message);
         });
     });
 
