@@ -234,7 +234,7 @@ www.nickcatalano.com
             }
         });
 
-        amplify.subscribe("lookupSuccess lookupFailure", function(result) {
+        amplify.subscribe("lookupSuccess", function(result) {
             var hash = generate_hash(result.user_address);
             window.latest_lookup_hash = hash;
             window.location.hash = hash;
