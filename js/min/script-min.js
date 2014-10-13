@@ -249,7 +249,6 @@ www.nickcatalano.com
           version    : 'v2.1'
         });
     };
-
     /* jshint ignore:start */
     (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -267,8 +266,40 @@ www.nickcatalano.com
     }(document, "script", "twitter-wjs"));
     /* jshint ignore:stop */
 
+    amplify.subscribe("resultsRendered", function() {
+        if ('widgets' in window.twttr) {
+            window.twttr.widgets.load();
+        }
+    });
+
+    amplify.subscribe("postToFacebook", function(polling_info){
+        var obj = {
+            method: 'feed',
+            link: 'http://www.yourfuckingpollingplace.com/',
+            picture: 'http://www.yourfuckingpollingplace.com/site_media/static/images/wmfpp.png',
+            name: 'I Vote At ' + polling_info.location,
+            caption: "YourFuckingPollingPlace.com",
+            description: 'I vote at ' + polling_info.location + ' in ' + polling_info.city + ' ' + polling_info.state + ', where the fuck do you vote? Visit YourFuckingPollingPlace.com to find out'
+        };
+        function callback(response) {
+            amplify.publish("facebookFeedCallback", response);
+        }
+        FB.ui(obj, callback);
+    });
+
+    $(function(){
+        $('#main-content').on('click', '.fb-post', function(event) {
+            amplify.publish("postToFacebook", {
+                location: $(this).attr('data-location'),
+                city: $(this).attr('data-city'),
+                state: $(this).attr('data-state')
+            });
+            event.preventDefault();
+        });
+    });
 
 })(window, window.amplify, jQuery);
+
 
 
 /*
@@ -443,11 +474,25 @@ www.nickcatalano.com
             return arr.join(" ");
         });
 
-        Handlebars.registerHelper('fuckem', function(name) {
-            var orig = Handlebars.helpers.pretty(name);
-            var arr = orig.split(' ');
-            arr.splice(1,0,generate_middle_name(name));
-            return arr.join(" ");
+        Handlebars.registerHelper('urlencode', function(string) {
+            return encodeURIComponent(string);
+        });
+
+        Handlebars.registerHelper('chain', function () {
+            // Chain helpers. From https://github.com/wycats/handlebars.js/issues/304
+            var helpers = [], value;
+            $.each(arguments, function (i, arg) {
+                if (Handlebars.helpers[arg]) {
+                    helpers.push(Handlebars.helpers[arg]);
+                } else {
+                    value = arg;
+                    $.each(helpers, function (j, helper) {
+                        value = helper(value, arguments[i + 1]);
+                    });
+                    return false;
+                }
+            });
+            return value;
         });
 
         // Setup templates
@@ -464,6 +509,7 @@ www.nickcatalano.com
             var html = input_template({});
             console.log("Failure");
             $('#main-content').html(html);
+            amplify.publish("contentRendered");
         });
 
         amplify.subscribe("displaySuccess lookupSuccess", function(result) {
@@ -473,6 +519,7 @@ www.nickcatalano.com
             };
             var html = result_template(context);
             $('#main-content').html(html);
+            amplify.publish("contentRendered resultsRendered");
         });
         amplify.subscribe("displayFailure lookupFailure", function(result) {
             console.log("Well, we made it to the failure");

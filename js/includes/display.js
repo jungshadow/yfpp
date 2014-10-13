@@ -82,11 +82,25 @@
             return arr.join(" ");
         });
 
-        Handlebars.registerHelper('fuckem', function(name) {
-            var orig = Handlebars.helpers.pretty(name);
-            var arr = orig.split(' ');
-            arr.splice(1,0,generate_middle_name(name));
-            return arr.join(" ");
+        Handlebars.registerHelper('urlencode', function(string) {
+            return encodeURIComponent(string);
+        });
+
+        Handlebars.registerHelper('chain', function () {
+            // Chain helpers. From https://github.com/wycats/handlebars.js/issues/304
+            var helpers = [], value;
+            $.each(arguments, function (i, arg) {
+                if (Handlebars.helpers[arg]) {
+                    helpers.push(Handlebars.helpers[arg]);
+                } else {
+                    value = arg;
+                    $.each(helpers, function (j, helper) {
+                        value = helper(value, arguments[i + 1]);
+                    });
+                    return false;
+                }
+            });
+            return value;
         });
 
         // Setup templates
@@ -103,6 +117,7 @@
             var html = input_template({});
             console.log("Failure");
             $('#main-content').html(html);
+            amplify.publish("contentRendered");
         });
 
         amplify.subscribe("displaySuccess lookupSuccess", function(result) {
@@ -112,6 +127,7 @@
             };
             var html = result_template(context);
             $('#main-content').html(html);
+            amplify.publish("contentRendered resultsRendered");
         });
         amplify.subscribe("displayFailure lookupFailure", function(result) {
             console.log("Well, we made it to the failure");
