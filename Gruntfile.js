@@ -136,7 +136,7 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Setup some custom tasks
-    grunt.registerTask('default', ['css', 'js']);
+    grunt.registerTask('default', ['css', 'js', 'html']);
     grunt.registerTask('css', ['less']);
     grunt.registerTask('js', [/*'jshint', */'concat', /*'uglify'*/]);
     grunt.registerTask('html', ['codekit']);
