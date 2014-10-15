@@ -94,14 +94,6 @@ module.exports = function(grunt) {
                 ]
         },
 
-        // Compile our codekit files
-        codekit: {
-            index: {
-                src: 'index.kit',
-                dest: 'index.html'
-            }
-        },
-
         // Watch for changes. Supports livereload on port 35729 (the default)
         watch: {
             css: {
@@ -121,9 +113,9 @@ module.exports = function(grunt) {
                   livereload: true,
                 },
             },
-            codekit: {
-                files: ['index.kit', '**/*.kit'],
-                tasks: ['html'],
+            html: {
+                files: ['*.html'],
+                tasks: [],
                 options: {
                   livereload: true,
                 }
@@ -136,9 +128,8 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // Setup some custom tasks
-    grunt.registerTask('default', ['css', 'js', 'html']);
+    grunt.registerTask('default', ['css', 'js']);
     grunt.registerTask('css', ['less']);
     grunt.registerTask('js', [/*'jshint', */'concat', /*'uglify'*/]);
-    grunt.registerTask('html', ['codekit']);
 
 };
