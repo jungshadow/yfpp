@@ -34,6 +34,7 @@ module.exports = function(grunt) {
                 src: [
                     '<%= jsVendorPath %>handlebars-v2.0.0.min.js',
                     '<%= jsVendorPath %>amplify-v1.1.2.min.js',
+                    '<%= jsPath %>load_external.js',
                     '<%= jsPath %>script.js',
                     '<%= jsIncludesPath %>process_request.js',
                     '<%= jsIncludesPath %>social.js',
@@ -41,7 +42,7 @@ module.exports = function(grunt) {
                     '<%= jsIncludesPath %>display.js',
                     '<%= jsIncludesPath %>init_site.js',
                     '<%= jsIncludesPath %>results.js',
-                    '<%= jsIncludesPath %>analytics.js'
+                    '<%= jsIncludesPath %>analytics.js',
                 ],
                 dest: '<%= minJSPath %>main.js'
             },
@@ -85,11 +86,13 @@ module.exports = function(grunt) {
                 globals: {
                     jQuery: true,
                     $: true,
-                    console: true
+                    console: true,
+                    ga: true,
+                    FB: true
                 }
             },
             src: [
-                '<%= jsPath %>*.js',
+                '<%= jsPath %>script.js',
                 '<%= jsIncludesPath %>*.js'
                 ]
         },
@@ -130,6 +133,6 @@ module.exports = function(grunt) {
     // Setup some custom tasks
     grunt.registerTask('default', ['css', 'js']);
     grunt.registerTask('css', ['less']);
-    grunt.registerTask('js', [/*'jshint', */'concat', /*'uglify'*/]);
+    grunt.registerTask('js', ['jshint', 'concat', /*'uglify'*/]);
 
 };
