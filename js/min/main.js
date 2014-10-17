@@ -364,59 +364,6 @@ www.nickcatalano.com
 
 
 
-    function generate_middle_name(string) {
-        // Because we want to make sure that a candidate always has the same
-        // middle name no matter who is searching, we need to figure out some
-        // way to hash the name and output a position in a list of possible
-        // middle names.
-
-        // There must always be 20 available middle names
-        var middle_names = [
-            "Wiggles",
-            "Susical",
-            "Belguim Waffles",
-            "Wrigley",
-            "McCloud",
-            "Juicy Fruit",
-            "Moose",
-            "Melonballer",
-            "Calking Gun",
-            "Doily",
-            "Contusion",
-            "String Bean",
-            "Wild Boar",
-            "Pants",
-            "Kumquat",
-            "McGeenus",
-            "The Tooth",
-            "Big Kahuna Burger",
-            "Eye of the Tiger"];
-
-        
-        var hash = 0, len = string.length, i;
-        if (string.length === 0) {
-            // Choosen by a fair dice roll, guaranteed to be random
-            return middle_names[4];
-        }
-        /*jslint bitwise: true */
-        for (i = 0, len = string.length; i < len; i++) {
-            // Grab the unicode character value
-            var chr = string.charCodeAt(i);
-            hash = ((hash << 4) - hash) + chr - len;
-        }
-        /*jslint bitwise: false */
-        // Turn the resulting hash into a string, grab the last digit and
-        // turn back into an integer
-        var initial_position = parseInt(Math.abs(hash).toString().slice(-1), 10);
-
-        // Odd length hashes get multiplied by 2
-        var final_position = initial_position * (Math.abs(hash) % 2 + 1);
-
-        return middle_names[final_position];
-    }
-
-
-
     $(function(){
 
 
