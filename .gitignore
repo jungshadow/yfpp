@@ -2,3 +2,7 @@ static/
 yfpp/localsettings.py
 *.pyc
 yfpp.db
+node_modules/
+.DS_Store
+.grunt/
+.codekit-cache
