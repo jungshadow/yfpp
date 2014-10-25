@@ -165,6 +165,8 @@
   <h2 class="candidate-heading"><i class="icon-arrow-down"></i>This is who you can fucking vote for:</h2>
   <ul class="candidate-list">
   {{#each result.contests}}
+  {{#if office }}
+  <!-- Candidate -->
     <li class="candidate-list-item contest" data-contest="">
       <h3 class="office-title"><i class="icon-user"></i>{{ office }}</h3>
       <ul class="candidate-list">
@@ -183,6 +185,9 @@
       {{/each}}
     </ul>
   </li>
+  {{else}}
+  <!-- Referendum -->
+  {{/if}}
   {{/each}}
 </ul>
 </div>
