@@ -1251,7 +1251,6 @@ FOOTER STYLES
 *********************/
 .footer {
   clear: both;
-  margin-top: 15em;
 }
 .social {
   width: 165px;
@@ -1470,6 +1469,9 @@ FORM SYTLES
   /*********************
 FOOTER STYLES
 *********************/
+  .footer {
+    margin-top: 2em;
+  }
   .attribution {
     width: 530px;
   }
