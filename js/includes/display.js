@@ -54,9 +54,6 @@
         var result_source = $('#result-template').html();
         var result_template = Handlebars.compile(result_source);
 
-        var failure_source = $('#failure-template').html();
-        var failure_template = Handlebars.compile(failure_source);
-
         var input_source = $('#submit-template').html();
         var input_template = Handlebars.compile(input_source);
 
