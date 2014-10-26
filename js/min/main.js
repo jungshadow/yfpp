@@ -548,7 +548,7 @@ window.onerror = function(msg, url, linenumber) {
     */
 
     $(function() {
-        ('footer a').click(function(event) {
+        $('footer a').click(function(event) {
             sendEvent('Exit', 'Footer', $(this).attr('href'));
         });
     });

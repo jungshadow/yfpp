@@ -12,6 +12,15 @@ $(function() {
     content.on('click', '.toggle-button, .toggle-container', function(event) {
         event.stopPropagation();
     });
+
+    content.on('click', '.candidate-homepage-link', function(event) {
+        var data = {
+            contest: $(this).parents('.contest').attr('data-contest'),
+            candidate_name: $(this).attr('data-candidate')
+        };
+        amplify.publish("candidateClick", data);
+    });
+
 });
 
 })(window, window.amplify, jQuery);
