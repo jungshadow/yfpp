@@ -1,0 +1,1528 @@
+/******************************************************************
+Site Name: yourfuckingpollingplace.com
+Author: Jay Johnson
+
+Stylesheet: Main Stylesheet
+
+******************************************************************/
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  border: 0;
+}
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+  margin: 1em 40px;
+}
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+  overflow: auto;
+}
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible;
+}
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none;
+}
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal;
+}
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+  overflow: auto;
+}
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold;
+}
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+/******************************************************************
+Site Name: yourfuckingpollingplace.com
+Author: Jay Johnson
+
+Stylesheet: Mixins & Constants Stylesheet
+
+
+******************************************************************/
+/*********************
+CLEARFIXIN'
+*********************/
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+/*********************
+TOOLS
+*********************/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.image-replacement {
+  text-indent: -999em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.js .toggle-container {
+  display: none;
+  position: relative;
+  z-index: 999;
+}
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+/*
+Here's a great tutorial on how to
+use color variables properly:
+http://sachagreif.com/sass-color-variables/
+*/
+/*********************
+TYPOGRAPHY
+*********************/
+@font-face {
+  font-family: 'RobotoRegular';
+  src: url('../fonts/Roboto-Regular-webfont.eot');
+  src: url('../fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Regular-webfont.woff') format('woff'), url('../fonts/Roboto-Regular-webfont.ttf') format('truetype'), url('../fonts/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'RobotoItalic';
+  src: url('../fonts/Roboto-Italic-webfont.eot');
+  src: url('../fonts/Roboto-Italic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Italic-webfont.woff') format('woff'), url('../fonts/Roboto-Italic-webfont.ttf') format('truetype'), url('../fonts/Roboto-Italic-webfont.svg#RobotoItalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'RobotoBold';
+  src: url('../fonts/Roboto-Bold-webfont.eot');
+  src: url('../fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Bold-webfont.woff') format('woff'), url('../fonts/Roboto-Bold-webfont.ttf') format('truetype'), url('../fonts/Roboto-Bold-webfont.svg#RobotoBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'RobotoBoldItalic';
+  src: url('../fonts/Roboto-BoldItalic-webfont.eot');
+  src: url('../fonts/Roboto-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-BoldItalic-webfont.woff') format('woff'), url('../fonts/Roboto-BoldItalic-webfont.ttf') format('truetype'), url('../fonts/Roboto-BoldItalic-webfont.svg#RobotoBoldItalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'RobotoCondensed';
+  src: url('../fonts/Roboto-Condensed-webfont.eot');
+  src: url('../fonts/Roboto-Condensed-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Condensed-webfont.woff') format('woff'), url('../fonts/Roboto-Condensed-webfont.ttf') format('truetype'), url('../fonts/Roboto-Condensed-webfont.svg#RobotoCondensed') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'RobotoCondensedItalic';
+  src: url('../fonts/Roboto-CondensedItalic-webfont.eot');
+  src: url('../fonts/Roboto-CondensedItalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-CondensedItalic-webfont.woff') format('woff'), url('../fonts/Roboto-CondensedItalic-webfont.ttf') format('truetype'), url('../fonts/Roboto-CondensedItalic-webfont.svg#RobotoCondensedItalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'RobotoBoldCondensed';
+  src: url('../fonts/Roboto-BoldCondensed-webfont.eot');
+  src: url('../fonts/Roboto-BoldCondensed-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-BoldCondensed-webfont.woff') format('woff'), url('../fonts/Roboto-BoldCondensed-webfont.ttf') format('truetype'), url('../fonts/Roboto-BoldCondensed-webfont.svg#RobotoBoldCondensed') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'RobotoBoldCondensedItalic';
+  src: url('../fonts/Roboto-BoldCondensedItalic-webfont.eot');
+  src: url('../fonts/Roboto-BoldCondensedItalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-BoldCondensedItalic-webfont.woff') format('woff'), url('../fonts/Roboto-BoldCondensedItalic-webfont.ttf') format('truetype'), url('../fonts/Roboto-BoldCondensedItalic-webfont.svg#RobotoBoldCondensedItalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CodeProDemoRegular';
+  src: url('../fonts/Code_Pro_Demo-webfont.eot');
+  src: url('../fonts/Code_Pro_Demo-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Code_Pro_Demo-webfont.woff') format('woff'), url('../fonts/Code_Pro_Demo-webfont.ttf') format('truetype'), url('../fonts/Code_Pro_Demo-webfont.svg#CodeProDemoRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CodeProLightDemoRegular';
+  src: url('../fonts/Code_Pro_Light_Demo-webfont.eot');
+  src: url('../fonts/Code_Pro_Light_Demo-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Code_Pro_Light_Demo-webfont.woff') format('woff'), url('../fonts/Code_Pro_Light_Demo-webfont.ttf') format('truetype'), url('../fonts/Code_Pro_Light_Demo-webfont.svg#CodeProLightDemoRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.eot');
+  src: url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('../fonts/icomoon.svg#icomoon') format('svg'), url('../fonts/icomoon.woff') format('woff'), url('../fonts/icomoon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'icomoon';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+/* Use the following CSS code if you want to have a class per icon */
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: 'icomoon';
+  font-style: normal;
+  speak: none;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+}
+.icon-location:before {
+  content: "\23";
+}
+.icon-search:before {
+  content: "\28";
+}
+.icon-arrow-down:before {
+  content: "\21";
+}
+.icon-facebook:before {
+  content: "\22";
+}
+.icon-twitter:before {
+  content: "\24";
+}
+.icon-user:before {
+  content: "\25";
+}
+.icon-twitter-2:before {
+  content: "\26";
+}
+.icon-google-plus:before {
+  content: "\27";
+}
+.icon-google-plus-2:before {
+  content: "\29";
+}
+.icon-facebook-2:before {
+  content: "\2a";
+}
+.icon-facebook-3:before {
+  content: "\2b";
+}
+.icon-twitter-3:before {
+  content: "\2c";
+}
+.icon-gplus:before {
+  content: "\2d";
+}
+.icon-globe:before {
+  content: "\2e";
+}
+.icon-carat-right:before {
+  content: "\2f";
+}
+.icon-carat-down:before {
+  content: "\30";
+}
+.icon-youtube:before {
+  content: "\31";
+}
+/* text alignment */
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.alert {
+  margin: 10px;
+  padding: 5px 18px;
+  border: 1px solid;
+}
+.alert-help {
+  margin: 10px;
+  padding: 5px 18px;
+  border: 1px solid;
+  border-color: #e8dc59;
+  background: #ebe16f;
+}
+.alert-info {
+  margin: 10px;
+  padding: 5px 18px;
+  border: 1px solid;
+  border-color: #bfe4f4;
+  background: #d5edf8;
+}
+.alert-error {
+  margin: 10px;
+  padding: 5px 18px;
+  border: 1px solid;
+  border-color: #f8cdce;
+  background: #fbe3e4;
+}
+.alert-success {
+  margin: 10px;
+  padding: 5px 18px;
+  border: 1px solid;
+  border-color: #deeaae;
+  background: #e6efc2;
+}
+/*********************
+BORDER RADIUS
+*********************/
+/* 
+NOTE: For older browser support (and some mobile), 
+don't use the shorthand to define *different* corners. 
+
+USAGE: .border-radius(4px); 
+
+*/
+/*********************
+TRANISTION
+*********************/
+/* .transition(all,2s); */
+/*********************
+BOX SHADOW
+*********************/
+/* .boxShadow(0,0,4px,#444); */
+/* .boxShadowInset(0,0,4px,#444); */
+/*********************
+BUTTONS
+*********************/
+.button,
+.button:visited {
+  border: 1px solid #9e131f;
+  border-top-color: #b91624;
+  border-left-color: #b91624;
+  padding: 4px 12px;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  margin-bottom: 20px;
+  line-height: 21px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.button:hover,
+.button:visited:hover,
+.button:focus,
+.button:visited:focus {
+  color: #ffffff;
+  border: 1px solid #9e131f;
+  border-top-color: #7e0f18;
+  border-left-color: #7e0f18;
+}
+.animated {
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+}
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -ms-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+}
+@-webkit-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-2000px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
+@-o-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(-2000px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
+@keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fadeInDownBig {
+  -webkit-animation-name: fadeInDownBig;
+  -moz-animation-name: fadeInDownBig;
+  -o-animation-name: fadeInDownBig;
+  animation-name: fadeInDownBig;
+}
+@-webkit-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-moz-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(2000px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+  }
+}
+@-o-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(2000px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+@keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.fadeInRightBig {
+  -webkit-animation-name: fadeInRightBig;
+  -moz-animation-name: fadeInRightBig;
+  -o-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
+}
+/*
+BASE (MOBILE) SIZE
+
+*/
+/******************************************************************
+Site Name: yourfuckingpollingplace.com
+Author: Jay Johnson
+
+Stylesheet: Base Mobile Stylesheet
+
+******************************************************************/
+/*********************
+GENERAL STYLES
+*********************/
+body {
+  font-family: 'RobotoRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+  color: #565656;
+  background: url('../images/bgnoise_lg.png') repeat left top;
+}
+header {
+  margin-top: 5em;
+}
+h1 {
+  font-family: 'CodeProDemoRegular';
+  display: block;
+  text-align: center;
+  color: #d91a2a;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.75);
+  -webkit-animation-name: fadeInDownBig;
+  -moz-animation-name: fadeInDownBig;
+  -o-animation-name: fadeInDownBig;
+  animation-name: fadeInDownBig;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-backface-visibility: hidden;
+}
+h1 .where {
+  font-family: 'CodeProLightDemoRegular';
+  display: block;
+  font-size: 1.25em;
+  line-height: .8em;
+  -webkit-transition: all 0.5s 0.2s ease-in-out;
+  -moz-transition: all 0.5s 0.2s ease-in-out;
+  -ms-transition: all 0.5s 0.2s ease-in-out;
+  -o-transition: all 0.5s 0.2s ease-in-out;
+  transition: all 0.5s 0.2s ease-in-out;
+  -webkit-backface-visibility: hidden;
+}
+h1 .fucking {
+  display: block;
+  font-size: 1.55em;
+  font-weight: normal;
+  line-height: .8em;
+  -webkit-transition: all 0.85s 0.2s ease-in-out;
+  -moz-transition: all 0.85s 0.2s ease-in-out;
+  -ms-transition: all 0.85s 0.2s ease-in-out;
+  -o-transition: all 0.85s 0.2s ease-in-out;
+  transition: all 0.85s 0.2s ease-in-out;
+  -webkit-backface-visibility: hidden;
+}
+h1 .poll {
+  display: block;
+  font-size: .9em;
+  line-height: .9em;
+  -webkit-transition: all 0.5s 0.2s ease-in-out;
+  -moz-transition: all 0.5s 0.2s ease-in-out;
+  -ms-transition: all 0.5s 0.2s ease-in-out;
+  -o-transition: all 0.5s 0.2s ease-in-out;
+  transition: all 0.5s 0.2s ease-in-out;
+  -webkit-backface-visibility: hidden;
+}
+.user-address {
+  text-align: center;
+}
+.restart {
+  width: 283px;
+  margin: 0 auto;
+}
+.restart a,
+.restart a:visited,
+.restart a:active {
+  text-decoration: none;
+  font-style: italic;
+  color: #565656;
+  color: #d91a2a;
+  margin-bottom: 15px;
+  display: block;
+  font-size: .85em;
+  text-align: center;
+}
+.error {
+  text-align: center;
+  color: #d91a2a;
+}
+small,
+.small {
+  font-size: 75%;
+}
+ul,
+ol {
+  padding: 0;
+  list-style-type: none;
+}
+/*********************
+FORM STYLES
+*********************/
+fieldset {
+  border: none;
+  margin: 0;
+  background: #d91a2a;
+  border: 0;
+  padding: 15px;
+  -webkit-box-shadow: inset 2px 4px 5px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 2px 4px 5px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: inset 2px 4px 5px 0 rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-backface-visibility: hidden;
+}
+.address-form {
+  -webkit-transition: all 0.5s 0.2s ease-in-out;
+  -moz-transition: all 0.5s 0.2s ease-in-out;
+  -ms-transition: all 0.5s 0.2s ease-in-out;
+  -o-transition: all 0.5s 0.2s ease-in-out;
+  transition: all 0.5s 0.2s ease-in-out;
+  width: 283px;
+  margin: 0 auto 20px;
+  -webkit-backface-visibility: hidden;
+}
+.address-form label {
+  position: absolute;
+  display: block;
+  text-indent: -999em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.example {
+  font-family: 'RobotoItalic';
+  font-style: normal;
+  margin: 10px 15px 4px;
+  font-size: 12px;
+  display: block;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: fadeInRightBig;
+  -moz-animation-name: fadeInRightBig;
+  -o-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
+}
+.desktop-addrfield {
+  display: none;
+}
+input {
+  float: left;
+  width: 90%;
+  margin: 0;
+  background: none;
+  border: none;
+  padding: 15px 0;
+  font-size: 1.15em;
+  color: #fff;
+}
+input.submit {
+  text-indent: -999em;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  left: -20px;
+  position: relative;
+  z-index: 999999;
+}
+.icon-search {
+  float: right;
+  height: 25px;
+  width: 25px;
+  position: relative;
+  color: #fff;
+  font-size: 35px;
+}
+.icon-search:hover,
+.icon-search:focus {
+  font-size: 37px;
+}
+.icon-search:before {
+  position: absolute;
+  height: 15px;
+  width: 25px;
+  display: inline-block;
+  top: -3px;
+  left: -5px;
+}
+::-webkit-input-placeholder {
+  color: #fff;
+  font-family: 'RobotoItalic';
+}
+:-moz-placeholder {
+  color: #fff;
+  font-family: 'RobotoItalic';
+}
+/*********************
+RESULTS
+*********************/
+.tooltip {
+  display: none;
+  background: #d91a2a;
+  text-align: center;
+  font-family: 'RobotoBold', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #fff;
+  height: 70px;
+  width: 150px;
+  padding: 10px 15px 20px;
+  margin-right: 15px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  position: absolute;
+  -webkit-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.5);
+}
+.tooltip:after {
+  content: "\30";
+  font-family: 'icomoon';
+  font-style: normal;
+  speak: none;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  bottom: -30px;
+  left: 40%;
+  color: #d91a2a;
+  font-size: 35px;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.locations-heading,
+.candidate-heading {
+  font-family: 'RobotoBold', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  color: #d91a2a;
+  padding-left: 45px;
+  position: relative;
+  display: block;
+}
+.icon-arrow-down:before {
+  font-size: 40px;
+  left: 0;
+}
+.address {
+  font-style: normal;
+}
+.address h3 {
+  margin: 0;
+}
+.address p {
+  margin: 0 0 5px;
+}
+.address-list {
+  padding: 0;
+  list-style: none;
+}
+.address-list-item {
+  position: relative;
+  padding: 15px 15px 15px 35px;
+  border: 1px solid #f399a1;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+.icon-location:before {
+  font-size: 25px;
+  left: 5px;
+  color: #d91a2a;
+}
+.actions-container {
+  border-top: 1px dotted #d91a2a;
+}
+.actions-container h4 {
+  margin: 12px 10px 0 0;
+  float: left;
+  font-size: .95em;
+  color: #d91a2a;
+}
+.actions {
+  margin-top: 5px;
+  float: left;
+}
+.actions li {
+  float: left;
+  font-size: 35px;
+  margin-right: 15px;
+  position: relative;
+}
+.actions a {
+  width: 35px;
+  display: block;
+}
+.actions span {
+  text-indent: -999em;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+}
+.icon-globe:before {
+  font-size: 45px;
+  top: -7px;
+}
+.candidate-heading {
+  color: #31749e;
+}
+.candidate-list {
+  padding: 0;
+  list-style: none;
+}
+.candidate-list-item {
+  padding: 10px 20px 10px;
+  border: 1px solid #8dbddb;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+.candidate-list-item h3 {
+  color: #31749e;
+  position: relative;
+  padding-left: 25px;
+}
+.candidate-list-item a {
+  color: #31749e;
+}
+.icon-user:before {
+  font-size: 25px;
+  left: -3px;
+  top: -8px;
+  color: #31749e;
+}
+.candidate-item {
+  padding: 10px;
+}
+.candidate-item:not(:last-child) {
+  border-bottom: 1px dotted #31749e;
+}
+.candidate-party {
+  font-size: 1em;
+  font-family: 'RobotoItalic';
+}
+.candidate-name {
+  margin: 0;
+}
+.channel-list {
+  display: none;
+}
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+.wrap {
+  width: 96%;
+  margin: 0 auto;
+}
+/*********************
+LINK STYLES
+*********************/
+a,
+a:visited {
+  color: #d91a2a;
+  /* on hover */
+  /* on click */
+  /* mobile tap color */
+}
+a:hover,
+a:visited:hover,
+a:focus,
+a:visited:focus {
+  color: #b01522;
+}
+a:link,
+a:visited:link {
+  /*
+        this highlights links on iPhones/iPads.
+        so it basically works like the :hover selector
+        for mobile devices.
+        */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+}
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
+  text-rendering: optimizelegibility;
+  font-weight: 500;
+  /*
+    if you're going to use webfonts, be sure to check your weights
+    http://css-tricks.com/watch-your-font-weight/
+    */
+  /* removing text decoration from all headline links */
+}
+h1 a,
+.h1 a,
+h2 a,
+.h2 a,
+h3 a,
+.h3 a,
+h4 a,
+.h4 a,
+h5 a,
+.h5 a {
+  text-decoration: none;
+}
+h1 {
+  font-size: 2.5em;
+  line-height: 1.333em;
+}
+h2 {
+  font-size: 1.35em;
+  line-height: 1.4em;
+  margin-bottom: 0.375em;
+}
+h3 {
+  font-family: 'RobotoBold', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.125em;
+}
+h4 {
+  font-size: 1.1em;
+}
+h5 {
+  font-size: 0.846em;
+  line-height: 2.09em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+/*********************
+FOOTER STYLES
+*********************/
+.footer {
+  clear: both;
+  margin-top: 15em;
+}
+.social {
+  width: 165px;
+  height: 101px;
+  margin: 25px auto;
+  display: block;
+  padding: 20px 20px 10px;
+}
+.social .twitter-shit {
+  float: left;
+  width: 50px;
+}
+.social .fb-shit {
+  float: right;
+  width: 50px;
+}
+.attribution {
+  width: 283px;
+  margin: 35px auto;
+  border-top: 1px dotted #d91a2a;
+}
+.attribution h4 {
+  font-size: .85em;
+  font-weight: normal;
+}
+.attribution ul {
+  text-align: center;
+}
+.attribution li {
+  text-align: center;
+  margin: 10px;
+  display: block;
+  background: rgba(217, 26, 42, 0.5);
+  padding: 5px 15px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+.attribution li a {
+  text-decoration: none;
+  color: #fff;
+  float: left;
+  margin-top: 5px;
+}
+.attribution .twit-follow {
+  display: block;
+  float: left;
+  margin: 5px 5px 0;
+}
+.citation {
+  text-align: center;
+  color: black;
+  font-size: 0.75em;
+}
+/*
+LARGER MOBILE DEVICES
+
+*/
+@media only screen and (min-width: 481px) {
+  /******************************************************************
+Site Name: yourfuckingpollingplace.com
+Author: Jay Johnson
+
+Stylesheet: 481px and Up Stylesheet
+
+
+******************************************************************/
+  /*********************
+FORM STYLES
+*********************/
+  .address-form,
+  .restart {
+    width: 430px;
+  }
+  input {
+    font-size: 1em;
+  }
+}
+/*
+TABLET & SMALLER LAPTOPS
+
+*/
+@media only screen and (min-width: 768px) {
+  /******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Grid Stylesheet
+
+I've seperated the grid so you can swap it out easily. It's
+called at the top the style.less stylesheet.
+
+There are a ton of grid solutions out there. You should definitely
+experiment with your own. Here are some recommendations:
+
+http://gridsetapp.com - Love this site. Responsive Grids made easy.
+http://gridpak.com/ - Create your own responsive grid.
+
+The grid below is a combination of the 1140 grid and Twitter Boostrap. 
+I liked 1140 but Boostrap's grid was way more detailed so I merged them 
+together, let's see how this works out. If you want to use 1140, the original 
+values are commented out on each line.
+
+******************************************************************/
+  .onecol {
+    width: 5.801104972%;
+  }
+  /* 4.85%;  } /* grid_1  */
+  .twocol {
+    width: 14.364640883%;
+  }
+  /* 13.45%; } /* grid_2  */
+  .threecol {
+    width: 22.928176794%;
+  }
+  /* 22.05%; } /* grid_3  */
+  .fourcol {
+    width: 31.491712705%;
+  }
+  /* 30.75%; } /* grid_4  */
+  .fivecol {
+    width: 40.055248616%;
+  }
+  /* 39.45%; } /* grid_5  */
+  .sixcol {
+    width: 48.618784527%;
+  }
+  /* 48%;    } /* grid_6  */
+  .sevencol {
+    width: 57.182320438000005%;
+  }
+  /* 56.75%; } /* grid_7  */
+  .eightcol {
+    width: 65.74585634900001%;
+  }
+  /* 65.4%;  } /* grid_8  */
+  .ninecol {
+    width: 74.30939226%;
+  }
+  /* 74.05%; } /* grid_9  */
+  .tencol {
+    width: 82.87292817100001%;
+  }
+  /* 82.7%;  } /* grid_10 */
+  .elevencol {
+    width: 91.436464082%;
+  }
+  /* 91.35%; } /* grid_11 */
+  .twelvecol {
+    width: 99.999999993%;
+  }
+  /* 100%;   } /* grid_12 */
+  .onecol,
+  .twocol,
+  .threecol,
+  .fourcol,
+  .fivecol,
+  .sixcol,
+  .sevencol,
+  .eightcol,
+  .ninecol,
+  .tencol,
+  .elevencol,
+  .twelvecol {
+    position: relative;
+    float: left;
+    margin-left: 2.762430939%;
+  }
+  .first {
+    margin-left: 0;
+  }
+  .last {
+    float: right;
+  }
+  /******************************************************************
+Site Name: yourfuckingpollingplace.com
+Author: Jay Johnson
+
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+******************************************************************/
+  /*********************
+GENERAL STYLES
+*********************/
+  h1 .where {
+    font-size: 2.35em;
+    line-height: .8em;
+  }
+  h1 .fucking {
+    font-size: 3em;
+    line-height: .8em;
+  }
+  h1 .poll {
+    font-size: 1.7em;
+    line-height: .8em;
+  }
+  /*********************
+LAYOUT & GRID STYLES
+*********************/
+  .wrap {
+    max-width: 1140px;
+  }
+  /*********************
+FORM SYTLES
+*********************/
+  .address-form,
+  .restart {
+    width: 530px;
+  }
+  .desktop-addrfield {
+    display: block;
+  }
+  .mobile-addrfield {
+    display: none;
+  }
+  /*********************
+FOOTER STYLES
+*********************/
+  .attribution {
+    width: 530px;
+  }
+  .attribution h4 {
+    font-size: 1em;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .attribution li {
+    display: inline-block;
+  }
+}
+/*
+DESKTOP
+
+*/
+@media only screen and (min-width: 1030px) {
+  /******************************************************************
+Site Name: yourfuckingpollingplace.com
+Author: Jay Johnson
+
+Stylesheet: Desktop Stylsheet
+
+******************************************************************/
+}
+/*
+LARGE VIEWING SIZE
+
+*/
+@media only screen and (min-width: 1240px) {
+  /******************************************************************
+Site Name: yourfuckingpollingplace.com
+Author: Jay Johnson
+
+Stylesheet: Super Large Monitor Stylesheet
+
+******************************************************************/
+}
+/*
+RETINA (2x RESOLUTION DEVICES)
+
+*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+  /******************************************************************
+Site Name: yourfuckingpollingplace.com
+Author: Jay Johnson
+
+Stylesheet: Retina Screens & Devices Stylesheet
+
+******************************************************************/
+}
+/*
+iPHONE 5 MEDIA QUERY
+
+*/

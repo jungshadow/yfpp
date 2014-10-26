@@ -1,0 +1,101 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<!--[if IE ]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+<title>Find Your Fucking Polling Place</title>
+<meta name="title" content="Where's Your Fucking Polling Place">
+<meta property="og:title" content="Find Your Fucking Polling Place">
+<meta property="og:description" content="Your Facebook 'friend' visited this site to find their polling place. Be one of the cool kids, visit this site to find your fucking polling place.">
+<meta name="description" content="A place you go to find your fucking polling place">
+<meta property="og:image" content="http://i.imgur.com/hFUhY.png">
+<link rel="image_src" href="http://i.imgur.com/hFUhY.png">
+<meta property="og:url" content="http://www.yourfuckingpollingplace.com/">
+<meta property="og:site_name" content="yourfuckingpollingplace.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="382719335136154"/>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>
+<!--[if lt IE 9]> <script type="text/javascript" src="{% static "js/respond.min.js"%}"></script>  <![endif]-->
+<link rel="icon" type="image/png" href="{% static "images/favicon-32.png" %}" />
+</head>
+<body>
+<div class="wrap">
+        <div class="page">
+                <header>
+                        <h1><a href="/"><span class="where">Thanks For</span><strong class="fucking">Fucking</strong><span class="poll">Voting</span></a></h1>
+                </header>
+                <section class="main wrap"> {% block content %}
+                        
+                        {% endblock %} </section>
+        </div>
+        <!-- end of #container -->
+        
+        <footer class="footer wrap clearfix">
+
+                <div class="social clearfix">
+                        <div class="twitter-shit"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://yourfuckingpollingplace.com/" data-counturl="http://yourfuckingpollingplace.com/" data-lang="en" data-count="vertical">Tweet</a></div>
+                        <div class="fb-shit">
+                                <div class="fb-like" data-href="http://yourfuckingpollingplace.com/" data-send="false" data-layout="box_count" data-width="50" data-show-faces="true" data-font="verdana"></div>
+                        </div>
+                </div>
+                <div class="attribution clearfix">
+                        <h4>This shit was made by these motherfuckers</h4>
+                        <ul class="clearfix">
+                                <li class="jungshadow clearfix"><a href="https://twitter.com/jungshadow">@jungshadow</a><span class="twit-follow"><a href="https://twitter.com/jungshadow" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @jungshadow</a> 
+                                        </span></li>
+                                <li class="gazamo clearfix"><a href="https://twitter.com/gazamo">@gazamo</a><span class="twit-follow"><a href="https://twitter.com/gazamo" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @gazamo</a> 
+                                        </span></li>
+                                <li class="sixbcreative clearfix"><a href="https://twitter.com/sixBcreative">@sixBcreative</a><span class="twit-follow"><a href="https://twitter.com/sixBcreative" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @sixBcreative</a> 
+                                        </span></li>
+                                <li class="nickcatal clearfix"><a href="https://twitter.com/nickcatal">@nickcatal</a><span class="twit-follow"><a href="https://twitter.com/nickcatal" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @nickcatal</a> 
+                                        </span></li>
+                        </ul>
+                </div>
+                <div class="citation clearfix">
+                    <ul class="notes-list">
+                    <li class="notes-list-item"><span class="cite">Data via the <a href="https://developers.google.com/civic-information/">Google Civic Information API</a></span></li>
+                    <li class="notes-list-item"><span class="notice">Data from states that do not provide direct feeds only include addresses with registered voters</span></li>
+                    <li class="notes-list-item"><span class="notice">Election officials sometimes revise data in the last few days before an election. Check back on Election Day for the latest information.</span><li>
+                    </ul>
+                </div>
+        </footer>
+</div>
+<div id="fb-root"></div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
+<script>window.jQuery || document.write('<script src="{% static "js/vendor/jquery-1.8.2.min.js" %}"><\/script>')</script> 
+{% block js %}<script src="{% static "js/script.js" %}"></script>{% endblock js %}
+<script>// Google Analytics Code
+var _gaq = _gaq || [];
+
+_gaq.push(
+	['_setAccount', 'UA-19447677-1'],
+    {% if normalized_address.state %}
+    ['_trackEvent', 'Address', 'Lookup', '{{ normalized_address.state }}'],
+    {% endif %}
+    {% if status %}
+    {% if status != "success" %}
+    ['_trackEvent', 'Address', 'Failure', '{{ status }}'],
+    {% comment %}['_trackEvent', 'Error', '{{ status }}', '{{ original_address }}'],{% endcomment %}
+    {% endif %}
+    {% endif %}
+	['_trackPageview']
+
+);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+<!-- {{ exception }} -->
+</body>
+</html>

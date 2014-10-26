@@ -1,0 +1,516 @@
+/******************************************************************
+Site Name: yourfuckingpollingplace.com
+Author: Jay Johnson
+
+Stylesheet: Mixins & Constants Stylesheet
+
+
+******************************************************************/
+
+/*********************
+CLEARFIXIN'
+*********************/
+
+// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+.clearfix {
+  zoom: 1;
+    &:before, &:after { content: ""; display: table; }
+    &:after { clear: both; }
+}
+
+/*********************
+TOOLS
+*********************/
+
+// BORDER-BOX ALL THE THINGS! (http://paulirish.com/2012/box-sizing-border-box-ftw/)
+* { 
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing:    border-box; 
+    box-sizing:         border-box; 
+}
+
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ 
+.image-replacement {
+    text-indent: -999em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.js .toggle-container{
+    display: none;
+    position: relative;
+    z-index: 999;
+}
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+
+@alert-yellow:      #ebe16f;
+@alert-red:         #fbe3e4;
+@alert-green:       #e6efc2;
+@alert-blue:        #d5edf8;
+
+@black:             #000;
+@white:             #fff;
+@red:                #d91a2a;
+@blue:                #31749e;
+
+@link-color:        @red;
+@link-hover:        darken(@link-color, 9%);
+
+/*
+Here's a great tutorial on how to
+use color variables properly:
+http://sachagreif.com/sass-color-variables/
+*/
+
+
+/*********************
+TYPOGRAPHY
+*********************/
+
+@sans-serif:         'RobotoRegular', "Helvetica Neue", Helvetica, Arial, sans-serif; 
+@sans-serif-bold:         'RobotoBold', "Helvetica Neue", Helvetica, Arial, sans-serif; 
+
+
+
+@font-face {
+    font-family: 'RobotoRegular';
+    src: url('../fonts/Roboto-Regular-webfont.eot');
+    src: url('../fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Regular-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Regular-webfont.svg#RobotoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'RobotoItalic';
+    src: url('../fonts/Roboto-Italic-webfont.eot');
+    src: url('../fonts/Roboto-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Italic-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Italic-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Italic-webfont.svg#RobotoItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'RobotoBold';
+    src: url('../fonts/Roboto-Bold-webfont.eot');
+    src: url('../fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Bold-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Bold-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Bold-webfont.svg#RobotoBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'RobotoBoldItalic';
+    src: url('../fonts/Roboto-BoldItalic-webfont.eot');
+    src: url('../fonts/Roboto-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-BoldItalic-webfont.woff') format('woff'),
+         url('../fonts/Roboto-BoldItalic-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-BoldItalic-webfont.svg#RobotoBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'RobotoCondensed';
+    src: url('../fonts/Roboto-Condensed-webfont.eot');
+    src: url('../fonts/Roboto-Condensed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-Condensed-webfont.woff') format('woff'),
+         url('../fonts/Roboto-Condensed-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-Condensed-webfont.svg#RobotoCondensed') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'RobotoCondensedItalic';
+    src: url('../fonts/Roboto-CondensedItalic-webfont.eot');
+    src: url('../fonts/Roboto-CondensedItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-CondensedItalic-webfont.woff') format('woff'),
+         url('../fonts/Roboto-CondensedItalic-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-CondensedItalic-webfont.svg#RobotoCondensedItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'RobotoBoldCondensed';
+    src: url('../fonts/Roboto-BoldCondensed-webfont.eot');
+    src: url('../fonts/Roboto-BoldCondensed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-BoldCondensed-webfont.woff') format('woff'),
+         url('../fonts/Roboto-BoldCondensed-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-BoldCondensed-webfont.svg#RobotoBoldCondensed') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'RobotoBoldCondensedItalic';
+    src: url('../fonts/Roboto-BoldCondensedItalic-webfont.eot');
+    src: url('../fonts/Roboto-BoldCondensedItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Roboto-BoldCondensedItalic-webfont.woff') format('woff'),
+         url('../fonts/Roboto-BoldCondensedItalic-webfont.ttf') format('truetype'),
+         url('../fonts/Roboto-BoldCondensedItalic-webfont.svg#RobotoBoldCondensedItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'CodeProDemoRegular';
+    src: url('../fonts/Code_Pro_Demo-webfont.eot');
+    src: url('../fonts/Code_Pro_Demo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Code_Pro_Demo-webfont.woff') format('woff'),
+         url('../fonts/Code_Pro_Demo-webfont.ttf') format('truetype'),
+         url('../fonts/Code_Pro_Demo-webfont.svg#CodeProDemoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CodeProLightDemoRegular';
+    src: url('../fonts/Code_Pro_Light_Demo-webfont.eot');
+    src: url('../fonts/Code_Pro_Light_Demo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Code_Pro_Light_Demo-webfont.woff') format('woff'),
+         url('../fonts/Code_Pro_Light_Demo-webfont.ttf') format('truetype'),
+         url('../fonts/Code_Pro_Light_Demo-webfont.svg#CodeProLightDemoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot');
+    src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.svg#icomoon') format('svg'),
+        url('../fonts/icomoon.woff') format('woff'),
+        url('../fonts/icomoon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+    font-family: 'icomoon';
+    content: attr(data-icon);
+    speak: none;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: 'icomoon';
+    font-style: normal;
+    speak: none;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+}
+.icon-location:before {
+    content: "\23";
+}
+.icon-search:before {
+    content: "\28";
+}
+.icon-arrow-down:before {
+    content: "\21";
+}
+.icon-facebook:before {
+    content: "\22";
+}
+.icon-twitter:before {
+    content: "\24";
+}
+.icon-user:before {
+    content: "\25";
+}
+.icon-twitter-2:before {
+    content: "\26";
+}
+.icon-google-plus:before {
+    content: "\27";
+}
+.icon-google-plus-2:before {
+    content: "\29";
+}
+.icon-facebook-2:before {
+    content: "\2a";
+}
+.icon-facebook-3:before {
+    content: "\2b";
+}
+.icon-twitter-3:before {
+    content: "\2c";
+}
+.icon-gplus:before {
+    content: "\2d";
+}
+.icon-globe:before {
+    content: "\2e";
+}
+.icon-carat-right:before {
+    content: "\2f";
+}
+.icon-carat-down:before {
+    content: "\30";
+}
+.icon-youtube:before {
+    content: "\31";
+}
+
+/* text alignment */
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+
+
+// alerts and notices
+.alert {
+    margin: 10px;
+    padding: 5px 18px;
+    border: 1px solid;
+}
+
+.alert-help {
+  .alert();
+    border-color: darken(@alert-yellow, 5%);
+    background: @alert-yellow;
+}
+
+.alert-info {
+  .alert();
+    border-color: darken(@alert-blue, 5%);
+    background: @alert-blue;
+}
+
+.alert-error {
+  .alert();
+    border-color: darken(@alert-red, 5%);
+    background: @alert-red;
+}
+
+.alert-success {
+  .alert();
+    border-color: darken(@alert-green, 5%);
+    background: @alert-green;
+}
+
+/*********************
+BORDER RADIUS
+*********************/
+
+/* 
+NOTE: For older browser support (and some mobile), 
+don't use the shorthand to define *different* corners. 
+
+USAGE: .border-radius(4px); 
+
+*/
+.border-radius(@radius: 4px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+
+/*********************
+TRANISTION
+*********************/
+
+/* .transition(all,2s); */
+.transition(@what: all, @time: 0.2s, @transition: ease-in-out) {
+    -webkit-transition: @what @time @transition;
+    -moz-transition:    @what @time @transition;
+    -ms-transition:     @what @time @transition;
+    -o-transition:      @what @time @transition;
+    transition:         @what @time @transition;
+}
+
+
+/*********************
+BOX SHADOW
+*********************/
+
+/* .boxShadow(0,0,4px,#444); */
+.boxShadow(@x: 0, @y: 0, @radius: 4px, @spread: 0, @color: rgba(0,0,0,0.5)) {
+    -webkit-box-shadow: @x @y @radius @spread @color;
+       -moz-box-shadow: @x @y @radius @spread @color;
+                    box-shadow: @x @y @radius @spread @color; 
+}
+/* .boxShadowInset(0,0,4px,#444); */
+.boxShadowInset(@x: 0, @y: 0, @radius: 4px, @spread: 0, @color: rgba(0,0,0,0.5)) {
+    -webkit-box-shadow: inset @x @y @radius @spread @color;
+       -moz-box-shadow: inset @x @y @radius @spread @color;
+                    box-shadow: inset @x @y @radius @spread @color; 
+}
+
+
+/*********************
+BUTTONS
+*********************/
+
+.button, .button:visited {
+    border: 1px solid darken(@red, 13%);
+    border-top-color: darken(@red, 7%);
+    border-left-color: darken(@red, 7%);
+    padding: 4px 12px;
+    color: @white;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 1px rgba(0,0,0, .75);
+    cursor: pointer;
+    margin-bottom: 20px;
+    line-height: 21px;
+    .transition();
+    .border-radius(4px);
+
+    &:hover, &:focus {
+        color: @white;
+      border: 1px solid darken(@red, 13%);
+      border-top-color: darken(@red, 20%);
+         border-left-color: darken(@red, 20%);
+            }
+    &:active {
+
+    }
+}
+
+.animated {
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.animated.hinge {
+    -webkit-animation-duration: 2s;
+    -moz-animation-duration: 2s;
+    -ms-animation-duration: 2s;
+    -o-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+@-webkit-keyframes fadeInDownBig {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-2000px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    }
+}
+
+@-moz-keyframes fadeInDownBig {
+    0% {
+        opacity: 0;
+        -moz-transform: translateY(-2000px);
+    }
+    100% {
+        opacity: 1;
+        -moz-transform: translateY(0);
+    }
+}
+
+@-o-keyframes fadeInDownBig {
+    0% {
+        opacity: 0;
+        -o-transform: translateY(-2000px);
+    }
+    100% {
+        opacity: 1;
+        -o-transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDownBig {
+    0% {
+        opacity: 0;
+        transform: translateY(-2000px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeInDownBig {
+    -webkit-animation-name: fadeInDownBig;
+    -moz-animation-name: fadeInDownBig;
+    -o-animation-name: fadeInDownBig;
+    animation-name: fadeInDownBig;
+}
+@-webkit-keyframes fadeInRightBig {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(2000px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
+
+@-moz-keyframes fadeInRightBig {
+    0% {
+        opacity: 0;
+        -moz-transform: translateX(2000px);
+    }
+    100% {
+        opacity: 1;
+        -moz-transform: translateX(0);
+    }
+}
+
+@-o-keyframes fadeInRightBig {
+    0% {
+        opacity: 0;
+        -o-transform: translateX(2000px);
+    }
+    100% {
+        opacity: 1;
+        -o-transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRightBig {
+    0% {
+        opacity: 0;
+        transform: translateX(2000px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fadeInRightBig {
+    -webkit-animation-name: fadeInRightBig;
+    -moz-animation-name: fadeInRightBig;
+    -o-animation-name: fadeInRightBig;
+    animation-name: fadeInRightBig;
+}

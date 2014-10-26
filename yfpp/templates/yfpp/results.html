@@ -1,0 +1,79 @@
+{% extends "yfpp/base.html" %}
+{% block content %}
+<div class="restart"><a class="link toggle-button closed" href="#" title="Find your fucking polling place">Look for your fucking polling place, again? I apparently have nothing better to do than help your ass all fucking day.</a>
+  <form class="address-form group toggle-container" action="/fucking-check/" method="post">
+    {% csrf_token %}
+    <fieldset class="fadeInDownBig">
+      <label for="address">Your Fucking Address</label>
+      <input type="text" name="address" id="address" class="text-field" placeholder="Your fucking address goes here" />
+      <span class="icon-search">
+	<input class='submit' type="submit" value="Find It Already" />
+      </span>
+    </fieldset>
+    <em class="example">eg: 1600 Pennsylvania Ave NW, Washington, DC 20500</em>	
+  </form>
+</div>
+<div class="address-container clearfix sixcol first">
+  {% for address in addresses %}
+  {% if forloop.first %}
+  <h2 class="locations-heading"><i class="icon-arrow-down"></i>You can vote at th{{ addresses|length|pluralize:"is,ese"  }} fucking location{{ addresses|length|pluralize }}:</h2>
+  <ul class="address-list">
+  {% endif %}
+    <li class="address-list-item"><i class="icon-location"></i>
+      <div class="address" itemscope itemtype="http://data-vocabulary.org/Organization">
+	<h3 itemprop="name">{{ address.locationName|capfirst|safe }}</h3>
+	<div itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+	  <p itemprop="street-address">{{ address.line1|capfirst }}</p>
+	  <p><span itemprop="locality">{{ address.city|capfirst }}</span> <span itemprop="region">{{ address.state|upper }}</span> <span itemprop="postal-code">{{ address.zip }}</span></p>
+	</div>
+      </div>
+      <div class="actions-container clearfix">
+	<h4>Take some fucking action:</h4>
+	<ul class="actions clearfix">
+	  <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyourfuckingpollingplace.com%2F&" class="tell-friends" data-location="{{ address.locationName|capfirst|safe }}" data-city="{{ address.city|upper|capfirst }}" data-state="{{ address.state|upper }}" title="Post this shit to Facebook"><i class="icon-facebook"></i><span>Post this shit to Facebook</span></a></li>
+	  <li><a href="https://twitter.com/intent/tweet?text=I%20vote%20at%20{{ address.locationName|capfirst|safe|urlencode }}%2C%20where%20the%20fuck%20do%20you%20vote%3F%20Find%20out%20at&url=http%3A%2F%2Fyourfuckingpollingplace.com%2F&original_referer=http://test.armygrade.com:8000/client/" class="tweet" title="Tweet this shit"><i class="icon-twitter"></i><span>Tweet this shit</span></a></li>
+	  <li><a href="https://maps.google.com/maps?q={{ address.line1|urlencode }}%20{{ address.city|capfirst|urlencode }}%2C%20{{ address.state }}%20{{ address.zip }}" class="map" target="_blank" title="Find it on a fucking map"><i class="icon-globe"></i><span>Find it on a fucking map</span></a></li>
+        </ul>
+      </div>
+    </li>
+    {% if forloop.last %}
+  </ul>
+  {% endif %}
+  
+  {% empty %}
+  <p>What the fuck is this? We couldn't find any polling addresses.</p>
+  {% if status == 'addressUnparseable' %}
+  <p>We couldn't find your fucking address. Did you enter your full street address? It needs to be "Your Fucking Street, Your Fucking Town, CA 12345" <a href="/?ugh=tryagain" class="try-again">Try again</a></p>
+  {% endif %}
+  {% if status == 'noStreetSegmentFound' %}
+  <p>Our data provider couldn't find reliable data about the address you entered. Check with your state's fucking board of elections for your fucking polling location or <a href="/?ugh=tryagain" class="try-again">Try again</a></p>
+  {% endif %}
+  {% endfor %} 
+
+</div>
+{% if contests %}
+<div class="candidate-container clearfix sixcol last">
+  <h2 class="candidate-heading"><i class="icon-arrow-down"></i>This is who you can fucking vote for:</h2>
+  <ul class="candidate-list">
+    {% for contest in contests %}
+    <li class="candidate-list-item">
+      <h3 class="office-title"><i class="icon-user"></i>{{ contest.office }}</h3>
+      <ul class="candidate-list">
+	{% for candidate in contest.candidates %}
+	<li class="candidate-item"> <h4 class="candidate-name">{% if candidate.candidateUrl %}<a href="{{ candidate.candidateUrl }}" class="candidate-homepage candidate-link" data-contest="{{ contest.election }}{% if contest.priority > 1 %} {{ normalized_address.state }}{% if contest.priority > 2 %} {{ contest.district.id }}{% endif %}{% endif %}" data-candidate="{{ candidate.name }}" data-channeltype="homepage">{{ candidate.name }}</a>{% else %}{{ candidate.name }}{% endif %}</h4> <span class="candidate-party">{{ candidate.party }}</span>
+	  <ul class="channel-list">
+	    {% for channel in candidate.channels %}
+	    <li class="channel-list-item"> <a href="{{ channel.id }}" class="candidate-channel candidate-link {{ channel.type }}" data-channeltype="{{ channel.type }}" data-contest="{{ contest.election }}{% if contest.priority > 1 %} {{ normalized_address.state }}{% if contest.priority > 2 %} {{ contest.district.id }}{% endif %}{% endif %}" data-candidate="{{ candidate.name }}">{{ channel.type }}</a> </li>
+	    {% endfor %}
+	  </ul>
+	</li>
+	{% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+
+{% endblock %} 

@@ -1,0 +1,16 @@
+{% extends "yfpp/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<form class="address-form group" action="fucking-check/" method="post">
+{% csrf_token %}
+<fieldset class="fadeInRightBig">
+  <label for="address">Your Fucking Address</label>
+  <input type="text" name="address" class="text-field" id="address" placeholder="Your fucking address goes here"/>
+
+<span class="icon-search"><input class='submit' type="submit" value="Find It Already" /></span>
+</fieldset>
+<em class="example">eg: 1600 Pennsylvania Ave NW, Washington, DC 20500</em>
+</form>
+
+{% endblock %}

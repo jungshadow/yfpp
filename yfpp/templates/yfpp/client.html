@@ -1,0 +1,67 @@
+{% extends "yfpp/base.html" %}
+{% load staticfiles %}
+{% block js %}
+<script src="https://apis.google.com/js/client.js?onload=gloaded"></script>
+<script src="{% static "js/script-client.js" %}"></script> 
+{% endblock %}
+{% block content %}
+
+<form class="address-form group origform" action="" method="post">
+<fieldset class="fadeInRightBig">
+  <label for="address">Your Fucking Address</label>
+  <input type="text" name="address" id="address" class="text-field" placeholder="Your fucking address goes here" />
+
+<span class="icon-search"><input class='submit' type="submit" value="Find It Already" /></span></fieldset>
+</form>
+
+ </section>
+
+
+<!-- Results -->
+        <section class="client main wrap results" style="display: none;"> 
+<div class="restart"><a class="link toggle-button closed" href="#" title="Find your fucking polling place">Look for your fucking polling place, again? I apparently have nothing better to do than help your ass all fucking day.</a>
+<form class="address-form group toggle-container" action="" method="post">
+
+<fieldset class="fadeInDownBig">
+  <label for="address">Your Fucking Address</label>
+  <input type="text" name="address" class="text-field" placeholder="Your fucking address goes here" />
+
+<span class="icon-search"><input class='submit' type="submit" value="Find It Already" /></span></fieldset>
+</form></div>
+</section>
+<section class="main wrap cantfind" style="display: none;">
+<h1 class="cant-find">WE CAN'T FIND YOUR POLLING LOCATION, WTF?</H1>
+</section>
+<section class="main wrap results" style="display: none;"> 
+<div class="address-container clearfix sixcol first">
+<h3 class="locations-heading"><i class="icon-arrow-down"></i>You can vote at this fucking location:</h3>
+
+  
+<ul class="address-list">
+    
+    <li class="address-list-item"><i class="icon-location"></i>
+      <address itemscope itemtype="http://data-vocabulary.org/Organization">
+    
+     <h2 itemprop="name" id="name"></h2>
+    
+    <div itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+     <p itemprop="street-address" id="address1"></p>
+    <p itemprop="street-address" id="address2"></p>
+    <p itemprop="street-address" id="address3"></p>
+<p><span itemprop="locality" id="city"></span>,
+<span itemprop="region" id="state"></span>
+<span itemprop="postal-code" id="zip"></span></p>
+<span id="map"><a href="#" class="map-link" target="_blank">This is a map</a></span></p>
+    </div>
+      </address>
+      <p class="sharelocation">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyourfuckingpollingplace.com%2F&" class="tell-friends" data-location="cool">Tell My Facebook Friends</a> | 
+        <a href="https://twitter.com/intent/tweet?text=I%20found%20out%20where%20I%20vote%2C%20where%20the%20fuck%20do%20you%20vote%3F&url=http%3A%2F%2Fyourfuckingpollingplace.com%2F" class="tweet" data-location="cool">Tweet that shit</a></p>
+    </li>
+
+</ul>
+
+
+</div>
+
+{% endblock %}
