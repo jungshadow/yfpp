@@ -71,7 +71,8 @@
             };
             var html = result_template(context);
             $('#main-content').html(html);
-            amplify.publish("contentRendered resultsRendered");
+            amplify.publish("contentRendered");
+            amplify.publish("resultsRendered");
         });
         amplify.subscribe("displayFailure lookupFailure", function(result) {
             console.log("Well, we made it to the failure");
