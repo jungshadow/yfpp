@@ -113,7 +113,7 @@
 <script id="result-template" type="text/x-handlebars-template">
 
 
-<div class="user-address"><h2><small>Results for</small> {{ pretty result.normalizedInput.line1 }}{{#if result.normalizedInput.line2 }} {{ pretty result.normalizedInput.line2 }}{{/if}}, {{ pretty result.normalizedInput.city }}, {{ result.normalizedInput.state }} {{ result.normalizedInput.zip }}</h2></div>
+<div class="user-address" data-address="{{ pretty result.normalizedInput.line1 }}{{#if result.normalizedInput.line2 }} {{ pretty result.normalizedInput.line2 }}{{/if}}, {{ pretty result.normalizedInput.city }}, {{ result.normalizedInput.state }} {{ result.normalizedInput.zip }}"><h2><small>Results for</small> {{ pretty result.normalizedInput.line1 }}{{#if result.normalizedInput.line2 }} {{ pretty result.normalizedInput.line2 }}{{/if}}, {{ pretty result.normalizedInput.city }}, {{ result.normalizedInput.state }} {{ result.normalizedInput.zip }}</h2></div>
 <div class="restart"><a class="link toggle-button " href="#" title="Find your fucking polling place">Look for your fucking polling place, again? I apparently have nothing better to do than help your ass all fucking day.</a>
   <form class="address-form group toggle-container closed" action="#" method="GET" style="display: none;">
     <fieldset class="fadeInDownBig">
@@ -150,7 +150,7 @@
 
     <li><a href="https://twitter.com/intent/tweet?text=I%20vote%20at%20{{ chain  'fuckit' 'urlencode' address.locationName }}%2C%20where%20the%20fuck%20do%20you%20vote%3F%20Find%20out%20at&url=http%3A%2F%2Fyourfuckingpollingplace.com" class="tweet" title="Tweet this shit"><i class="icon-twitter"></i><span>Tweet this shit</span></a></li>
 
-    <li><a href="https://maps.google.com/maps?q={{ chain 'pretty' 'urlencode' address.locationName }}%20{{ chain 'pretty' 'urlencode' address.line1 }}{{#if result.normalizedInput.line2 }}%20{{ chain 'pretty' 'urlencode' result.normalizedInput.line2 }}{{/if}}%20{{ chain 'pretty' 'urlencode' address.city }}%2C%20{{ urlencode address.city }}%2C%20{{ urlencode address.state }}%20{{ urlencode address.zip }}" class="map" target="_blank" title="Find it on a fucking map"><i class="icon-globe"></i><span>Find it on a fucking map</span></a></li>
+    <li><a href="https://maps.google.com/maps?q={{ chain 'pretty' 'urlencode' address.locationName }}%20{{ chain 'pretty' 'urlencode' address.line1 }}{{#if result.normalizedInput.line2 }}%20{{ chain 'pretty' 'urlencode' result.normalizedInput.line2 }}{{/if}}%20{{ chain 'pretty' 'urlencode' address.city }}%2C%20{{ urlencode address.city }}%2C%20{{ urlencode address.state }}%20{{ urlencode address.zip }}" class="map map-link" target="_blank" title="Find it on a fucking map" data-address="{{ chain 'pretty' address.locationName }} {{ chain 'pretty' address.line1 }}{{#if result.normalizedInput.line2 }} {{ chain 'pretty' result.normalizedInput.line2 }}{{/if}} {{ chain 'pretty' 'urlencode' address.city }}, {{ address.city }}, {{ address.state }} {{ address.zip }}"><i class="icon-globe"></i><span>Find it on a fucking map</span></a></li>
         </ul>
       </div>
     </li>

@@ -352,6 +352,20 @@ www.nickcatalano.com
         });
     });
 
+    // Render a few extra items
+
+    amplify.subscribe("resultsRendered", function() {
+        // Turn Google Maps URLs into directions
+        $.each($('.address-list-item .map-link'), function() {
+            var address = $(this).attr('data-address');
+            var user_address = $('.user-address').attr('data-address');
+            var google_address = 'https://www.google.com/maps/dir/' +
+                encodeURIComponent(address) + '/' +
+                encodeURIComponent(user_address) + '/';
+            $(this).attr('href', google_address);
+        });
+    });
+
 })(window.Handlebars, window.amplify, jQuery);
 /*!
 
