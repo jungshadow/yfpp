@@ -1,7 +1,5 @@
 (function(Handlebars, amplify, $){
 
-
-
     $(function(){
 
 
@@ -61,6 +59,9 @@
             var html = input_template({});
             console.log("Failure");
             $('#main-content').html(html);
+            window.ga_page = '/';
+            window.ga_title = 'Your Fucking Polling Place';
+            amplify.publish("pageSwitch");
             amplify.publish("contentRendered");
         });
 
@@ -71,6 +72,9 @@
             };
             var html = result_template(context);
             $('#main-content').html(html);
+            window.ga_page = '/results';
+            window.ga_title = 'Results';
+            amplify.publish("pageSwitch");
             amplify.publish("contentRendered");
             amplify.publish("resultsRendered");
         });

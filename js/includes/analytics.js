@@ -37,14 +37,86 @@ window.onerror = function(msg, url, linenumber) {
         return target;
     }
 
+    /*
+    GA Helpers
+    Useful so that we're sure that we always pass the current page
+    */
+    function sendEvent(category, action, label, noninteraction) {
+        var nI = 0;
+        if (noninteraction === true) {
+            nI = 1;
+        }
+        ga('send', 'event', category, action, label,
+            {
+                    'nonInteraction': nI,
+                    'page': window.ga_page,
+                    'title': window.ga_title
+            });
+    }
+
+    function social_action(social_network, action, label) {
+        ga('send', 'social', social_network, action, label, {
+            'page': window.ga_page,
+            'title': window.ga_title
+        });
+        ga('send', 'event', social_network, action, label, {
+            'page': window.ga_page,
+            'title': window.ga_title
+        });
+    }
+
+    amplify.subscribe('pageSwitch', function() {
+        ga('send', 'pageview', {
+            'page': window.ga_page,
+            'title': window.ga_title
+        });
+    }, 9);
+
+
+    amplify.subscribe('lookupSuccess', function(result) {
+        ga('send', 'event', 'Address', 'Lookup', result.normalizedInput.state,
+            {
+                'nonInteraction': 1,
+                'page': '/results',
+                'title': 'Results'
+            });
+    }, 11);
+
+    amplify.subscribe('lookupFailure', function(result) {
+        sendEvent('Address', 'Failure', result.reason);
+    }, 11);
+
+    amplify.subscribe("tryAgainToggle", function() {
+        if ($('.toggle-button').hasClass('open')) {
+            sendEvent('Page Action', 'Try Again', 'Open');
+        } else {
+            sendEvent('Page Action', 'Try Again', 'Close');
+        }
+    });
+
+    amplify.subscribe("candidateClick", function(data) {
+        sendEvent('Candidate Click', data['contest'], data['candidate_name']);
+    });
+
+    amplify.subscribe("foundInLocalStorage", function() {
+        sendEvent('Storage', 'Found', '', true);
+    }, 50);
+
+    /*
+
+    Generic Tracking
+
+    */
+
+    $(function() {
+        ('footer a').click(function(event) {
+            sendEvent('Exit', 'Footer', $(this).attr('href'));
+        });
+    });
 
     /*
     Social Tracking
     */
-    function social_action(social_network, action, label) {
-        ga('send', 'social', social_network, action, label);
-        ga('send', 'event', social_network, action, label);
-    }
 
     // Add these to the Facebook Async Setup
     window.fbAsyncInit.fbLoaded.done(function(){
