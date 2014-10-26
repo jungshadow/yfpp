@@ -1,7 +1,5 @@
 (function(Handlebars, amplify, $){
 
-
-
     $(function(){
 
 
@@ -61,6 +59,9 @@
             var html = input_template({});
             console.log("Failure");
             $('#main-content').html(html);
+            window.ga_page = '/';
+            window.ga_title = 'Your Fucking Polling Place';
+            amplify.publish("pageSwitch");
             amplify.publish("contentRendered");
         });
 
@@ -71,7 +72,11 @@
             };
             var html = result_template(context);
             $('#main-content').html(html);
-            amplify.publish("contentRendered resultsRendered");
+            window.ga_page = '/results';
+            window.ga_title = 'Results';
+            amplify.publish("pageSwitch");
+            amplify.publish("contentRendered");
+            amplify.publish("resultsRendered");
         });
         amplify.subscribe("displayFailure lookupFailure", function(result) {
             console.log("Well, we made it to the failure");
@@ -82,6 +87,20 @@
             //$('#main-content').html(html);
             */
             $('.error').html(result.error.message);
+        });
+    });
+
+    // Render a few extra items
+
+    amplify.subscribe("resultsRendered", function() {
+        // Turn Google Maps URLs into directions
+        $.each($('.address-list-item .map-link'), function() {
+            var address = $(this).attr('data-address');
+            var user_address = $('.user-address').attr('data-address');
+            var google_address = 'https://www.google.com/maps/dir/' +
+                encodeURIComponent(address) + '/' +
+                encodeURIComponent(user_address) + '/';
+            $(this).attr('href', google_address);
         });
     });
 
