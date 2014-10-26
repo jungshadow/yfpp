@@ -365,8 +365,8 @@ www.nickcatalano.com
             var address = $(this).attr('data-address');
             var user_address = $('.user-address').attr('data-address');
             var google_address = 'https://www.google.com/maps/dir/' +
-                encodeURIComponent(address) + '/' +
-                encodeURIComponent(user_address) + '/';
+                encodeURIComponent(user_address) + '/' +
+                encodeURIComponent(address) + '/';
             $(this).attr('href', google_address);
         });
     });
