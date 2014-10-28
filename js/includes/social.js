@@ -45,8 +45,8 @@ www.nickcatalano.com
     amplify.subscribe("postToFacebook", function(polling_info){
         var obj = {
             method: 'feed',
-            link: 'http://www.yourfuckingpollingplace.com/',
-            picture: 'http://www.yourfuckingpollingplace.com/site_media/static/images/wmfpp.png',
+            link: 'http://yourfuckingpollingplace.com/?utm_source=facebook&utm_medium=social&utm_campaign=YFPP_2014_USER_' + polling_info.state,
+            picture: 'http://yourfuckingpollingplace.com/images/yfpp-fbwide.jpg',
             name: 'I Vote At ' + polling_info.location,
             caption: "YourFuckingPollingPlace.com",
             description: 'I vote at ' + polling_info.location + ' in ' + polling_info.city + ' ' + polling_info.state + ', where the fuck do you vote? Visit YourFuckingPollingPlace.com to find out'
