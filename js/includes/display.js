@@ -21,6 +21,9 @@
         });
 
         Handlebars.registerHelper('fuckit', function(name) {
+            if (name === undefined) {
+                return "No Fucking Place Name Provided";
+            }
             var orig = Handlebars.helpers.pretty(name);
             var arr = orig.split(' ');
             arr.splice(1,0,"Fucking");
