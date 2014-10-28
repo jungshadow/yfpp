@@ -67,6 +67,7 @@ www.nickcatalano.com
                 if (stored_result.result === 'failure') {
                     amplify.publish("displayFailure", stored_result);
                 }
+                amplify.publish("foundInLocalStorage");
             }
         });
 

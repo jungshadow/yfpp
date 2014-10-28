@@ -12,14 +12,18 @@
     <meta property="og:title" content="Find Your Fucking Polling Place">
     <meta property="og:description" content="Your Facebook 'friend' visited this site to find their polling place. Be one of the cool kids, visit this site to find your fucking polling place.">
     <meta name="description" content="A place you go to find your fucking polling place">
-    <meta property="og:image" content="http://i.imgur.com/hFUhY.png">
-    <link rel="image_src" href="http://i.imgur.com/hFUhY.png">
-    <meta property="og:url" content="http://www.yourfuckingpollingplace.com/">
+    <meta property="og:image" content="http://yourfuckingpollingplace.com/images/yfpp-fbwide.jpg">
+    <link rel="image_src" href="http://yourfuckingpollingplace.com/images/yfpp-fbwide.jpg">
+    <meta property="og:url" content="http://yourfuckingpollingplace.com/">
     <meta property="og:site_name" content="yourfuckingpollingplace.com">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
     <meta property="fb:app_id" content="382719335136154"/>
 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Find Your Fucking Polling Place">
+    <meta name="twitter:description" content="This 'tweeter' visited this site to find their polling place. Be one of the cool kids, visit this site to find your fucking polling place.">
+    <meta name="twitter:image:src" content="http://yourfuckingpollingplace.com/images/yfpp-fbwide.jpg">
 
     <link rel="shortcut icon" href="images/favicon-32.png">
     <link rel="stylesheet" href="css/style.css">
@@ -63,7 +67,7 @@
   <footer class="footer wrap clearfix">
 
     <div class="social clearfix">
-      <div class="twitter-shit"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://yourfuckingpollingplace.com/" data-counturl="http://yourfuckingpollingplace.com/" data-lang="en" data-count="vertical">Tweet</a></div>
+      <div class="twitter-shit"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://yourfuckingpollingplace.com/" data-counturl="http://yourfuckingpollingplace.com/" data-lang="en" data-count="vertical" data-related="nickcatal,jungshadow,sixBcreative">Tweet</a></div>
       <div class="fb-shit">
         <div class="fb-like" data-href="http://yourfuckingpollingplace.com/" data-send="false" data-layout="box_count" data-width="50" data-show-faces="true" data-font="verdana"></div>
       </div>
@@ -71,16 +75,16 @@
     <div class="attribution clearfix">
       <h4>This shit was made by these motherfuckers</h4>
       <ul class="clearfix">
-        <li class="jungshadow clearfix"><a href="https://twitter.com/jungshadow">@jungshadow</a><span class="twit-follow"><a href="https://twitter.com/jungshadow" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @jungshadow</a></span></li>
-        <li class="gazamo clearfix"><a href="https://twitter.com/gazamo">@gazamo</a><span class="twit-follow"><a href="https://twitter.com/gazamo" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @gazamo</a></span></li>
-        <li class="sixbcreative clearfix"><a href="https://twitter.com/sixBcreative">@sixBcreative</a><span class="twit-follow"><a href="https://twitter.com/sixBcreative" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @sixBcreative</a></span></li>
         <li class="nickcatal clearfix"><a href="https://twitter.com/nickcatal">@nickcatal</a><span class="twit-follow"><a href="https://twitter.com/nickcatal" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @nickcatal</a></span></li>
+        <li class="momaraqa clearfix"><a href="https://twitter.com/momaraqa">@momaraqa</a><span class="twit-follow"><a href="https://twitter.com/momaraqa" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @momaraqa</a></span></li>
+        <li class="jungshadow clearfix"><a href="https://twitter.com/jungshadow">@jungshadow</a><span class="twit-follow"><a href="https://twitter.com/jungshadow" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @jungshadow</a></span></li>
+        <li class="sixbcreative clearfix"><a href="https://twitter.com/sixBcreative">@sixBcreative</a><span class="twit-follow"><a href="https://twitter.com/sixBcreative" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @sixBcreative</a></span></li>
       </ul>
     </div>
     <div class="citation clearfix">
       <ul class="notes-list">
         <li class="notes-list-item"><span class="notice"><a href="privacy.html">View Our Privacy Policy</a></span></li>
-        <li class="notes-list-item"><span class="cite">Data via the <a href="https://developers.google.com/civic-information/">Google Civic Information API</a></span></li>
+        <li class="notes-list-item"><span class="cite">Data via the <a href="https://developers.google.com/civic-information/" target="_blank">Google Civic Information API</a></span></li>
         <li class="notes-list-item"><span class="notice">Data from states that do not provide direct feeds only include addresses with registered voters</span></li>
         <li class="notes-list-item"><span class="notice">Election officials sometimes revise data in the last few days before an election. Check back on Election Day for the latest information.</span><li>
       </ul>
@@ -113,7 +117,7 @@
 <script id="result-template" type="text/x-handlebars-template">
 
 
-<div class="user-address"><h2><small>Results for</small> {{ pretty result.normalizedInput.line1 }}{{#if result.normalizedInput.line2 }} {{ pretty result.normalizedInput.line2 }}{{/if}}, {{ pretty result.normalizedInput.city }}, {{ result.normalizedInput.state }} {{ result.normalizedInput.zip }}</h2></div>
+<div class="user-address" data-address="{{ pretty result.normalizedInput.line1 }}{{#if result.normalizedInput.line2 }} {{ pretty result.normalizedInput.line2 }}{{/if}}, {{ pretty result.normalizedInput.city }}, {{ result.normalizedInput.state }} {{ result.normalizedInput.zip }}"><h2><small>Results for</small> {{ pretty result.normalizedInput.line1 }}{{#if result.normalizedInput.line2 }} {{ pretty result.normalizedInput.line2 }}{{/if}}, {{ pretty result.normalizedInput.city }}, {{ result.normalizedInput.state }} {{ result.normalizedInput.zip }}</h2></div>
 <div class="restart"><a class="link toggle-button " href="#" title="Find your fucking polling place">Look for your fucking polling place, again? I apparently have nothing better to do than help your ass all fucking day.</a>
   <form class="address-form group toggle-container closed" action="#" method="GET" style="display: none;">
     <fieldset class="fadeInDownBig">
@@ -146,11 +150,11 @@
       <div class="actions-container clearfix">
   <h4>Take some fucking action:</h4>
   <ul class="actions clearfix">
-    <li><a href="#" class="tell-friends fb-post" data-location="{{ fuckit address.locationName }}" data-city="{{ pretty address.city }}" data-state="{{ address.state }}" title="Post this shit to Facebook"><i class="icon-facebook"></i><span>Post this shit to Facebook</span></a></li>
+    <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyourfuckingpollingplace.com" class="tell-friends fb-post" data-location="{{ fuckit address.locationName }}" data-city="{{ pretty address.city }}" data-state="{{ address.state }}" title="Post this shit to Facebook"><i class="icon-facebook"></i><span>Post this shit to Facebook</span></a></li>
 
-    <li><a href="https://twitter.com/intent/tweet?text=I%20vote%20at%20{{ chain  'fuckit' 'urlencode' address.locationName }}%2C%20where%20the%20fuck%20do%20you%20vote%3F%20Find%20out%20at&url=http%3A%2F%2Fyourfuckingpollingplace.com" class="tweet" title="Tweet this shit"><i class="icon-twitter"></i><span>Tweet this shit</span></a></li>
+    <li><a href="https://twitter.com/intent/tweet?text=I%20vote%20at%20{{ chain  'fuckit' 'urlencode' address.locationName }}%2C%20where%20the%20fuck%20do%20you%20vote%3F%20Find%20out%20at&url=http%3A%2F%2Fyourfuckingpollingplace.com&related=nickcatal,jungshadow,sixBcreative,gazamo" class="tweet" title="Tweet this shit"><i class="icon-twitter"></i><span>Tweet this shit</span></a></li>
 
-    <li><a href="https://maps.google.com/maps?q={{ chain 'pretty' 'urlencode' address.locationName }}%20{{ chain 'pretty' 'urlencode' address.line1 }}{{#if result.normalizedInput.line2 }}%20{{ chain 'pretty' 'urlencode' result.normalizedInput.line2 }}{{/if}}%20{{ chain 'pretty' 'urlencode' address.city }}%2C%20{{ urlencode address.city }}%2C%20{{ urlencode address.state }}%20{{ urlencode address.zip }}" class="map" target="_blank" title="Find it on a fucking map"><i class="icon-globe"></i><span>Find it on a fucking map</span></a></li>
+    <li><a href="https://maps.google.com/maps?q={{ chain 'pretty' 'urlencode' address.locationName }}%20{{ chain 'pretty' 'urlencode' address.line1 }}{{#if result.normalizedInput.line2 }}%20{{ chain 'pretty' 'urlencode' result.normalizedInput.line2 }}{{/if}}%20{{ chain 'pretty' 'urlencode' address.city }}%2C%20{{ urlencode address.city }}%2C%20{{ urlencode address.state }}%20{{ urlencode address.zip }}" class="map map-link" target="_blank" title="Find it on a fucking map" data-address="{{ chain 'pretty' address.locationName }}, {{ chain 'pretty' address.line1 }}{{#if result.normalizedInput.line2 }} {{ chain 'pretty' result.normalizedInput.line2 }}{{/if}}, {{ chain 'pretty' 'urlencode' address.city }}, {{ address.city }}, {{ address.state }} {{ address.zip }}"><i class="icon-globe"></i><span>Find it on a fucking map</span></a></li>
         </ul>
       </div>
     </li>
@@ -167,13 +171,13 @@
   {{#each result.contests}}
   {{#if office }}
   <!-- Candidate -->
-    <li class="candidate-list-item contest" data-contest="">
+    <li class="candidate-list-item contest" data-contest="{{ district.name }}: {{ office }}">
       <h3 class="office-title"><i class="icon-user"></i>{{ office }}</h3>
       <ul class="candidate-list">
       {{#each candidates}}
         <li class="candidate-item"><h4 class="candidate-name">
           {{#if candidateUrl}}
-            <a href="{{ candidateUrl }}" target="_blank" data-contest="" data-candidate="{{ pretty name }}" data-channeltype="homepage">
+            <a href="{{ candidateUrl }}" target="_blank" data-candidate="{{ pretty name }}" data-channeltype="homepage" class="candidate-homepage-link">
               {{ name }}
             </a>
           {{else}}
@@ -181,6 +185,12 @@
           {{/if}}
         </h4>
         <span class="candidate-party">{{ party }}</span>
+        <ul class="channel-list">
+        {{#each channels}}
+          <li class="channel-list-item"> <a href="{{ id }}" class="candidate-channel candidate-link {{ type }}" data-channeltype="#" data-contest="#" data-candidate="#">
+          {{type}}</a></li>
+        {{/each}}
+        </ul>
         </li>
       {{/each}}
     </ul>
@@ -203,16 +213,20 @@
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-19447677-11', 'auto');
-ga('send', 'pageview');
+ga('create', 'UA-19447677-1', 'auto');
+if (window.location.hash == "" || window.location.hash == "#") {
+  window.ga_page = '/';
+  window.ga_title = 'Your Fucking Polling Place';
+  ga('send', 'pageview', 
+    {
+      'page': window.ga_page,
+      'title': window.ga_title
+    });
+}
 </script>
 
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/min/main.js"></script>
-
-<!-- For Dev Purposes -->
-<script type="text/javascript" src="//localhost:35729/livereload.js" async></script>
-
 
 </body>
 </html>

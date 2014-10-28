@@ -151,8 +151,8 @@ www.nickcatalano.com
     amplify.subscribe("postToFacebook", function(polling_info){
         var obj = {
             method: 'feed',
-            link: 'http://www.yourfuckingpollingplace.com/',
-            picture: 'http://www.yourfuckingpollingplace.com/site_media/static/images/wmfpp.png',
+            link: 'http://yourfuckingpollingplace.com/?utm_source=facebook&utm_medium=social&utm_campaign=YFPP_2014_USER_' + polling_info.state,
+            picture: 'http://yourfuckingpollingplace.com/images/yfpp-fbwide.jpg',
             name: 'I Vote At ' + polling_info.location,
             caption: "YourFuckingPollingPlace.com",
             description: 'I vote at ' + polling_info.location + ' in ' + polling_info.city + ' ' + polling_info.state + ', where the fuck do you vote? Visit YourFuckingPollingPlace.com to find out'
@@ -245,6 +245,7 @@ www.nickcatalano.com
                 if (stored_result.result === 'failure') {
                     amplify.publish("displayFailure", stored_result);
                 }
+                amplify.publish("foundInLocalStorage");
             }
         });
 
@@ -265,8 +266,6 @@ www.nickcatalano.com
     });
 })(window.amplify, jQuery);
 (function(Handlebars, amplify, $){
-
-
 
     $(function(){
 
@@ -289,6 +288,9 @@ www.nickcatalano.com
         });
 
         Handlebars.registerHelper('fuckit', function(name) {
+            if (name === undefined) {
+                return "No Fucking Place Name Provided";
+            }
             var orig = Handlebars.helpers.pretty(name);
             var arr = orig.split(' ');
             arr.splice(1,0,"Fucking");
@@ -327,6 +329,9 @@ www.nickcatalano.com
             var html = input_template({});
             console.log("Failure");
             $('#main-content').html(html);
+            window.ga_page = '/';
+            window.ga_title = 'Your Fucking Polling Place';
+            amplify.publish("pageSwitch");
             amplify.publish("contentRendered");
         });
 
@@ -337,7 +342,11 @@ www.nickcatalano.com
             };
             var html = result_template(context);
             $('#main-content').html(html);
-            amplify.publish("contentRendered resultsRendered");
+            window.ga_page = '/results';
+            window.ga_title = 'Results';
+            amplify.publish("pageSwitch");
+            amplify.publish("contentRendered");
+            amplify.publish("resultsRendered");
         });
         amplify.subscribe("displayFailure lookupFailure", function(result) {
             console.log("Well, we made it to the failure");
@@ -347,7 +356,35 @@ www.nickcatalano.com
             //var html = failure_template(context);
             //$('#main-content').html(html);
             */
-            $('.error').html(result.error.message);
+            var error_message = result.error.message;
+            var clean_reasons = {
+                parseError: "We couldn't process that address.<br>Did you enter a full fucking address?",
+                required: "You didn't provide us an address...<br>How the fuck do you think this even works??",
+                invalidValue: "Well for fuck sake, we couldn't find data for this address for this election.<br>Come back later and try again.",
+                invalidQuery: "The election is over... get the fuck out of here<br>(but come back next time)",
+                notFound: "Fuck. We couldn't find any data for this address.<br>Try again with a residental address, or come back later.",
+                conflict: "Fuck. We have conflicting data about this shit.<br>Come back later",
+                backendError: "Something's fucked up with our provider's servers.<br>Come back later.",
+                invalid: "Well for fuck sake, we couldn't find data for this address for this election.<br>Come back later and try again."
+            };
+            if (result.reason in clean_reasons) {
+                error_message = clean_reasons[result.reason];
+            }
+            $('.error').html(error_message);
+        });
+    });
+
+    // Render a few extra items
+
+    amplify.subscribe("resultsRendered", function() {
+        // Turn Google Maps URLs into directions
+        $.each($('.address-list-item .map-link'), function() {
+            var address = $(this).attr('data-address');
+            var user_address = $('.user-address').attr('data-address');
+            var google_address = 'https://www.google.com/maps/dir/' +
+                encodeURIComponent(user_address) + '/' +
+                encodeURIComponent(address) + '/';
+            $(this).attr('href', google_address);
         });
     });
 
@@ -392,18 +429,31 @@ www.nickcatalano.com
 
 (function(window, amplify, $) {
 
-var content = $("#main-content");
+$(function() {
+    var content = $("#main-content");
 
-content.on('click', '.toggle-button', function(event) {
-    event.preventDefault();
-    $(this).toggleClass("closed open").next('.toggle-container').slideToggle();
-});
+    content.on('click', '.toggle-button', function(event) {
+        event.preventDefault();
+        $(this).toggleClass("open").next('.toggle-container').slideToggle();
+        amplify.publish("tryAgainToggle");
+    });
 
-content.on('click', '.toggle-button, .toggle-container', function(event) {
-    event.stopPropagation();
+    content.on('click', '.toggle-button, .toggle-container', function(event) {
+        event.stopPropagation();
+    });
+
+    content.on('click', '.candidate-homepage-link', function(event) {
+        var data = {
+            contest: $(this).parents('.contest').attr('data-contest'),
+            candidate_name: $(this).attr('data-candidate')
+        };
+        amplify.publish("candidateClick", data);
+    });
+
 });
 
 })(window, window.amplify, jQuery);
+
 /*
 Your Fucking Polling Place
 Analytics JavaScript
@@ -443,14 +493,89 @@ window.onerror = function(msg, url, linenumber) {
         return target;
     }
 
+    /*
+    GA Helpers
+    Useful so that we're sure that we always pass the current page
+    */
+    function sendEvent(category, action, label, noninteraction) {
+        var nI = 0;
+        if (noninteraction === true) {
+            nI = 1;
+        }
+        ga('send', 'event', category, action, label,
+            {
+                    'nonInteraction': nI,
+                    'page': window.ga_page,
+                    'title': window.ga_title
+            });
+    }
+
+    function social_action(social_network, action, label) {
+        ga('send', 'social', social_network, action, label, {
+            'page': window.ga_page,
+            'title': window.ga_title
+        });
+        ga('send', 'event', social_network, action, label, {
+            'page': window.ga_page,
+            'title': window.ga_title
+        });
+    }
+
+    amplify.subscribe('pageSwitch', function() {
+        ga('send', 'pageview', {
+            'page': window.ga_page,
+            'title': window.ga_title
+        });
+    }, 9);
+
+
+    amplify.subscribe('lookupSuccess', function(result) {
+        ga('send', 'event', 'Address', 'Lookup', result.normalizedInput.state,
+            {
+                'nonInteraction': 1,
+                'page': '/results',
+                'title': 'Results'
+            });
+    }, 11);
+
+    amplify.subscribe('lookupFailure', function(result) {
+        sendEvent('Address', 'Failure', result.reason);
+        if (result.reason === 'invalid') {
+            sendEvent('Misc', 'Invalid Message', result.error.message);
+        }
+    }, 11);
+
+    amplify.subscribe("tryAgainToggle", function() {
+        if ($('.toggle-button').hasClass('open')) {
+            sendEvent('Page Action', 'Try Again', 'Open');
+        } else {
+            sendEvent('Page Action', 'Try Again', 'Close');
+        }
+    });
+
+    amplify.subscribe("candidateClick", function(data) {
+        sendEvent('Candidate Click', data['contest'], data['candidate_name']);
+    });
+
+    amplify.subscribe("foundInLocalStorage", function() {
+        sendEvent('Storage', 'Found', '', true);
+    }, 50);
+
+    /*
+
+    Generic Tracking
+
+    */
+
+    $(function() {
+        $('footer a').click(function(event) {
+            sendEvent('Exit', 'Footer', $(this).attr('href'));
+        });
+    });
 
     /*
     Social Tracking
     */
-    function social_action(social_network, action, label) {
-        ga('send', 'social', social_network, action, label);
-        ga('send', 'event', social_network, action, label);
-    }
 
     // Add these to the Facebook Async Setup
     window.fbAsyncInit.fbLoaded.done(function(){
