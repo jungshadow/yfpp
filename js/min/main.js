@@ -288,6 +288,9 @@ www.nickcatalano.com
         });
 
         Handlebars.registerHelper('fuckit', function(name) {
+            if (name === undefined) {
+                return "No Fucking Place Name Provided";
+            }
             var orig = Handlebars.helpers.pretty(name);
             var arr = orig.split(' ');
             arr.splice(1,0,"Fucking");
@@ -353,7 +356,21 @@ www.nickcatalano.com
             //var html = failure_template(context);
             //$('#main-content').html(html);
             */
-            $('.error').html(result.error.message);
+            var error_message = result.error.message;
+            var clean_reasons = {
+                parseError: "We couldn't process that address.<br>Did you enter a full fucking address?",
+                required: "You didn't provide us an address...<br>How the fuck do you think this even works??",
+                invalidValue: "Well for fuck sake, we couldn't find data for this address for this election.<br>Come back later and try again.",
+                invalidQuery: "The election is over... get the fuck out of here<br>(but come back next time)",
+                notFound: "Fuck. We couldn't find any data for this address.<br>Try again with a residental address, or come back later.",
+                conflict: "Fuck. We have conflicting data about this shit.<br>Come back later",
+                backendError: "Something's fucked up with our provider's servers.<br>Come back later.",
+                invalid: "Well for fuck sake, we couldn't find data for this address for this election.<br>Come back later and try again."
+            };
+            if (result.reason in clean_reasons) {
+                error_message = clean_reasons[result.reason];
+            }
+            $('.error').html(error_message);
         });
     });
 
