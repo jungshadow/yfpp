@@ -843,7 +843,7 @@ h1 .fucking {
 }
 h1 .poll {
   display: block;
-  font-size: .9em;
+  font-size: .8125em;
   line-height: .9em;
   -webkit-transition: all 0.5s 0.2s ease-in-out;
   -moz-transition: all 0.5s 0.2s ease-in-out;
@@ -1444,7 +1444,7 @@ GENERAL STYLES
     line-height: .8em;
   }
   h1 .poll {
-    font-size: 1.7em;
+    font-size: 1.5785em;
     line-height: .8em;
   }
   /*********************
