@@ -85,7 +85,7 @@ window.onerror = function(msg, url, linenumber) {
     amplify.subscribe('lookupFailure', function(result) {
         sendEvent('Address', 'Failure', result.reason);
         if (result.reason === 'invalid') {
-            sendEvent('Misc', 'Invalid Message', result.error.message);
+            sendEvent('Misc', 'Invalid Message', result.error.message, true);
         }
     }, 11);
 
