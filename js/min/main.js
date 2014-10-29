@@ -152,7 +152,7 @@ www.nickcatalano.com
         var obj = {
             method: 'feed',
             link: 'http://yourfuckingpollingplace.com/?utm_source=facebook&utm_medium=social&utm_campaign=YFPP_2014_USER_' + polling_info.state,
-            picture: 'http://yourfuckingpollingplace.com/images/yfpp-fbwide.jpg',
+            picture: 'http://yourfuckingpollingplace.com/images/yfpp-fbwide.jpg??20141128',
             name: 'I Vote At ' + polling_info.location,
             caption: "YourFuckingPollingPlace.com",
             description: 'I vote at ' + polling_info.location + ' in ' + polling_info.city + ' ' + polling_info.state + ', where the fuck do you vote? Visit YourFuckingPollingPlace.com to find out'
