@@ -1134,7 +1134,8 @@ RESULTS
   position: relative;
   padding-left: 25px;
 }
-.candidate-list-item a {
+.candidate-list-item a,
+.candidate-list-item a:visited {
   color: #31749e;
 }
 .icon-user:before {
