@@ -12,8 +12,8 @@
     <meta property="og:title" content="Find Your Fucking Polling Place">
     <meta property="og:description" content="Your Facebook 'friend' visited this site to find their polling place. Be one of the cool kids, visit this site to find your fucking polling place.">
     <meta name="description" content="A place you go to find your fucking polling place">
-    <meta property="og:image" content="http://yourfuckingpollingplace.com/images/yfpp-fbwide.jpg">
-    <link rel="image_src" href="http://yourfuckingpollingplace.com/images/yfpp-fbwide.jpg">
+    <meta property="og:image" content="http://yourfuckingpollingplace.com/images/yfpp-fbwide.jpg?20141128">
+    <link rel="image_src" href="http://yourfuckingpollingplace.com/images/yfpp-fbwide.jpg?20141128">
     <meta property="og:url" content="http://yourfuckingpollingplace.com/">
     <meta property="og:site_name" content="yourfuckingpollingplace.com">
     <meta property="og:locale" content="en_US">
@@ -154,7 +154,7 @@
 
     <li><a href="https://twitter.com/intent/tweet?text=I%20vote%20at%20{{ chain  'fuckit' 'urlencode' address.locationName }}%2C%20where%20the%20fuck%20do%20you%20vote%3F%20Find%20out%20at&url=http%3A%2F%2Fyourfuckingpollingplace.com&related=nickcatal,jungshadow,sixBcreative,gazamo" class="tweet" title="Tweet this shit"><i class="icon-twitter"></i><span>Tweet this shit</span></a></li>
 
-    <li><a href="https://maps.google.com/maps?q={{ chain 'pretty' 'urlencode' address.locationName }}%20{{ chain 'pretty' 'urlencode' address.line1 }}{{#if result.normalizedInput.line2 }}%20{{ chain 'pretty' 'urlencode' result.normalizedInput.line2 }}{{/if}}%20{{ chain 'pretty' 'urlencode' address.city }}%2C%20{{ urlencode address.city }}%2C%20{{ urlencode address.state }}%20{{ urlencode address.zip }}" class="map map-link" target="_blank" title="Find it on a fucking map" data-address="{{ chain 'pretty' address.locationName }}, {{ chain 'pretty' address.line1 }}{{#if result.normalizedInput.line2 }} {{ chain 'pretty' result.normalizedInput.line2 }}{{/if}}, {{ chain 'pretty' 'urlencode' address.city }}, {{ address.city }}, {{ address.state }} {{ address.zip }}"><i class="icon-globe"></i><span>Find it on a fucking map</span></a></li>
+    <li><a href="https://maps.google.com/maps?q={{ chain 'pretty' 'urlencode' address.locationName }}%20{{ chain 'pretty' 'urlencode' address.line1 }}{{#if result.normalizedInput.line2 }}%20{{ chain 'pretty' 'urlencode' result.normalizedInput.line2 }}{{/if}}%20{{ chain 'pretty' 'urlencode' address.city }}%2C%20{{ urlencode address.city }}%2C%20{{ urlencode address.state }}%20{{ urlencode address.zip }}" class="map map-link" target="_blank" title="Find it on a fucking map" data-address="{{ chain 'pretty' address.locationName }}, {{ chain 'pretty' address.line1 }}{{#if result.normalizedInput.line2 }} {{ chain 'pretty' result.normalizedInput.line2 }}{{/if}}, {{ chain 'pretty' 'urlencode' address.city }}, {{ address.city }}, {{ address.state }} {{ address.zip }}" data-state="{{ address.state }}"><i class="icon-globe"></i><span>Find it on a fucking map</span></a></li>
         </ul>
       </div>
     </li>
