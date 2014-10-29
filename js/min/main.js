@@ -571,6 +571,9 @@ window.onerror = function(msg, url, linenumber) {
         $('footer a').click(function(event) {
             sendEvent('Exit', 'Footer', $(this).attr('href'));
         });
+        $('.map-link').click(function(event) {
+            sendEvent('googlemap', 'Click', $(this).attr('data-state'));
+        });
     });
 
     /*
