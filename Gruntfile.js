@@ -40,6 +40,7 @@ module.exports = function(grunt) {
                     '<%= jsIncludesPath %>social.js',
                     '<%= jsIncludesPath %>navigation.js',
                     '<%= jsIncludesPath %>display.js',
+                    '<%= jsIncludesPath %>predict.js',
                     '<%= jsIncludesPath %>init_site.js',
                     '<%= jsIncludesPath %>results.js',
                     '<%= jsIncludesPath %>analytics.js',

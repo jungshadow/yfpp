@@ -33,5 +33,6 @@ www.nickcatalano.com
                 event.preventDefault();
             }
         });
+        amplify.publish("attachAutocomplete");
     });
 })(window.amplify, jQuery);
