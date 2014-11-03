@@ -17,6 +17,7 @@
         });
 
         Handlebars.registerHelper('pluralize_length', function(array, single, plural) {
+            if (array === undefined) { return single; }
             return Handlebars.helpers.pluralize(array.length, single, plural);
         });
 
