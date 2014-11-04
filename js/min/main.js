@@ -390,6 +390,14 @@ www.nickcatalano.com
         });
     });
 
+    amplify.subscribe("resultsRendered", function() {
+        $('#error-feedback-link').click(function(event) {
+            event.preventDefault();
+            amplify.publish("reportSubmitted", $(this).attr('data-state'));
+            $('#error-feedback-form').submit();
+        });
+    });
+
 })(window.Handlebars, window.amplify, jQuery);
 /*
 Your Fucking Polling Place
@@ -581,9 +589,14 @@ window.onerror = function(msg, url, linenumber) {
         }
     });
 
+    amplify.subscribe("reportSubmitted", function(state) {
+        sendEvent('Error Report', state, '');
+    });
+
     amplify.subscribe("candidateClick", function(data) {
         sendEvent('Candidate Click', data['contest'], data['candidate_name']);
     });
+
 
     amplify.subscribe("foundInLocalStorage", function() {
         sendEvent('Storage', 'Found', '', true);

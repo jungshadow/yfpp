@@ -122,4 +122,12 @@
         });
     });
 
+    amplify.subscribe("resultsRendered", function() {
+        $('#error-feedback-link').click(function(event) {
+            event.preventDefault();
+            amplify.publish("reportSubmitted", $(this).attr('data-state'));
+            $('#error-feedback-form').submit();
+        });
+    });
+
 })(window.Handlebars, window.amplify, jQuery);

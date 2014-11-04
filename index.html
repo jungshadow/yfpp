@@ -130,8 +130,16 @@
 	  </fieldset>
 	  <em class="example">eg: 1600 Pennsylvania Ave NW, Washington, DC 20500</em>
 	  <div class="error"></div>
-	</form>
 
+	</form>
+        <div class="clearfix">
+          <a href="#" id="error-feedback-link" data-state="{{ result.normalizedInput.state }}"><strong>This fucking thing wrong? Report it here.</strong></a>
+          <form class="hidden" style="display:none;" method="post" action="https://voter-info-tool.appspot.com/feedback" id="error-feedback-form">
+            <input type="hidden" value="{{ result.election.id }}" name="electionId" />
+            <input type="hidden" value="{{ pretty result.normalizedInput.line1 }}{{#if result.normalizedInput.line2 }} {{ pretty result.normalizedInput.line2 }}{{/if}}, {{ pretty result.normalizedInput.city }}, {{ result.normalizedInput.state }} {{ result.normalizedInput.zip }}" name="address" />
+           <input type="submit" id="error-feedback-link-submit" value="" />
+          </form>
+        </div>
       </div>
 
       <div class="address-container clearfix">
