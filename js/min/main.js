@@ -62,11 +62,11 @@ www.nickcatalano.com
 
 (function(amplify, $){
 
-
+    // TODO: Handle situation when multiple elections return for
+    // the same address
     amplify.subscribe("lookupAddress", function(address) {
         var data = {
-            'key': 'AIzaSyAnjkErJZeEzUIrr52eqcQuiPfTQxQxsMk',
-            'electionId': 4100,
+            'key': 'AIzaSyCm5MGxuhRo7mNmhRlfXlU66OS6Ny-ZPpQ',
             'address': address
         };
         var request = $.ajax({
@@ -399,6 +399,7 @@ www.nickcatalano.com
     });
 
 })(window.Handlebars, window.amplify, jQuery);
+
 /*
 Your Fucking Polling Place
 Google Prediction Javascript
