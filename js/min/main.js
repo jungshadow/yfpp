@@ -62,6 +62,8 @@ www.nickcatalano.com
 
 (function(amplify, $){
 
+    var host = window.location.host;
+    
     // TODO: Handle situation when multiple elections return for
     // the same address
     amplify.subscribe("lookupAddress", function(address) {
@@ -69,6 +71,12 @@ www.nickcatalano.com
             'key': 'AIzaSyCm5MGxuhRo7mNmhRlfXlU66OS6Ny-ZPpQ',
             'address': address
         };
+
+	// if running on localhost or on github.io, return test data
+	if(host.indexOf('localhost')!==-1 || host.indexOf('github.io')!==-1) {
+	    data.electionId = 2000;
+	}
+	
         var request = $.ajax({
             url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?callback=?',
             type: "GET",
