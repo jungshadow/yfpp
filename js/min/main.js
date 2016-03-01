@@ -367,7 +367,7 @@ www.nickcatalano.com
                 notFound: "Fuck. We couldn't find any data for this address.<br>Try again with a residental address, or come back later.",
                 conflict: "Fuck. We have conflicting data about this shit.<br>Come back later",
                 backendError: "Something's fucked up with our provider's servers.<br>Come back later.",
-                invalid: "Well for fuck sake, we don't have polling place information for this address.<br>Sometimes data comes in at the last minute, so check back later."
+                invalid: "Well for fuck sake, we don't have polling place data for this address.<br>Not every state provides enough information to be listed and sometimes data comes in at the last minute, so check back later.<br>Come back in November for 50 state coverage!"
             };
             if (result.reason in clean_reasons) {
                 error_message = clean_reasons[result.reason];
