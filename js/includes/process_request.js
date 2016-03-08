@@ -12,7 +12,8 @@ www.nickcatalano.com
     amplify.subscribe("lookupAddress", function(address) {
         var data = {
             'key': 'AIzaSyCm5MGxuhRo7mNmhRlfXlU66OS6Ny-ZPpQ',
-            'address': address
+            'address': address,
+            'officialOnly': 'true'
         };
         var request = $.ajax({
             url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?callback=?',
