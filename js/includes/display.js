@@ -1,8 +1,7 @@
 (function(Handlebars, amplify, $){
 
     $(function(){
-
-
+	
         Handlebars.registerHelper('pretty', function(text) {
             if (text === undefined) {
                 return text;
@@ -21,9 +20,19 @@
             return Handlebars.helpers.pluralize(array.length, single, plural);
         });
 
+	Handlebars.registerHelper('formatDate', function(datestring, format) {
+	    var moment = window.moment || '';
+	    
+	    if (moment) {
+		return moment(datestring).format(format);
+	    } else {
+		return datestring;
+	    }
+	});
+
         Handlebars.registerHelper('fuckit', function(name) {
             if (name === undefined) {
-                return "No Fucking Place Name Provided";
+                return "Some Fucking Building";
             }
             var orig = Handlebars.helpers.pretty(name);
             var arr = orig.split(' ');

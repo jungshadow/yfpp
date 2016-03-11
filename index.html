@@ -86,7 +86,7 @@
 	    <li class="notes-list-item"><span class="notice"><a href="privacy.html">View Our Privacy Policy</a></span></li>
 	    <li class="notes-list-item"><span class="cite">Data via the <a href="https://developers.google.com/civic-information/">Google Civic Information API</a>. Use of this site also binds you to the <a href="https://www.google.com/intl/en/policies/terms/">Google Terms of Use</a>.</span></li>
 	    <li class="notes-list-item"><span class="notice">Data from states that do not provide direct feeds only include addresses with registered voters</span></li>
-	    <li class="notes-list-item"><span class="notice">Election officials sometimes revise data in the last few days before an election. Check back on Election Day for the latest information.</span><li>
+	    <li class="notes-list-item"><span class="notice">Election officials sometimes revise data in the last few days before an election. Check back on Election Day for the latest information.</span></li>
 	  </ul>
 	</div>
       </footer>
@@ -118,6 +118,7 @@
 
 
       <div class="user-address" data-address="{{ pretty result.normalizedInput.line1 }}{{#if result.normalizedInput.line2 }} {{ pretty result.normalizedInput.line2 }}{{/if}}, {{ pretty result.normalizedInput.city }}, {{ result.normalizedInput.state }} {{ result.normalizedInput.zip }}"><h2><small>You fucking entered</small> {{ pretty result.normalizedInput.line1 }}{{#if result.normalizedInput.line2 }} {{ pretty result.normalizedInput.line2 }}{{/if}}, {{ pretty result.normalizedInput.city }}, {{ result.normalizedInput.state }} {{ result.normalizedInput.zip }}</h2></div>
+      
       <div class="restart"><a class="link toggle-button " href="#" title="Find your fucking polling place">Look for your fucking polling place, again? I apparently have nothing better to do than help your ass all fucking day.</a>
 	<form class="address-form group toggle-container closed" action="#" method="GET" style="display: none;">
 	  <fieldset class="fadeInDownBig">
@@ -142,6 +143,10 @@
         </div>
       </div>
 
+      {{#if result.election}}
+      <div class="election-info"><h2>You're fucking voting in the {{ result.election.name }} on {{ formatDate result.election.date "MMMM Do, YYYY" }}</div>
+      {{/if}}
+      
       <div class="address-container clearfix">
 	{{#if result.pollingLocations}}
 	<h2 class="locations-heading"><i class="icon-arrow-down"></i>You can vote at {{ pluralize_length result.pollingLocations 'this' 'these' }} fucking location{{ pluralize_length result.pollingLocations '' 's' }}:</h2>
@@ -200,6 +205,7 @@
 	{{/if}}
       </div>
 
+      {{#if result.contests}}
       <div class="candidate-container clearfix">
 	<h2 class="candidate-heading"><i class="icon-arrow-down"></i>This is who you can fucking vote for:</h2>
 	<ul class="candidate-list">
@@ -236,7 +242,9 @@
 	  {{/each}}
 	</ul>
       </div>
-
+      {{else}}
+      <p>Where the fuck are your candidates? Refer-fucking-enda? &hellip;the fuck did you do? Check back later and we&apos;ll see if we can fix your mess.</p>
+      {{/if}}
     </script>
 
 

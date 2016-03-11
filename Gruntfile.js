@@ -32,6 +32,7 @@ module.exports = function(grunt) {
 
             base: {
                 src: [
+		    '<%= jsVendorPath %>moment.min.js',
                     '<%= jsVendorPath %>handlebars-v2.0.0.min.js',
                     '<%= jsVendorPath %>amplify-v1.1.2.min.js',
                     '<%= jsPath %>load_external.js',
