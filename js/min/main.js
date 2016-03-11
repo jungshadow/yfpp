@@ -299,7 +299,7 @@ www.nickcatalano.com
 	Handlebars.registerHelper('formatDate', function(datestring, format) {
 	    var moment = window.moment || '';
 	    
-	    if (moment) {
+	    if (moment && moment(datestring).isValid()) {
 		return moment(datestring).format(format);
 	    } else {
 		return datestring;
