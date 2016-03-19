@@ -8,27 +8,30 @@ www.nickcatalano.com
 (function(amplify, $){
 
     var host = window.location.host;
+    var test_data = 
     
     // TODO: Handle situation when multiple elections return for
     // the same address
     amplify.subscribe("lookupAddress", function(address) {
         var data = {
-            'key': 'AIzaSyCm5MGxuhRo7mNmhRlfXlU66OS6Ny-ZPpQ',
+            'key': 'AIzaSyCwuoWCSfD-e0IVAvkmp0wcoPF8fF-Yr_0',
             'address': address
         };
 
 	// if running on localhost or on github.io, return test data
-	if(host.indexOf('localhost')!==-1 || host.indexOf('github.io')!==-1) {
+	if(host.indexOf('localhost')!==-1 || host.indexOf('github.io')!==-1 || host.indexOf('yourfuckingpollingplace.dev')!==-1) {
 	    data.electionId = 2000;
 	}
 	
         var request = $.ajax({
-            url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?callback=?',
+            //url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?callback=?',
+            url: '/test_data.json',
             type: "GET",
-            dataType: 'jsonp',
+            dataType: 'json',
             data: data
         });
         request.done(function(response) {
+
             if ('error' in response) {
                 amplify.publish("requestFailure", response, address);
             } else {
@@ -39,7 +42,7 @@ www.nickcatalano.com
 
     // Handle successful request responses (aka 200s)
     amplify.subscribe("requestSuccess", function(response, address) {
-        console.log("requestSuccess");
+        
         response.result = 'success';
         response.user_address = address;
 
