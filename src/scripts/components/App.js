@@ -2,63 +2,84 @@
 // Import dependencies 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import autobind from 'autobind-decorator';
 
-var App = React.createClass({
+import Search from './Search';
+import PollingPlaceResults from './PollingPlaceResults';
 
-	getInitialState: function() {
-		return { data: [] };
-	},
+@autobind
 
+/**
+ * Outer component for YFPP application
+ * 
+ * @class App
+ * @extends React.Component
+ * 
+ */
+class App extends React.Component {
 
+	/**
+	 * Sets initial state 
+	 * @constructor
+	 */
+	constructor() {
+		super();
 
+		// sets initial state with empty results arrays
+		// that will be dynamically populated from search results
+		this.state= {
+			pollingLocations: [],
+			earlyVoteSites: [],
+			contests: []
+		}
+	};
 
-	render: function() {
+	/**
+	 * Sets state with results from search 
+	 *
+	 * @method updateResults
+	 * @param  {object} data object returned from API
+	 */
+	updateResults(data) {
+
+		this.setState({
+			pollingLocations: data.pollingLocations,
+			earlyVoteSites: data.earlyVoteSites,
+			contests: data.contests
+		});
+	};
+
+	/**
+	 * Renders Polling Place Results data
+	 *
+	 * @method renderResults
+	 * @param  {string} key unique index
+	 * @return {bject}  PollinPlaceResults component markup
+	 */
+	renderResults(key) {
+		
+		return <PollingPlaceResults key={key} pollingLocations={this.state.pollingLocations[key]}  />
+	};
+
+	/**
+	 * Renders application to the DOM
+	 *
+	 * @method render
+	 * @return {object} App component markup
+	 */
+	render() {
 		return (
 			<div>
-			<div>{this.state.data}</div>
-			<Search />
+				<div>{this.state.data}</div>
+				<Search updateResults={this.updateResults} />
+				<ul className="results">
+					{Object.keys(this.state.pollingLocations).map(this.renderResults)}
+				</ul>
 			</div>
 			)
-	}
-});
+	};
 
-var Search = React.createClass({
-
-	fetchData: function(e) {
-
-		e.preventDefault();
-		
-		var config = {
-			'key': 'AIzaSyCm5MGxuhRo7mNmhRlfXlU66OS6Ny-ZPpQ',
-			'address': this.refs.address.value
-		};
-
-		$.ajax({
-			url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?callback=?',
-			type: "GET",
-			dataType: 'jsonp',
-			data: config,
-			success: function(data) {
-				this.setState({data: data});
-			}.bind(this),
-			error: function(xhr, status, err) {
-				console.error(this.props.url, status, err.toString());
-			}.bind(this)
-		});
-	},
-
-	render: function() {
-
-		return (
-			<form action="" ref="searchForm" onSubmit={this.fetchData} >
-				<input type="text" ref="address" placeholder="Search" />
-				<input type="submit" value="submit"/>
-
-
-			</form>
-			)
-	}
-});
+};
 
 export default App;
 
