@@ -1,0 +1,82 @@
+/* ---------------------------------------------------------------------
+WYSIWYG - text styles are inherited without need for additional classes in the content
+------------------------------------------------------------------------ */
+
+.wysiwyg {
+    line-height: 1.25;
+    color: $COLOR_TEXT_DEFAULT;
+    
+    // adds vertical rhythm between page elements
+    // without adding extra whitespace after last element
+    > * + * {
+        margin-top: 10px;
+    }
+
+    // headings
+    h1 { 
+        font-size: $HDG_SIZE;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: $HDG_SIZE;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: $HDG_SIZE;
+        font-weight: bold;
+    }
+
+    h4 {
+        font-size: $HDG_SIZE;
+        font-weight: bold;
+    }
+
+    h5 {
+        font-size: $HDG_SIZE;
+        font-weight: bold;
+    }
+
+    h6 {
+        font-size: $HDG_SIZE;
+        font-weight: bold;
+    }
+
+    // lists
+    ul,
+    ol {
+        margin: 20px 0;
+        padding-left: 20px;
+    }
+    
+    // adds vertical rhythm between list items
+    // without adding extra whitespace after last item
+    ul > * + *,
+    ol > * + * {
+        margin-top: 15px;
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+
+    // paragraphs    
+    p {
+        line-height: 1.25;
+    }
+
+    strong,
+    b {
+        font-weight: bold;
+    }
+
+    em,
+    i {
+        font-style: italic;
+    }
+}
