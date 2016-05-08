@@ -71,7 +71,7 @@ function handleErrors() {
 
 function buildScript(file, watch) {
   var props = {
-    entries: ['./src/scripts/' + file],
+    entries: ['src/scripts/' + file],
     debug : true,
     cache: {},
     packageCache: {},
