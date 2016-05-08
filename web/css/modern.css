@@ -1,0 +1,422 @@
+/* ---------------------------------------------------------------------
+ Modern Styles
+------------------------------------------------------------------------ */
+/* ---------------------------------------------------------------------
+RESET CSS (thanks Eric Meyer)
+------------------------------------------------------------------------ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  vertical-align: baseline; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+:focus {
+  outline: 0; }
+
+html {
+  overflow-y: scroll;
+  /* Always show a vertical scrollbar, even when there is no scrolling */ }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+/* ---------------------------------------------------------------------
+ HTML5 Element Reset
+------------------------------------------------------------------------ */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main {
+  display: block; }
+
+audio, canvas, video, progress, picture {
+  display: inline-block; }
+
+template {
+  display: none; }
+
+/* ---------------------------------------------------------------------
+ Form Reset Styles
+------------------------------------------------------------------------ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none; }
+
+input[type="search"] {
+  -webkit-appearance: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical; }
+
+::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/* ---------------------------------------------------------------------
+element styles - any styles that need to be applied to unclassed elements
+These styles should be kept to a minimum in order to avoid styles bleeding
+into other modules.
+------------------------------------------------------------------------ */
+body {
+  font-family: sanserif;
+  font-size: 14px;
+  line-height: 1.286;
+  color: #4b4b4b; }
+
+a {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer; }
+
+strong {
+  font-weight: bold; }
+
+em {
+  font-style: italic; }
+
+img {
+  max-width: 100%;
+  vertical-align: top; }
+
+.isHidden {
+  display: none !important; }
+
+.isVisuallyHidden {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  margin: 0 !important;
+  clip: rect(1px 1px 1px 1px) !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  overflow: hidden !important; }
+
+/*doc
+---
+title: Button
+name: btn
+category: content
+---
+
+The Button object is used to style clickable elements. The Button object will add hover and focus states.
+An optional extension is available to create an animated gradient hover.
+
+Class                       | Description
+--------------------------- | ---------------------------------------------------------------
+`.btn`                      | Base class.
+`.btn_gradient`             | Modifying extension for base class. Adds animated gradient background.
+
+
+### Basic button
+```html_example
+    <a class="btn">Click Me</a> 
+```
+
+### Button with animated gradient background
+```html_example
+    <a class="btn btn_gradient">Click Me</a>    
+```
+
+*/
+.btn {
+  display: inline-block;
+  border: 1px solid #000000;
+  padding: 12px 30px 10px;
+  font-size: 14px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-weight: bold;
+  overflow: hidden;
+  transition: all .5s ease-in-out;
+  background: white; }
+
+.btn:hover,
+.btn:focus {
+  color: #ffffff;
+  background: #000000; }
+
+.btn_gradient {
+  position: relative;
+  background: none;
+  z-index: 1; }
+
+.btn_gradient:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  height: 100%;
+  width: 0px;
+  background: red;
+  z-index: -1;
+  transition: all .5s ease-in-out;
+  transform: translateX(-50%) skewX(45deg); }
+
+.btn_gradient:hover,
+.btn_gradient:focus {
+  color: #ffffff;
+  background: none; }
+
+.btn_gradient:hover:after,
+.btn_gradient:focus:after {
+  width: 100%;
+  background: red linear-gradient(90deg, #c62e2a, #f46e29, #8e31d2, #3f75d9);
+  background-size: 800% 800%;
+  animation: gradientChange 5s forwards 1 linear; }
+
+/* animation keyframes */
+@keyframes gradientChange {
+  0% {
+    background-color: red; }
+  20% {
+    background: linear-gradient(90deg, #c62e2a, #f46e29, #8e31d2, #3f75d9);
+    background-size: 800% 800%;
+    background-position: 0% 0%; }
+  40% {
+    background-position: 25% 0%; }
+  60% {
+    background-position: 50% 0%; }
+  80% {
+    background-position: 75% 0%; }
+  100% {
+    background-position: 100% 0%; } }
+
+/* ---------------------------------------------------------------------
+WYSIWYG - text styles are inherited without need for additional classes in the content
+------------------------------------------------------------------------ */
+.wysiwyg {
+  line-height: 1.25;
+  color: #4b4b4b; }
+  .wysiwyg > * + * {
+    margin-top: 10px; }
+  .wysiwyg h1 {
+    font-size: 14px;
+    font-weight: bold; }
+  .wysiwyg h2 {
+    font-size: 14px;
+    font-weight: bold; }
+  .wysiwyg h3 {
+    font-size: 14px;
+    font-weight: bold; }
+  .wysiwyg h4 {
+    font-size: 14px;
+    font-weight: bold; }
+  .wysiwyg h5 {
+    font-size: 14px;
+    font-weight: bold; }
+  .wysiwyg h6 {
+    font-size: 14px;
+    font-weight: bold; }
+  .wysiwyg ul,
+  .wysiwyg ol {
+    margin: 20px 0;
+    padding-left: 20px; }
+  .wysiwyg ul > * + *,
+  .wysiwyg ol > * + * {
+    margin-top: 15px; }
+  .wysiwyg ul {
+    list-style-type: disc; }
+  .wysiwyg ol {
+    list-style-type: decimal; }
+  .wysiwyg p {
+    line-height: 1.25; }
+  .wysiwyg strong,
+  .wysiwyg b {
+    font-weight: bold; }
+  .wysiwyg em,
+  .wysiwyg i {
+    font-style: italic; }
+
+/* ---------------------------------------------------------------------
+Blocks
+------------------------------------------------------------------------ */
+.blocks {
+  margin-left: -20px;
+  font-size: 0; }
+
+.blocks > * {
+  display: inline-block;
+  padding-left: 20px;
+  width: 100%;
+  vertical-align: top;
+  font-size: 1rem; }
+
+.blocks_2up > * {
+  width: 50%; }
+
+.blocks_3up > * {
+  width: 33.33333%; }
+
+.blocks_4up > * {
+  width: 25%; }
+
+/* Blocks Vertical rhythm - adds top margin to any blocks that wrap to a second row */
+.blocks_2up > *:nth-child(n+3),
+.blocks_3up > *:nth-child(n+4),
+.blocks_4up > *:nth-child(n+5) {
+  margin-top: 20px; }
+
+/* ---------------------------------------------------------------------
+Grid
+------------------------------------------------------------------------ */
+.grid {
+  margin-right: -20px;
+  font-size: 0; }
+
+.grid-col {
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 20px;
+  font-size: 14px; }
+
+.grid-col_1of12 {
+  width: 8.33333%; }
+
+.grid-col_2of12 {
+  width: 16.66667%; }
+
+.grid-col_3of12 {
+  width: 25%; }
+
+.grid-col_4of12 {
+  width: 33.33333%; }
+
+.grid-col_5of12 {
+  width: 41.66667%; }
+
+.grid-col_6of12 {
+  width: 50%; }
+
+.grid-col_7of12 {
+  width: 58.33333%; }
+
+.grid-col_8of12 {
+  width: 66.66667%; }
+
+.grid-col_9of12 {
+  width: 75%; }
+
+.grid-col_10of12 {
+  width: 83.33333%; }
+
+.grid-col_11of12 {
+  width: 91.66667%; }
+
+.grid-col_12of12 {
+  width: 100%; }
+
+/*doc
+---
+title: Media Object
+name: media
+category: layout
+---
+
+The Media Object object is a simple layout module that is used to display media on the left, and copy or other content on the right.
+
+Class                       | Description
+--------------------------- | ---------------------------------------------------------------
+`.media`                    | Base class.
+`.media-md`                 | Child of base class. Container for the media element
+`.media-bd`                 | Child of base class. Container for copy content
+
+
+```html_example
+<div class="media">
+    <div class="media-md">
+    	<img src="http://placehold.it/150x150" alt="">
+    </div>
+    <div class="media-bd">
+
+    <!-- Insert any content modules here -->
+        <h3 class="heading heading_3">Add any content to this section</h3>
+        <p class="copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus alias sit at ratione repellat eligendi blanditiis amet optio, ipsum cupiditate temporibus accusantium fugiat hic mollitia necessitatibus eum beatae sint!</p>
+    <!-- END content modules -->
+
+    </div>
+</div>
+
+```
+
+*/
+.media:before, .media:after {
+  content: " ";
+  display: table; }
+
+.media:after {
+  clear: both; }
+
+.media-md {
+  float: left;
+  margin-right: 15px; }
+
+.media-bd {
+  overflow: hidden; }
+
+/*doc
+---
+title: Wrapper
+name: wrapper
+category: layout
+---
+
+The Wrapper object is a constrained width container that is used to horizontally center content in the viewport.
+
+Class                       | Description
+--------------------------- | ---------------------------------------------------------------
+`.wrapper`                  | Base class.
+
+
+```html_example
+<div class="wrapper">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas natus doloribus soluta eius, quasi architecto consequatur nemo dignissimos delectus facere nihil provident magni voluptate quam, quia! Adipisci, placeat commodi ipsum rem, sunt voluptates error dignissimos laudantium ipsa? Quasi doloremque vitae vel aperiam dicta molestias eaque laudantium unde illum qui! Rem!</div>
+
+```
+
+*/
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto; }
