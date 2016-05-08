@@ -1,0 +1,819 @@
+{
+    "kind": "civicinfo#voterInfoResponse",
+    "election": {
+        "id": "2000",
+        "name": "VIP Test Election",
+        "electionDay": "2017-06-06",
+        "ocdDivisionId": "ocd-division/country:us"
+    },
+    "normalizedInput": {
+        "line1": "1305 cotanche st",
+        "city": "greenville",
+        "state": "NC",
+        "zip": "27858"
+    },
+    "pollingLocations": [{
+        "address": {
+            "locationName": "FIRST PENTECOSTAL HOLINESS CHURCH SOUTH ANNEX",
+            "line1": "190 PLAZA DR",
+            "city": "GREENVILLE",
+            "state": "NC",
+            "zip": "27858"
+        },
+        "notes": "",
+        "pollingHours": "06:30 to 19:30",
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    },
+    {
+        "address": {
+            "locationName": "Another address",
+            "line1": "190 PLAZA DR",
+            "city": "GREENVILLE",
+            "state": "NC",
+            "zip": "27858"
+        },
+        "notes": "",
+        "pollingHours": "06:30 to 19:30",
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }],
+    "earlyVoteSites": [{
+        "id": "2000",
+        "address": {
+            "locationName": "Bob's Big Red Barn",
+            "line1": "123 American Blvd.",
+            "line2": "string",
+            "line3": "string",
+            "city": "Anytown",
+            "state": "USA",
+            "zip": "12345"
+        },
+        "notes": "string",
+        "pollingHours": "8:00am to 6:00pm",
+        "name": "string",
+        "voterServices": "string",
+        "startDate": "03/01/2016",
+        "endDate": "04/01/2016",
+        "sources": [{
+            "name": "string",
+            "official": true
+        }]
+    }],
+    "contests": [{
+        "type": "General",
+        "office": "US  Senate",
+        "level": [
+            "country"
+        ],
+        "roles": [
+            "legislatorUpperBody"
+        ],
+        "district": {
+            "name": "North Carolina",
+            "scope": "statewide",
+            "id": "ocd-division/country:us/state:nc"
+        },
+        "candidates": [{
+            "name": "Thom Tillis",
+            "party": "Republican",
+            "candidateUrl": "http://thomtillis.com/home/",
+            "channels": [{
+                "type": "Facebook",
+                "id": "https://www.facebook.com/ThomTillisNC"
+            }, {
+                "type": "Twitter",
+                "id": "https://twitter.com/thomtillis"
+            }, {
+                "type": "YouTube",
+                "id": "https://www.youtube.com/channel/UCzvWXdBr7NauC0N5erjTNzQ"
+            }]
+        }, {
+            "name": "Kay Hagan",
+            "party": "Democratic",
+            "candidateUrl": "http://www.kayhagan.com/",
+            "channels": [{
+                "type": "Facebook",
+                "id": "https://www.facebook.com/KayHaganforSenate"
+            }, {
+                "type": "Twitter",
+                "id": "https://twitter.com/kayhagan"
+            }, {
+                "type": "YouTube",
+                "id": "https://www.youtube.com/channel/UC96r-c0XxBNJqpH0cGYur7w"
+            }]
+        }, {
+            "name": "Sean Haugh",
+            "party": "Libertarian",
+            "candidateUrl": "https://seanhaugh.nationbuilder.com/",
+            "channels": [{
+                "type": "Facebook",
+                "id": "https://www.facebook.com/HaughForSenate"
+            }, {
+                "type": "Twitter",
+                "id": "https://twitter.com/EmperorSean"
+            }, {
+                "type": "YouTube",
+                "id": "https://www.youtube.com/channel/UCHFge7uP_08X1Ki0syATqTA"
+            }]
+        }],
+        "sources": [{
+            "name": "Ballot Information Project",
+            "official": false
+        }]
+    }, {
+        "type": "General",
+        "office": "Supreme Court Associate Justice (Beasley Seat)",
+        "level": [
+            "administrativeArea1"
+        ],
+        "roles": [
+            "highestCourtJudge"
+        ],
+        "district": {
+            "name": "North Carolina",
+            "scope": "statewide",
+            "id": "ocd-division/country:us/state:nc"
+        },
+        "candidates": [{
+            "name": "Cheri Beasley",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Mike Robinson",
+            "party": "Nonpartisan"
+        }],
+        "sources": [{
+            "name": "Ballot Information Project",
+            "official": false
+        }]
+    }, {
+        "type": "General",
+        "office": "Supreme Court Associate Justice (Martin Seat)",
+        "level": [
+            "administrativeArea1"
+        ],
+        "roles": [
+            "highestCourtJudge"
+        ],
+        "district": {
+            "name": "North Carolina",
+            "scope": "statewide",
+            "id": "ocd-division/country:us/state:nc"
+        },
+        "candidates": [{
+            "name": "Sam J. Ervin IV",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Bob Hunter",
+            "party": "Nonpartisan"
+        }],
+        "sources": [{
+            "name": "Ballot Information Project",
+            "official": false
+        }]
+    }, {
+        "type": "General",
+        "office": "Supreme Court Associate Justice (Hudson Seat)",
+        "level": [
+            "administrativeArea1"
+        ],
+        "roles": [
+            "highestCourtJudge"
+        ],
+        "district": {
+            "name": "North Carolina",
+            "scope": "statewide",
+            "id": "ocd-division/country:us/state:nc"
+        },
+        "candidates": [{
+            "name": "Robin Hudson",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Eric Levinson",
+            "party": "Nonpartisan"
+        }],
+        "sources": [{
+            "name": "Ballot Information Project",
+            "official": false
+        }]
+    }, {
+        "type": "General",
+        "office": "Supreme Court Chief Justice (Parker Seat)",
+        "level": [
+            "administrativeArea1"
+        ],
+        "roles": [
+            "highestCourtJudge"
+        ],
+        "district": {
+            "name": "North Carolina",
+            "scope": "statewide",
+            "id": "ocd-division/country:us/state:nc"
+        },
+        "candidates": [{
+            "name": "Ola M. Lewis",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Mark Martin",
+            "party": "Nonpartisan"
+        }],
+        "sources": [{
+            "name": "Ballot Information Project",
+            "official": false
+        }]
+    }, {
+        "type": "General",
+        "office": "Court Of Appeals Judge (Davis Seat)",
+        "level": [
+            "administrativeArea1"
+        ],
+        "roles": [
+            "judge"
+        ],
+        "district": {
+            "name": "North Carolina",
+            "scope": "statewide",
+            "id": "ocd-division/country:us/state:nc"
+        },
+        "candidates": [{
+            "name": "Mark Davis",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Paul Holcombe",
+            "party": "Nonpartisan"
+        }],
+        "sources": [{
+            "name": "Ballot Information Project",
+            "official": false
+        }]
+    }, {
+        "type": "General",
+        "office": "Court Of Appeals Judge (Hunter Seat)",
+        "level": [
+            "administrativeArea1"
+        ],
+        "roles": [
+            "judge"
+        ],
+        "district": {
+            "name": "North Carolina",
+            "scope": "statewide",
+            "id": "ocd-division/country:us/state:nc"
+        },
+        "candidates": [{
+            "name": "Lucy Inman",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Bill Southern",
+            "party": "Nonpartisan"
+        }],
+        "sources": [{
+            "name": "Ballot Information Project",
+            "official": false
+        }]
+    }, {
+        "type": "General",
+        "office": "Court Of Appeals Judge (Stroud Seat)",
+        "level": [
+            "administrativeArea1"
+        ],
+        "roles": [
+            "judge"
+        ],
+        "district": {
+            "name": "North Carolina",
+            "scope": "statewide",
+            "id": "ocd-division/country:us/state:nc"
+        },
+        "candidates": [{
+            "name": "Donna Stroud",
+            "party": "Nonpartisan"
+        }],
+        "sources": [{
+            "name": "Ballot Information Project",
+            "official": false
+        }]
+    }, {
+        "type": "General",
+        "office": "Court of Appeals Judge (Martin Seat)",
+        "level": [
+            "regional"
+        ],
+        "roles": [
+            "judge"
+        ],
+        "district": {
+            "name": "North Carolina",
+            "scope": "statewide",
+            "id": "ocd-division/country:us/state:nc"
+        },
+        "candidates": [{
+            "name": "Marion Warren",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Chuck Winfree",
+            "party": "Nonpartisan"
+        }, {
+            "name": "John M. Tyson",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Elizabeth Davenport Scott",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Tricia Shields",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Jody Newsome",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Marty Martin",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Hunter Murphy",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Keischa Lovelace",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Ann Kirby",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Abe Jones",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Sabra Jean Faires",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Daniel Patrick Donahue",
+            "party": "Nonpartisan"
+        }, {
+            "name": "J. Brad Donovan",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Lori G. Christian",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Jeffrey M. Cook",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Betsy Bunting",
+            "party": "Nonpartisan"
+        }, {
+            "name": "John S. Arrowood",
+            "party": "Nonpartisan"
+        }, {
+            "name": "Valerie Johnson Zachary",
+            "party": "Nonpartisan"
+        }],
+        "sources": [{
+            "name": "Ballot Information Project",
+            "official": false
+        }]
+    }, {
+        "type": "GENERAL",
+        "primaryParty": "",
+        "office": "NC STATE SENATE DISTRICT 07",
+        "district": {
+            "name": "NC STATE SENATE DISTRICT 07",
+            "scope": "stateUpper"
+        },
+        "ballotPlacement": "13",
+        "candidates": [{
+            "name": "Louis M. Pate, Jr.",
+            "party": "REP",
+            "phone": "9196586170"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "GENERAL",
+        "primaryParty": "",
+        "office": "NC HOUSE OF REPRESENTATIVES DISTRICT 024",
+        "district": {
+            "name": "NC HOUSE OF REPRESENTATIVES DISTRICT 024",
+            "scope": "stateLower"
+        },
+        "ballotPlacement": "14",
+        "candidates": [{
+            "name": "Jean Farmer Butterfield",
+            "party": "DEM",
+            "phone": "2522910828"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "PRIMARY",
+        "primaryParty": "REP",
+        "office": "US SENATE",
+        "district": {
+            "name": "US SENATE",
+            "scope": "countywide"
+        },
+        "ballotPlacement": "1",
+        "candidates": [{
+            "name": "Mark Harris",
+            "party": "REP"
+        }, {
+            "name": "Heather Grant",
+            "party": "REP",
+            "phone": "3368181024"
+        }, {
+            "name": "Thom Tillis",
+            "party": "REP"
+        }, {
+            "name": "Greg Brannon",
+            "party": "REP"
+        }, {
+            "name": "Edward Kryn",
+            "party": "REP",
+            "phone": "9195534172"
+        }, {
+            "name": "Jim Snyder",
+            "party": "REP",
+            "phone": "3362490303"
+        }, {
+            "name": "Alex Lee Bradshaw",
+            "party": "REP"
+        }, {
+            "name": "Ted Alexander",
+            "party": "REP"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "PRIMARY",
+        "primaryParty": "DEM",
+        "office": "US SENATE",
+        "district": {
+            "name": "US SENATE",
+            "scope": "countywide"
+        },
+        "ballotPlacement": "1",
+        "candidates": [{
+            "name": "Ernest T. Reeves",
+            "party": "DEM",
+            "phone": "2523642481"
+        }, {
+            "name": "Will Stewart",
+            "party": "DEM"
+        }, {
+            "name": "Kay Hagan",
+            "party": "DEM"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "PRIMARY",
+        "primaryParty": "LIB",
+        "office": "US SENATE",
+        "district": {
+            "name": "US SENATE",
+            "scope": "countywide"
+        },
+        "ballotPlacement": "1",
+        "candidates": [{
+            "name": "Tim D'Annunzio",
+            "party": "LIB"
+        }, {
+            "name": "Sean Haugh",
+            "party": "LIB"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "PRIMARY",
+        "primaryParty": "REP",
+        "office": "US HOUSE OF REPRESENTATIVES DISTRICT 03",
+        "district": {
+            "name": "US HOUSE OF REPRESENTATIVES DISTRICT 03",
+            "scope": "countywide"
+        },
+        "ballotPlacement": "2",
+        "candidates": [{
+            "name": "Al (Big Al) Novinec",
+            "party": "REP",
+            "phone": "9103307222"
+        }, {
+            "name": "Taylor Griffin",
+            "party": "REP"
+        }, {
+            "name": "Walter Jones",
+            "party": "REP",
+            "phone": "2527538587"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "PRIMARY",
+        "primaryParty": "DEM",
+        "office": "NC HOUSE OF REPRESENTATIVES DISTRICT 024",
+        "district": {
+            "name": "NC HOUSE OF REPRESENTATIVES DISTRICT 024",
+            "scope": "countywide"
+        },
+        "ballotPlacement": "14",
+        "candidates": [{
+            "name": "Mark Bibbs",
+            "party": "DEM",
+            "phone": "2522051982"
+        }, {
+            "name": "Jean Farmer-Butterfield",
+            "party": "DEM",
+            "phone": "2523738868"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "PRIMARY",
+        "primaryParty": "DEM",
+        "office": "BOARD OF COUNTY COMMISSIONERS DISTRICT 1",
+        "district": {
+            "name": "PITT BOARD OF COUNTY COMMISSIONERS DISTRICT 1",
+            "scope": "countywide"
+        },
+        "ballotPlacement": "15",
+        "candidates": [{
+            "name": "David Hammond",
+            "party": "DEM",
+            "phone": "2523297749"
+        }, {
+            "name": "George Davis",
+            "party": "DEM",
+            "phone": "2524136320"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "PRIMARY",
+        "office": "Supreme Court Associate Justice (Hudson)",
+        "district": {
+            "name": "SUPREME COURT ASSOCIATE JUSTICE (HUDSON)",
+            "scope": "countywide"
+        },
+        "ballotPlacement": "20",
+        "candidates": [{
+            "name": "Robin Hudson"
+        }, {
+            "name": "Eric Levinson"
+        }, {
+            "name": "Jeanette Doran"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "PRIMARY",
+        "office": "District Court Judge District 03A (Teague)",
+        "district": {
+            "name": "DISTRICT COURT JUDGE DISTRICT 03A (TEAGUE)",
+            "scope": "countywide"
+        },
+        "ballotPlacement": "23",
+        "candidates": [{
+            "name": "Lee F. Teague"
+        }, {
+            "name": "Faris Dixon",
+            "phone": "2527570403"
+        }, {
+            "name": "Daniel Hines Entzminger"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "PRIMARY",
+        "primaryParty": "REP",
+        "office": "CLERK OF SUPERIOR COURT",
+        "district": {
+            "name": "PITT CLERK OF SUPERIOR COURT",
+            "scope": "countywide"
+        },
+        "ballotPlacement": "29",
+        "candidates": [{
+            "name": "Chris Johnson",
+            "party": "REP",
+            "phone": "2529178972"
+        }, {
+            "name": "Wallace (BumBee) Gibbs",
+            "party": "REP",
+            "phone": "2523414610"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "PRIMARY",
+        "primaryParty": "DEM",
+        "office": "CLERK OF SUPERIOR COURT",
+        "district": {
+            "name": "PITT CLERK OF SUPERIOR COURT",
+            "scope": "countywide"
+        },
+        "ballotPlacement": "30",
+        "candidates": [{
+            "name": "Sara Beth Fulford Rhodes",
+            "party": "DEM",
+            "phone": "2527534609"
+        }, {
+            "name": "Charlene Spain Corbett",
+            "party": "DEM",
+            "phone": "2524130335"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "PRIMARY",
+        "primaryParty": "DEM",
+        "office": "SHERIFF",
+        "district": {
+            "name": "PITT SHERIFF",
+            "scope": "countywide"
+        },
+        "ballotPlacement": "33",
+        "candidates": [{
+            "name": "Neil Elks",
+            "party": "DEM",
+            "phone": "2527529467"
+        }, {
+            "name": "Paul D. McLawhorn",
+            "party": "DEM",
+            "phone": "2523556526"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "GENERAL",
+        "primaryParty": "",
+        "office": "DISTRICT COURT JUDGE DISTRICT 03A (BRADDY)",
+        "district": {
+            "name": "DISTRICT COURT JUDGE DISTRICT 03A (BRADDY)",
+            "scope": "judicial"
+        },
+        "ballotPlacement": "23",
+        "candidates": [{
+            "name": "G. Galen Braddy",
+            "party": "",
+            "phone": "2522588399"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "GENERAL",
+        "primaryParty": "",
+        "office": "DISTRICT COURT JUDGE DISTRICT 03A (VINCENT)",
+        "district": {
+            "name": "DISTRICT COURT JUDGE DISTRICT 03A (VINCENT)",
+            "scope": "judicial"
+        },
+        "ballotPlacement": "23",
+        "candidates": [{
+            "name": "Brian DeSoto",
+            "party": "",
+            "phone": "2528646297"
+        }, {
+            "name": "Faris Dixon",
+            "party": "",
+            "phone": "2527570403"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "GENERAL",
+        "primaryParty": "",
+        "office": "DISTRICT COURT JUDGE DISTRICT 03A (LEECH)",
+        "district": {
+            "name": "DISTRICT COURT JUDGE DISTRICT 03A (LEECH)",
+            "scope": "judicial"
+        },
+        "ballotPlacement": "23",
+        "candidates": [{
+            "name": "David A. Leech",
+            "party": "",
+            "phone": "2527569947"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "GENERAL",
+        "primaryParty": "",
+        "office": "BOARD OF COMMISSIONERS DISTRICT A",
+        "district": {
+            "name": "PITT BOARD OF COMMISSIONERS DISTRICT A",
+            "scope": "countyCouncil"
+        },
+        "ballotPlacement": "15",
+        "candidates": [{
+            "name": "Melvin C. McLawhorn",
+            "party": "DEM",
+            "phone": "2523557290"
+        }],
+        "sources": [{
+            "name": "Voting Information Project",
+            "official": true
+        }]
+    }, {
+        "type": "Referendum",
+        "district": {
+            "name": "North Carolina",
+            "scope": "statewide",
+            "id": "ocd-division/country:us/state:nc"
+        },
+        "referendumTitle": "NC Constitutional Amendment",
+        "referendumUrl": "http://www.ncsbe.gov/ncsbe/Portals/0/FilesP/constitutional-amendment.pdf",
+        "sources": [{
+            "name": "Ballot Information Project",
+            "official": false
+        }]
+    }],
+    "state": [{
+        "name": "North Carolina",
+        "electionAdministrationBody": {
+            "name": "North Carolina State Board of Elections",
+            "electionInfoUrl": "http://www.ncsbe.gov/ncsbe/",
+            "electionRegistrationUrl": "http://www.eac.gov/assets/1/Documents/Federal%20Voter%20Registration_6-25-14_ENG.pdf",
+            "electionRegistrationConfirmationUrl": "https://www.ncsbe.gov/webapps/voter_search/",
+            "absenteeVotingInfoUrl": "http://ncelectionconnection.com/voting-in-nc/absentee-ballot/",
+            "votingLocationFinderUrl": "http://www.ncsbe.gov/webapps/pollingplace_search/",
+            "ballotInfoUrl": "http://na",
+            "electionRulesUrl": "http://www.ncsbe.gov/ncsbe/elections",
+            "correspondenceAddress": {
+                "line1": "P.o. Box 27255",
+                "city": "Raleigh",
+                "state": "North Carolina",
+                "zip": "27611-2767"
+            }
+        },
+        "local_jurisdiction": {
+            "name": "PITT",
+            "electionAdministrationBody": {
+                "name": "Pitt County Board of Elections",
+                "electionInfoUrl": "http://www.ncsbe.gov/",
+                "electionRegistrationUrl": "http://www.ncsbe.gov/",
+                "electionRegistrationConfirmationUrl": "http://www.ncsbe.gov/",
+                "absenteeVotingInfoUrl": "http://www.ncsbe.gov/",
+                "votingLocationFinderUrl": "http://www.ncsbe.gov/",
+                "electionRulesUrl": "http://www.ncsbe.gov/",
+                "correspondenceAddress": {
+                    "line1": "PO Box 56",
+                    "city": "Greenville",
+                    "state": "NC",
+                    "zip": "27835-0056"
+                },
+                "physicalAddress": {
+                    "line1": "201 E Second St",
+                    "city": "Greenville",
+                    "state": "NC",
+                    "zip": "27858"
+                },
+                "electionOfficials": [{
+                    "name": "DAVID P. DAVIS",
+                    "title": "DIRECTOR PITT COUNTY BOARD OF ELECTIONS",
+                    "officePhoneNumber": "252-902-3300",
+                    "faxNumber": "252-830-1157",
+                    "emailAddress": "pitt.boe@ncsbe.gov"
+                }]
+            },
+            "sources": [{
+                "name": "Voting Information Project",
+                "official": true
+            }]
+        },
+        "sources": [{
+            "name": "",
+            "official": false
+        }]
+    }]
+}
