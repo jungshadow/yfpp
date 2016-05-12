@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 
 /**
- * Polling Place Results 
+ * Polling Place Results Component
  *
  * @class PollingPlaceResults
  * @extends React.Component
