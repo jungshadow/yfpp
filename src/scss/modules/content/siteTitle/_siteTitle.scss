@@ -1,0 +1,24 @@
+/* ---------------------------------------------------------------------
+siteTitle
+------------------------------------------------------------------------ */
+
+.siteTitle {
+	font-family: $FONT_HEADLINE;
+	color: $COLOR_PRIMARY;
+	font-size: 26px;
+	line-height: 1;
+}
+
+.siteTitle-seg1 {
+	letter-spacing: .75px;
+}
+
+.siteTitle-seg2 {
+	display: block;
+	font-size: 35px;
+	line-height: .95;
+}
+
+.mix-siteTitle_accent {
+	color: $COLOR_SECONDARY;
+}
