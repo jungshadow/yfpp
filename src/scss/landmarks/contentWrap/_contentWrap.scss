@@ -1,0 +1,36 @@
+/* ---------------------------------------------------------------------
+contentWrap - outer container for main content
+------------------------------------------------------------------------ */
+
+.contentWrap {
+	display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+	height: 100vh;
+	width: 100%;
+	padding: 50px;
+	overflow-y: scroll;
+	transition: all .25s ease-in-out;
+}
+
+.contentWrap-secondary {
+	transition: all .25s ease-in-out;
+	transform: translateY(500px);
+	opacity: 0;
+}
+
+.isActive {
+
+	&.contentWrap {
+		justify-content: flex-start;
+	}
+
+
+	.contentWrap-secondary {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
