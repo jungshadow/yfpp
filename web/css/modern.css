@@ -92,16 +92,47 @@ textarea {
   border: 0;
   padding: 0; }
 
+@font-face {
+  font-family: 'Liberator';
+  src: url("../fonts/liberator-heavy-webfont.woff2") format("woff2"), url("../fonts/liberator-heavy-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Liberator';
+  src: url("../fonts/liberator-light-webfont.woff2") format("woff2"), url("../fonts/liberator-light-webfont.woff") format("woff");
+  font-weight: light;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Liberator';
+  src: url("../fonts/liberator-medium-webfont.woff2") format("woff2"), url("../fonts/liberator-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/lato-black-webfont.woff2") format("woff2"), url("../fonts/lato-black-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/lato-regular-webfont.woff2") format("woff2"), url("../fonts/lato-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
 /* ---------------------------------------------------------------------
 element styles - any styles that need to be applied to unclassed elements
 These styles should be kept to a minimum in order to avoid styles bleeding
 into other modules.
 ------------------------------------------------------------------------ */
 body {
-  font-family: sanserif;
+  font-family: "Lato", sanserif;
   font-size: 14px;
   line-height: 1.286;
-  color: #4b4b4b; }
+  color: #4b4b4b;
+  background-color: #e4e1dd; }
 
 a {
   color: #000000;
@@ -133,6 +164,64 @@ img {
   clip: rect(1px 1px 1px 1px) !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
   overflow: hidden !important; }
+
+/* ---------------------------------------------------------------------
+contentWrap - outer container for main content
+------------------------------------------------------------------------ */
+.contentWrap {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  padding: 50px;
+  overflow-y: scroll;
+  transition: all .25s ease-in-out; }
+
+.contentWrap-secondary {
+  transition: all .25s ease-in-out;
+  transform: translateY(500px);
+  opacity: 0; }
+
+.isActive.contentWrap {
+  justify-content: flex-start; }
+
+.isActive .contentWrap-secondary {
+  transform: translateY(0px);
+  opacity: 1; }
+
+/* ---------------------------------------------------------------------
+header
+------------------------------------------------------------------------ */
+/* ---------------------------------------------------------------------
+search 
+------------------------------------------------------------------------ */
+.searchForm {
+  position: relative; }
+
+.searchForm-input {
+  display: block;
+  background: #f1eeea;
+  width: 100%;
+  padding: 7px 46px 7px 7px;
+  border: 1px solid #bbbbbb; }
+
+.searchForm-submit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 29px;
+  width: 29px;
+  overflow: hidden;
+  text-indent: -999em;
+  text-align: left;
+  background: #7d2929;
+  border: none; }
+  .searchForm-submit:hover, .searchForm-submit:focus {
+    background: #a33636; }
 
 /*doc
 ---
@@ -226,50 +315,24 @@ Class                       | Description
     background-position: 100% 0%; } }
 
 /* ---------------------------------------------------------------------
-WYSIWYG - text styles are inherited without need for additional classes in the content
+siteTitle
 ------------------------------------------------------------------------ */
-.wysiwyg {
-  line-height: 1.25;
-  color: #4b4b4b; }
-  .wysiwyg > * + * {
-    margin-top: 10px; }
-  .wysiwyg h1 {
-    font-size: 14px;
-    font-weight: bold; }
-  .wysiwyg h2 {
-    font-size: 14px;
-    font-weight: bold; }
-  .wysiwyg h3 {
-    font-size: 14px;
-    font-weight: bold; }
-  .wysiwyg h4 {
-    font-size: 14px;
-    font-weight: bold; }
-  .wysiwyg h5 {
-    font-size: 14px;
-    font-weight: bold; }
-  .wysiwyg h6 {
-    font-size: 14px;
-    font-weight: bold; }
-  .wysiwyg ul,
-  .wysiwyg ol {
-    margin: 20px 0;
-    padding-left: 20px; }
-  .wysiwyg ul > * + *,
-  .wysiwyg ol > * + * {
-    margin-top: 15px; }
-  .wysiwyg ul {
-    list-style-type: disc; }
-  .wysiwyg ol {
-    list-style-type: decimal; }
-  .wysiwyg p {
-    line-height: 1.25; }
-  .wysiwyg strong,
-  .wysiwyg b {
-    font-weight: bold; }
-  .wysiwyg em,
-  .wysiwyg i {
-    font-style: italic; }
+.siteTitle {
+  font-family: "Liberator", sanserif;
+  color: #2b3975;
+  font-size: 26px;
+  line-height: 1; }
+
+.siteTitle-seg1 {
+  letter-spacing: .75px; }
+
+.siteTitle-seg2 {
+  display: block;
+  font-size: 35px;
+  line-height: .95; }
+
+.mix-siteTitle_accent {
+  color: #7d2929; }
 
 /* ---------------------------------------------------------------------
 Blocks
