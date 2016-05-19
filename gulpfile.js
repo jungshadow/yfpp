@@ -25,7 +25,7 @@ gulp.task('styles',function() {
   // move over fonts
 
   gulp.src('./src/fonts/**.*')
-    .pipe(gulp.dest('web/css/fonts'))
+    .pipe(gulp.dest('web/fonts'))
 });
 
 
