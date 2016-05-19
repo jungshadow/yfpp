@@ -32,7 +32,8 @@ gulp.task('styles',function() {
 gulp.task('sass', function () {
   return gulp.src('./src/scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./web/css'));
+    .pipe(gulp.dest('./web/css'))
+    .pipe(browserSync.stream());
 });
 
 gulp.task('sass:watch', function () {
