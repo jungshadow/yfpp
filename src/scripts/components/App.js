@@ -7,6 +7,11 @@ import autobind from 'autobind-decorator';
 import Search from './Search';
 import PollingPlaceResults from './PollingPlaceResults';
 import ContestResults from './ContestResults';
+import PartySelect from './PartySelect';
+import SiteTitle from './SiteTitle';
+
+// active classname
+const ACTIVE_CLASS = 'isActive';
 
 @autobind
 
@@ -24,6 +29,7 @@ import ContestResults from './ContestResults';
 	 * @constructor
 	 */
 	 constructor() {
+
 	 	super();
 
 		// sets initial state with empty results arrays
@@ -31,7 +37,9 @@ import ContestResults from './ContestResults';
 		this.state= {
 			pollingLocations: [],
 			earlyVoteSites: [],
-			contests: []
+			contests: [],
+			isActive: false,
+			filterBy: 'all'
 		}
 	};
 
@@ -46,8 +54,24 @@ import ContestResults from './ContestResults';
 	 	this.setState({
 	 		pollingLocations: data.pollingLocations,
 	 		earlyVoteSites: data.earlyVoteSites,
-	 		contests: data.contests
+	 		contests: data.contests,
+	 		isActive: true
 	 	});
+
+	 };
+
+	/**
+	 * Sets state with latest filter text 
+	 *
+	 * @method updateFilterText
+	 * @param  {string} user input text
+	 */
+	 updatefilterText(textString) {
+
+	 	this.setState({
+	 		filterBy: textString
+	 	});
+
 	 };
 
 	/**
@@ -71,7 +95,7 @@ import ContestResults from './ContestResults';
 	 */
 	 renderContestResults(key) {
 
-	 	return <ContestResults key={key} contests={this.state.contests[key]}  />
+	 	return <ContestResults key={key} filterBy={this.state.filterBy} contests={this.state.contests[key]}  />
 	 };
 
 	/**
@@ -81,18 +105,34 @@ import ContestResults from './ContestResults';
 	 * @return {object} App component markup
 	 */
 	 render() {
+		
+		// sets active classname
+		var activeClassName = this.state.isActive === true ? ACTIVE_CLASS : '';
+	 	
 	 	return (
-	 		<div>
-		 		<div>{this.state.data}</div>
-		 		<Search updateResults={this.updateResults} />
-		 		<ul className="results">
-		 			{Object.keys(this.state.pollingLocations).map(this.renderPollingPlaceResults)}
-		 		</ul>
+	 		
+	 		<div className="wrap">
 
-		 		<ul className="results">
-		 			{Object.keys(this.state.contests).map(this.renderContestResults)}
-		 		</ul>
+	 			<div className={'contentWrap ' + activeClassName}>
+	 				<header className="contentWrap-primary" role="banner">
+	 					<SiteTitle />
+	 					<Search updateResults={this.updateResults} isActive={this.state.isActive} />
+	 				</header>
+	 				<main className="contentWrap-secondary" role="main">
+	 					<PartySelect candidates={this.state.contests} updateFilterText={this.updatefilterText} filterBy={this.state.filterBy}/>
+	 					<ul className="results">
+	 						{Object.keys(this.state.pollingLocations).map(this.renderPollingPlaceResults)}
+	 					</ul>
+	 					<ul className="results">
+	 						{Object.keys(this.state.contests).map(this.renderContestResults)}
+	 					</ul>
+	 				</main>
+	 			</div>
+	 			<footer></footer>
 	 		</div>
+
+
+
 	 		)
 	 };
 
