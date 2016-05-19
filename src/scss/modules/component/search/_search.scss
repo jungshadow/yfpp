@@ -1,0 +1,33 @@
+/* ---------------------------------------------------------------------
+search 
+------------------------------------------------------------------------ */
+
+.searchForm {
+	position: relative; // provides positioning context for absolutely positioned submit button
+}
+
+.searchForm-input {
+	display: block;
+	background: $WHITE;
+	width: 100%;
+	padding: 7px 46px 7px 7px; // extra right padding makes room for absolutely positioned button
+	border: 1px solid $GREY_MEDIUM;
+}
+
+.searchForm-submit {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 29px;
+	width: 29px;
+	overflow: hidden;
+	text-indent: -999em;
+	text-align: left;
+	background: $RED;
+	border: none;
+
+	&:hover,
+	&:focus {
+		background: lighten($RED, 10);
+	}
+}
