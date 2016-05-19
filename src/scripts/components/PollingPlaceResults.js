@@ -21,8 +21,6 @@ class PollingPlaceResults extends React.Component {
 
 		const locations = this.props.pollingLocations;
 
-		console.log(locations);
-
 		return (
 			<li className="results_pollingplace">
 				<h3 className="hdg hdg_3">{locations.address.locationName}</h3>
