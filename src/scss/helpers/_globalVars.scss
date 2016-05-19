@@ -3,20 +3,28 @@
 // ----------------------------------------------------------------------------
 // Font
 // ----------------------------------------------------------------------------
-$FONT_DEFAULT: sanserif;
+$FONT_DEFAULT: 'Lato', sanserif;
+$FONT_HEADLINE: 'Liberator', sanserif;
 $FONT_SIZE_DEFAULT: 14px;
-
 
 // ----------------------------------------------------------------------------
 // Colors
 // ----------------------------------------------------------------------------
 
-//Core Colors
 $COLOR_TEXT_DEFAULT: #4b4b4b;
 $COLOR_LINK_DEFAULT: #000000;
 $COLOR_TEXT_LIGHT: #ffffff;
-$COLOR_PRIMARY: #ebebeb;
-$COLOR_SECONDARY: #ebebeb;
+
+$WHITE: #f1eeea;
+$GREY_LIGHT: #e4e1dd;
+$GREY_MEDIUM: #bbbbbb;
+$GREY: #b1ada8;
+$GREY_DARK: #3f3d3c;
+$RED: #7d2929;
+$BLUE: #2b3975;
+
+$COLOR_PRIMARY: $BLUE;
+$COLOR_SECONDARY: $RED;
 
 // ----------------------------------------------------------------------------
 // Dimensions

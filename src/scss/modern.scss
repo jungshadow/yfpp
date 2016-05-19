@@ -10,16 +10,19 @@
 @import "helpers/_utils";
 
 // landmarks
-
+@import "landmarks/contentWrap/_contentWrap";
+@import "landmarks/header/_header";
 
 // modules//////////////////////////////////////
 
 // container
 
+// component
+@import "modules/component/search/_search";
 
-//content
+// content
 @import "modules/content/btn/_btn";
-@import "modules/content/wysiwyg/_wysiwyg";
+@import "modules/content/siteTitle/_siteTitle";
 
 // layout
 @import "modules/layout/blocks/_blocks";
