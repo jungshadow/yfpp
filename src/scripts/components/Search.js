@@ -23,7 +23,6 @@ class Search extends React.Component {
 			'address': this.refs.address.value
 		};
 
-		console.log(config);
 
 		$.ajax({
 			//url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?callback=?',
@@ -32,8 +31,8 @@ class Search extends React.Component {
 			dataType: 'json',
 			data: config,
 			success: function(data) {
-				console.log(data);
 				this.props.updateResults(data);
+				this.setState({isActive: false});
 			}.bind(this),
 			error: function(xhr, status, err) {
 				console.error(this.props.url, status, err.toString());
@@ -48,11 +47,11 @@ class Search extends React.Component {
 	 * @return {object} search component markup
 	 */
 	render() {
-
+		
 		return (
-			<form action="" ref="searchForm" onSubmit={this.fetchData} >
-				<input type="text" ref="address" placeholder="Search" />
-				<input type="submit" value="submit"/>
+			<form className="searchForm" action="" ref="searchForm" onSubmit={this.fetchData} >
+				<input className="searchForm-input" type="search" ref="address" placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC" />
+				<input className="searchForm-submit" type="submit" value="submit"/>
 			</form>
 			)
 	}
