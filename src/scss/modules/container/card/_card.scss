@@ -1,0 +1,21 @@
+/* ---------------------------------------------------------------------
+card
+------------------------------------------------------------------------ */
+
+.card {
+	background-color: rgba($GREY_MEDIUM, .45);
+	border: solid 2px $RED;
+	border-radius: 6px;
+}
+
+.card_secondary {
+	border-color: $BLUE;
+}
+
+.card-bd {
+	padding: 36px;
+}
+
+.card-ft {
+	text-align: center
+}
