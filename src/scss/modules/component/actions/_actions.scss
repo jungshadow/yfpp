@@ -1,0 +1,18 @@
+/* ---------------------------------------------------------------------
+actions
+------------------------------------------------------------------------ */
+
+.actions {
+	display: block;
+	text-align: center;
+}
+
+.actions > * {
+	display: inline-block;
+	border: solid 0.5px $GREY;
+	border-radius: 2px;
+}
+
+.actions-item > * {
+	display: inline-block;
+}
