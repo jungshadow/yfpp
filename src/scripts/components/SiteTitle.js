@@ -21,7 +21,7 @@ class SiteTitle extends React.Component {
 
 
 		return (
-			<h1 className="siteTitle">
+			<h1 className={'siteTitle ' + this.props.activeClassName}>
 				<strong className="siteTitle-seg1">Where's My <span className="mix-siteTitle_accent">Fucking</span></strong>
 				<strong className="siteTitle-seg2">Polling Place?</strong>
 			</h1>
