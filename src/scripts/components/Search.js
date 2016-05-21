@@ -49,9 +49,9 @@ class Search extends React.Component {
 	render() {
 		
 		return (
-			<form className="searchForm" action="" ref="searchForm" onSubmit={this.fetchData} >
+			<form className={'searchForm ' + this.props.activeClassName} action="" ref="searchForm" onSubmit={this.fetchData} >
 				<input className="searchForm-input" type="search" ref="address" placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC" />
-				<input className="searchForm-submit" type="submit" value="submit"/>
+				<button className="searchForm-submit" type="submit">Search</button>
 			</form>
 			)
 	}
