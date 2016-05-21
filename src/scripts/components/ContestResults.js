@@ -35,17 +35,21 @@ import CandidateResults from './CandidateResults';
 
 	 	
 	 	if (candidates) {
+
 	 		candidates.forEach(function(candidate) {
 
 	 			if (this.props.filterBy === 'all') {
 
 	 				rows.push(<CandidateResults key={i} candidate_id={i} candidate={candidate} />);
+	 				
 	 				i++;
 
 	 				return;
+
 	 			} else if (candidate.party && candidate.party.toLowerCase().indexOf(this.props.filterBy) === -1 ) {
 	 				
 	 				return;
+
 	 			} else {
 	 				rows.push(<CandidateResults key={i} candidate_id={i} candidate={candidate} />);
 	 				i++;
@@ -62,11 +66,15 @@ import CandidateResults from './CandidateResults';
 
 	 	return (
 	 		<li className="results_contest">
-	 		<h3 className="hdg hdg_3">{contests.office}</h3>
-	 		<div>{contests.type}</div>
-	 		<ul className="vList">
-	 		{rows}
-	 		</ul>
+		 		<div className="card card_secondary">
+		 			<div className="card-bd">
+		 				<h3 className="hdg hdg_3">{contests.office}</h3>
+		 				<div>{contests.type}</div>
+		 				<ul className="vList">
+		 				{rows}
+		 				</ul>
+		 			</div>
+		 		</div>
 	 		</li>
 	 		)
 	 }
