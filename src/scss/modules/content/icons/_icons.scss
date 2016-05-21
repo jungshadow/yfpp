@@ -1,0 +1,113 @@
+/* ---------------------------------------------------------------------
+icons
+------------------------------------------------------------------------ */
+
+.icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'yfpp-icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon_banner-notch:before {
+    content: "\e900";
+}
+.icon_chevron-left:before {
+    content: "\e902";
+}
+.icon_chevron-right:before {
+    content: "\e903";
+}
+.icon_close-icon:before {
+    content: "\e904";
+}
+.icon_facebook-icon:before {
+    content: "\e905";
+}
+.icon_icon-search:before {
+    content: "\e906";
+}
+.icon_link-icon:before {
+    content: "\e907";
+}
+.icon_map-icon:before {
+    content: "\e908";
+}
+.icon_star-full:before {
+    content: "\e909";
+}
+.icon_star-hollow:before {
+    content: "\e90a";
+}
+.icon_star-solid:before {
+    content: "\e90b";
+}
+.icon_stripes-left:before {
+    content: "\e90c";
+}
+.icon_stripes-right:before {
+    content: "\e90d";
+}
+.icon_twitter-icon:before {
+    content: "\e90e";
+}
+.icon_star-empty:before {
+    content: "\e901";
+}
+
+
+// mixins
+@mixin icon_banner_notch {
+    content: "\e900";
+}
+@mixin icon_chevron_left {
+    content: "\e902";
+}
+@mixin icon_chevron_right {
+    content: "\e903";
+}
+@mixin icon_close_icon {
+    content: "\e904";
+}
+@mixin icon_facebook_icon {
+    content: "\e905";
+}
+@mixin icon_icon_search {
+    content: "\e906";
+}
+@mixin icon_link_icon {
+    content: "\e907";
+}
+@mixin icon_map_icon {
+    content: "\e908";
+}
+@mixin icon_star_full {
+    content: "\e909";
+}
+@mixin icon_star_hollow {
+    content: "\e90a";
+}
+@mixin icon_star_solid {
+    content: "\e90b";
+}
+@mixin icon_stripes_left {
+    content: "\e90c";
+}
+@mixin icon_stripes_right {
+    content: "\e90d";
+}
+@mixin icon_twitter_icon {
+    content: "\e90e";
+}
+@mixin icon_star_empty {
+    content: "\e901";
+}
+
