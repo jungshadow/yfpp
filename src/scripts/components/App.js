@@ -9,6 +9,8 @@ import PollingPlaceResults from './PollingPlaceResults';
 import ContestResults from './ContestResults';
 import PartySelect from './PartySelect';
 import SiteTitle from './SiteTitle';
+import Tabs from './Tabs';
+import TabPanel from './TabPanel';
 
 // active classname
 const ACTIVE_CLASS = 'isActive';
@@ -115,17 +117,28 @@ const ACTIVE_CLASS = 'isActive';
 
 	 			<div className={'contentWrap ' + activeClassName}>
 	 				<header className="contentWrap-primary" role="banner">
-	 					<SiteTitle />
-	 					<Search updateResults={this.updateResults} isActive={this.state.isActive} />
+	 					<div>
+	 						<SiteTitle activeClassName={activeClassName} />
+	 						<Search updateResults={this.updateResults} activeClassName={activeClassName} />
+	 					</div>
 	 				</header>
 	 				<main className="contentWrap-secondary" role="main">
-	 					<PartySelect candidates={this.state.contests} updateFilterText={this.updatefilterText} filterBy={this.state.filterBy}/>
-	 					<ul className="results">
-	 						{Object.keys(this.state.pollingLocations).map(this.renderPollingPlaceResults)}
-	 					</ul>
-	 					<ul className="results">
-	 						{Object.keys(this.state.contests).map(this.renderContestResults)}
-	 					</ul>
+	 					
+	 					<Tabs>
+	 						<TabPanel label="Fucking Polling Place">
+	 							<ul className="vList">
+			 						{Object.keys(this.state.pollingLocations).map(this.renderPollingPlaceResults)}
+			 					</ul>
+	 						</TabPanel>
+	 						<TabPanel label="On Your Fucking Ballot">
+	 						<PartySelect candidates={this.state.contests} updateFilterText={this.updatefilterText} filterBy={this.state.filterBy}/>
+	 							<ul className="vList">
+									{Object.keys(this.state.contests).map(this.renderContestResults)}
+								</ul>
+	 						</TabPanel>
+	 					</Tabs>
+	 					
+	 					
 	 				</main>
 	 			</div>
 	 			<footer></footer>
