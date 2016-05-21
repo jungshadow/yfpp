@@ -3,22 +3,37 @@ siteTitle
 ------------------------------------------------------------------------ */
 
 .siteTitle {
-	font-family: $FONT_HEADLINE;
-	color: $COLOR_PRIMARY;
-	font-size: 26px;
-	line-height: 1;
+    font-family: $FONT_HEADLINE;
+    color: $COLOR_PRIMARY;
+    font-size: 52px;
+    line-height: 1;
+    letter-spacing: 2.5px;
+	transition: all .75s ease-in-out;
 }
 
 .siteTitle-seg1 {
-	letter-spacing: .75px;
+    
+    
 }
 
 .siteTitle-seg2 {
-	display: block;
-	font-size: 35px;
-	line-height: .95;
+    display: block;
+    font-size: 1.3em;
+    line-height: .95;
 }
 
 .mix-siteTitle_accent {
-	color: $COLOR_SECONDARY;
+    color: $COLOR_SECONDARY;
+}
+
+.isActive.siteTitle {
+	margin-bottom: 10px;
+    font-size: 28px;
+    letter-spacing: 1.15px;
+
+    .siteTitle-seg2 {
+    	font-size: 1em;
+    	display: inline-block;
+    	margin-left: 0.4em;	
+    }
 }
