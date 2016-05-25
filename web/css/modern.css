@@ -418,8 +418,19 @@ actions
 
 .actions > * {
   display: inline-block;
-  border: solid 0.5px #b1ada8;
-  border-radius: 2px; }
+  padding: 13px 18px;
+  border-top: solid 1px #b1ada8; }
+
+.actions > *:first-of-type {
+  border-left: solid 1px #b1ada8;
+  border-radius: 4px 0 0 0; }
+
+.actions > *:last-of-type {
+  border-right: solid 1px #b1ada8;
+  border-radius: 0 4px 0 0; }
+
+.actions > * + * {
+  border-left: 1px solid #b1ada8; }
 
 .actions-item > * {
   display: inline-block; }
