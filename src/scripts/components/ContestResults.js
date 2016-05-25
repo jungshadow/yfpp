@@ -67,13 +67,11 @@ import CandidateResults from './CandidateResults';
 	 	return (
 	 		<li className="results_contest">
 		 		<div className="card card_secondary">
-		 			<div className="card-bd">
-		 				<h3 className="hdg hdg_3">{contests.office}</h3>
-		 				<div>{contests.type}</div>
-		 				<ul className="vList">
-		 				{rows}
-		 				</ul>
-		 			</div>
+		 			<h3 className="hdg hdg_3">{contests.office}</h3>
+		 			<div>{contests.type}</div>
+		 			<ul className="vList">
+		 			{rows}
+		 			</ul>
 		 		</div>
 	 		</li>
 	 		)
