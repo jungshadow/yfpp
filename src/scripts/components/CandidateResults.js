@@ -13,28 +13,28 @@ import ReactDOM from 'react-dom';
  */
  class CandidateResults extends React.Component {
 
-	/**
-	 * Renders candidate results list items
-	 *
-	 * @method render
-	 * @return {object} candidate results component markup
-	 */
-	 render() {
+    /**
+     * Renders candidate results list items
+     *
+     * @method render
+     * @return {object} candidate results component markup
+     */
+     render() {
 
-	 	const candidate = this.props.candidate;
+        const candidate = this.props.candidate;
 
-	 	if (!candidate.name) {
-	 		return;
-	 	}
+        if (!candidate.name) {
+            return;
+        }
 
-	 	return (
-	 		<li className="candidate">
-	 			<div>{candidate.name}
-	 			<strong>{candidate.party}</strong></div>
-	 		</li>
-	 		)
-	 }
+        return (
+            <li className="candidate">
+                <div>{candidate.name}
+                <strong>{candidate.party}</strong></div>
+            </li>
+            )
+     }
 
-	};
+    };
 
-	export default CandidateResults;
+    export default CandidateResults;

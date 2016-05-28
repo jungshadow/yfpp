@@ -16,59 +16,59 @@ import PartySelectOptions from './PartySelectOptions';
  */
  class PartySelect extends React.Component {
 
- 	onChangeHandler() {
+    onChangeHandler() {
 
- 		this.props.updateFilterText(this.refs.partySelect.value);
- 	}
-
-
-	/**
-	 * Renders party select component
-	 *
-	 * @method render
-	 * @return {object} search component markup
-	 */
-	 render() {
-
-	 	const partyList = this.props.primaryParties;
-	 	const primaryParties = [
-	 		<PartySelectOptions key='all' primartyPartyAbbr='all' 	primaryPartyName='All' />
-	 	];
-
-	 	let i = 0; 
-
-	 	const partyFullName = {
-
-	 		REP : 'Republican',
-	 		DEM : 'Democrat',
-	 		LIB : 'Libertarian'
-	 	}
+        this.props.updateFilterText(this.refs.partySelect.value);
+    }
 
 
-	 	
-	 	partyList.map(function(party) {					
+    /**
+     * Renders party select component
+     *
+     * @method render
+     * @return {object} search component markup
+     */
+     render() {
 
-	 			let partyName = party;
-	 			
-	 			if (partyFullName[party]) {
-	 			 	
-	 			 	partyName = partyFullName[party]
-	 			}
+        const partyList = this.props.primaryParties;
+        const primaryParties = [
+            <PartySelectOptions key='all' primartyPartyAbbr='all'   primaryPartyName='All' />
+        ];
 
-	 			primaryParties.push(<PartySelectOptions key={i} primaryPartyAbbr={party} primaryPartyName={partyName} />);
+        let i = 0; 
 
-	 			i++;
+        const partyFullName = {
 
-	 	});	 	
+            REP : 'Republican',
+            DEM : 'Democrat',
+            LIB : 'Libertarian'
+        }
 
-	 		return (
-	 			<form action="">
-		 			<select name="" id="" ref="partySelect" onChange={this.onChangeHandler}>
-		 				{primaryParties}
-		 			</select>
-	 			</form>
-	 			)
-	 	}
-	 };
 
-	 export default PartySelect;
+        
+        partyList.map(function(party) {                 
+
+                let partyName = party;
+                
+                if (partyFullName[party]) {
+                    
+                    partyName = partyFullName[party]
+                }
+
+                primaryParties.push(<PartySelectOptions key={i} primaryPartyAbbr={party} primaryPartyName={partyName} />);
+
+                i++;
+
+        });     
+
+            return (
+                <form action="">
+                    <select name="" id="" ref="partySelect" onChange={this.onChangeHandler}>
+                        {primaryParties}
+                    </select>
+                </form>
+                )
+        }
+     };
+
+     export default PartySelect;

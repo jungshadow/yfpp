@@ -15,22 +15,22 @@ import ReactDOM from 'react-dom';
 
 
 
-	/**
-	 * Renders option values for primary party select menu
-	 *
-	 * @method render
-	 * @return {object} PartySelectOptions component markup
-	 */
-	 render() {
+    /**
+     * Renders option values for primary party select menu
+     *
+     * @method render
+     * @return {object} PartySelectOptions component markup
+     */
+     render() {
 
-	 	const partyName = this.props.primaryPartyName;
-	 	const partyAbbr = this.props.primaryPartyAbbr;
+        const partyName = this.props.primaryPartyName;
+        const partyAbbr = this.props.primaryPartyAbbr;
 
-	 	return (
-	 		<option value={partyAbbr}>{partyName}</option>
-	 		)
-	 }
+        return (
+            <option value={partyAbbr}>{partyName}</option>
+            )
+     }
 
-	};
+    };
 
-	export default PartySelectOptions;
+    export default PartySelectOptions;

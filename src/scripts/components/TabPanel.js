@@ -11,19 +11,19 @@ import ReactDOM from 'react-dom';
  */
 class TabPanel extends React.Component {
 
-	/**
-	 * Renders Tab Panel component
-	 *
-	 * @method render
-	 * @return {object} TabPanel component markup
-	 */
-	render() {
-		
+    /**
+     * Renders Tab Panel component
+     *
+     * @method render
+     * @return {object} TabPanel component markup
+     */
+    render() {
+        
 
-		return (
-			<div>{this.props.children}</div>
-			)
-	}
+        return (
+            <div>{this.props.children}</div>
+            )
+    }
 
 };
 
