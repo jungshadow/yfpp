@@ -41,7 +41,8 @@ const ACTIVE_CLASS = 'isActive';
 			earlyVoteSites: [],
 			contests: [],
 			isActive: false,
-			filterBy: 'all'
+			filterBy: 'all',
+			primaryParties: []
 		}
 	};
 
@@ -53,14 +54,28 @@ const ACTIVE_CLASS = 'isActive';
 	 */
 	 updateResults(data) {
 
+
+	 	const contests= data.contests;
+	 	const partyList =[];
+
+
+	 	Object.keys(contests).map(function(key) {					
+
+	 		if(contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
+	 			
+	 			partyList.push(contests[key].primaryParty);
+	 		}
+	 	});
+
 	 	this.setState({
 	 		pollingLocations: data.pollingLocations,
 	 		earlyVoteSites: data.earlyVoteSites,
 	 		contests: data.contests,
+	 		primaryParties: partyList,
 	 		isActive: true
 	 	});
 
-	 };
+	 }
 
 	/**
 	 * Sets state with latest filter text 
@@ -68,7 +83,7 @@ const ACTIVE_CLASS = 'isActive';
 	 * @method updateFilterText
 	 * @param  {string} user input text
 	 */
-	 updatefilterText(textString) {
+	 updateFilterText(textString) {
 
 	 	this.setState({
 	 		filterBy: textString
@@ -93,12 +108,37 @@ const ACTIVE_CLASS = 'isActive';
 	 *
 	 * @method renderContestResults
 	 * @param  {string} key unique index
-	 * @return {bject}  PollinPlaceResults component markup
+	 * @return {object}  PollinPlaceResults component markup
 	 */
 	 renderContestResults(key) {
+	 	
+	 	const currentContest = this.state.contests[key];
+	 	
 
-	 	return <ContestResults key={key} filterBy={this.state.filterBy} contests={this.state.contests[key]}  />
+	 	if (currentContest.primaryParty && this.state.filterBy === currentContest.primaryParty) {
+
+	 		return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
+
+	 	} else if (!currentContest.primaryParty || this.state.filterBy === 'all' || currentContest.primaryParty == '') {
+
+	 		return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
+	 	}
+
+	 	
 	 };
+
+	 /**
+	 * Renders party select form
+	 *
+	 * @method render
+	 * @return {object} PartySelect component markup
+	 */
+	 renderPartySelect() {
+
+	 	if (this.state.primaryParties) {
+	 		return <PartySelect primaryParties={this.state.primaryParties} updateFilterText={this.updateFilterText}/>
+	 	}
+	 }
 
 	/**
 	 * Renders application to the DOM
@@ -114,7 +154,6 @@ const ACTIVE_CLASS = 'isActive';
 	 	return (
 	 		
 	 		<div className="wrap">
-
 	 			<div className={'contentWrap ' + activeClassName}>
 	 				<header className="contentWrap-primary" role="banner">
 	 					<div>
@@ -131,7 +170,7 @@ const ACTIVE_CLASS = 'isActive';
 			 					</ul>
 	 						</TabPanel>
 	 						<TabPanel label="On Your Fucking Ballot">
-	 						<PartySelect candidates={this.state.contests} updateFilterText={this.updatefilterText} filterBy={this.state.filterBy}/>
+	 							{this.renderPartySelect()}
 	 							<ul className="vList">
 									{Object.keys(this.state.contests).map(this.renderContestResults)}
 								</ul>
@@ -147,6 +186,7 @@ const ACTIVE_CLASS = 'isActive';
 
 
 	 		)
+
 	 };
 
 	};

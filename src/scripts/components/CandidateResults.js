@@ -21,7 +21,6 @@ import ReactDOM from 'react-dom';
 	 */
 	 render() {
 
-	 	let key = this.props.can;
 	 	const candidate = this.props.candidate;
 
 	 	if (!candidate.name) {

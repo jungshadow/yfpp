@@ -23,39 +23,23 @@ import CandidateResults from './CandidateResults';
 	 * @return {object} polling place results component markup
 	 */
 	 render() {
-
-	 	const contests = this.props.contests;
-
-	 	const candidates = contests.candidates;
-
 	 	
+	 	const currentContest = this.props.currentContest;
 
-	 	var rows = [];
+	 	const candidates = currentContest.candidates;
+
+	 	var candidateList = [];
+	 	
 	 	let i = 0;
 
-	 	
+
 	 	if (candidates) {
 
 	 		candidates.forEach(function(candidate) {
 
-	 			if (this.props.filterBy === 'all') {
-
-	 				rows.push(<CandidateResults key={i} candidate_id={i} candidate={candidate} />);
+	 				candidateList.push(<CandidateResults key={i} candidate_id={i} candidate={candidate} />);
 	 				
 	 				i++;
-
-	 				return;
-
-	 			} else if (candidate.party && candidate.party.toLowerCase().indexOf(this.props.filterBy) === -1 ) {
-	 				
-	 				return;
-
-	 			} else {
-	 				rows.push(<CandidateResults key={i} candidate_id={i} candidate={candidate} />);
-	 				i++;
-	 			}
-
-
 
 	 		}.bind(this));
 
@@ -65,13 +49,15 @@ import CandidateResults from './CandidateResults';
 
 
 	 	return (
-	 		<li className="results_contest">
+	 		<li className={'results_contest ' + currentContest.primaryParty}>
 		 		<div className="card card_secondary">
-		 			<h3 className="hdg hdg_3">{contests.office}</h3>
-		 			<div>{contests.type}</div>
-		 			<ul className="vList">
-		 			{rows}
-		 			</ul>
+		 			<div className="card-bd">
+		 				<h3 className="hdg hdg_3">{currentContest.office}</h3>
+		 				<div>{currentContest.type}</div>
+		 				<ul className="vList">
+		 					{candidateList}
+		 				</ul>
+		 			</div>
 		 		</div>
 	 		</li>
 	 		)
