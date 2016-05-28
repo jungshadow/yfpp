@@ -4,10 +4,12 @@ import ReactDOM from 'react-dom';
 
 import autobind from 'autobind-decorator';
 
+import PartySelectOptions from './PartySelectOptions';
+
 @autobind
 
 /**
- * Search Form Component
+ * Party Select Component
  *
  * @class PartySelect
  * @extends React.Component
@@ -19,47 +21,54 @@ import autobind from 'autobind-decorator';
  		this.props.updateFilterText(this.refs.partySelect.value);
  	}
 
- 	// buildSelectOptions() {
-
- 	// 	const contests= this.props.candidates;
- 	// 	var parties =[];
-
- 	// 	Object.keys(contests).map(function(key) {
- 	// 		if(contests[key].candidates) {
-
- 	// 			contests[key].candidates.map(function(currentValue, index){
- 	// 				parties.push(<option>contests[key].candidates[index].party</option>);
- 	// 			}) 
-
-
- 	// 		}
- 	// 	});
- 	// 	console.log(parties);
- 	// }
 
 	/**
-	 * Renders search form
+	 * Renders party select component
 	 *
 	 * @method render
 	 * @return {object} search component markup
 	 */
 	 render() {
 
+	 	const partyList = this.props.primaryParties;
+	 	const primaryParties = [
+	 		<PartySelectOptions key='all' primartyPartyAbbr='all' 	primaryPartyName='All' />
+	 	];
 
-	 	return (
-	 		<form action=""  >
-	 		
-	 		<select name="" id="" ref="partySelect" onChange={this.onChangeHandler}>
-	 		<option value='all'>Show All</option>
-	 		<option value='rep'>Republican</option>
-	 		<option value='dem'>Democrat</option>
-	 		<option value='non'>Nonpartisan</option>
-	 		</select>
-	 		</form>
-	 		)
-	 }
+	 	let i = 0; 
+
+	 	const partyFullName = {
+
+	 		REP : 'Republican',
+	 		DEM : 'Democrat',
+	 		LIB : 'Libertarian'
+	 	}
 
 
-	};
+	 	
+	 	partyList.map(function(party) {					
 
-	export default PartySelect;
+	 			let partyName = party;
+	 			
+	 			if (partyFullName[party]) {
+	 			 	
+	 			 	partyName = partyFullName[party]
+	 			}
+
+	 			primaryParties.push(<PartySelectOptions key={i} primaryPartyAbbr={party} primaryPartyName={partyName} />);
+
+	 			i++;
+
+	 	});	 	
+
+	 		return (
+	 			<form action="">
+		 			<select name="" id="" ref="partySelect" onChange={this.onChangeHandler}>
+		 				{primaryParties}
+		 			</select>
+	 			</form>
+	 			)
+	 	}
+	 };
+
+	 export default PartySelect;
