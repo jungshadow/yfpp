@@ -154,13 +154,26 @@ const ACTIVE_CLASS = 'isActive';
         return (
             
             <div className="wrap">
+                
                 <div className={'contentWrap ' + activeClassName}>
+                
                     <header className="contentWrap-primary" role="banner">
+                
                         <div>
                             <SiteTitle activeClassName={activeClassName} />
                             <Search updateResults={this.updateResults} activeClassName={activeClassName} />
                         </div>
+                        <div className={'starsNstripes '  + activeClassName}>
+                            <span className="starsNstripes-stripeSm"></span>
+                            <span className="starsNstripes-stripe"></span>
+                            <span className="starsNstripes-stripeSm starsNstripes-stripeSm_btm"></span>
+                            <span className="starsNstripes-star"><i className="icon icon_star-hollow"></i></span>
+                            <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt"></span>
+                            <span className="starsNstripes-stripe starsNstripes-stripe_rgt"></span>
+                            <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt starsNstripes-stripeSm_btm"></span>
+                        </div>
                     </header>
+                
                     <main className="contentWrap-secondary" role="main">
                         
                         <Tabs>
@@ -170,10 +183,16 @@ const ACTIVE_CLASS = 'isActive';
                                 </ul>
                             </TabPanel>
                             <TabPanel label="On Your Fucking Ballot">
-                                {this.renderPartySelect()}
-                                <ul className="vList">
-                                    {Object.keys(this.state.contests).map(this.renderContestResults)}
-                                </ul>
+                                <div className="group">
+                                    <div className="group-item">
+                                        {this.renderPartySelect()}
+                                    </div>
+                                    <div className="group-item">
+                                        <ul className="vList">
+                                            {Object.keys(this.state.contests).map(this.renderContestResults)}
+                                        </ul>
+                                    </div>
+                                </div>
                             </TabPanel>
                         </Tabs>
                         
