@@ -31,8 +31,11 @@ import PartySelectOptions from './PartySelectOptions';
      render() {
 
         const partyList = this.props.primaryParties;
+
         const primaryParties = [
+
             <PartySelectOptions key='all' primartyPartyAbbr='all'   primaryPartyName='All' />
+
         ];
 
         let i = 0; 
@@ -62,11 +65,17 @@ import PartySelectOptions from './PartySelectOptions';
         });     
 
             return (
+
                 <form action="">
-                    <select name="" id="" ref="partySelect" onChange={this.onChangeHandler}>
+
+                    <select className="formSelect" name="" ref="partySelect" onChange={this.onChangeHandler}>
+                
                         {primaryParties}
+                
                     </select>
+                
                 </form>
+
                 )
         }
      };
