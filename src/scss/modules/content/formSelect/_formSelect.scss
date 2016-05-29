@@ -1,0 +1,16 @@
+/* ---------------------------------------------------------------------
+Form Select
+------------------------------------------------------------------------ */
+
+.formSelect {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: $WHITE url(../images/chevron-down.svg) no-repeat right center;
+    border: 1px solid $GREY;
+    font-size: 13px;
+    font-family: $FONT_HEADLINE;
+    font-weight: lighter;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
