@@ -182,7 +182,7 @@ contentWrap - outer container for main content
   position: relative;
   height: 100vh;
   width: 100%;
-  padding: 50px; }
+  padding: 50px 0; }
 
 .contentWrap-primary {
   position: relative;
@@ -304,6 +304,21 @@ Class                       | Description
     background-position: 100% 0%; } }
 
 /* ---------------------------------------------------------------------
+Form Select
+------------------------------------------------------------------------ */
+.formSelect {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: #f1eeea url(../images/chevron-down.svg) no-repeat right center;
+  border: 1px solid #b1ada8;
+  font-size: 13px;
+  font-family: "Liberator", sanserif;
+  font-weight: lighter;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+/* ---------------------------------------------------------------------
 icons
 ------------------------------------------------------------------------ */
 .icon {
@@ -391,6 +406,79 @@ siteTitle
     font-size: 1em;
     display: inline-block;
     margin-left: 0.4em; }
+
+/* ---------------------------------------------------------------------
+Stars and Stripes
+------------------------------------------------------------------------ */
+.starsNstripes {
+  position: relative;
+  margin-top: 20px;
+  overflow: hidden; }
+
+.starsNstripes-stripe {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 50%;
+  height: 2px;
+  background-color: #b1ada8;
+  border-radius: 5px;
+  transition: all .5s ease-in-out;
+  transform: translateX(-100%); }
+
+.starsNstripes-stripe_rgt {
+  right: 0;
+  left: auto;
+  transform: translateX(100%); }
+
+.isActive.starsNstripes .starsNstripes-stripe {
+  transform: translateX(0%); }
+
+.isActive.starsNstripes .starsNstripes-stripe_rgt {
+  transform: translateX(0%); }
+
+.starsNstripes-stripeSm {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 35%;
+  width: 22px;
+  margin-left: -44px;
+  height: 2px;
+  background-color: #7d2929;
+  border-radius: 5px;
+  transition: all .7s ease-in-out; }
+
+.starsNstripes-stripeSm_rgt {
+  right: 0;
+  left: auto;
+  margin-right: -44px; }
+
+.starsNstripes-stripeSm_btm {
+  background-color: #2b3975;
+  top: 63%; }
+
+.isActive.starsNstripes .starsNstripes-stripeSm {
+  left: 50%; }
+
+.isActive.starsNstripes .starsNstripes-stripeSm_rgt {
+  right: 50%;
+  left: auto; }
+
+.starsNstripes-star {
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+  color: #b1ada8;
+  background-color: #e4e1dd;
+  z-index: 1;
+  opacity: 0;
+  transition: all .25s ease-in-out; }
+
+.isActive.starsNstripes .starsNstripes-star {
+  opacity: 1;
+  font-size: 30px; }
 
 /* ---------------------------------------------------------------------
 card
@@ -540,7 +628,7 @@ Tabs
 
 .tabs-panel {
   transition: all .15s ease-in-out;
-  padding: 0 50px; }
+  padding: 0 32px; }
 
 .tabs-panel.fade-enter {
   opacity: 0;
@@ -637,6 +725,12 @@ Grid
   width: 100%; }
 
 /* ---------------------------------------------------------------------
+group
+------------------------------------------------------------------------ */
+.group * + * {
+  margin-top: 22px; }
+
+/* ---------------------------------------------------------------------
 hList
 ------------------------------------------------------------------------ */
 .hList > * {
@@ -694,7 +788,7 @@ Class                       | Description
 vertical list
 ------------------------------------------------------------------------ */
 .vList > * + * {
-  margin-top: 12px; }
+  margin-top: 22px; }
 
 /*doc
 ---
