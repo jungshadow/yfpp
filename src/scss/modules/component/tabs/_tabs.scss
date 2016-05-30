@@ -67,21 +67,21 @@ Tabs
 // animate in
 .tabs-panel.fade-enter {
 	opacity: 0;
-	transform: translateX(-50%);
+	transform: translateY(-25px);
 }
 
 .tabs-panel.fade-enter-active {
 	opacity: 1;
-	transform: translateX(0);
+	transform: translateY(0);
 }
 
 // animate out
 .tabs-panel.fade-leave {
 	opacity: 0;
-	transform: translateX(50%);
+	transform: translateY(25px);
 }
 
 .tabs-panel.fade-enter-active {
 	opacity: 1;
-	transform: translateX(0);
+	transform: translateY(0);
 }
