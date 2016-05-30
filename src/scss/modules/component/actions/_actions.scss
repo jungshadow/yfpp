@@ -9,7 +9,7 @@ actions
 
 .actions > * {
 	display: inline-block;
-	padding: 13px 18px;
+	padding: 10px 18px;
 	border-top: solid 1px $GREY;
 }
 
@@ -29,4 +29,15 @@ actions
 
 .actions-item > * {
 	display: inline-block;
+	vertical-align: middle;
+}
+
+.actions-item > * + * {
+	margin-left: 5px;
+}
+
+.actions-item-title {
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 0.9; // vertically aligns text with icon
 }
