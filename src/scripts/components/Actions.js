@@ -26,7 +26,7 @@ import ReactDOM from 'react-dom';
         queryParameters.hashtags = 'hashtags=' + queryParameters.hashtags;
 
 
-        return <a className="twitter-share-button"
+        return <a className="actionLink actionLink_twitter"
           href={'https://twitter.com/intent/tweet?' + queryParameters.text + '&' + queryParameters.url + '&' + queryParameters.hashtags}>
         Tweet</a>
     }
@@ -52,7 +52,7 @@ import ReactDOM from 'react-dom';
                                 {this.buildTweet()}
                             </li>
                             <li>
-                                <a href="#">Facebook</a>
+                                <a className="actionLink actionLink_facebook mix-actionLink_blue" href="#">Facebook</a>
                             </li>
                         </ul>
                     </div>
@@ -60,7 +60,7 @@ import ReactDOM from 'react-dom';
                 <li className="actions-item">
                     <span className="actions-item-title">Map It</span>
                     <div className="actions-item-links">                
-                        <a href="#">Map</a>                         
+                        <a className="actionLink actionLink_map" href="#">Map</a>                         
                     </div>
                 </li>
             </ul>
