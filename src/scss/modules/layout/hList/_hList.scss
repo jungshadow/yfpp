@@ -5,3 +5,7 @@ hList
 .hList > * {
 	display: inline-block;
 }
+
+.hList > * + * {
+    margin-left: 5px;
+}
