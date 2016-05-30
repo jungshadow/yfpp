@@ -212,6 +212,105 @@ contentWrap - outer container for main content
 /* ---------------------------------------------------------------------
 header
 ------------------------------------------------------------------------ */
+/* ---------------------------------------------------------------------
+icons
+------------------------------------------------------------------------ */
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'yfpp-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon_banner-notch:before {
+  content: "\e900"; }
+
+.icon_chevron-left:before {
+  content: "\e902"; }
+
+.icon_chevron-right:before {
+  content: "\e903"; }
+
+.icon_close-icon:before {
+  content: "\e904"; }
+
+.icon_facebook-icon:before {
+  content: "\e905"; }
+
+.icon_icon-search:before {
+  content: "\e906"; }
+
+.icon_link-icon:before {
+  content: "\e907"; }
+
+.icon_map-icon:before {
+  content: "\e908"; }
+
+.icon_star-full:before {
+  content: "\e909"; }
+
+.icon_star-hollow:before {
+  content: "\e90a"; }
+
+.icon_star-solid:before {
+  content: "\e90b"; }
+
+.icon_stripes-left:before {
+  content: "\e90c"; }
+
+.icon_stripes-right:before {
+  content: "\e90d"; }
+
+.icon_twitter-icon:before {
+  content: "\e90e"; }
+
+.icon_star-empty:before {
+  content: "\e901"; }
+
+/* ---------------------------------------------------------------------
+actionLink
+------------------------------------------------------------------------ */
+.actionLink {
+  display: inline-block;
+  text-indent: -999em;
+  font-size: 0;
+  overflow: hidden;
+  height: 22px;
+  width: 22px;
+  background-color: #bbbbbb;
+  border-radius: 50%;
+  vertical-align: middle;
+  transition: background-color .25s ease-in-out; }
+  .actionLink:after {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: "yfpp-icons";
+    text-indent: 0;
+    font-size: 18px;
+    color: #f1eeea; }
+  .actionLink:hover, .actionLink:focus {
+    background-color: #7d2929; }
+
+.actionLink_twitter:after {
+  content: "\e90e"; }
+
+.actionLink_facebook:after {
+  content: "\e905"; }
+
+.actionLink_map:after {
+  content: "\e908";
+  font-size: 16px; }
+
+.mix-actionLink_blue:hover,
+.mix-actionLink_blue:focus {
+  background-color: #2b3975; }
+
 /*doc
 ---
 title: Button
@@ -317,67 +416,6 @@ Form Select
   font-weight: lighter;
   -webkit-appearance: none;
   -moz-appearance: none; }
-
-/* ---------------------------------------------------------------------
-icons
------------------------------------------------------------------------- */
-.icon {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'yfpp-icons' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.icon_banner-notch:before {
-  content: "\e900"; }
-
-.icon_chevron-left:before {
-  content: "\e902"; }
-
-.icon_chevron-right:before {
-  content: "\e903"; }
-
-.icon_close-icon:before {
-  content: "\e904"; }
-
-.icon_facebook-icon:before {
-  content: "\e905"; }
-
-.icon_icon-search:before {
-  content: "\e906"; }
-
-.icon_link-icon:before {
-  content: "\e907"; }
-
-.icon_map-icon:before {
-  content: "\e908"; }
-
-.icon_star-full:before {
-  content: "\e909"; }
-
-.icon_star-hollow:before {
-  content: "\e90a"; }
-
-.icon_star-solid:before {
-  content: "\e90b"; }
-
-.icon_stripes-left:before {
-  content: "\e90c"; }
-
-.icon_stripes-right:before {
-  content: "\e90d"; }
-
-.icon_twitter-icon:before {
-  content: "\e90e"; }
-
-.icon_star-empty:before {
-  content: "\e901"; }
 
 /* ---------------------------------------------------------------------
 siteTitle
@@ -506,7 +544,7 @@ actions
 
 .actions > * {
   display: inline-block;
-  padding: 13px 18px;
+  padding: 10px 18px;
   border-top: solid 1px #b1ada8; }
 
 .actions > *:first-of-type {
@@ -521,7 +559,16 @@ actions
   border-left: 1px solid #b1ada8; }
 
 .actions-item > * {
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: middle; }
+
+.actions-item > * + * {
+  margin-left: 5px; }
+
+.actions-item-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 0.9; }
 
 /* ---------------------------------------------------------------------
 search 
@@ -632,19 +679,19 @@ Tabs
 
 .tabs-panel.fade-enter {
   opacity: 0;
-  transform: translateX(-50%); }
+  transform: translateY(-25px); }
 
 .tabs-panel.fade-enter-active {
   opacity: 1;
-  transform: translateX(0); }
+  transform: translateY(0); }
 
 .tabs-panel.fade-leave {
   opacity: 0;
-  transform: translateX(50%); }
+  transform: translateY(25px); }
 
 .tabs-panel.fade-enter-active {
   opacity: 1;
-  transform: translateX(0); }
+  transform: translateY(0); }
 
 /* ---------------------------------------------------------------------
 Blocks
@@ -735,6 +782,9 @@ hList
 ------------------------------------------------------------------------ */
 .hList > * {
   display: inline-block; }
+
+.hList > * + * {
+  margin-left: 5px; }
 
 /*doc
 ---
