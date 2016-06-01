@@ -5,7 +5,8 @@ Install [node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) and ins
 
 ```bash
 $ brew install node
-# If you override python, you may need to tell npm to use the system python by adding: --python=/usr/bin/python
+# If you override python, you may need to tell npm
+# to use the system python by adding: --python=/usr/bin/python
 $ npm install
 $ gulp
 ```
