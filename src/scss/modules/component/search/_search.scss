@@ -39,7 +39,7 @@ search
 		position: absolute;
 		display: block;
 		font-family: $FONT_ICON;
-		@include icon_icon_search();
+		@include icon_search();
 		font-size: 30px;
 		color: $GREY_LIGHT;
 		text-indent: 0;
