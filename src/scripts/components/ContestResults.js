@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import autobind from 'autobind-decorator';
 
 import CandidateResults from './CandidateResults';
+import ReferendumResults from './ReferendumResults';
 
 @autobind
 /**
@@ -28,10 +29,14 @@ import CandidateResults from './CandidateResults';
 
         const candidates = currentContest.candidates;
 
-        var candidateList = [];
+        let candidateList = [];
+
+        let referenda = [];
+        
         let i = 0;
 
-
+        let refCount = 0;
+        
         if (candidates) {
 
             candidates.forEach(function(candidate) {
@@ -42,22 +47,43 @@ import CandidateResults from './CandidateResults';
 
             }.bind(this));
 
+        } 
+
+        if( currentContest.type == 'Referendum') {
+
+            referenda.push(<ReferendumResults key={refCount} referendum={currentContest} />);
+
+            refCount++;
         }
-
-
-
 
         return (
             <li className={'results_contest ' + currentContest.primaryParty}>
-                <div className="card card_secondary">
-                    <div className="card-bd">
-                        <h3 className="hdg hdg_3">{currentContest.office}</h3>
-                        <div>{currentContest.type}</div>
-                        <ul className="vList">
-                            {candidateList}
-                        </ul>
+                { currentContest.candidates ?
+                    <div className="card card_secondary">
+                        <span className="card-flag">{currentContest.type}</span> 
+                        <div className="card-bd">
+                            <div className="group group_sm">
+                                <div className="group-hd">
+                                    <h3 className="hdg hdg_2 mix-hdg_headline mix-hdg_blue">{currentContest.office}</h3>
+                                </div>                                              
+                                <div className="group-bd">
+                                    <ul className="vList vList_divided">
+                                         {candidateList}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    : 
+                    <div className="card card_secondary">
+                        <span className="card-flag">{currentContest.type}</span> 
+                        <div className="card-bd">
+                            <h3 className="hdg hdg_3 mix-hdg_headline mix-hdg_blue">{currentContest.referendumTitle}</h3>
+                            {referenda}                            
+                        </div>
+                            
+                    </div>
+                }
             </li>
             )
      }
