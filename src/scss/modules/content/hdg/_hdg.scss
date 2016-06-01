@@ -1,0 +1,34 @@
+/* ---------------------------------------------------------------------
+headings
+------------------------------------------------------------------------ */
+
+.hdg {
+    display: inline-block;
+    font-family: $FONT_DEFAULT;
+    font-weight: bold;
+}
+
+.hdg_1 {
+    font-size: 22px;
+}
+
+.hdg_2 {
+    font-size: 18px;
+}
+
+.hdg_3 {
+    font-size: 16px;
+}
+
+/* heading variations */
+.mix-hdg_capitalize {
+    text-transform: capitalize;
+}
+
+.mix-hdg_headline {
+    font-family: $FONT_HEADLINE;
+}
+
+.mix-hdg_blue {
+    color: $BLUE;
+}
