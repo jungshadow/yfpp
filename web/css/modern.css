@@ -200,15 +200,16 @@ contentWrap - outer container for main content
   transform: translateY(500px);
   opacity: 0; }
 
-.isActive.contentWrap .contentWrap-primary {
-  top: 0;
-  margin: 0 auto 20px; }
-
-.isActive.contentWrap .contentWrap-secondary {
-  max-width: 728px;
-  margin: 0 auto;
-  transform: translateY(0px);
-  opacity: 1; }
+.isActive.contentWrap {
+  height: auto; }
+  .isActive.contentWrap .contentWrap-primary {
+    top: 0;
+    margin: 0 auto 20px; }
+  .isActive.contentWrap .contentWrap-secondary {
+    max-width: 728px;
+    margin: 0 auto;
+    transform: translateY(0px);
+    opacity: 1; }
 
 /* ---------------------------------------------------------------------
 header

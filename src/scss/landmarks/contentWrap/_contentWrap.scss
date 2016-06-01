@@ -29,7 +29,9 @@ contentWrap - outer container for main content
 }
 
 .isActive.contentWrap {
-
+	
+	height: auto;
+	
 	.contentWrap-primary {
 		top: 0;
 		margin: 0 auto 20px;
