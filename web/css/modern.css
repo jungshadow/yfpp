@@ -182,7 +182,8 @@ contentWrap - outer container for main content
   position: relative;
   height: 100vh;
   width: 100%;
-  padding: 50px 0; }
+  padding: 50px 0;
+  background: url(../images/fucking-patriot.png) no-repeat bottom right; }
 
 .contentWrap-primary {
   position: relative;
@@ -228,6 +229,9 @@ icons
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+.icon_youtube:before {
+  content: "\e901"; }
+
 .icon_banner-notch:before {
   content: "\e900"; }
 
@@ -240,16 +244,16 @@ icons
 .icon_close-icon:before {
   content: "\e904"; }
 
-.icon_facebook-icon:before {
+.icon_facebook:before {
   content: "\e905"; }
 
-.icon_icon-search:before {
+.icon_search:before {
   content: "\e906"; }
 
-.icon_link-icon:before {
+.icon_link:before {
   content: "\e907"; }
 
-.icon_map-icon:before {
+.icon_map:before {
   content: "\e908"; }
 
 .icon_star-full:before {
@@ -261,17 +265,8 @@ icons
 .icon_star-solid:before {
   content: "\e90b"; }
 
-.icon_stripes-left:before {
-  content: "\e90c"; }
-
-.icon_stripes-right:before {
-  content: "\e90d"; }
-
-.icon_twitter-icon:before {
+.icon_twitter:before {
   content: "\e90e"; }
-
-.icon_star-empty:before {
-  content: "\e901"; }
 
 /* ---------------------------------------------------------------------
 actionLink
@@ -286,6 +281,7 @@ actionLink
   background-color: #bbbbbb;
   border-radius: 50%;
   vertical-align: middle;
+  text-align: center;
   transition: background-color .25s ease-in-out; }
   .actionLink:after {
     display: inline-block;
@@ -302,6 +298,9 @@ actionLink
 
 .actionLink_facebook:after {
   content: "\e905"; }
+
+.actionLink_youtube:after {
+  content: "\e901"; }
 
 .actionLink_map:after {
   content: "\e908";
@@ -418,6 +417,33 @@ Form Select
   -moz-appearance: none; }
 
 /* ---------------------------------------------------------------------
+headings
+------------------------------------------------------------------------ */
+.hdg {
+  display: inline-block;
+  font-family: "Lato", sanserif;
+  font-weight: bold; }
+
+.hdg_1 {
+  font-size: 22px; }
+
+.hdg_2 {
+  font-size: 18px; }
+
+.hdg_3 {
+  font-size: 16px; }
+
+/* heading variations */
+.mix-hdg_capitalize {
+  text-transform: capitalize; }
+
+.mix-hdg_headline {
+  font-family: "Liberator", sanserif; }
+
+.mix-hdg_blue {
+  color: #2b3975; }
+
+/* ---------------------------------------------------------------------
 siteTitle
 ------------------------------------------------------------------------ */
 .siteTitle {
@@ -519,15 +545,40 @@ Stars and Stripes
   font-size: 30px; }
 
 /* ---------------------------------------------------------------------
+text
+------------------------------------------------------------------------ */
+.txt {
+  font-family: "Lato", sanserif; }
+
+/* text variations */
+.mix-txt_capitalize {
+  text-transform: capitalize; }
+
+.mix-txt_blue {
+  color: #2b3975; }
+
+/* ---------------------------------------------------------------------
 card
 ------------------------------------------------------------------------ */
 .card {
+  position: relative;
   background-color: rgba(187, 187, 187, 0.45);
   border: solid 2px #7d2929;
   border-radius: 6px; }
 
 .card_secondary {
   border-color: #2b3975; }
+
+.card-flag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 15px;
+  background-color: #2b3975;
+  font-family: "Liberator", sanserif;
+  font-size: 12px;
+  color: #f1eeea;
+  letter-spacing: 1px; }
 
 .card-bd {
   padding: 36px; }
@@ -774,8 +825,11 @@ Grid
 /* ---------------------------------------------------------------------
 group
 ------------------------------------------------------------------------ */
-.group * + * {
+.group > * + * {
   margin-top: 22px; }
+
+.group_sm > * + * {
+  margin-top: 12px; }
 
 /* ---------------------------------------------------------------------
 hList
@@ -835,10 +889,29 @@ Class                       | Description
   overflow: hidden; }
 
 /* ---------------------------------------------------------------------
+split
+------------------------------------------------------------------------ */
+.split {
+  overflow: hidden; }
+
+.split-lft {
+  float: left; }
+
+.split-rgt {
+  float: right; }
+
+/* ---------------------------------------------------------------------
 vertical list
 ------------------------------------------------------------------------ */
 .vList > * + * {
   margin-top: 22px; }
+
+.vList_divided > * {
+  padding: 8px 0; }
+
+.vList_divided > * + * {
+  margin: 0;
+  border-top: 1px solid #bbbbbb; }
 
 /*doc
 ---
