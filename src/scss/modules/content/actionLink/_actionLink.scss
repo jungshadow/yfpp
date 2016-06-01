@@ -12,6 +12,7 @@ actionLink
     background-color: $GREY_MEDIUM;
     border-radius: 50%;
     vertical-align: middle;
+    text-align: center;
     transition: background-color .25s ease-in-out;
     
     &:after {
@@ -29,15 +30,19 @@ actionLink
 }
 
 .actionLink_twitter:after {
-    @include icon_twitter_icon();
+    @include icon_twitter();
 }
 
 .actionLink_facebook:after {
-    @include icon_facebook_icon();
+    @include icon_facebook();
+}
+
+.actionLink_youtube:after {
+    @include icon_youtube();
 }
 
 .actionLink_map:after {
-    @include icon_map_icon();
+    @include icon_map();
     font-size: 16px;
 }
 
