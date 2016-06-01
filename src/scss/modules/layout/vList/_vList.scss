@@ -1,0 +1,17 @@
+/* ---------------------------------------------------------------------
+vertical list
+------------------------------------------------------------------------ */
+
+.vList > * + * {
+	margin-top: 22px;
+}
+
+
+.vList_divided > * {
+    padding: 8px 0;
+}
+
+.vList_divided > * + * {
+    margin: 0;
+    border-top: 1px solid $GREY_MEDIUM;
+}

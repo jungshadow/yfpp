@@ -1,0 +1,48 @@
+/*doc
+---
+title: Media Object
+name: media
+category: layout
+---
+
+The Media Object object is a simple layout module that is used to display media on the left, and copy or other content on the right.
+
+Class                       | Description
+--------------------------- | ---------------------------------------------------------------
+`.media`                    | Base class.
+`.media-md`                 | Child of base class. Container for the media element
+`.media-bd`                 | Child of base class. Container for copy content
+
+
+```html_example
+<div class="media">
+    <div class="media-md">
+    	<img src="http://placehold.it/150x150" alt="">
+    </div>
+    <div class="media-bd">
+
+    <!-- Insert any content modules here -->
+        <h3 class="heading heading_3">Add any content to this section</h3>
+        <p class="copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus alias sit at ratione repellat eligendi blanditiis amet optio, ipsum cupiditate temporibus accusantium fugiat hic mollitia necessitatibus eum beatae sint!</p>
+    <!-- END content modules -->
+
+    </div>
+</div>
+
+```
+
+*/
+
+.media {
+	@include clearfix();
+
+}
+
+.media-md {
+	float: left;
+	margin-right: 15px;
+}
+
+.media-bd {
+	overflow: hidden;
+}

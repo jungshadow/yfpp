@@ -1,0 +1,16 @@
+/* ---------------------------------------------------------------------
+text
+------------------------------------------------------------------------ */
+
+.txt {
+    font-family: $FONT_DEFAULT;
+}
+
+/* text variations */
+.mix-txt_capitalize {
+    text-transform: capitalize;
+}
+
+.mix-txt_blue {
+    color: $BLUE;
+}

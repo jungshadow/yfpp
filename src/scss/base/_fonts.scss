@@ -1,0 +1,56 @@
+// Liberator Heavy
+@font-face {
+    font-family: 'Liberator';
+    src: url('../fonts/liberator-heavy-webfont.woff2') format('woff2'),
+         url('../fonts/liberator-heavy-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+// Liberator Light
+@font-face {
+    font-family: 'Liberator';
+    src: url('../fonts/liberator-light-webfont.woff2') format('woff2'),
+         url('../fonts/liberator-light-webfont.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+
+// Liberator Medium
+@font-face {
+    font-family: 'Liberator';
+    src: url('../fonts/liberator-medium-webfont.woff2') format('woff2'),
+         url('../fonts/liberator-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Lato Black
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/lato-black-webfont.woff2') format('woff2'),
+         url('../fonts/lato-black-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+// Lato Regular
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/lato-regular-webfont.woff2') format('woff2'),
+         url('../fonts/lato-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// YFPP Icons
+@font-face {
+    font-family: 'yfpp-icons';
+    src:    url('../fonts/yfpp-icons.eot?aa1z5l');
+    src:    url('../fonts/yfpp-icons.eot?aa1z5l#iefix') format('embedded-opentype'),
+        url('../fonts/yfpp-icons.ttf?aa1z5l') format('truetype'),
+        url('../fonts/yfpp-icons.woff?aa1z5l') format('woff'),
+        url('../fonts/yfpp-icons.svg?aa1z5l#yfpp-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

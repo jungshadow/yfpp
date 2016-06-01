@@ -1,0 +1,59 @@
+/* ---------------------------------------------------------------------
+search 
+------------------------------------------------------------------------ */
+
+.searchForm {
+	display: inline-block;
+	position: relative; // provides positioning context for absolutely positioned submit button
+	width: 490px;
+	transition: all .75s ease-in-out;
+}
+
+.searchForm-input {
+	display: block;
+	background: $WHITE;
+	width: 100%;
+	padding: 20px 55px 20px 20px; // extra right padding makes room for absolutely positioned button
+	border: 1px solid $GREY_MEDIUM;
+	font-size: 15px;
+	font-family: $FONT_HEADLINE;
+	font-weight: 200;
+	letter-spacing: 1.15px;
+	border-radius: 3px;
+}
+
+.searchForm-submit {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 55px;
+	width: 55px;
+	overflow: hidden;
+	text-indent: -999em;
+	text-align: left;
+	background: $RED;
+	border: none;
+	border-radius: 0 3px 3px 0;
+
+	&:after {
+		position: absolute;
+		display: block;
+		font-family: $FONT_ICON;
+		@include icon_search();
+		font-size: 30px;
+		color: $GREY_LIGHT;
+		text-indent: 0;
+		top: 13px;
+		left: 13px;
+	}
+
+	&:hover,
+	&:focus {
+		background: lighten($RED, 10);
+	}
+}
+
+/* active state  */
+.isActive.searchForm {
+	width: 479px;
+}
