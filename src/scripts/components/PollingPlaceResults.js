@@ -2,7 +2,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Actions from './Actions'
+import Actions from './Actions';
+
+import helpers from '../helpers';
 
 
 /**
@@ -12,6 +14,7 @@ import Actions from './Actions'
  * @extends React.Component
  */
 class PollingPlaceResults extends React.Component {
+    
     /**
      * Adds "fucking" in various places within a phrase, depending on the phrase
      * 
@@ -62,10 +65,10 @@ class PollingPlaceResults extends React.Component {
             <li>
                 <div className="card">
                     <div className="card-bd">
-	                <h3 className="hdg hdg_3">{this.fucktify(locations.address.locationName)}</h3>
-                        <div>{locations.address.line1}</div>
-                        <div>{locations.address.line2}</div>
-                        <div>{locations.address.city}, {locations.address.state} {locations.address.zip}</div>
+	                <h3 className="hdg mix-hdg_capitalize">{this.fucktify(locations.address.locationName)}</h3>
+                        <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.line1)}</span></div>
+                        <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.line2)}</span></div>
+                        <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.city)}, {locations.address.state} {locations.address.zip}</span></div>
                         <div>{locations.pollingHours}</div>
                     </div>
                     <div className="card-ft">
