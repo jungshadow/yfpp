@@ -26,12 +26,16 @@ $MEASUREMENTS_BLOCKS_GUTTER: 20px;
 .blocks_2up > * { @include blocksWidth(2); }
 .blocks_3up > * { @include blocksWidth(3); }
 .blocks_4up > * { @include blocksWidth(4); }
+.blocks_6up > * { @include blocksWidth(6); }
+
 
 
 /* Blocks Vertical rhythm - adds top margin to any blocks that wrap to a second row */
 
 .blocks_2up > *:nth-child(n+3),
 .blocks_3up > *:nth-child(n+4),
-.blocks_4up > *:nth-child(n+5) {
+.blocks_4up > *:nth-child(n+5),
+.blocks_6up > *:nth-child(n+7)
+ {
     margin-top: $MEASUREMENTS_BLOCKS_GUTTER;
 }
