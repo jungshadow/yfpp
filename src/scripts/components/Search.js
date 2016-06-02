@@ -15,7 +15,6 @@ import autobind from 'autobind-decorator';
 class Search extends React.Component {
 
     fetchData(e) {
-
         e.preventDefault();
         
         var config = {
@@ -23,14 +22,14 @@ class Search extends React.Component {
             'address': this.refs.address.value
         };
 
-
         $.ajax({
-            //url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?callback=?',
-            url: '/test_data.json',
+            url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
+            //url: '/test_data.json',
             type: "GET",
             dataType: 'json',
             data: config,
             success: function(data) {
+		console.log(data);
                 this.props.updateResults(data);
                 this.setState({isActive: false});
             }.bind(this),
@@ -53,10 +52,8 @@ class Search extends React.Component {
                 <input className="searchForm-input" type="search" ref="address" placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC" />
                 <button className="searchForm-submit" type="submit">Search</button>
             </form>
-            )
+        )
     }
-
-
 };
 
 export default Search;
