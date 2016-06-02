@@ -9,3 +9,12 @@ hList
 .hList > * + * {
     margin-left: 5px;
 }
+
+.hList-centered {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.hList-item_flex {
+	padding: 20px 3%;
+}

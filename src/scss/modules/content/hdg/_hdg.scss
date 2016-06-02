@@ -9,7 +9,8 @@ headings
 }
 
 .hdg_1 {
-    font-size: 22px;
+    font-size: 34px;
+    font-weight: normal;
 }
 
 .hdg_2 {
@@ -25,10 +26,34 @@ headings
     text-transform: capitalize;
 }
 
+.mix-hdg_uppercase {
+    text-transform: uppercase;
+}
+
 .mix-hdg_headline {
     font-family: $FONT_HEADLINE;
+}
+
+.mix-hdg_centered {
+	display: block;
+    text-align: center;
+}
+
+.mix-hdg_block {
+    display: block;
+}
+
+.mix-hdg_light {
+    color: $GREY_LIGHT;
+    -webkit-font-smoothing: antialiased;
+}
+
+.mix-hdg_medium {
+    color: $GREY;
+    -webkit-font-smoothing: antialiased;
 }
 
 .mix-hdg_blue {
     color: $BLUE;
 }
+

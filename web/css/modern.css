@@ -139,7 +139,7 @@ into other modules.
 
 body {
   font-family: "Lato", sanserif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.286;
   color: #4b4b4b;
   background-color: #e4e1dd; }
@@ -214,6 +214,14 @@ contentWrap - outer container for main content
 /* ---------------------------------------------------------------------
 header
 ------------------------------------------------------------------------ */
+.footer {
+  background-color: #3f3d3c;
+  padding: 80px 0; }
+
+.privacy-info {
+  max-width: 650px;
+  margin: 32px auto 0; }
+
 /* ---------------------------------------------------------------------
 icons
 ------------------------------------------------------------------------ */
@@ -268,6 +276,16 @@ icons
 
 .icon_twitter:before {
   content: "\e90e"; }
+
+.mix-icon_centered {
+  display: block;
+  text-align: center; }
+
+.mix-icon_hr {
+  margin: 25px 0;
+  line-height: 45px;
+  font-size: 32px;
+  color: rgba(228, 225, 221, 0.3); }
 
 /* ---------------------------------------------------------------------
 actionLink
@@ -426,7 +444,8 @@ headings
   font-weight: bold; }
 
 .hdg_1 {
-  font-size: 22px; }
+  font-size: 34px;
+  font-weight: normal; }
 
 .hdg_2 {
   font-size: 18px; }
@@ -438,8 +457,26 @@ headings
 .mix-hdg_capitalize {
   text-transform: capitalize; }
 
+.mix-hdg_uppercase {
+  text-transform: uppercase; }
+
 .mix-hdg_headline {
   font-family: "Liberator", sanserif; }
+
+.mix-hdg_centered {
+  display: block;
+  text-align: center; }
+
+.mix-hdg_block {
+  display: block; }
+
+.mix-hdg_light {
+  color: #e4e1dd;
+  -webkit-font-smoothing: antialiased; }
+
+.mix-hdg_medium {
+  color: #b1ada8;
+  -webkit-font-smoothing: antialiased; }
 
 .mix-hdg_blue {
   color: #2b3975; }
@@ -552,11 +589,30 @@ text
   font-family: "Lato", sanserif; }
 
 /* text variations */
+.mix-txt_medium {
+  font-size: 14px; }
+
 .mix-txt_capitalize {
   text-transform: capitalize; }
 
+.mix-txt_centered {
+  text-align: center; }
+
+.mix-txt_light {
+  color: #e4e1dd;
+  -webkit-font-smoothing: antialiased; }
+
 .mix-txt_blue {
   color: #2b3975; }
+
+.mix-txt_medium_p {
+  line-height: 1.3em;
+  margin-bottom: 1.4em; }
+
+.mix-a_reversed {
+  color: #AED3E1; }
+  .mix-a_reversed:hover {
+    color: #dbebf2; }
 
 /* ---------------------------------------------------------------------
 card
@@ -785,7 +841,7 @@ Grid
   display: inline-block;
   vertical-align: top;
   padding-right: 20px;
-  font-size: 14px; }
+  font-size: 16px; }
 
 .grid-col_1of12 {
   width: 8.33333%; }
@@ -840,6 +896,13 @@ hList
 
 .hList > * + * {
   margin-left: 5px; }
+
+.hList-centered {
+  text-align: center;
+  margin: 0 auto; }
+
+.hList-item_flex {
+  padding: 20px 3%; }
 
 /*doc
 ---

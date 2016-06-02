@@ -99,3 +99,16 @@ icons
     content: "\e90e";
 }
 
+.mix-icon_centered {
+    display: block;
+    text-align: center;
+}
+
+.mix-icon_hr { //icon used as a horizonal rule
+    margin: 25px 0;
+    line-height: 45px;
+    font-size: 32px;
+    color: rgba($GREY_LIGHT, .3);
+}
+
+
