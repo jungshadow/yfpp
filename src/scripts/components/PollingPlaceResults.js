@@ -14,42 +14,6 @@ import helpers from '../helpers';
  * @extends React.Component
  */
 class PollingPlaceResults extends React.Component {
-    
-    /**
-     * Adds "fucking" in various places within a phrase, depending on the phrase
-     * 
-     * @method fucktify
-     * @return {string} unsanitized phrase
-     */
-    fucktify(str) {
-	if (str === undefined) {
-	    str = "Some fucking building";
-	} else {
-	    // I need to standardize the character case because
-	    // the data is chaos and indexOf uses strict equality
-	    var str_arr = String(str).toLowerCase().trim().split(" ");
-
-	    // assuming two or more words...
-	    if (str_arr.length >= 2) {
-		// ...check for the existence/index of "of"...
-		var of_idx = str_arr.indexOf("of");
-		if (of_idx > -1) {
-		    // ...insert after "of" for great justice...
-		    str_arr.splice(of_idx+1, 0, "fucking");
-		} else {
-		    // ...or just stick "fucking" between the 1st and 2nd words
-		    str_arr.splice(1, 0, "fucking");
-		}
-	    } else {
-		// else, start the word with "fucking"
-		str_arr.splice(0, 0, "fucking");
-	    }
-	    // put that shit back together
-	    str = str_arr.join(" ");
-	}
-
-	return str;
-    }
 
     /**
      * Renders polling place results list items
@@ -65,14 +29,14 @@ class PollingPlaceResults extends React.Component {
             <li>
                 <div className="card">
                     <div className="card-bd">
-	                <h3 className="hdg mix-hdg_capitalize">{this.fucktify(locations.address.locationName)}</h3>
+	                <h3 className="hdg mix-hdg_capitalize">{helpers.fucktify(locations.address.locationName)}</h3>
                         <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.line1)}</span></div>
                         <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.line2)}</span></div>
                         <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.city)}, {locations.address.state} {locations.address.zip}</span></div>
                         <div>{locations.pollingHours}</div>
                     </div>
                     <div className="card-ft">
-                        <Actions />
+                        <Actions location={locations.address} />
                     </div>
                 </div>
             </li>
