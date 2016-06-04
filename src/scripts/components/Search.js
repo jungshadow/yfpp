@@ -14,6 +14,21 @@ import autobind from 'autobind-decorator';
  */
 class Search extends React.Component {
 
+    /**
+     * Handles post-render actions
+     *
+     * @method componentDidMount
+     */
+    componentDidMount() {
+        /* Add Google Autocomplete */
+        var options = {
+          types: ['address'],
+          componentRestrictions: {country: 'us'}
+        };
+        var input = $('.searchForm-input')[0];
+        new window.google.maps.places.Autocomplete(input, options);
+    }
+
     fetchData(e) {
         e.preventDefault();
         
