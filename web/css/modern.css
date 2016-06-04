@@ -215,12 +215,15 @@ contentWrap - outer container for main content
 header
 ------------------------------------------------------------------------ */
 .footer {
-  background-color: #3f3d3c;
+  background: #3f3d3c url("../images/fucking-eagle.png") bottom center no-repeat;
   padding: 80px 0; }
 
 .privacy-info {
   max-width: 650px;
   margin: 32px auto 0; }
+
+.team {
+  margin-bottom: 50px; }
 
 /* ---------------------------------------------------------------------
 icons
@@ -282,7 +285,7 @@ icons
   text-align: center; }
 
 .mix-icon_hr {
-  margin: 25px 0;
+  margin: 30px 0 45px;
   line-height: 45px;
   font-size: 32px;
   color: rgba(228, 225, 221, 0.3); }
@@ -588,6 +591,9 @@ text
 .txt {
   font-family: "Lato", sanserif; }
 
+.txtCenter {
+  text-align: center; }
+
 /* text variations */
 .mix-txt_medium {
   font-size: 14px; }
@@ -806,7 +812,8 @@ Blocks
 ------------------------------------------------------------------------ */
 .blocks {
   margin-left: -20px;
-  font-size: 0; }
+  font-size: 0;
+  text-align: center; }
 
 .blocks > * {
   display: inline-block;
@@ -824,11 +831,45 @@ Blocks
 .blocks_4up > * {
   width: 25%; }
 
+.blocks_6up > * {
+  width: 16.66667%; }
+
 /* Blocks Vertical rhythm - adds top margin to any blocks that wrap to a second row */
 .blocks_2up > *:nth-child(n+3),
 .blocks_3up > *:nth-child(n+4),
-.blocks_4up > *:nth-child(n+5) {
+.blocks_4up > *:nth-child(n+5),
+.blocks_6up > *:nth-child(n+7) {
   margin-top: 20px; }
+
+@media screen and (max-width: 768px) {
+  .blocks_2upSM > * {
+    width: 50%; }
+  .blocks_3upSM > * {
+    width: 33.33333%; }
+  .blocks_4upSM > * {
+    width: 25%; }
+  .blocks_6upSM > * {
+    width: 16.66667%; }
+  .blocks_2upSM > *:nth-child(n+3),
+  .blocks_3upSM > *:nth-child(n+4),
+  .blocks_4upSM > *:nth-child(n+5),
+  .blocks_6upSM > *:nth-child(n+7) {
+    margin-top: 20px; } }
+
+@media screen and (min-width: 768px) and (max-width: 960px) {
+  .blocks_2upMD > * {
+    width: 50%; }
+  .blocks_3upMD > * {
+    width: 33.33333%; }
+  .blocks_4upMD > * {
+    width: 25%; }
+  .blocks_6upMD > * {
+    width: 16.66667%; }
+  .blocks_2upMD > *:nth-child(n+3),
+  .blocks_3upMD > *:nth-child(n+4),
+  .blocks_4upMD > *:nth-child(n+5),
+  .blocks_6upMD > *:nth-child(n+7) {
+    margin-top: 20px; } }
 
 /* ---------------------------------------------------------------------
 Grid
@@ -1000,3 +1041,6 @@ Class                       | Description
 .wrapper {
   max-width: 960px;
   margin: 0 auto; }
+
+.wrapper_large {
+  max-width: 1224px; }
