@@ -6,32 +6,70 @@ $MEASUREMENTS_BLOCKS_GUTTER: 20px;
 
 // Argument: number of blocks, desired gutter width (%)
 @mixin blocksWidth($NUMBER_OF_BLOCKS) {
-    width: (100% / $NUMBER_OF_BLOCKS);
+	width: (100% / $NUMBER_OF_BLOCKS);
 }
 
 
 .blocks {
-    margin-left: -$MEASUREMENTS_BLOCKS_GUTTER;
+	margin-left: -$MEASUREMENTS_BLOCKS_GUTTER;
     font-size: 0; // removes white space between children
+    text-align: center;
 }
 
 .blocks > * {
-    display: inline-block;
-    padding-left: $MEASUREMENTS_BLOCKS_GUTTER;
-    @include blocksWidth(1);
-    vertical-align: top;
+	display: inline-block;
+	padding-left: $MEASUREMENTS_BLOCKS_GUTTER;
+	margin-bottom: 20px;
+	@include blocksWidth(1);
+	vertical-align: top;
     font-size: 1rem; // resets the default font treatment
 }
 
 .blocks_2up > * { @include blocksWidth(2); }
 .blocks_3up > * { @include blocksWidth(3); }
 .blocks_4up > * { @include blocksWidth(4); }
+.blocks_6up > * { @include blocksWidth(6); }
+
 
 
 /* Blocks Vertical rhythm - adds top margin to any blocks that wrap to a second row */
 
 .blocks_2up > *:nth-child(n+3),
 .blocks_3up > *:nth-child(n+4),
-.blocks_4up > *:nth-child(n+5) {
-    margin-top: $MEASUREMENTS_BLOCKS_GUTTER;
+.blocks_4up > *:nth-child(n+5),
+.blocks_6up > *:nth-child(n+7)
+{
+	margin-top: $MEASUREMENTS_BLOCKS_GUTTER;
+}
+
+@media screen and (max-width: 768px) {
+
+	.blocks_2upSM > * { @include blocksWidth(2); }
+	.blocks_3upSM > * { @include blocksWidth(3); }
+	.blocks_4upSM > * { @include blocksWidth(4); }
+	.blocks_6upSM > * { @include blocksWidth(6); }
+
+
+	.blocks_2upSM > *:nth-child(n+3),
+	.blocks_3upSM > *:nth-child(n+4),
+	.blocks_4upSM > *:nth-child(n+5),
+	.blocks_6upSM > *:nth-child(n+7) {
+		margin-top: $MEASUREMENTS_BLOCKS_GUTTER;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 960px) {
+
+	.blocks_2upMD > * { @include blocksWidth(2); }
+	.blocks_3upMD > * { @include blocksWidth(3); }
+	.blocks_4upMD > * { @include blocksWidth(4); }
+	.blocks_6upMD > * { @include blocksWidth(6); }
+
+
+	.blocks_2upMD > *:nth-child(n+3),
+	.blocks_3upMD > *:nth-child(n+4),
+	.blocks_4upMD > *:nth-child(n+5),
+	.blocks_6upMD > *:nth-child(n+7) {
+		margin-top: $MEASUREMENTS_BLOCKS_GUTTER;
+	}
 }
