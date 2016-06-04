@@ -757,7 +757,8 @@ Tabs
   padding: 16px;
   font-size: 20px;
   font-family: "Liberator", sanserif;
-  letter-spacing: 1.5px; }
+  letter-spacing: 1.5px;
+  line-height: 1.1; }
 
 .tabs-nav-item:first-of-type .isActive.tabs-nav-item-btn {
   background-color: #7d2929; }
@@ -806,6 +807,12 @@ Tabs
 .tabs-panel.fade-enter-active {
   opacity: 1;
   transform: translateY(0); }
+
+@media screen and (max-width: 568px) {
+  .tabs-nav-item-btn {
+    font-size: 14px;
+    padding: 12px;
+    letter-spacing: .5px; } }
 
 /* ---------------------------------------------------------------------
 Blocks
