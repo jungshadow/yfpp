@@ -818,6 +818,7 @@ Blocks
 .blocks > * {
   display: inline-block;
   padding-left: 20px;
+  margin-bottom: 20px;
   width: 100%;
   vertical-align: top;
   font-size: 1rem; }

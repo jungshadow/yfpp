@@ -19,6 +19,7 @@ $MEASUREMENTS_BLOCKS_GUTTER: 20px;
 .blocks > * {
 	display: inline-block;
 	padding-left: $MEASUREMENTS_BLOCKS_GUTTER;
+	margin-bottom: 20px;
 	@include blocksWidth(1);
 	vertical-align: top;
     font-size: 1rem; // resets the default font treatment
