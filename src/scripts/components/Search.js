@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 
 import autobind from 'autobind-decorator';
 
+import analytics from '../analytics';
+
 @autobind
 
 /**
@@ -45,10 +47,12 @@ class Search extends React.Component {
             data: config,
             success: function(data) {
 		console.log(data);
+                analytics.success(data);
                 this.props.updateResults(data);
                 this.setState({isActive: false});
             }.bind(this),
             error: function(xhr, status, err) {
+                analytics.failure(xhr.responseJSON);
                 console.error(this.props.url, status, err.toString());
             }.bind(this)
         });
