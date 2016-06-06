@@ -79,8 +79,6 @@ input[type="search"]::-webkit-search-results-decoration {
 
 input[type="search"] {
   -webkit-appearance: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 textarea {
@@ -179,26 +177,63 @@ img {
 contentWrap - outer container for main content
 ------------------------------------------------------------------------ */
 .contentWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
   position: relative;
   height: 100vh;
   width: 100%;
-  padding: 50px 0;
-  background: url(../images/fucking-patriot.png) no-repeat bottom right; }
+  padding-top: 50px; }
 
 .contentWrap-primary {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
-  top: 50%;
-  margin: -100px auto 0;
+  -webkit-box-flex: 0.45;
+      -ms-flex: 0.45 1 auto;
+          flex: 0.45 1 auto;
+  margin: 0 auto;
   text-align: center;
-  transition: all .25s ease-in-out; }
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  width: 100%; }
 
 .contentWrap-primary-inner {
-  display: inline-block; }
+  width: 100%;
+  margin: 0 auto;
+  -ms-flex-item-align: center;
+      align-self: center; }
 
 .contentWrap-secondary {
+  -webkit-transition: all .45s ease-in-out;
   transition: all .45s ease-in-out;
-  transform: translateY(500px);
-  opacity: 0; }
+  -webkit-transform: translateY(500px);
+          transform: translateY(500px);
+  opacity: 0;
+  width: 100%; }
+
+.contentWrap-tertiary {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  background: url(../images/fucking-patriot.png) no-repeat right bottom;
+  background-size: contain;
+  width: 100%; }
 
 .isActive.contentWrap {
   height: auto; }
@@ -207,9 +242,12 @@ contentWrap - outer container for main content
     margin: 0 auto 20px; }
   .isActive.contentWrap .contentWrap-secondary {
     max-width: 728px;
-    margin: 0 auto;
-    transform: translateY(0px);
+    margin: 0 auto 50px;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
     opacity: 1; }
+  .isActive.contentWrap .contentWrap-tertiary {
+    min-height: 250px; }
 
 /* ---------------------------------------------------------------------
 header
@@ -304,6 +342,7 @@ actionLink
   border-radius: 50%;
   vertical-align: middle;
   text-align: center;
+  -webkit-transition: background-color .25s ease-in-out;
   transition: background-color .25s ease-in-out; }
   .actionLink:after {
     display: inline-block;
@@ -331,97 +370,6 @@ actionLink
 .mix-actionLink_blue:hover,
 .mix-actionLink_blue:focus {
   background-color: #2b3975; }
-
-/*doc
----
-title: Button
-name: btn
-category: content
----
-
-The Button object is used to style clickable elements. The Button object will add hover and focus states.
-An optional extension is available to create an animated gradient hover.
-
-Class                       | Description
---------------------------- | ---------------------------------------------------------------
-`.btn`                      | Base class.
-`.btn_gradient`             | Modifying extension for base class. Adds animated gradient background.
-
-
-### Basic button
-```html_example
-    <a class="btn">Click Me</a> 
-```
-
-### Button with animated gradient background
-```html_example
-    <a class="btn btn_gradient">Click Me</a>    
-```
-
-*/
-.btn {
-  display: inline-block;
-  border: 1px solid #000000;
-  padding: 12px 30px 10px;
-  font-size: 14px;
-  line-height: 1.1;
-  text-transform: uppercase;
-  font-weight: bold;
-  overflow: hidden;
-  transition: all .5s ease-in-out;
-  background: white; }
-
-.btn:hover,
-.btn:focus {
-  color: #ffffff;
-  background: #000000; }
-
-.btn_gradient {
-  position: relative;
-  background: none;
-  z-index: 1; }
-
-.btn_gradient:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  display: block;
-  height: 100%;
-  width: 0px;
-  background: red;
-  z-index: -1;
-  transition: all .5s ease-in-out;
-  transform: translateX(-50%) skewX(45deg); }
-
-.btn_gradient:hover,
-.btn_gradient:focus {
-  color: #ffffff;
-  background: none; }
-
-.btn_gradient:hover:after,
-.btn_gradient:focus:after {
-  width: 100%;
-  background: red linear-gradient(90deg, #c62e2a, #f46e29, #8e31d2, #3f75d9);
-  background-size: 800% 800%;
-  animation: gradientChange 5s forwards 1 linear; }
-
-/* animation keyframes */
-@keyframes gradientChange {
-  0% {
-    background-color: red; }
-  20% {
-    background: linear-gradient(90deg, #c62e2a, #f46e29, #8e31d2, #3f75d9);
-    background-size: 800% 800%;
-    background-position: 0% 0%; }
-  40% {
-    background-position: 25% 0%; }
-  60% {
-    background-position: 50% 0%; }
-  80% {
-    background-position: 75% 0%; }
-  100% {
-    background-position: 100% 0%; } }
 
 /* ---------------------------------------------------------------------
 Form Select
@@ -490,9 +438,11 @@ siteTitle
 .siteTitle {
   font-family: "Liberator", sanserif;
   color: #2b3975;
-  font-size: 52px;
+  font-size: 32px;
   line-height: 1;
   letter-spacing: 2.5px;
+  text-align: center;
+  -webkit-transition: all .75s ease-in-out;
   transition: all .75s ease-in-out; }
 
 .siteTitle-seg2 {
@@ -505,12 +455,18 @@ siteTitle
 
 .isActive.siteTitle {
   margin-bottom: 10px;
-  font-size: 28px;
+  font-size: 20px;
   letter-spacing: 1.15px; }
   .isActive.siteTitle .siteTitle-seg2 {
     font-size: 1em;
     display: inline-block;
     margin-left: 0.4em; }
+
+@media screen and (min-width: 568px) {
+  .siteTitle {
+    font-size: 52px; }
+  .isActive.siteTitle {
+    font-size: 28px; } }
 
 /* ---------------------------------------------------------------------
 Stars and Stripes
@@ -529,19 +485,24 @@ Stars and Stripes
   height: 2px;
   background-color: #b1ada8;
   border-radius: 5px;
+  -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
-  transform: translateX(-100%); }
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%); }
 
 .starsNstripes-stripe_rgt {
   right: 0;
   left: auto;
-  transform: translateX(100%); }
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%); }
 
 .isActive.starsNstripes .starsNstripes-stripe {
-  transform: translateX(0%); }
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%); }
 
 .isActive.starsNstripes .starsNstripes-stripe_rgt {
-  transform: translateX(0%); }
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%); }
 
 .starsNstripes-stripeSm {
   display: block;
@@ -553,6 +514,7 @@ Stars and Stripes
   height: 2px;
   background-color: #7d2929;
   border-radius: 5px;
+  -webkit-transition: all .7s ease-in-out;
   transition: all .7s ease-in-out; }
 
 .starsNstripes-stripeSm_rgt {
@@ -579,6 +541,7 @@ Stars and Stripes
   background-color: #e4e1dd;
   z-index: 1;
   opacity: 0;
+  -webkit-transition: all .25s ease-in-out;
   transition: all .25s ease-in-out; }
 
 .isActive.starsNstripes .starsNstripes-star {
@@ -625,12 +588,16 @@ card
 ------------------------------------------------------------------------ */
 .card {
   position: relative;
-  background-color: rgba(187, 187, 187, 0.45);
+  background-color: #cecbc8;
   border: solid 2px #7d2929;
   border-radius: 6px; }
 
 .card_secondary {
   border-color: #2b3975; }
+
+.card_error {
+  background-color: #7d2929;
+  color: #f1eeea; }
 
 .card-flag {
   position: absolute;
@@ -690,7 +657,8 @@ search
 .searchForm {
   display: inline-block;
   position: relative;
-  width: 490px;
+  width: 100%;
+  -webkit-transition: all .75s ease-in-out;
   transition: all .75s ease-in-out; }
 
 .searchForm-input {
@@ -731,9 +699,6 @@ search
     background: #a33636; }
 
 /* active state  */
-.isActive.searchForm {
-  width: 479px; }
-
 /* ---------------------------------------------------------------------
 Tabs
 ------------------------------------------------------------------------ */
@@ -757,8 +722,7 @@ Tabs
   padding: 16px;
   font-size: 20px;
   font-family: "Liberator", sanserif;
-  letter-spacing: 1.5px;
-  line-height: 1.1; }
+  letter-spacing: 1.5px; }
 
 .tabs-nav-item:first-of-type .isActive.tabs-nav-item-btn {
   background-color: #7d2929; }
@@ -789,30 +753,38 @@ Tabs
   right: -.295em; }
 
 .tabs-panel {
+  -webkit-transition: all .15s ease-in-out;
   transition: all .15s ease-in-out;
   padding: 0 32px; }
 
 .tabs-panel.fade-enter {
   opacity: 0;
-  transform: translateY(-25px); }
+  -webkit-transform: translateY(-25px);
+          transform: translateY(-25px); }
 
 .tabs-panel.fade-enter-active {
   opacity: 1;
-  transform: translateY(0); }
+  -webkit-transform: translateY(0);
+          transform: translateY(0); }
 
 .tabs-panel.fade-leave {
   opacity: 0;
-  transform: translateY(25px); }
+  -webkit-transform: translateY(25px);
+          transform: translateY(25px); }
 
 .tabs-panel.fade-enter-active {
   opacity: 1;
-  transform: translateY(0); }
+  -webkit-transform: translateY(0);
+          transform: translateY(0); }
 
 @media screen and (max-width: 568px) {
   .tabs-nav-item-btn {
     font-size: 14px;
     padding: 12px;
-    letter-spacing: .5px; } }
+    letter-spacing: .5px; }
+  .tabs-nav-item:first-of-type .tabs-nav-item-btn:before,
+  .tabs-nav-item:last-of-type .tabs-nav-item-btn:after {
+    font-size: 2.75em; } }
 
 /* ---------------------------------------------------------------------
 Blocks
@@ -937,6 +909,12 @@ group
 .group_sm > * + * {
   margin-top: 12px; }
 
+/* group variations */
+.mix-group_narrow {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto; }
+
 /* ---------------------------------------------------------------------
 hList
 ------------------------------------------------------------------------ */
@@ -1026,29 +1004,16 @@ vertical list
   margin: 0;
   border-top: 1px solid #bbbbbb; }
 
-/*doc
----
-title: Wrapper
-name: wrapper
-category: layout
----
-
-The Wrapper object is a constrained width container that is used to horizontally center content in the viewport.
-
-Class                       | Description
---------------------------- | ---------------------------------------------------------------
-`.wrapper`                  | Base class.
-
-
-```html_example
-<div class="wrapper">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas natus doloribus soluta eius, quasi architecto consequatur nemo dignissimos delectus facere nihil provident magni voluptate quam, quia! Adipisci, placeat commodi ipsum rem, sunt voluptates error dignissimos laudantium ipsa? Quasi doloremque vitae vel aperiam dicta molestias eaque laudantium unde illum qui! Rem!</div>
-
-```
-
-*/
+/* ---------------------------------------------------------------------
+wrapper
+------------------------------------------------------------------------ */
 .wrapper {
   max-width: 960px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 0 20px; }
 
 .wrapper_large {
   max-width: 1224px; }
+
+.mix-wrapper_bleed {
+  padding: 0; }
