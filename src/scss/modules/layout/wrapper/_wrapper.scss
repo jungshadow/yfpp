@@ -15,3 +15,11 @@ wrapper
 .mix-wrapper_bleed {
     padding: 0;
 }
+
+@media screen and (min-width: 480px) {
+    
+    .wrapper {
+        padding: 0 10px;
+    }
+
+}

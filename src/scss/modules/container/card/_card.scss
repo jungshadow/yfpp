@@ -32,10 +32,18 @@ card
 }
 
 .card-bd {
-	padding: 36px;
     line-height: 26px;
+	padding: 12px;
+
 }
 
 .card-ft {
 	text-align: center
+}
+
+@media screen and (min-width: 568px) {
+
+    .card-bd {
+        padding: 36px;
+    }
 }

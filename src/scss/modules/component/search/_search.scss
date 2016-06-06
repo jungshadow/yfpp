@@ -14,6 +14,7 @@ search
 	background: $WHITE;
 	width: 100%;
 	padding: 18px 55px 18px 18px; // extra right padding makes room for absolutely positioned button
+	margin: 0;
 	border: 1px solid $GREY_MEDIUM;
 	font-size: 15px;
 	font-family: $FONT_HEADLINE;
@@ -26,7 +27,7 @@ search
 	position: absolute;
 	top: 0;
 	right: 0;
-	height: 51px;
+	height: 100%;
 	width: 51px;
 	overflow: hidden;
 	text-indent: -999em;

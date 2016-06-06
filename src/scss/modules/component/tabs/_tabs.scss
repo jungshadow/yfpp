@@ -35,27 +35,23 @@ Tabs
 	background-color: $BLUE;
 }
 
-.tabs-nav-item:first-of-type .tabs-nav-item-btn:before {
-	position: absolute;
-	display: block;
-	font-family: $FONT_ICON;
-	@include icon_banner_notch();
-	font-size: 2.5em;
-	color: $GREY_LIGHT;
-	text-indent: 0;
-	top: -1px;
-	left: -.295em;
-}
-
+.tabs-nav-item:first-of-type .tabs-nav-item-btn:before,
 .tabs-nav-item:last-of-type .tabs-nav-item-btn:after {
 	position: absolute;
 	display: block;
 	font-family: $FONT_ICON;
 	@include icon_banner_notch();
-	font-size: 2.5em;
+	font-size: 3.05em;
 	color: $GREY_LIGHT;
 	text-indent: 0;
-	top: -1px;
+	top: -0.05em;
+}
+
+.tabs-nav-item:first-of-type .tabs-nav-item-btn:before {
+	left: -.295em;
+}
+
+.tabs-nav-item:last-of-type .tabs-nav-item-btn:after {
 	right: -.295em;
 }
 
@@ -87,6 +83,7 @@ Tabs
 }
 
 @media screen and (max-width: 568px) {
+
 	.tabs-nav-item-btn {
 		font-size: 14px;
 		padding: 12px;
@@ -96,6 +93,11 @@ Tabs
 	.tabs-nav-item:first-of-type .tabs-nav-item-btn:before,
 	.tabs-nav-item:last-of-type .tabs-nav-item-btn:after {
 		font-size: 2.75em;
+		display: none;
+	}
+
+	.tabs-panel {
+		padding: 0 10px;
 	}
 }
 
