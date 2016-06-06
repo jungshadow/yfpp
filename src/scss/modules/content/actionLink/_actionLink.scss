@@ -14,7 +14,8 @@ actionLink
     vertical-align: middle;
     text-align: center;
     transition: background-color .25s ease-in-out;
-    
+    -webkit-font-smoothing: antialiased;
+
     &:after {
         display: inline-block;
         vertical-align: middle;
@@ -50,4 +51,32 @@ actionLink
 .mix-actionLink_blue:hover,
 .mix-actionLink_blue:focus, {
     background-color: $BLUE;
+}
+
+.mix-actionLink_twitter {
+    background-color: $RED;
+
+    &:hover,
+    &:focus {
+        background-color: lighten($RED, 10);
+    }
+}
+
+.mix-actionLink_facebook {
+    background-color: $BLUE;
+
+    &:hover,
+    &:focus {
+        background-color: lighten($BLUE, 10);
+    }
+}
+
+// icon sizing
+.mix-actionLink_lrg {
+    height: 32px;
+    width: 32px;
+
+    &:after {
+        font-size: 26px;
+    }
 }
