@@ -157,7 +157,7 @@ class App extends React.Component {
         var activeClassName = this.state.isActive === true ? ACTIVE_CLASS : '';
         
         return (
-            <div className="">
+            
               <div className={'contentWrap ' + activeClassName}>
                 <header className="contentWrap-primary" role="banner">
                     <div className="contentWrap-primary-inner">
@@ -225,7 +225,7 @@ class App extends React.Component {
                 </main>
                 <div className="contentWrap-tertiary"><div className="heroImg"></div></div>
             </div>
-            </div>
+            
         )
 
     };
