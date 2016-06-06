@@ -3,29 +3,46 @@ contentWrap - outer container for main content
 ------------------------------------------------------------------------ */
 
 .contentWrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
 	position: relative;
 	height: 100vh;
 	width: 100%;
-	padding: 50px 0;
-	background: url(../images/fucking-patriot.png) no-repeat bottom right;
+	padding-top: 50px;
 }
 
 .contentWrap-primary {
+	display: flex;
 	position: relative;
-	top: 50%;
-	margin: -100px auto 0;
+	flex: 0.45 1 auto;
+	margin: 0 auto;
 	text-align: center;
 	transition: all .25s ease-in-out;
+	width: 100%;
 }
 
 .contentWrap-primary-inner {
-	display: inline-block;
+	width: 100%;
+	margin: 0 auto;
+	align-self: center;
 }
 
 .contentWrap-secondary {
 	transition: all .45s ease-in-out;
 	transform: translateY(500px);
 	opacity: 0;
+	width: 100%;
+}
+
+.contentWrap-tertiary {
+	flex: 1 1 auto;
+	align-self: stretch;
+	background: url(../images/fucking-patriot.png) no-repeat right bottom;
+    background-size: contain;
+    width: 100%;
 }
 
 .isActive.contentWrap {
@@ -39,8 +56,12 @@ contentWrap - outer container for main content
 
 	.contentWrap-secondary {
 		max-width: 728px;
-		margin: 0 auto;
+		margin: 0 auto 50px;
 		transform: translateY(0px);
 		opacity: 1;
+	}
+
+	.contentWrap-tertiary {
+		min-height: 250px;
 	}
 }
