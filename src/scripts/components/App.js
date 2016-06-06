@@ -157,83 +157,76 @@ class App extends React.Component {
         var activeClassName = this.state.isActive === true ? ACTIVE_CLASS : '';
         
         return (
-<div>
-    <ul className="hList">
-         <li>
-             <a href="" className="actionLink actionLink_twitter mix-actionLink_lrg"></a>
-         </li>
-         <li>
-             <a href="" className="actionLink actionLink_facebook mix-actionLink_lrg"></a>
-         </li>
-     </ul> 
-      <div className={'contentWrap ' + activeClassName}>
-        <header className="contentWrap-primary" role="banner">
-            <div className="contentWrap-primary-inner">
-                <div className="wrapper">
-                    <div className="group mix-group_narrow">
-                        <div className="group-hd">
-                            <SiteTitle activeClassName={activeClassName} />
-                        </div>
-                        <div className="group-bd">
-                            <Search updateResults={this.updateResults} activeClassName={activeClassName} onErrorHandler={this.onErrorHandler} />
-                        </div>
-                        <div className="group-ft">{ this.state.isError ? this.renderErrorMessage() : '' }</div>
+            <div className={ 'contentWrap ' + activeClassName}>
+                <div className="contentWrap-ancillary">
+                    <div className="wrapper">
+                        <ul className="hList">
+                            <li>
+                                <a href="https://twitter.com/fnpollingplace" target="_blank" className="actionLink actionLink_twitter mix-actionLink_lrg mix-actionLink_twitter"></a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/Your-Fucking-Polling-Place-120373578023062/" target="_blank" className="actionLink actionLink_facebook mix-actionLink_lrg mix-actionLink_facebook"></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div className={'starsNstripes '  + activeClassName}>
-                    <span className="starsNstripes-stripeSm"></span>
-                    <span className="starsNstripes-stripe"></span>
-                    <span className="starsNstripes-stripeSm starsNstripes-stripeSm_btm"></span>
-                    <span className="starsNstripes-star"><i className="icon icon_star-hollow"></i></span>
-                    <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt"></span>
-                    <span className="starsNstripes-stripe starsNstripes-stripe_rgt"></span>
-                    <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt starsNstripes-stripeSm_btm"></span>
+                <header className="contentWrap-primary" role="banner">
+                    <div className="contentWrap-primary-inner">
+                        <div className="wrapper">
+                            <div className="group mix-group_narrow">
+                                <div className="group-hd">
+                                    <SiteTitle activeClassName={activeClassName} />
+                                </div>
+                                <div className="group-bd">
+                                    <Search updateResults={this.updateResults} activeClassName={activeClassName} onErrorHandler={this.onErrorHandler} />
+                                </div>
+                                <div className="group-ft">{ this.state.isError ? this.renderErrorMessage() : '' }</div>
+                            </div>
+                        </div>
+                        <div className={ 'starsNstripes ' + activeClassName}>
+                            <span className="starsNstripes-stripeSm"></span>
+                            <span className="starsNstripes-stripe"></span>
+                            <span className="starsNstripes-stripeSm starsNstripes-stripeSm_btm"></span>
+                            <span className="starsNstripes-star"><i className="icon icon_star-hollow"></i></span>
+                            <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt"></span>
+                            <span className="starsNstripes-stripe starsNstripes-stripe_rgt"></span>
+                            <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt starsNstripes-stripeSm_btm"></span>
+                        </div>
+                    </div>
+                </header>
+                <main className="contentWrap-secondary" role="main">
+                    <div className="wrapper mix-wrapper_bleed">
+                        <Tabs>
+                            <TabPanel label="Fucking Polling Place">
+                                <ul className="vList">
+                                    {Object.keys(this.state.pollingLocations).map(this.renderPollingPlaceResults)}
+                                </ul>
+                            </TabPanel>
+                            <TabPanel label="On Your Fucking Ballot">
+                                <div className="group">
+                                    {(() => { if(this.state.primaryParties.length > 0) { 
+                                        return (
+                                            <div className="group-item">
+                                                {this.renderPartySelect()}
+                                            </div>
+                                    ); } })()}
+                                    {(() => { if(this.state.contests.length > 0) { 
+                                        return (
+                                            <div className="group-item">
+                                                <ul className="vList">
+                                                    {Object.keys(this.state.contests).map(this.renderContestResults)}
+                                                </ul>
+                                            </div>
+                                    ); } })()}
+                                </div>
+                            </TabPanel>
+                        </Tabs>
+                    </div>
+                </main>
+                <div className="contentWrap-tertiary">
+                    <div className="heroImg"></div>
                 </div>
             </div>
-        </header>
-        
-        <main className="contentWrap-secondary" role="main">
-            
-            <div className="wrapper mix-wrapper_bleed">
-                <Tabs>
-                    <TabPanel label="Fucking Polling Place">
-                        <ul className="vList">
-                            {Object.keys(this.state.pollingLocations).map(this.renderPollingPlaceResults)}
-                        </ul>
-                    </TabPanel>
-                    <TabPanel label="On Your Fucking Ballot">
-                        <div className="group">
-                                                {(() => {
-                
-                                if(this.state.primaryParties.length > 0) {
-                                    
-                                    return (
-                                        <div className="group-item">
-                                            {this.renderPartySelect()}
-                                        </div>
-                                    );
-                                }
-                                })()}
-                            {(() => {
-                                if(this.state.contests.length > 0) {
-                                    
-                                    return (
-                                        <div className="group-item">
-                                            <ul className="vList">
-                                                {Object.keys(this.state.contests).map(this.renderContestResults)}
-                                            </ul>
-                                        </div>
-                                    );
-                            }
-                            })()}
-                        </div>
-                    </TabPanel>
-                </Tabs>
-            </div>
-        </main>
-        <div className="contentWrap-tertiary"><div className="heroImg"></div></div>
-    </div>
-</div>
         )
 
     };
