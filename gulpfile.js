@@ -32,6 +32,7 @@ gulp.task('styles',function() {
 gulp.task('sass', function () {
   return gulp.src('./src/scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer())
     .pipe(gulp.dest('./web/css'))
     .pipe(browserSync.stream());
 });
@@ -111,7 +112,7 @@ gulp.task('scripts', function() {
 });
 
 // run 'scripts' task first, then watch for future changes
-gulp.task('default', ['images','styles','scripts','browser-sync'], function() {
+gulp.task('default', ['images', 'styles', 'sass', 'scripts', 'browser-sync'], function() {
   gulp.watch('./src/scss/**/*.scss', ['sass']); // scss watch for style change
   return buildScript('main.js', true); // browserify watch for JS changes
 });
