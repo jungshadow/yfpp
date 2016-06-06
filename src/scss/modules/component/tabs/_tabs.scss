@@ -92,6 +92,11 @@ Tabs
 		padding: 12px;
 		letter-spacing: .5px;
 	}
+
+	.tabs-nav-item:first-of-type .tabs-nav-item-btn:before,
+	.tabs-nav-item:last-of-type .tabs-nav-item-btn:after {
+		font-size: 2.75em;
+	}  
 }
 
 
