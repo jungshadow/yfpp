@@ -157,65 +157,71 @@ class App extends React.Component {
         var activeClassName = this.state.isActive === true ? ACTIVE_CLASS : '';
         
         return (
-            <div className="wrapper">
+            <div className="">
               <div className={'contentWrap ' + activeClassName}>
                 <header className="contentWrap-primary" role="banner">
-                    <div className="group">
-                        <div className="group-hd">
-                            <SiteTitle activeClassName={activeClassName} />
+                    <div className="contentWrap-primary-inner">
+                        <div className="wrapper">
+                            <div className="group mix-group_narrow">
+                                <div className="group-hd">
+                                    <SiteTitle activeClassName={activeClassName} />
+                                </div>
+                                <div className="group-bd">
+                                    <Search updateResults={this.updateResults} activeClassName={activeClassName} onErrorHandler={this.onErrorHandler} />
+                                </div>
+                                <div className="group-ft">{ this.state.isError ? this.renderErrorMessage() : '' }</div>
+                            </div>
                         </div>
-                        <div className="group-bd">
-                            <Search updateResults={this.updateResults} activeClassName={activeClassName} onErrorHandler={this.onErrorHandler} />
+                        <div className={'starsNstripes '  + activeClassName}>
+                            <span className="starsNstripes-stripeSm"></span>
+                            <span className="starsNstripes-stripe"></span>
+                            <span className="starsNstripes-stripeSm starsNstripes-stripeSm_btm"></span>
+                            <span className="starsNstripes-star"><i className="icon icon_star-hollow"></i></span>
+                            <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt"></span>
+                            <span className="starsNstripes-stripe starsNstripes-stripe_rgt"></span>
+                            <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt starsNstripes-stripeSm_btm"></span>
                         </div>
-                        <div className="group-ft mix-group_narrow">{ this.state.isError ? this.renderErrorMessage() : '' }</div>
-                    </div>
-                    <div className={'starsNstripes '  + activeClassName}>
-                        <span className="starsNstripes-stripeSm"></span>
-                        <span className="starsNstripes-stripe"></span>
-                        <span className="starsNstripes-stripeSm starsNstripes-stripeSm_btm"></span>
-                        <span className="starsNstripes-star"><i className="icon icon_star-hollow"></i></span>
-                        <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt"></span>
-                        <span className="starsNstripes-stripe starsNstripes-stripe_rgt"></span>
-                        <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt starsNstripes-stripeSm_btm"></span>
                     </div>
                 </header>
                 
                 <main className="contentWrap-secondary" role="main">
                     
-                    <Tabs>
-                        <TabPanel label="Fucking Polling Place">
-                            <ul className="vList">
-                                {Object.keys(this.state.pollingLocations).map(this.renderPollingPlaceResults)}
-                            </ul>
-                        </TabPanel>
-                        <TabPanel label="On Your Fucking Ballot">
-                            <div className="group">
-            	                {(() => {
-
-                    			    if(this.state.primaryParties.length > 0) {
-                        				
-                                        return (
-                        				    <div className="group-item">
-                        				        {this.renderPartySelect()}
-                        				    </div>
-                        				);
-                        			}
+                    <div className="wrapper mix-wrapper_bleed">
+                        <Tabs>
+                            <TabPanel label="Fucking Polling Place">
+                                <ul className="vList">
+                                    {Object.keys(this.state.pollingLocations).map(this.renderPollingPlaceResults)}
+                                </ul>
+                            </TabPanel>
+                            <TabPanel label="On Your Fucking Ballot">
+                                <div className="group">
+                                                        {(() => {
+                        
+                                        if(this.state.primaryParties.length > 0) {
+                                            
+                                            return (
+                                                <div className="group-item">
+                                                    {this.renderPartySelect()}
+                                                </div>
+                                            );
+                                        }
+                                        })()}
+                                    {(() => {
+                                        if(this.state.contests.length > 0) {
+                                            
+                                            return (
+                                                <div className="group-item">
+                                                    <ul className="vList">
+                                                        {Object.keys(this.state.contests).map(this.renderContestResults)}
+                                                    </ul>
+                                                </div>
+                                            );
+                                    }
                                     })()}
-                                {(() => {
-                                    if(this.state.contests.length > 0) {
-    				
-                                        return (
-                        				    <div className="group-item">
-                        				        <ul className="vList">
-                        				            {Object.keys(this.state.contests).map(this.renderContestResults)}
-                        				        </ul>
-                        				    </div>
-                        				);
-                                }
-                                })()}
-                            </div>
-                        </TabPanel>
-                    </Tabs>
+                                </div>
+                            </TabPanel>
+                        </Tabs>
+                    </div>
                 </main>
                 <div className="contentWrap-tertiary"><div className="heroImg"></div></div>
             </div>
