@@ -5,7 +5,7 @@ search
 .searchForm {
 	display: inline-block;
 	position: relative; // provides positioning context for absolutely positioned submit button
-	width: 490px;
+	width: 100%;
 	transition: all .75s ease-in-out;
 }
 
@@ -54,6 +54,4 @@ search
 }
 
 /* active state  */
-.isActive.searchForm {
-	width: 479px;
-}
+
