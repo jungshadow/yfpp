@@ -1,24 +1,6 @@
-/*doc
----
-title: Wrapper
-name: wrapper
-category: layout
----
-
-The Wrapper object is a constrained width container that is used to horizontally center content in the viewport.
-
-Class                       | Description
---------------------------- | ---------------------------------------------------------------
-`.wrapper`                  | Base class.
-
-
-```html_example
-<div class="wrapper">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas natus doloribus soluta eius, quasi architecto consequatur nemo dignissimos delectus facere nihil provident magni voluptate quam, quia! Adipisci, placeat commodi ipsum rem, sunt voluptates error dignissimos laudantium ipsa? Quasi doloremque vitae vel aperiam dicta molestias eaque laudantium unde illum qui! Rem!</div>
-
-```
-
-*/
-
+/* ---------------------------------------------------------------------
+wrapper
+------------------------------------------------------------------------ */
 
 .wrapper {
 	max-width: $GLOBAL_WIDTH;
