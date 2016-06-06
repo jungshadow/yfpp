@@ -31,7 +31,9 @@ card
 }
 
 .card-bd {
-	padding: 15px;
+    line-height: 26px;
+	padding: 12px;
+
 }
 
 .card-ft {
@@ -39,7 +41,7 @@ card
 }
 
 @media screen and (min-width: 568px) {
-    
+
     .card-bd {
         padding: 36px;
     }

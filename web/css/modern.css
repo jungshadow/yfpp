@@ -343,7 +343,8 @@ actionLink
   vertical-align: middle;
   text-align: center;
   -webkit-transition: background-color .25s ease-in-out;
-  transition: background-color .25s ease-in-out; }
+  transition: background-color .25s ease-in-out;
+  -webkit-font-smoothing: antialiased; }
   .actionLink:after {
     display: inline-block;
     vertical-align: middle;
@@ -405,7 +406,8 @@ headings
   font-weight: normal; }
 
 .hdg_2 {
-  font-size: 18px; }
+  font-size: 20px;
+  font-weight: normal; }
 
 .hdg_3 {
   font-size: 16px; }
@@ -479,7 +481,7 @@ Stars and Stripes
 ------------------------------------------------------------------------ */
 .starsNstripes {
   position: relative;
-  margin-top: 20px;
+  margin-top: 14px;
   overflow: hidden; }
 
 .starsNstripes-stripe {
@@ -552,7 +554,7 @@ Stars and Stripes
 
 .isActive.starsNstripes .starsNstripes-star {
   opacity: 1;
-  font-size: 30px; }
+  font-size: 24px; }
 
 /* ---------------------------------------------------------------------
 text
@@ -617,7 +619,8 @@ card
   letter-spacing: 1px; }
 
 .card-bd {
-  padding: 15px; }
+  line-height: 26px;
+  padding: 12px; }
 
 .card-ft {
   text-align: center; }
@@ -649,6 +652,11 @@ actions
 .actions > * + * {
   border-left: 1px solid #b1ada8; }
 
+.actions-item:hover {
+  background-color: #e4e1dd;
+  -webkit-transition: background .25s ease-in-out;
+  transition: background .25s ease-in-out; }
+
 .actions-item > * {
   display: inline-block;
   vertical-align: middle; }
@@ -662,7 +670,7 @@ actions
   line-height: 0.9; }
 
 /* ---------------------------------------------------------------------
-search 
+search
 ------------------------------------------------------------------------ */
 .searchForm {
   display: inline-block;
@@ -675,7 +683,7 @@ search
   display: block;
   background: #f1eeea;
   width: 100%;
-  padding: 20px 55px 20px 20px;
+  padding: 18px 55px 18px 18px;
   margin: 0;
   border: 1px solid #bbbbbb;
   font-size: 15px;
@@ -689,7 +697,7 @@ search
   top: 0;
   right: 0;
   height: 100%;
-  width: 55px;
+  width: 51px;
   overflow: hidden;
   text-indent: -999em;
   text-align: left;
@@ -701,7 +709,7 @@ search
     display: block;
     font-family: "yfpp-icons";
     content: "\e906";
-    font-size: 30px;
+    font-size: 26px;
     color: #e4e1dd;
     text-indent: 0;
     top: 13px;
@@ -761,7 +769,7 @@ Tabs
 .tabs-panel {
   -webkit-transition: all .15s ease-in-out;
   transition: all .15s ease-in-out;
-  padding: 0 32px; }
+  padding: 0 12px; }
 
 .tabs-panel.fade-enter {
   opacity: 0;
@@ -790,6 +798,7 @@ Tabs
     letter-spacing: .5px; }
   .tabs-nav-item:first-of-type .tabs-nav-item-btn:before,
   .tabs-nav-item:last-of-type .tabs-nav-item-btn:after {
+    font-size: 2.75em;
     display: none; }
   .tabs-panel {
     padding: 0 10px; } }
@@ -922,6 +931,9 @@ group
   max-width: 500px;
   margin-left: auto;
   margin-right: auto; }
+
+.contentWrap .group > * + * {
+  margin-top: 11px; }
 
 /* ---------------------------------------------------------------------
 hList

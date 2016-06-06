@@ -57,7 +57,7 @@ Tabs
 
 .tabs-panel {
 	transition: all .15s ease-in-out;
-	padding: 0 32px;
+	padding: 0 12px;
 }
 
 // animate in
@@ -83,7 +83,7 @@ Tabs
 }
 
 @media screen and (max-width: 568px) {
-	
+
 	.tabs-nav-item-btn {
 		font-size: 14px;
 		padding: 12px;
@@ -92,8 +92,9 @@ Tabs
 
 	.tabs-nav-item:first-of-type .tabs-nav-item-btn:before,
 	.tabs-nav-item:last-of-type .tabs-nav-item-btn:after {
+		font-size: 2.75em;
 		display: none;
-	}  
+	}
 
 	.tabs-panel {
 		padding: 0 10px;
