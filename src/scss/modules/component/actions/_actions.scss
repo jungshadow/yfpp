@@ -27,6 +27,15 @@ actions
 	border-left: 1px solid $GREY;
 }
 
+.actions-item:hover {
+	background-color: $GREY_LIGHT;
+	-webkit-transition: background .25s ease-in-out;
+	   -moz-transition: background .25s ease-in-out;
+	    -ms-transition: background .25s ease-in-out;
+	     -o-transition: background .25s ease-in-out;
+	        transition: background .25s ease-in-out;
+}
+
 .actions-item > * {
 	display: inline-block;
 	vertical-align: middle;

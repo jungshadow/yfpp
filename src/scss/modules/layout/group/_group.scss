@@ -16,3 +16,9 @@ group
     margin-left: auto;
     margin-right: auto;
 }
+
+.contentWrap {
+	.group > * + * {
+    	margin-top: 11px;
+	}
+}

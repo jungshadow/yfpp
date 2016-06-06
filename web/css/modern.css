@@ -343,7 +343,8 @@ actionLink
   vertical-align: middle;
   text-align: center;
   -webkit-transition: background-color .25s ease-in-out;
-  transition: background-color .25s ease-in-out; }
+  transition: background-color .25s ease-in-out;
+  -webkit-font-smoothing: antialiased; }
   .actionLink:after {
     display: inline-block;
     vertical-align: middle;
@@ -473,7 +474,7 @@ Stars and Stripes
 ------------------------------------------------------------------------ */
 .starsNstripes {
   position: relative;
-  margin-top: 20px;
+  margin-top: 14px;
   overflow: hidden; }
 
 .starsNstripes-stripe {
@@ -639,6 +640,11 @@ actions
 
 .actions > * + * {
   border-left: 1px solid #b1ada8; }
+
+.actions-item:hover {
+  background-color: #e4e1dd;
+  -webkit-transition: background .25s ease-in-out;
+  transition: background .25s ease-in-out; }
 
 .actions-item > * {
   display: inline-block;
@@ -915,6 +921,9 @@ group
   max-width: 500px;
   margin-left: auto;
   margin-right: auto; }
+
+.contentWrap .group > * + * {
+  margin-top: 11px; }
 
 /* ---------------------------------------------------------------------
 hList
