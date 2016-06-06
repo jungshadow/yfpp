@@ -659,7 +659,7 @@ actions
   line-height: 0.9; }
 
 /* ---------------------------------------------------------------------
-search 
+search
 ------------------------------------------------------------------------ */
 .searchForm {
   display: inline-block;
@@ -672,7 +672,7 @@ search
   display: block;
   background: #f1eeea;
   width: 100%;
-  padding: 20px 55px 20px 20px;
+  padding: 18px 55px 18px 18px;
   border: 1px solid #bbbbbb;
   font-size: 15px;
   font-family: "Liberator", sanserif;
@@ -684,8 +684,8 @@ search
   position: absolute;
   top: 0;
   right: 0;
-  height: 55px;
-  width: 55px;
+  height: 51px;
+  width: 51px;
   overflow: hidden;
   text-indent: -999em;
   text-align: left;
@@ -697,7 +697,7 @@ search
     display: block;
     font-family: "yfpp-icons";
     content: "\e906";
-    font-size: 30px;
+    font-size: 26px;
     color: #e4e1dd;
     text-indent: 0;
     top: 13px;

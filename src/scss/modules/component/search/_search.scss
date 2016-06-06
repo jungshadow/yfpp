@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------
-search 
+search
 ------------------------------------------------------------------------ */
 
 .searchForm {
@@ -13,7 +13,7 @@ search
 	display: block;
 	background: $WHITE;
 	width: 100%;
-	padding: 20px 55px 20px 20px; // extra right padding makes room for absolutely positioned button
+	padding: 18px 55px 18px 18px; // extra right padding makes room for absolutely positioned button
 	border: 1px solid $GREY_MEDIUM;
 	font-size: 15px;
 	font-family: $FONT_HEADLINE;
@@ -26,8 +26,8 @@ search
 	position: absolute;
 	top: 0;
 	right: 0;
-	height: 55px;
-	width: 55px;
+	height: 51px;
+	width: 51px;
 	overflow: hidden;
 	text-indent: -999em;
 	text-align: left;
@@ -40,7 +40,7 @@ search
 		display: block;
 		font-family: $FONT_ICON;
 		@include icon_search();
-		font-size: 30px;
+		font-size: 26px;
 		color: $GREY_LIGHT;
 		text-indent: 0;
 		top: 13px;
