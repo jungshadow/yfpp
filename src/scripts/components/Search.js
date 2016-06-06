@@ -24,8 +24,8 @@ class Search extends React.Component {
     componentDidMount() {
         /* Add Google Autocomplete */
         var options = {
-          types: ['address'],
-          componentRestrictions: {country: 'us'}
+            types: ['address'],
+            componentRestrictions: { country: 'us' }
         };
         var input = $('.searchForm-input')[0];
         new window.google.maps.places.Autocomplete(input, options);
@@ -33,11 +33,11 @@ class Search extends React.Component {
 
     fetchData(e) {
         e.preventDefault();
-        
+
         var config = {
             'key': 'AIzaSyCm5MGxuhRo7mNmhRlfXlU66OS6Ny-ZPpQ',
             'address': this.refs.address.value
-        };
+        }
 
         $.ajax({
             url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
@@ -46,14 +46,13 @@ class Search extends React.Component {
             dataType: 'json',
             data: config,
             success: function(data) {
-		console.log(data);
                 analytics.success(data);
                 this.props.updateResults(data);
-                this.setState({isActive: false});
             }.bind(this),
             error: function(xhr, status, err) {
                 analytics.failure(xhr.responseJSON);
-                console.error(this.props.url, status, err.toString());
+                this.props.onErrorHandler();
+                // console.error(this.props.url, status, err.toString());
             }.bind(this)
         });
     }
@@ -65,13 +64,14 @@ class Search extends React.Component {
      * @return {object} search component markup
      */
     render() {
-        
+
         return (
             <form className={'searchForm ' + this.props.activeClassName} action="" ref="searchForm" onSubmit={this.fetchData} >
                 <input className="searchForm-input" type="search" ref="address" placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC" />
                 <button className="searchForm-submit" type="submit">Search</button>
             </form>
-        )
+            )
+
     }
 };
 

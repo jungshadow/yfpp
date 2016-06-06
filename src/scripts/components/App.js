@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import autobind from 'autobind-decorator';
 
 import Search from './Search';
+import ErrorMessage from './ErrorMessage';
 import PollingPlaceResults from './PollingPlaceResults';
 import ContestResults from './ContestResults';
 import PartySelect from './PartySelect';
@@ -39,6 +40,7 @@ class App extends React.Component {
             earlyVoteSites: [],
             contests: [],
             isActive: false,
+            isError: false,
             filterBy: 'all',
             primaryParties: []
         };
@@ -51,18 +53,24 @@ class App extends React.Component {
      * @param  {object} data object returned from API
      */
     updateResults(data) {
-	const pollingLocations = data.pollingLocations || [];
-	const earlyVoteSites = data.earlyVoteSites || [];
+    	const pollingLocations = data.pollingLocations || [];
+    	const earlyVoteSites = data.earlyVoteSites || [];
         const contests = data.contests || [];
         const partyList = [];
-	
-	if(contests.length > 0) {
-            Object.keys(contests).map(function(key) {                   
-		if(contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
+	   
+        if(contests.length > 0) {
+
+            this.setState({ 
+                isActive: false,
+                isError: false });
+
+            Object.keys(contests).map(function(key) {    
+
+                if(contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
                     partyList.push(contests[key].primaryParty);
-		}
+                }
             });
-	}
+        }
 
         this.setState({
             pollingLocations: pollingLocations,
@@ -71,6 +79,13 @@ class App extends React.Component {
             primaryParties: partyList,
             isActive: true
         });
+    }
+
+    onErrorHandler() {
+        
+        this.setState({
+            isError: true
+        })
     }
 
     /**
@@ -85,6 +100,11 @@ class App extends React.Component {
         });
 
     };
+
+    renderErrorMessage() {
+        console.log('balls');
+        return (<ErrorMessage />);
+    }
 
     /**
      * Renders Polling Place Results data
@@ -112,7 +132,7 @@ class App extends React.Component {
         } else if (!currentContest.primaryParty || this.state.filterBy === 'all' || currentContest.primaryParty == '') {
             return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
         }
-    };
+    }
 
     /**
      * Renders party select form
@@ -137,59 +157,68 @@ class App extends React.Component {
         var activeClassName = this.state.isActive === true ? ACTIVE_CLASS : '';
         
         return (
-            <div className="wrap">
+            <div className="wrapper">
               <div className={'contentWrap ' + activeClassName}>
                 <header className="contentWrap-primary" role="banner">
-                  <div>
-                    <SiteTitle activeClassName={activeClassName} />
-                    <Search updateResults={this.updateResults} activeClassName={activeClassName} />
-                  </div>
-                  <div className={'starsNstripes '  + activeClassName}>
-                    <span className="starsNstripes-stripeSm"></span>
-                    <span className="starsNstripes-stripe"></span>
-                    <span className="starsNstripes-stripeSm starsNstripes-stripeSm_btm"></span>
-                    <span className="starsNstripes-star"><i className="icon icon_star-hollow"></i></span>
-                    <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt"></span>
-                    <span className="starsNstripes-stripe starsNstripes-stripe_rgt"></span>
-                    <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt starsNstripes-stripeSm_btm"></span>
-                  </div>
+                    <div className="group">
+                        <div className="group-hd">
+                            <SiteTitle activeClassName={activeClassName} />
+                        </div>
+                        <div className="group-bd">
+                            <Search updateResults={this.updateResults} activeClassName={activeClassName} onErrorHandler={this.onErrorHandler} />
+                        </div>
+                        <div className="group-ft mix-group_narrow">{ this.state.isError ? this.renderErrorMessage() : '' }</div>
+                    </div>
+                    <div className={'starsNstripes '  + activeClassName}>
+                        <span className="starsNstripes-stripeSm"></span>
+                        <span className="starsNstripes-stripe"></span>
+                        <span className="starsNstripes-stripeSm starsNstripes-stripeSm_btm"></span>
+                        <span className="starsNstripes-star"><i className="icon icon_star-hollow"></i></span>
+                        <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt"></span>
+                        <span className="starsNstripes-stripe starsNstripes-stripe_rgt"></span>
+                        <span className="starsNstripes-stripeSm starsNstripes-stripeSm_rgt starsNstripes-stripeSm_btm"></span>
+                    </div>
                 </header>
                 
                 <main className="contentWrap-secondary" role="main">
-                  <Tabs>
-                    <TabPanel label="Fucking Polling Place">
-                      <ul className="vList">
-                        {Object.keys(this.state.pollingLocations).map(this.renderPollingPlaceResults)}
-                      </ul>
-                    </TabPanel>
-                    <TabPanel label="On Your Fucking Ballot">
-                      <div className="group">
-	                {(() => {
-			    if(this.state.primaryParties.length > 0) {
-				return (
-				    <div className="group-item">
-				        {this.renderPartySelect()}
-				    </div>
-				);
-			    }
-                        })()}
-                        {(() => {
-		            if(this.state.contests.length > 0) {
-				return (
-				    <div className="group-item">
-				        <ul className="vList">
-				            {Object.keys(this.state.contests).map(this.renderContestResults)}
-				        </ul>
-				    </div>
-				);
-                            }
-                        })()}
-                      </div>
-                    </TabPanel>
-                  </Tabs>
+                    
+                    <Tabs>
+                        <TabPanel label="Fucking Polling Place">
+                            <ul className="vList">
+                                {Object.keys(this.state.pollingLocations).map(this.renderPollingPlaceResults)}
+                            </ul>
+                        </TabPanel>
+                        <TabPanel label="On Your Fucking Ballot">
+                            <div className="group">
+            	                {(() => {
+
+                    			    if(this.state.primaryParties.length > 0) {
+                        				
+                                        return (
+                        				    <div className="group-item">
+                        				        {this.renderPartySelect()}
+                        				    </div>
+                        				);
+                        			}
+                                    })()}
+                                {(() => {
+                                    if(this.state.contests.length > 0) {
+    				
+                                        return (
+                        				    <div className="group-item">
+                        				        <ul className="vList">
+                        				            {Object.keys(this.state.contests).map(this.renderContestResults)}
+                        				        </ul>
+                        				    </div>
+                        				);
+                                }
+                                })()}
+                            </div>
+                        </TabPanel>
+                    </Tabs>
                 </main>
-              </div>
-            <footer></footer>
+                <div className="contentWrap-tertiary"><div className="heroImg"></div></div>
+            </div>
             </div>
         )
 
