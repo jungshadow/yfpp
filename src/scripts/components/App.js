@@ -5,6 +5,7 @@ import autobind from 'autobind-decorator';
 
 import Search from './Search';
 import ErrorMessage from './ErrorMessage';
+import ErrorReportForm from './ErrorReportForm';
 import PollingPlaceResults from './PollingPlaceResults';
 import ContestResults from './ContestResults';
 import PartySelect from './PartySelect';
@@ -36,6 +37,8 @@ class App extends React.Component {
         // sets initial state with empty results arrays
         // that will be dynamically populated from search results
         this.state = {
+	    normalizedAddress: {},
+	    electionInfo: {},
             pollingLocations: [],
             earlyVoteSites: [],
             contests: [],
@@ -53,6 +56,8 @@ class App extends React.Component {
      * @param  {object} data object returned from API
      */
     updateResults(data) {
+	const normalizedAddress = data.normalizedInput || {};
+	const electionInfo = data.election || {};
     	const pollingLocations = data.pollingLocations || [];
     	const earlyVoteSites = data.earlyVoteSites || [];
         const contests = data.contests || [];
@@ -73,6 +78,8 @@ class App extends React.Component {
         }
 
         this.setState({
+	    normalizedAddress: normalizedAddress,
+	    electionInfo: electionInfo,
             pollingLocations: pollingLocations,
             earlyVoteSites: earlyVoteSites,
             contests: contests,
@@ -146,6 +153,10 @@ class App extends React.Component {
         }
     }
 
+    renderErrorReportForm() {
+	return <ErrorReportForm normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo} />
+    }
+
     /**
      * Renders application to the DOM
      *
@@ -189,11 +200,13 @@ class App extends React.Component {
                     <div className="wrapper mix-wrapper_bleed">
                         <Tabs>
                             <TabPanel label="Fucking Polling Place">
+                                {this.renderErrorReportForm()}
                                 <ul className="vList">
                                     {Object.keys(this.state.pollingLocations).map(this.renderPollingPlaceResults)}
                                 </ul>
                             </TabPanel>
                             <TabPanel label="On Your Fucking Ballot">
+                                {this.renderErrorReportForm()}
                                 <div className="group">
                                                         {(() => {
                         
