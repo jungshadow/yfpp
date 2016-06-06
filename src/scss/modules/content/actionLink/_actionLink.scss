@@ -51,3 +51,13 @@ actionLink
 .mix-actionLink_blue:focus, {
     background-color: $BLUE;
 }
+
+// icon sizing
+.mix-actionLink_lrg {
+    height: 32px;
+    width: 32px;
+
+    &:after {
+        font-size: 26px;
+    }
+}
