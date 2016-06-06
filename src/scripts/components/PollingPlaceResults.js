@@ -1,4 +1,4 @@
-// Import dependencies 
+// Import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -29,7 +29,7 @@ class PollingPlaceResults extends React.Component {
             <li>
                 <div className="card">
                     <div className="card-bd">
-	                <h3 className="hdg mix-hdg_capitalize">{helpers.fucktify(locations.address.locationName)}</h3>
+	                <h3 className="hdg hdg_3 mix-hdg_capitalize">{helpers.fucktify(locations.address.locationName)}</h3>
                         <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.line1)}</span></div>
                         <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.line2)}</span></div>
                         <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.city)}, {locations.address.state} {locations.address.zip}</span></div>

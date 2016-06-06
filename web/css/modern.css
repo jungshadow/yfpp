@@ -611,7 +611,8 @@ card
   letter-spacing: 1px; }
 
 .card-bd {
-  padding: 36px; }
+  padding: 36px;
+  line-height: 26px; }
 
 .card-ft {
   text-align: center; }
