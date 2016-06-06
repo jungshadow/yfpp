@@ -13,6 +13,11 @@ card
 	border-color: $BLUE;
 }
 
+.card_error {
+    background-color: $RED;
+    color: $WHITE;
+}
+
 .card-flag {
     position: absolute;
     top: 0;
