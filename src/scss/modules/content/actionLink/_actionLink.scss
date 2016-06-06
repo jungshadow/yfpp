@@ -53,6 +53,24 @@ actionLink
     background-color: $BLUE;
 }
 
+.mix-actionLink_twitter {
+    background-color: $RED;
+
+    &:hover,
+    &:focus {
+        background-color: lighten($RED, 10);
+    }
+}
+
+.mix-actionLink_facebook {
+    background-color: $BLUE;
+
+    &:hover,
+    &:focus {
+        background-color: lighten($BLUE, 10);
+    }
+}
+
 // icon sizing
 .mix-actionLink_lrg {
     height: 32px;
