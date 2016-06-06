@@ -4,7 +4,7 @@ card
 
 .card {
     position: relative; // creates positioning context for absolutely positioned flag
-	background-color: rgba($GREY_MEDIUM, .45);
+	background-color: lighten($GREY, 12);
 	border: solid 2px $RED;
 	border-radius: 6px;
 }
