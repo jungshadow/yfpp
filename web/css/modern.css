@@ -371,6 +371,12 @@ actionLink
 .mix-actionLink_blue:focus {
   background-color: #2b3975; }
 
+.mix-actionLink_lrg {
+  height: 32px;
+  width: 32px; }
+  .mix-actionLink_lrg:after {
+    font-size: 26px; }
+
 /* ---------------------------------------------------------------------
 Form Select
 ------------------------------------------------------------------------ */
