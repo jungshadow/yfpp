@@ -468,6 +468,12 @@ headings
   .mix-a_reversed:hover {
     color: #dbebf2; }
 
+.link {
+  color: #2b3975;
+  font-weight: lighter; }
+  .link:hover, .link:focus {
+    color: #3b4fa2; }
+
 /* ---------------------------------------------------------------------
 siteTitle
 ------------------------------------------------------------------------ */
@@ -726,7 +732,8 @@ body.hasMsg {
   right: 0;
   bottom: 0;
   background: #e4e1dd;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  z-index: 2; }
 
 .site-msg-action {
   position: fixed;
@@ -895,6 +902,11 @@ Tabs
   -webkit-transition: all .15s ease-in-out;
   transition: all .15s ease-in-out;
   padding: 0 12px; }
+
+.tabs-panel-errorLink {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 14px; }
 
 .tabs-panel.fade-enter {
   opacity: 0;
