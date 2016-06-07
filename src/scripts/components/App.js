@@ -86,6 +86,12 @@ class App extends React.Component {
         });
     }
 
+    /**
+     * API error response handler
+     * sets isError state to true 
+     *
+     * @method onErrorHandler
+     */
     onErrorHandler() {
         
         this.setState({
@@ -93,15 +99,28 @@ class App extends React.Component {
         })
     }
 
+    /**
+     * Privacy Policy link click handler
+     * sets showPrivacyPolicy state to true 
+     *
+     * @method onPrivacyClickHandler
+     */
     onPrivacyClickHandler() {
 
         this.setState({
             showPrivacyPolicy: true
         });
 
+        
         document.getElementsByTagName('body')[0].classList.add(this.activeMsgClassName);
     }
 
+    /**
+     * Privacy Policy close link click handler
+     * sets showPrivacyPolicy state to false 
+     *
+     * @method onPrivacyCloseHandler
+     */
     onPrivacyCloseHandler() {
 
         this.setState({
@@ -124,11 +143,23 @@ class App extends React.Component {
 
     };
 
+    /**
+     * Renders Error Message component
+     *
+     * @method renderErrorMessage
+     * @return error message markup
+     */
     renderErrorMessage() {
 
         return ( <ErrorMessage /> );
     }
 
+    /**
+     * Renders Privacy Policy component
+     *
+     * @method renderPrivacyPolicy
+     * @return privacy policy markup
+     */
     renderPrivacyPolicy() {
 
         return ( <PrivacyPolicy onPrivacyCloseHandler={this.onPrivacyCloseHandler} /> );
