@@ -1,7 +1,17 @@
 .mix-a_reversed {
 	color: $BLUE_LIGHT;
 
-	&:hover{
+	&:hover {
 		color: lighten($BLUE_LIGHT, 12%);
 	}
+}
+
+.link {
+    color: $BLUE;
+    font-weight: lighter;
+
+    &:hover,
+    &:focus {
+        color: lighten($BLUE, 12%);
+    }
 }
