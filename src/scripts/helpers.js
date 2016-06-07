@@ -20,12 +20,14 @@ let helpers = {
 	    address = '';
 
 	for(var i=0; i < addr.length; i++) {
-	    if(addr[i].length > 0) {
-		addr_str += addr[i];
+	    if(addr[i].length > 0 && i != addr.length-1) {
+		addr_str += ' ' + addr[i].trim();
 	    }
 	}
 
+	addr_str = addr_str.trim();
 	address = `${addr_str}, ${city}, ${state} ${zip}`;
+	address = address.replace(' ','') === ',,' ? '' : address;
 
 	return address;
     },
