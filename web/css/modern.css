@@ -199,7 +199,10 @@ contentWrap - outer container for main content
 
 .contentWrap-ancillary {
   -ms-flex-item-align: center;
-      align-self: center; }
+      align-self: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto; }
 
 .contentWrap-primary {
   display: -webkit-box;
@@ -460,13 +463,18 @@ headings
 .mix-hdg_blue {
   color: #2b3975; }
 
+.mix-a_reversed {
+  color: #AED3E1; }
+  .mix-a_reversed:hover {
+    color: #dbebf2; }
+
 /* ---------------------------------------------------------------------
 siteTitle
 ------------------------------------------------------------------------ */
 .siteTitle {
   font-family: "Liberator", sanserif;
   color: #2b3975;
-  font-size: 32px;
+  font-size: 28px;
   line-height: 1;
   letter-spacing: 2.5px;
   text-align: center;
@@ -606,10 +614,62 @@ text
   line-height: 1.3em;
   margin-bottom: 1.4em; }
 
-.mix-a_reversed {
-  color: #AED3E1; }
-  .mix-a_reversed:hover {
-    color: #dbebf2; }
+/* ---------------------------------------------------------------------
+userContent - unclassed element styles
+------------------------------------------------------------------------ */
+.userContent {
+  font-family: "Lato", sanserif;
+  font-size: 1rem; }
+  .userContent h1, .userContent h2, .userContent h3, .userContent h4, .userContent h5, .userContent h6 {
+    display: block; }
+  .userContent h1 {
+    font-size: 40px;
+    margin-bottom: 5px; }
+  .userContent h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px; }
+  .userContent h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px; }
+  .userContent p {
+    margin-bottom: 20px; }
+  .userContent small {
+    font-size: 14px;
+    margin-bottom: 5px; }
+  .userContent blockquote {
+    font-size: 24px;
+    font-style: italic;
+    margin-bottom: 10px;
+    padding: 30px 60px; }
+  .userContent ul,
+  .userContent ol {
+    margin: 0 0 20px 20px; }
+  .userContent ul {
+    list-style: disc; }
+  .userContent ol {
+    list-style: decimal; }
+  .userContent li {
+    margin: 0 0 5px; }
+  .userContent li > ul,
+  .userContent li > ol {
+    margin: 0 0 0 10px; }
+  .userContent > *:last-child {
+    margin-bottom: 0; }
+  .userContent b,
+  .userContent strong {
+    font-weight: bold; }
+  .userContent i,
+  .userContent em {
+    font-style: italic; }
+  .userContent a {
+    color: #2b3975;
+    text-decoration: none; }
+  .userContent a:hover,
+  .userContent a:focus,
+  .userContent a:visited {
+    color: #394b9a; }
 
 /* ---------------------------------------------------------------------
 card
@@ -648,6 +708,51 @@ card
 @media screen and (min-width: 568px) {
   .card-bd {
     padding: 36px; } }
+
+/* ---------------------------------------------------------------------
+site
+------------------------------------------------------------------------ */
+body.hasMsg {
+  position: fixed;
+  overflow: hidden; }
+
+.site {
+  position: relative; }
+
+.site-msg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #e4e1dd;
+  overflow-y: scroll; }
+
+.site-msg-action {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  height: 44px;
+  width: 44px;
+  background: #7d2929;
+  border: 0;
+  text-indent: -999em;
+  font-size: 0;
+  border-radius: 50%; }
+  .site-msg-action:after {
+    display: block;
+    font-family: "yfpp-icons";
+    content: "\e904";
+    text-indent: 0;
+    font-size: 24px;
+    color: #f1eeea; }
+
+.site-msg-bd {
+  padding: 10px; }
+
+@media screen and (min-width: 480px) {
+  .site-msg-bd {
+    padding: 50px; } }
 
 /* ---------------------------------------------------------------------
 actions
