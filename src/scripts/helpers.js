@@ -2,6 +2,36 @@
 
 let helpers = {
 
+    /**
+     * Concatenates an address based on the fields returned from the
+     * Google Civic Information API response
+     *
+     * @method concatStreetAddress
+     * @return {string} concatenated address or empty string
+     */
+    concatStreetAddress: function(obj) {
+	var addr = [obj.line1 || '',
+		    obj.line2 || '',
+		    obj.line3 || ''],
+	    addr_str = '',
+	    city = obj.city || '',
+	    state = obj.state || '',
+	    zip = obj.zip || '',
+	    address = '';
+
+	for(var i=0; i < addr.length; i++) {
+	    if(addr[i].length > 0 && i != addr.length-1) {
+		addr_str += ' ' + addr[i].trim();
+	    }
+	}
+
+	addr_str = addr_str.trim();
+	address = `${addr_str}, ${city}, ${state} ${zip}`;
+	address = address.replace(' ','') === ',,' ? '' : address;
+
+	return address;
+    },
+    
     lowerCase: function(string) {
         if (string) {
             return string.toLowerCase();
