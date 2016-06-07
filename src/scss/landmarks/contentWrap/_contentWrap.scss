@@ -16,6 +16,7 @@ contentWrap - outer container for main content
 
 .contentWrap-ancillary {
 	align-self: center;
+	flex: 0 1 auto;
 }
 
 .contentWrap-primary {
