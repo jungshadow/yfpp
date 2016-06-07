@@ -35,37 +35,37 @@ class Footer extends React.Component {
                             <li>
                                 <div className="txtCenter">
                                     <h4 className="hdg hdg_ mix-hdg_block mix-hdg_medium mix-hdg_headline">Mo Maraqa</h4>
-                                    <a className="mix-a_reversed mix-txt_medium" target="_blank" href="https://twitter.com/momaraqa">@momaraqa</a>
+                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/momaraqa" data-show-count="false">@momaraqa</a>
                                 </div>
                             </li>
                             <li>
                                 <div className="txtCenter">
                                     <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block">Jared Marcotte</h4>
-                                    <a className="mix-a_reversed mix-txt_medium" target="_blank" href="https://twitter.com/jungshadow">@jungshadow</a>
+                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/jungshadow" data-show-count="false">@jungshadow</a>
                                 </div>
                             </li>
                             <li>
                                 <div className="txtCenter">
                                     <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block">Jay johnson</h4>
-                                    <a className="mix-a_reversed mix-txt_medium" target="_blank" href="https://twitter.com/sixbcreative">@sixbcreative</a>
+                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/sixbcreative" data-show-count="false">@sixbcreative</a>
                                 </div>
                             </li>
                             <li>
                                 <div className="txtCenter">
                                     <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block">Nick catalano</h4>
-                                    <a className="mix-a_reversed mix-txt_medium" target="_blank" href="https://twitter.com/NickCatal">@NickCatal</a>
+                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/NickCatal" data-show-count="false">@NickCatal</a>
                                 </div>
                             </li>
                             <li>
                                 <div className="txtCenter">
                                     <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block">Anastasia Golovashkina</h4>
-                                    <a className="mix-a_reversed mix-txt_medium" target="_blank" href="https://twitter.com/golovashkina">@golovashkina</a>
+                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/golovashkina" data-show-count="false">@golovashkina</a>
                                 </div>
                             </li>
                             <li>
                                 <div className="txtCenter">
                                     <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block">Josh Turner</h4>
-                                    <a className="mix-a_reversed mix-txt_medium" target="_blank" href="https://twitter.com/joshualturner">@joshualturner</a>
+                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/joshualturner" data-show-count="false">@joshualturner</a>
                                 </div>
                             </li>
                         </ul>
