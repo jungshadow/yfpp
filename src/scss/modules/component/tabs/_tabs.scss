@@ -60,6 +60,12 @@ Tabs
 	padding: 0 12px;
 }
 
+.tabs-panel-errorLink {
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
 // animate in
 .tabs-panel.fade-enter {
 	opacity: 0;
