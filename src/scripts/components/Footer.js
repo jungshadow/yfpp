@@ -72,6 +72,11 @@ class Footer extends React.Component {
                     </div>
                     <i className="icon icon_star-full mix-icon_centered mix-icon_hr"></i>
 
+	            <section className="social-sharing txtCenter">
+                        <div className="fb-shit">
+	                    <div className="fb-like" data-href="http://yourfuckingpollingplace.com/" data-send="false" data-layout="box_count" data-width="50" data-show-faces="true" data-colorscheme="light"></div>
+                        </div>
+	            </section>
                     <section className="privacy-info txtCenter">
                         <p className="txt mix-txt_light mix-txt_medium mix-txt_medium_p">Hey fuckface, read the fucking <a className="mix-a_reversed" href="#" onClick={this.onClickHandler.bind(this)}>privacy policy</a>.</p>
                         <p className="txt mix-txt_light mix-txt_medium mix-txt_centered mix-txt_medium_p">Data via the <a className="mix-a_reversed" href="https://developers.google.com/civic-information/" target="_blank">Google Civic Information API</a>. Use of this site also binds you to the <a className="mix-a_reversed" href="https://www.google.com/intl/en/policies/terms/" target="_blank">Google Terms of Use.</a></p>
