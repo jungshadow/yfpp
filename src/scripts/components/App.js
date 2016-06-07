@@ -12,6 +12,7 @@ import SiteTitle from './SiteTitle';
 import Tabs from './Tabs';
 import TabPanel from './TabPanel';
 import Footer from './Footer';
+import PrivacyPolicy from './PrivacyPolicy';
 
 // active classname
 const ACTIVE_CLASS = 'isActive';
@@ -42,9 +43,12 @@ class App extends React.Component {
             contests: [],
             isActive: false,
             isError: false,
+            showPrivacyPolicy: false,
             filterBy: 'all',
             primaryParties: []
         };
+
+        this.activeMsgClassName = 'hasMsg';
     };
 
     /**
@@ -89,6 +93,24 @@ class App extends React.Component {
         })
     }
 
+    onPrivacyClickHandler() {
+
+        this.setState({
+            showPrivacyPolicy: true
+        });
+
+        document.getElementsByTagName('body')[0].classList.add(this.activeMsgClassName);
+    }
+
+    onPrivacyCloseHandler() {
+
+        this.setState({
+            showPrivacyPolicy: false
+        });
+
+        document.getElementsByTagName('body')[0].classList.remove(this.activeMsgClassName);
+    }
+
     /**
      * Sets state with latest filter text 
      *
@@ -103,8 +125,13 @@ class App extends React.Component {
     };
 
     renderErrorMessage() {
-        console.log('balls');
-        return (<ErrorMessage />);
+
+        return ( <ErrorMessage /> );
+    }
+
+    renderPrivacyPolicy() {
+
+        return ( <PrivacyPolicy onPrivacyCloseHandler={this.onPrivacyCloseHandler} /> );
     }
 
     /**
@@ -154,8 +181,9 @@ class App extends React.Component {
      * @return {object} App component markup
      */
     render() {
-        // sets active classname
-        var activeClassName = this.state.isActive === true ? ACTIVE_CLASS : '';
+        // sets active classnames        
+
+        const activeClassName = this.state.isActive === true ? ACTIVE_CLASS : '';        
         
         return (
             <div className="site">
@@ -164,10 +192,10 @@ class App extends React.Component {
                         <div className="wrapper">
                             <ul className="hList">
                                 <li>
-                                    <a href="https://twitter.com/fnpollingplace" target="_blank" className="actionLink actionLink_twitter mix-actionLink_lrg mix-actionLink_twitter"></a>
+                                    <a href="http://twitter.com/fnpollingplace" target="_blank" className="actionLink actionLink_twitter mix-actionLink_lrg mix-actionLink_twitter"></a>
                                 </li>
                                 <li>
-                                    <a href="https://www.facebook.com/Your-Fucking-Polling-Place-120373578023062" target="_blank" className="actionLink actionLink_facebook mix-actionLink_lrg mix-actionLink_facebook"></a>
+                                    <a href="http://www.facebook.com/Your-Fucking-Polling-Place-120373578023062" target="_blank" className="actionLink actionLink_facebook mix-actionLink_lrg mix-actionLink_facebook"></a>
                                 </li>
                             </ul>
                         </div>
@@ -225,11 +253,12 @@ class App extends React.Component {
                             </Tabs>
                         </div>
                     </main>
-                    <div className="contentWrap-tertiary">
-                        <div className="heroImg"></div>
-                    </div>
+                    <div className="contentWrap-tertiary"></div>
                 </div>
-                <Footer/>
+                <Footer onPrivacyClickHandler={this.onPrivacyClickHandler}/>
+                
+                    { this.state.showPrivacyPolicy ? this.renderPrivacyPolicy() : '' }
+                
             </div>
         )
 
