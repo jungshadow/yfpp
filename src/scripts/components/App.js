@@ -61,8 +61,8 @@ class App extends React.Component {
      * @param  {object} data object returned from API
      */
     updateResults(data) {
-	const normalizedAddress = data.normalizedInput || {};
-	const electionInfo = data.election || {};
+    	const normalizedAddress = data.normalizedInput || {};
+    	const electionInfo = data.election || {};
     	const pollingLocations = data.pollingLocations || [];
     	const earlyVoteSites = data.earlyVoteSites || [];
         const contests = data.contests || [];
@@ -83,8 +83,8 @@ class App extends React.Component {
         }
 
         this.setState({
-	    normalizedAddress: normalizedAddress,
-	    electionInfo: electionInfo,
+    	    normalizedAddress: normalizedAddress,
+    	    electionInfo: electionInfo,
             pollingLocations: pollingLocations,
             earlyVoteSites: earlyVoteSites,
             contests: contests,
@@ -103,6 +103,19 @@ class App extends React.Component {
         
         this.setState({
             isError: true
+        })
+    }
+
+    /**
+     * API error removal handler
+     * sets isError state to false 
+     *
+     * @method onErrorRemoveHandler
+     */
+    onErrorRemoveHandler() {
+        
+        this.setState({
+            isError: false
         })
     }
 
@@ -250,9 +263,9 @@ class App extends React.Component {
                                         <SiteTitle activeClassName={activeClassName} />
                                     </div>
                                     <div className="group-bd">
-                                        <Search updateResults={this.updateResults} activeClassName={activeClassName} onErrorHandler={this.onErrorHandler} />
+                                        <Search updateResults={this.updateResults} activeClassName={activeClassName} onErrorHandler={this.onErrorHandler} onErrorRemoveHandler={this.onErrorRemoveHandler} />
                                     </div>
-                                    <div className="group-ft">{ this.state.isError ? this.renderErrorMessage() : '' }</div>
+                                    <div className="group-ft mix-group_absolute">{ this.state.isError ? this.renderErrorMessage() : '' }</div>
                                 </div>
                             </div>
                             <div className={ 'starsNstripes ' + activeClassName}>
