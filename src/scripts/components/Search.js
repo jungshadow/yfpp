@@ -52,9 +52,14 @@ class Search extends React.Component {
             error: function(xhr, status, err) {
                 analytics.failure(xhr.responseJSON);
                 this.props.onErrorHandler();
-                // console.error(this.props.url, status, err.toString());
+                
             }.bind(this)
         });
+    }
+
+    errorRemove() {
+
+        this.props.onErrorRemoveHandler();
     }
 
     /**
@@ -67,7 +72,7 @@ class Search extends React.Component {
 
         return (
             <form className={'searchForm ' + this.props.activeClassName} action="" ref="searchForm" onSubmit={this.fetchData} >
-                <input className="searchForm-input" type="search" ref="address" placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC" />
+                <input className="searchForm-input" type="search" ref="address" placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC" onChange={this.errorRemove}/>
                 <button className="searchForm-submit" type="submit">Search</button>
             </form>
             )
