@@ -11,6 +11,11 @@ import ReactDOM from 'react-dom';
  */
 class Footer extends React.Component {
 
+    onClickHandler(e) {
+
+        this.props.onPrivacyClickHandler();
+    }
+
     /**
      * Renders Footer 
      *
@@ -68,7 +73,7 @@ class Footer extends React.Component {
                     <i className="icon icon_star-full mix-icon_centered mix-icon_hr"></i>
 
                     <section className="privacy-info txtCenter">
-                        <p className="txt mix-txt_light mix-txt_medium mix-txt_medium_p">Hey fuckface, read the fucking <a className="mix-a_reversed" href="privacy.html">privacy policy</a>.</p>
+                        <p className="txt mix-txt_light mix-txt_medium mix-txt_medium_p">Hey fuckface, read the fucking <a className="mix-a_reversed" href="#" onClick={this.onClickHandler.bind(this)}>privacy policy</a>.</p>
                         <p className="txt mix-txt_light mix-txt_medium mix-txt_centered mix-txt_medium_p">Data via the <a className="mix-a_reversed" href="https://developers.google.com/civic-information/" target="_blank">Google Civic Information API</a>. Use of this site also binds you to the <a className="mix-a_reversed" href="https://www.google.com/intl/en/policies/terms/" target="_blank">Google Terms of Use.</a></p>
                         <p className="txt mix-txt_light mix-txt_medium mix-txt_medium_p">Data from states that do not provide direct feeds only include addresses with registered voters</p>
                         <p className="txt mix-txt_light mix-txt_medium mix-txt_medium_p">Election officials sometimes revise data in the last few days before an election. Check back on Election Day for the latest information.</p>
