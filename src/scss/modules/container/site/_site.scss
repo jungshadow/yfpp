@@ -20,6 +20,7 @@ body.hasMsg {
     bottom: 0;
     background: $GREY_LIGHT;
     overflow-y: scroll;
+    z-index: 2;
 }
 
 .site-msg-action {
