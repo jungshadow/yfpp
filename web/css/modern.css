@@ -623,14 +623,14 @@ userContent - unclassed element styles
   .userContent h1, .userContent h2, .userContent h3, .userContent h4, .userContent h5, .userContent h6 {
     display: block; }
   .userContent h1 {
-    font-size: 40px;
+    font-size: 34px;
     margin-bottom: 5px; }
   .userContent h2 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 5px; }
   .userContent h3 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 5px; }
   .userContent p {
