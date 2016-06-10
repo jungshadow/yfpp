@@ -9,13 +9,16 @@ import helpers from '../helpers';
 * Load social media
 */
 
-(function(d, s, id){
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) {return;}
-js = d.createElement(s); js.id = id;
-js.src = "//connect.facebook.net/en_US/sdk.js";
-fjs.parentNode.insertBefore(js, fjs);
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return; }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+
 
 // Use $.Deferred() to allow extra things to run when Facebook first loads
 // From http://johnkpaul.tumblr.com/post/32087902037/handling-fbasyncinit-use-deferred
@@ -82,6 +85,7 @@ $(function(){
      * @method buildTweet
      */
     buildTweet() {
+
         const location = this.props.location;
 
         // Shuffle the author twitter accounts for optimal fairness
@@ -94,7 +98,21 @@ $(function(){
             'sixBcreative',
         ]);
 
-        const text = encodeURI('I vote at ' + helpers.titlecase(helpers.fucktify(location.locationName)) + ' where the fuck do you vote? Find out at');
+        // setup empty variable to store tweet text
+        let text = '';
+
+        // if locationName exists setup text string including location name
+        // else use predefined string
+        if (location.locationName) {
+
+            text = encodeURI('I vote at ' + helpers.titlecase(helpers.fucktify(location.locationName)) + ' where the fuck do you vote? Find out at');
+
+        } else {
+
+            text = 'I found my fucking polling location, where the fuck do you vote? Find out at';
+
+        }
+
         const related = authorTwitter.join(',');
         const url = encodeURI('http://yourfuckingpollingplace.com');
 
@@ -123,10 +141,23 @@ $(function(){
      * @method buildMap
      */
     buildMap() {
+        
+        // sets props.location to local variable
         const location = this.props.location;
 
+        // set variable for correctly cased locationName
+        let casedLocationName = '';
+
+        // if locationName exists, make that shit title cased
+        if (location.locationName) {
+            
+            casedLocationName = helpers.titlecase(location.locationName)
+        
+        }
+
+        // set up url components to build google maps url
         const components = [
-            helpers.titlecase(location.locationName),
+            casedLocationName,
             location.line1,
             location.line2 || '',
             location.city,
@@ -134,11 +165,11 @@ $(function(){
             location.zip
         ]
 
+        // build google maps url from components array
         const url = "https://maps.google.com/maps?q=" + encodeURI(components.join(' '))
 
 
-        return <a className="actionLink actionLink_map"
-            href={url}>Map</a>
+        return <a className="actionLink actionLink_map" href={url} target="_blank">Map</a>
     }
 
 
