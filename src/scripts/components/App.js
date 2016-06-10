@@ -1,4 +1,4 @@
-// Import dependencies 
+// Import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
 import autobind from 'autobind-decorator';
@@ -22,15 +22,15 @@ const ACTIVE_CLASS = 'isActive';
 
 /**
  * Outer component for YFPP application
- * 
+ *
  * @class App
  * @extends React.Component
- * 
+ *
  */
 class App extends React.Component {
 
     /**
-     * Sets initial state 
+     * Sets initial state
      * @constructor
      */
     constructor() {
@@ -55,7 +55,7 @@ class App extends React.Component {
     };
 
     /**
-     * Sets state with results from search 
+     * Sets state with results from search
      *
      * @method updateResults
      * @param  {object} data object returned from API
@@ -67,14 +67,14 @@ class App extends React.Component {
     	const earlyVoteSites = data.earlyVoteSites || [];
         const contests = data.contests || [];
         const partyList = [];
-	   
+
         if(contests.length > 0) {
 
-            this.setState({ 
+            this.setState({
                 isActive: false,
                 isError: false });
 
-            Object.keys(contests).map(function(key) {    
+            Object.keys(contests).map(function(key) {
 
                 if(contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
                     partyList.push(contests[key].primaryParty);
@@ -95,12 +95,12 @@ class App extends React.Component {
 
     /**
      * API error response handler
-     * sets isError state to true 
+     * sets isError state to true
      *
      * @method onErrorHandler
      */
     onErrorHandler() {
-        
+
         this.setState({
             isError: true
         })
@@ -108,12 +108,12 @@ class App extends React.Component {
 
     /**
      * API error removal handler
-     * sets isError state to false 
+     * sets isError state to false
      *
      * @method onErrorRemoveHandler
      */
     onErrorRemoveHandler() {
-        
+
         this.setState({
             isError: false
         })
@@ -121,7 +121,7 @@ class App extends React.Component {
 
     /**
      * Privacy Policy link click handler
-     * sets showPrivacyPolicy state to true 
+     * sets showPrivacyPolicy state to true
      *
      * @method onPrivacyClickHandler
      */
@@ -131,13 +131,13 @@ class App extends React.Component {
             showPrivacyPolicy: true
         });
 
-        
+
         document.getElementsByTagName('body')[0].classList.add(this.activeMsgClassName);
     }
 
     /**
      * Privacy Policy close link click handler
-     * sets showPrivacyPolicy state to false 
+     * sets showPrivacyPolicy state to false
      *
      * @method onPrivacyCloseHandler
      */
@@ -151,7 +151,7 @@ class App extends React.Component {
     }
 
     /**
-     * Sets state with latest filter text 
+     * Sets state with latest filter text
      *
      * @method updateFilterText
      * @param  {string} user input text
@@ -210,15 +210,15 @@ class App extends React.Component {
         // and the selected filter is equal to that primaryPary
         // return the contest result
         if (currentContest.primaryParty && this.state.filterBy === currentContest.primaryParty) {
-            
+
             return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
-        
+
         // else if the currentContest does not have primaryParty
         // or the primaryParty is empty
         // or the current selected filter is set to all
         // return the contest result
         } else if (!currentContest.primaryParty || this.state.filterBy === 'All' || currentContest.primaryParty == '') {
-           
+
             return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
         }
     }
@@ -235,10 +235,6 @@ class App extends React.Component {
         }
     }
 
-    renderErrorReportForm() {
-	   return <ErrorReportForm normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo} />
-    }
-
     /**
      * Renders application to the DOM
      *
@@ -246,10 +242,10 @@ class App extends React.Component {
      * @return {object} App component markup
      */
     render() {
-        // sets active classnames        
+        // sets active classnames
 
-        const activeClassName = this.state.isActive === true ? ACTIVE_CLASS : '';        
-        
+        const activeClassName = this.state.isActive === true ? ACTIVE_CLASS : '';
+
         return (
             <div className="site">
                 <div className={ 'contentWrap ' + activeClassName}>
@@ -292,22 +288,20 @@ class App extends React.Component {
                     <main className="contentWrap-secondary" role="main">
                         <div className="wrapper mix-wrapper_bleed">
                             <Tabs>
-                                <TabPanel label="Fucking Polling Place">
-                                    {this.renderErrorReportForm()}
+                                <TabPanel label="Fucking Polling Place" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
                                     <ul className="vList">
                                         {Object.keys(this.state.pollingLocations).map(this.renderPollingPlaceResults)}
                                     </ul>
                                 </TabPanel>
-                                <TabPanel label="On Your Fucking Ballot">
-                                    {this.renderErrorReportForm()}
+                                <TabPanel label="On Your Fucking Ballot" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
                                     <div className="group">
-                                        {(() => { if(this.state.primaryParties.length > 0) { 
+                                        {(() => { if(this.state.primaryParties.length > 0) {
                                             return (
                                                 <div className="group-item">
                                                     {this.renderPartySelect()}
                                                 </div>
                                         ); } })()}
-                                        {(() => { if(this.state.contests.length > 0) { 
+                                        {(() => { if(this.state.contests.length > 0) {
                                             return (
                                                 <div className="group-item">
                                                     <ul className="vList">
@@ -323,9 +317,9 @@ class App extends React.Component {
                     <div className="contentWrap-tertiary"></div>
                 </div>
                 <Footer onPrivacyClickHandler={this.onPrivacyClickHandler}/>
-                
+
                     { this.state.showPrivacyPolicy ? this.renderPrivacyPolicy() : '' }
-                
+
             </div>
         )
 
@@ -334,6 +328,3 @@ class App extends React.Component {
 };
 
 export default App;
-
-
-
