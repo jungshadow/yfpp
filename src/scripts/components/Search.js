@@ -41,7 +41,7 @@ class Search extends React.Component {
 
         $.ajax({
             url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
-            //url: '/test_data.json',
+            //url: '/test_data_san_fran.json',
             type: "GET",
             dataType: 'json',
             data: config,
