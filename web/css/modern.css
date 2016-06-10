@@ -197,6 +197,10 @@ contentWrap - outer container for main content
   width: 100%;
   padding-top: 20px; }
 
+.no-flexbox .contentWrap {
+  display: block;
+  height: auto; }
+
 .contentWrap-ancillary {
   -ms-flex-item-align: center;
       align-self: center;
@@ -217,6 +221,9 @@ contentWrap - outer container for main content
   -webkit-transition: all .25s ease-in-out;
   transition: all .25s ease-in-out;
   width: 100%; }
+
+.no-flexbox .contentWrap-primary {
+  display: block; }
 
 .contentWrap-primary-inner {
   width: 100%;
@@ -1057,6 +1064,9 @@ Grid
 /* ---------------------------------------------------------------------
 group
 ------------------------------------------------------------------------ */
+.group {
+  position: relative; }
+
 .group > * + * {
   margin-top: 22px; }
 
@@ -1068,6 +1078,10 @@ group
   max-width: 500px;
   margin-left: auto;
   margin-right: auto; }
+
+.mix-group_absolute {
+  position: absolute;
+  z-index: 3; }
 
 .contentWrap .group > * + * {
   margin-top: 11px; }

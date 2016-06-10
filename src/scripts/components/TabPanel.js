@@ -1,7 +1,8 @@
-// Import dependencies 
+// Import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import ErrorReportForm from './ErrorReportForm'
 
 /**
  * TabPanel Component
@@ -18,11 +19,13 @@ class TabPanel extends React.Component {
      * @return {object} TabPanel component markup
      */
     render() {
-        
 
         return (
-            <div>{this.props.children}</div>
-            )
+            <div>
+                <ErrorReportForm normalizedAddress={this.props.normalizedAddress} electionInfo={this.props.electionInfo} />
+                {this.props.children}
+            </div>
+        )
     }
 
 };

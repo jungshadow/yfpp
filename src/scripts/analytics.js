@@ -26,7 +26,8 @@ let analytics = {
             'Address', 'Lookup', result.normalizedInput.state);
     },
     failure: function(result) {
-        this.send_event('Address', 'Failure', result.error.message);
+	var error = result && result.error && result.error.message;
+        this.send_event('Address', 'Failure', error);
     }
 }
 
