@@ -47,7 +47,7 @@ class App extends React.Component {
             isActive: false,
             isError: false,
             showPrivacyPolicy: false,
-            filterBy: 'all',
+            filterBy: 'All',
             primaryParties: []
         };
 
