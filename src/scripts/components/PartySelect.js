@@ -28,7 +28,7 @@ class PartySelect extends React.Component {
 
         const partyList = this.props.primaryParties;
         const primaryParties = [
-            <PartySelectOptions key='all' primartyPartyAbbr='all'   primaryPartyName='All' />
+            <PartySelectOptions key='all' primartyPartyAbbr='all' primaryPartyName='All' />
         ];
 
         let i = 0; 

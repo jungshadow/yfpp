@@ -14,6 +14,11 @@ contentWrap - outer container for main content
 	padding-top: 20px;
 }
 
+.no-flexbox .contentWrap {
+	display: block;
+	height: auto;
+}
+
 .contentWrap-ancillary {
 	align-self: center;
 	flex: 0 1 auto;
@@ -27,6 +32,10 @@ contentWrap - outer container for main content
 	text-align: center;
 	transition: all .25s ease-in-out;
 	width: 100%;
+}
+
+.no-flexbox .contentWrap-primary {
+	display: block;
 }
 
 .contentWrap-primary-inner {
