@@ -46,7 +46,7 @@ window.twttr = (function(d, s, id) {
 
 
 $(function(){
-    $('#app').on('click', '.actionLink_facebook', function(event) {
+    $('#app').on('click', '.shareLocationFacebook', function(event) {
         event.preventDefault();
 
         var obj = {
@@ -132,7 +132,7 @@ $(function(){
      */
     buildFB() {
         const location = this.props.location;
-        return <a className="actionLink actionLink_facebook mix-actionLink_blue"
+        return <a className="actionLink actionLink_facebook mix-actionLink_blue shareLocationFacebook"
             href="#"
             data-name={helpers.titlecase(helpers.fucktify(location.locationName))}
             data-city={helpers.titlecase(location.city)}
