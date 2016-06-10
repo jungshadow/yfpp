@@ -39,8 +39,8 @@ class App extends React.Component {
         // sets initial state with empty results arrays
         // that will be dynamically populated from search results
         this.state = {
-	    normalizedAddress: {},
-	    electionInfo: {},
+    	    normalizedAddress: {},
+    	    electionInfo: {},
             pollingLocations: [],
             earlyVoteSites: [],
             contests: [],
