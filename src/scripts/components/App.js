@@ -206,9 +206,19 @@ class App extends React.Component {
     renderContestResults(key) {
         const currentContest = this.state.contests[key];
 
+        // if the current contest has a primaryParty property
+        // and the selected filter is equal to that primaryPary
+        // return the contest result
         if (currentContest.primaryParty && this.state.filterBy === currentContest.primaryParty) {
+            
             return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
-        } else if (!currentContest.primaryParty || this.state.filterBy === 'all' || currentContest.primaryParty == '') {
+        
+        // else if the currentContest does not have primaryParty
+        // or the primaryParty is empty
+        // or the current selected filter is set to all
+        // return the contest result
+        } else if (!currentContest.primaryParty || this.state.filterBy === 'All' || currentContest.primaryParty == '') {
+           
             return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
         }
     }
@@ -226,7 +236,7 @@ class App extends React.Component {
     }
 
     renderErrorReportForm() {
-	return <ErrorReportForm normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo} />
+	   return <ErrorReportForm normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo} />
     }
 
     /**
