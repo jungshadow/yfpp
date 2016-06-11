@@ -16,11 +16,16 @@ search
 	padding: 18px 55px 18px 18px; // extra right padding makes room for absolutely positioned button
 	margin: 0;
 	border: 1px solid $GREY_MEDIUM;
-	font-size: 12px;
+	font-size: 11px;
 	font-family: $FONT_HEADLINE;
 	font-weight: 200;
 	letter-spacing: 1.15px;
 	border-radius: 3px;
+
+	&:focus {
+		font-size: $FONT_SIZE_DEFAULT;
+		padding: 16px 55px 16px 18px; // extra right padding makes room for absolutely positioned button
+	}
 }
 
 .searchForm-submit {

@@ -27,7 +27,7 @@ contentWrap - outer container for main content
 
 .contentWrap-primary {
 	display: flex;
-	flex: 1 1 auto;
+	flex: 0.7 1 auto;
 	width: 100%;
 	transition: all .25s ease-in-out;
 }
@@ -50,8 +50,11 @@ contentWrap - outer container for main content
 }
 
 .contentWrap-tertiary {
-	flex: 0 1 auto;
-	align-self: flex-end;
+	flex: 1 1 auto;
+	align-self: stretch;
+	background: url(../images/fucking-patriot.png) no-repeat bottom center;
+	background-size: contain;
+	max-height: 462px;
 }
 
 /* active state */
@@ -76,5 +79,16 @@ contentWrap - outer container for main content
 	
 	.contentWrap-ancillary {
 		align-self: flex-end;
+	}
+}
+
+@media screen and (min-width: 568px) {
+	
+	.contentWrap-primary {
+		flex: 0.3 1 auto;
+	}
+
+	.contentWrap-tertiary {
+		background-position: bottom right;
 	}
 }
