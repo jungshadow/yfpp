@@ -217,9 +217,9 @@ contentWrap - outer container for main content
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  -webkit-box-flex: 0.7;
+      -ms-flex: 0.7 1 auto;
+          flex: 0.7 1 auto;
   width: 100%;
   -webkit-transition: all .25s ease-in-out;
   transition: all .25s ease-in-out; }
@@ -242,11 +242,14 @@ contentWrap - outer container for main content
   opacity: 0; }
 
 .contentWrap-tertiary {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto;
-  -ms-flex-item-align: end;
-      align-self: flex-end; }
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  background: url(../images/fucking-patriot.png) no-repeat bottom center;
+  background-size: contain;
+  max-height: 462px; }
 
 /* active state */
 .isActive.contentWrap {
@@ -266,6 +269,14 @@ contentWrap - outer container for main content
   .contentWrap-ancillary {
     -ms-flex-item-align: end;
         align-self: flex-end; } }
+
+@media screen and (min-width: 568px) {
+  .contentWrap-primary {
+    -webkit-box-flex: 0.3;
+        -ms-flex: 0.3 1 auto;
+            flex: 0.3 1 auto; }
+  .contentWrap-tertiary {
+    background-position: bottom right; } }
 
 /* ---------------------------------------------------------------------
 header
@@ -844,11 +855,14 @@ search
   padding: 18px 55px 18px 18px;
   margin: 0;
   border: 1px solid #bbbbbb;
-  font-size: 12px;
+  font-size: 11px;
   font-family: "Liberator", sanserif;
   font-weight: 200;
   letter-spacing: 1.15px;
   border-radius: 3px; }
+  .searchForm-input:focus {
+    font-size: 16px;
+    padding: 16px 55px 16px 18px; }
 
 .searchForm-submit {
   position: absolute;
