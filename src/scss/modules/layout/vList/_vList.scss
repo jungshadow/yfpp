@@ -3,12 +3,12 @@ vertical list
 ------------------------------------------------------------------------ */
 
 .vList > * + * {
-	margin-top: 22px;
+	margin-top: 1.375em;
 }
 
 
 .vList_divided > * {
-    padding: 8px 0;
+    padding: 0.5em 0;
 }
 
 .vList_divided > * + * {

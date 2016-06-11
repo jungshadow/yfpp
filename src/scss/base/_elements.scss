@@ -10,7 +10,7 @@ into other modules.
 
 body {
     font-family: $FONT_DEFAULT;
-    font-size: $FONT_SIZE_DEFAULT;
+    font-size: $FONT_SIZE_MOBILE;
     line-height: 1.286; // 18px height on standard 14px font-size
     color: $COLOR_TEXT_DEFAULT;
     background-color: $GREY_LIGHT;
@@ -42,4 +42,11 @@ em {
 img {
     max-width: 100%;
     vertical-align: top;
+}
+
+@media screen and (min-width: 768px) {
+    
+    body {
+        font-size: $FONT_SIZE_DEFAULT;
+    }
 }
