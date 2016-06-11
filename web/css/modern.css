@@ -855,14 +855,12 @@ search
   padding: 18px 55px 18px 18px;
   margin: 0;
   border: 1px solid #bbbbbb;
-  font-size: 11px;
+  font-size: 15px;
+  line-height: 1.1;
   font-family: "Liberator", sanserif;
   font-weight: 200;
   letter-spacing: 1.15px;
   border-radius: 3px; }
-  .searchForm-input:focus {
-    font-size: 16px;
-    padding: 16px 55px 16px 18px; }
 
 .searchForm-submit {
   position: absolute;
@@ -889,9 +887,12 @@ search
   .searchForm-submit:hover, .searchForm-submit:focus {
     background: #a33636; }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .searchForm-input {
-    font-size: 15px; } }
+    font-size: 12px; }
+    .searchForm-input:focus {
+      font-size: 16px;
+      padding: 16px 55px 16px 18px; } }
 
 /* ---------------------------------------------------------------------
 Tabs
