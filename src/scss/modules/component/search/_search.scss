@@ -16,7 +16,7 @@ search
 	padding: 18px 55px 18px 18px; // extra right padding makes room for absolutely positioned button
 	margin: 0;
 	border: 1px solid $GREY_MEDIUM;
-	font-size: 15px;
+	font-size: 12px;
 	font-family: $FONT_HEADLINE;
 	font-weight: 200;
 	letter-spacing: 1.15px;
@@ -54,5 +54,9 @@ search
 	}
 }
 
-/* active state  */
-
+@media screen and (min-width: 768px) {
+	
+	.searchForm-input {
+		font-size: 15px;
+	}
+}
