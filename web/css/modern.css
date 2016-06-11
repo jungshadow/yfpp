@@ -217,22 +217,18 @@ contentWrap - outer container for main content
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  margin: 0 auto;
-  text-align: center;
+  width: 100%;
   -webkit-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out;
-  width: 100%; }
+  transition: all .25s ease-in-out; }
 
 .no-flexbox .contentWrap-primary {
   display: block; }
 
 .contentWrap-primary-inner {
   width: 100%;
-  margin: 0 auto;
   -ms-flex-item-align: center;
       align-self: center; }
 
@@ -246,16 +242,11 @@ contentWrap - outer container for main content
   opacity: 0; }
 
 .contentWrap-tertiary {
-  -webkit-box-flex: 2;
-      -ms-flex: 2 1 auto;
-          flex: 2 1 auto;
-  -ms-flex-item-align: stretch;
-      align-self: stretch;
-  background: url(../images/fucking-patriot.png) no-repeat right bottom;
-  background-size: contain;
-  width: 100%;
-  max-height: 462px;
-  min-height: 250px; }
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  -ms-flex-item-align: end;
+      align-self: flex-end; }
 
 /* active state */
 .isActive.contentWrap {
@@ -270,23 +261,11 @@ contentWrap - outer container for main content
     -webkit-transform: translateY(0px);
             transform: translateY(0px);
     opacity: 1; }
-  .isActive.contentWrap .contentWrap-tertiary {
-    min-height: 250px; }
 
 @media screen and (min-width: 768px) {
   .contentWrap-ancillary {
     -ms-flex-item-align: end;
         align-self: flex-end; } }
-
-@media (max-height: 500px) {
-  .contentWrap-tertiary {
-    max-height: 150px;
-    min-height: 0; } }
-
-@media (max-height: 670px) {
-  .contentWrap-tertiary {
-    max-height: 250px;
-    min-height: 0; } }
 
 /* ---------------------------------------------------------------------
 header
@@ -562,6 +541,7 @@ Stars and Stripes
 .starsNstripes {
   position: relative;
   margin-top: 14px;
+  text-align: center;
   overflow: hidden; }
 
 .starsNstripes-stripe {
@@ -1233,4 +1213,6 @@ wrapper
 
 @media screen and (min-width: 480px) {
   .wrapper {
-    padding: 0 10px; } }
+    padding: 0 10px; }
+  .mix-wrapper_bleed {
+    padding: 0; } }
