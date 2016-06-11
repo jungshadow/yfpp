@@ -314,7 +314,7 @@ class App extends React.Component {
                             </Tabs>
                         </div>
                     </main>
-                    <div className="contentWrap-tertiary"></div>
+                    <div className="contentWrap-tertiary"><img src="/web/images/fucking-patriot.png" alt="fucking patriot snapping a fucking salute"/></div>
                 </div>
                 <Footer onPrivacyClickHandler={this.onPrivacyClickHandler}/>
 
