@@ -27,6 +27,7 @@ class Search extends React.Component {
             types: ['address'],
             componentRestrictions: { country: 'us' }
         };
+        
         var input = $('.searchForm-input')[0];
         new window.google.maps.places.Autocomplete(input, options);
     }
