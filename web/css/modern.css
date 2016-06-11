@@ -137,7 +137,7 @@ into other modules.
 
 body {
   font-family: "Lato", sanserif;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1.286;
   color: #4b4b4b;
   background-color: #e4e1dd; }
@@ -156,6 +156,10 @@ em {
 img {
   max-width: 100%;
   vertical-align: top; }
+
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 16px; } }
 
 .isHidden {
   display: none !important; }
@@ -206,16 +210,17 @@ contentWrap - outer container for main content
       align-self: center;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 auto;
-          flex: 0 1 auto; }
+          flex: 0 1 auto;
+  margin-bottom: 10px; }
 
 .contentWrap-primary {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  -webkit-box-flex: 0.45;
-      -ms-flex: 0.45 1 auto;
-          flex: 0.45 1 auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
   margin: 0 auto;
   text-align: center;
   -webkit-transition: all .25s ease-in-out;
@@ -232,22 +237,25 @@ contentWrap - outer container for main content
       align-self: center; }
 
 .contentWrap-secondary {
+  width: 100%;
+  height: 0;
   -webkit-transition: all .45s ease-in-out;
   transition: all .45s ease-in-out;
   -webkit-transform: translateY(500px);
           transform: translateY(500px);
-  opacity: 0;
-  width: 100%; }
+  opacity: 0; }
 
 .contentWrap-tertiary {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  -webkit-box-flex: 2;
+      -ms-flex: 2 1 auto;
+          flex: 2 1 auto;
   -ms-flex-item-align: stretch;
       align-self: stretch;
   background: url(../images/fucking-patriot.png) no-repeat right bottom;
   background-size: contain;
-  width: 100%; }
+  width: 100%;
+  max-height: 462px;
+  min-height: 250px; }
 
 /* active state */
 .isActive.contentWrap {
@@ -256,6 +264,7 @@ contentWrap - outer container for main content
     top: 0;
     margin: 0 auto 20px; }
   .isActive.contentWrap .contentWrap-secondary {
+    height: auto;
     max-width: 728px;
     margin: 0 auto 50px;
     -webkit-transform: translateY(0px);
@@ -268,6 +277,16 @@ contentWrap - outer container for main content
   .contentWrap-ancillary {
     -ms-flex-item-align: end;
         align-self: flex-end; } }
+
+@media (max-height: 500px) {
+  .contentWrap-tertiary {
+    max-height: 150px;
+    min-height: 0; } }
+
+@media (max-height: 670px) {
+  .contentWrap-tertiary {
+    max-height: 250px;
+    min-height: 0; } }
 
 /* ---------------------------------------------------------------------
 header
@@ -432,15 +451,15 @@ headings
   font-weight: bold; }
 
 .hdg_1 {
-  font-size: 34px;
+  font-size: 2.125em;
   font-weight: normal; }
 
 .hdg_2 {
-  font-size: 20px;
+  font-size: 1.25em;
   font-weight: normal; }
 
 .hdg_3 {
-  font-size: 16px; }
+  font-size: 1em; }
 
 /* heading variations */
 .mix-hdg_capitalize {
@@ -511,9 +530,29 @@ siteTitle
     display: inline-block;
     margin-left: 0.4em; }
 
+@media screen and (min-width: 320px) {
+  .siteTitle {
+    font-size: 25px; } }
+
+@media screen and (min-width: 375px) {
+  .siteTitle {
+    font-size: 31px; } }
+
+@media screen and (min-width: 400px) {
+  .siteTitle {
+    font-size: 35px; } }
+
+@media screen and (min-width: 410px) {
+  .siteTitle {
+    font-size: 37px; } }
+
+@media screen and (min-width: 485px) {
+  .siteTitle {
+    font-size: 47px; } }
+
 @media screen and (min-width: 568px) {
   .siteTitle {
-    font-size: 52px; }
+    font-size: 51px; }
   .isActive.siteTitle {
     font-size: 28px; } }
 
@@ -608,7 +647,7 @@ text
 
 /* text variations */
 .mix-txt_medium {
-  font-size: 14px; }
+  font-size: 0.875em; }
 
 .mix-txt_capitalize {
   text-transform: capitalize; }
@@ -713,7 +752,7 @@ card
 
 .card-bd {
   line-height: 26px;
-  padding: 12px; }
+  padding: 28px 14px; }
 
 .card-ft {
   text-align: center; }
@@ -825,7 +864,7 @@ search
   padding: 18px 55px 18px 18px;
   margin: 0;
   border: 1px solid #bbbbbb;
-  font-size: 15px;
+  font-size: 12px;
   font-family: "Liberator", sanserif;
   font-weight: 200;
   letter-spacing: 1.15px;
@@ -856,7 +895,10 @@ search
   .searchForm-submit:hover, .searchForm-submit:focus {
     background: #a33636; }
 
-/* active state  */
+@media screen and (min-width: 768px) {
+  .searchForm-input {
+    font-size: 15px; } }
+
 /* ---------------------------------------------------------------------
 Tabs
 ------------------------------------------------------------------------ */
@@ -1166,10 +1208,10 @@ split
 vertical list
 ------------------------------------------------------------------------ */
 .vList > * + * {
-  margin-top: 22px; }
+  margin-top: 1.375em; }
 
 .vList_divided > * {
-  padding: 8px 0; }
+  padding: 0.5em 0; }
 
 .vList_divided > * + * {
   margin: 0;
