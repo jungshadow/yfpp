@@ -1,0 +1,39 @@
+/* ---------------------------------------------------------------------
+text
+------------------------------------------------------------------------ */
+
+.txt {
+    font-family: $FONT_DEFAULT;
+}
+
+.txtCenter {
+	text-align: center;
+}
+
+/* text variations */
+
+.mix-txt_medium {
+	font-size: 0.875em;
+}
+
+.mix-txt_capitalize {
+    text-transform: capitalize;
+}
+
+.mix-txt_centered {
+	text-align: center;
+}
+
+.mix-txt_light {
+	color: $GREY_LIGHT;
+	-webkit-font-smoothing: antialiased;
+}
+
+.mix-txt_blue {
+    color: $BLUE;
+}
+
+.mix-txt_medium_p {
+	line-height: 1.3em;
+	margin-bottom: 1.4em;
+}

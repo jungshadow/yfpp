@@ -1,6 +1,0 @@
-/*
-Your Fucking Polling Place
-Social Sharing JavaScript
-by Nick Catalano
-www.nickcatalano.com
-*/

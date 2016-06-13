@@ -1,0 +1,94 @@
+/* ---------------------------------------------------------------------
+userContent - unclassed element styles
+------------------------------------------------------------------------ */
+
+.userContent {
+
+    font-family: $FONT_DEFAULT;
+    font-size: 1rem;
+
+    h1, h2, h3, h4, h5, h6 {
+        display: block;
+    }
+
+    h1 {
+        font-size: 34px;
+        margin-bottom: 5px;
+    }
+
+    h2 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    h3 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    small {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    blockquote {
+        font-size: 24px;
+        font-style: italic;
+        margin-bottom: 10px;
+        padding: 30px 60px;
+    }
+
+    ul,
+    ol {
+        margin: 0 0 20px 20px;
+    }
+
+    ul {
+        list-style: disc;
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    li {
+        margin: 0 0 5px ;
+    }
+
+    li > ul,
+    li > ol {
+        margin: 0 0 0 10px;
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
+
+    b,
+    strong {
+        font-weight: bold;
+    }
+
+    i,
+    em {
+        font-style: italic;
+    }
+
+    a {
+        color: $BLUE;
+        text-decoration: none;
+    }
+
+    a:hover,
+    a:focus,
+    a:visited {
+        color: lighten($BLUE, 10);
+    }
+
+}

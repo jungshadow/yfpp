@@ -1,0 +1,33 @@
+/* ---------------------------------------------------------------------
+group
+------------------------------------------------------------------------ */
+
+.group {
+    position: relative;
+}
+
+.group > * + * {
+    margin-top: 22px;
+}
+
+.group_sm > * + * {
+    margin-top: 12px;
+}
+
+/* group variations */
+.mix-group_narrow {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mix-group_absolute {
+    position: absolute;
+    z-index: 3;
+}
+
+.contentWrap {
+	.group > * + * {
+    	margin-top: 11px;
+	}
+}

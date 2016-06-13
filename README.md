@@ -1,15 +1,16 @@
-# YFPP #
-### The Foul-Mouthed Election Information App ###
+# Install and Run
+## Using [Homebrew](http://brew.sh)
 
-Getting Setup For Development
-#############################
+Install [node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) and install packages.
 
-First off, make sure you have Grunt installed. If you don't, you'll need to run `npm install -g grunt-cli` before going forward
+```bash
+$ brew install node
+# If you override python, you may need to tell npm
+# to use the system python by adding: --python=/usr/bin/python
+$ npm install
+# If you've run `gulp install -g` and installed gulp globally you can just type
+# `gulp` here
+$ node_modules/gulp/bin/gulp.js
+```
 
-Next, install the node packages listed in `packages.json` by running `npm install` in the directory.
-
-You can then run `grunt watch` to monitor all `.js`, `.less` and `.html` files for changes. If changes are detected while running `grunt watch` your browser will reload.
-
-If you wish to simply compile css/js files, run `grunt css` or `grunt js`
-
-Before committing run `grunt` (no extra commands.) This will compile all javascript and css so they can be deployed.
+Happy voting!

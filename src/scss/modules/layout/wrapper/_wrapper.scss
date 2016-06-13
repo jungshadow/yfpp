@@ -1,0 +1,29 @@
+/* ---------------------------------------------------------------------
+wrapper
+------------------------------------------------------------------------ */
+
+.wrapper {
+	max-width: $GLOBAL_WIDTH;
+	margin: 0 auto;
+    padding: 0 20px;
+}
+
+.wrapper_large {
+	max-width: 1224px;
+}
+
+.mix-wrapper_bleed {
+    padding: 0;
+}
+
+@media screen and (min-width: 480px) {
+    
+    .wrapper {
+        padding: 0 10px;
+    }
+
+    .mix-wrapper_bleed {
+       padding: 0;
+    }
+
+}

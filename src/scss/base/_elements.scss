@@ -1,0 +1,52 @@
+/* ---------------------------------------------------------------------
+element styles - any styles that need to be applied to unclassed elements
+These styles should be kept to a minimum in order to avoid styles bleeding
+into other modules.
+------------------------------------------------------------------------ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $FONT_DEFAULT;
+    font-size: $FONT_SIZE_MOBILE;
+    line-height: 1.286; // 18px height on standard 14px font-size
+    color: $COLOR_TEXT_DEFAULT;
+    background-color: $GREY_LIGHT;
+}
+
+a {
+    color: $COLOR_LINK_DEFAULT;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover,
+a:focus {
+
+}
+
+a:visited {
+
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+@media screen and (min-width: 768px) {
+    
+    body {
+        font-size: $FONT_SIZE_DEFAULT;
+    }
+}
