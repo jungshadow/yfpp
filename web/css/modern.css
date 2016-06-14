@@ -500,8 +500,8 @@ siteTitle
   line-height: 1;
   letter-spacing: 2.5px;
   text-align: center;
-  -webkit-transition: all .75s ease-in-out;
-  transition: all .75s ease-in-out; }
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out; }
 
 .siteTitle-seg2 {
   display: block;
@@ -889,10 +889,7 @@ search
 
 @media screen and (max-width: 768px) {
   .searchForm-input {
-    font-size: 12px; }
-    .searchForm-input:focus {
-      font-size: 16px;
-      padding: 16px 55px 16px 18px; } }
+    font-size: 16px; } }
 
 /* ---------------------------------------------------------------------
 Tabs
@@ -904,7 +901,6 @@ Tabs
 
 .tabs-nav > * {
   display: inline-block;
-  overflow: hidden;
   width: 50%; }
 
 .tabs-nav-item-btn {
@@ -919,14 +915,30 @@ Tabs
   font-family: "Liberator", sanserif;
   letter-spacing: 1.5px; }
 
+.tabs-nav-item:first-of-type .isActive.tabs-nav-item-btn:after,
+.tabs-nav-item:last-of-type .isActive.tabs-nav-item-btn:after {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  content: '';
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #2b3975 transparent transparent transparent; }
+
 .tabs-nav-item:first-of-type .isActive.tabs-nav-item-btn {
   background-color: #7d2929; }
+  .tabs-nav-item:first-of-type .isActive.tabs-nav-item-btn:after {
+    border-color: #7d2929 transparent transparent transparent; }
 
 .isActive.tabs-nav-item-btn {
   background-color: #2b3975; }
 
 .tabs-nav-item:first-of-type .tabs-nav-item-btn:before,
-.tabs-nav-item:last-of-type .tabs-nav-item-btn:after {
+.tabs-nav-item:last-of-type .tabs-nav-item-btn:before {
   position: absolute;
   display: block;
   font-family: "yfpp-icons";
@@ -934,12 +946,12 @@ Tabs
   font-size: 3.05em;
   color: #e4e1dd;
   text-indent: 0;
-  top: -0.05em; }
+  top: -0.09em; }
 
 .tabs-nav-item:first-of-type .tabs-nav-item-btn:before {
   left: -.295em; }
 
-.tabs-nav-item:last-of-type .tabs-nav-item-btn:after {
+.tabs-nav-item:last-of-type .tabs-nav-item-btn:before {
   right: -.295em; }
 
 .tabs-panel {
@@ -978,7 +990,7 @@ Tabs
     padding: 12px;
     letter-spacing: .5px; }
   .tabs-nav-item:first-of-type .tabs-nav-item-btn:before,
-  .tabs-nav-item:last-of-type .tabs-nav-item-btn:after {
+  .tabs-nav-item:last-of-type .tabs-nav-item-btn:before {
     font-size: 2.75em;
     display: none; }
   .tabs-panel {
