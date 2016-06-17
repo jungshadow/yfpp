@@ -10,12 +10,11 @@ Tabs
 
 .tabs-nav > * {
 	display: inline-block;
-	overflow: hidden;
 	width: 50%;
 }
 
 .tabs-nav-item-btn {
-	position: relative; // creates positioning context for absolutely positioned pseudo element
+	position: relative; // creates positioning context for absolutely positioned pseudo elements
 	display: block;
 	width: 100%;
 	background-color: $GREY;
@@ -27,8 +26,27 @@ Tabs
 	letter-spacing: 1.5px;
 }
 
+.tabs-nav-item:first-of-type .isActive.tabs-nav-item-btn:after,
+.tabs-nav-item:last-of-type .isActive.tabs-nav-item-btn:after {
+	display: block;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px; // half the width to horizontally center
+	content: '';
+	height: 0;
+	width: 0;
+	border-style: solid;
+	border-width: 10px 10px 0 10px;
+	border-color: $BLUE transparent transparent transparent;
+}
+
 .tabs-nav-item:first-of-type .isActive.tabs-nav-item-btn {
 	background-color: $RED;
+
+	&:after {
+		border-color: $RED transparent transparent transparent;
+	}
 }
 
 .isActive.tabs-nav-item-btn {
@@ -36,7 +54,7 @@ Tabs
 }
 
 .tabs-nav-item:first-of-type .tabs-nav-item-btn:before,
-.tabs-nav-item:last-of-type .tabs-nav-item-btn:after {
+.tabs-nav-item:last-of-type .tabs-nav-item-btn:before {
 	position: absolute;
 	display: block;
 	font-family: $FONT_ICON;
@@ -44,14 +62,14 @@ Tabs
 	font-size: 3.05em;
 	color: $GREY_LIGHT;
 	text-indent: 0;
-	top: -0.05em;
+	top: -0.09em;
 }
 
 .tabs-nav-item:first-of-type .tabs-nav-item-btn:before {
 	left: -.295em;
 }
 
-.tabs-nav-item:last-of-type .tabs-nav-item-btn:after {
+.tabs-nav-item:last-of-type .tabs-nav-item-btn:before {
 	right: -.295em;
 }
 
@@ -97,7 +115,7 @@ Tabs
 	}
 
 	.tabs-nav-item:first-of-type .tabs-nav-item-btn:before,
-	.tabs-nav-item:last-of-type .tabs-nav-item-btn:after {
+	.tabs-nav-item:last-of-type .tabs-nav-item-btn:before {
 		font-size: 2.75em;
 		display: none;
 	}
