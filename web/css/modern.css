@@ -278,6 +278,12 @@ contentWrap - outer container for main content
   .contentWrap-tertiary {
     background-position: bottom right; } }
 
+@media screen and (min-width: 688px) and (min-height: 900px) {
+  .contentWrap-primary {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto; } }
+
 /* ---------------------------------------------------------------------
 header
 ------------------------------------------------------------------------ */
