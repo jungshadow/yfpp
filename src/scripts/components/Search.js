@@ -42,7 +42,7 @@ class Search extends React.Component {
 
         $.ajax({
             url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
-            //url: '/test_data_errors.json',
+            // url: '/test_data_san_fran.json',
             type: "GET",
             dataType: 'json',
             data: config,
@@ -73,7 +73,7 @@ class Search extends React.Component {
 
         return (
             <form className={'searchForm ' + this.props.activeClassName} action="" ref="searchForm" onSubmit={this.fetchData} >
-                <input className="searchForm-input" type="search" ref="address" placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006" onChange={this.errorRemove}/>
+            <input className="searchForm-input" type="search" ref="address" placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006" onChange={this.errorRemove}/>
                 <button className="searchForm-submit" type="submit">Search</button>
             </form>
             )
