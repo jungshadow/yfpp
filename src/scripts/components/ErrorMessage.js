@@ -15,6 +15,33 @@ import helpers from '../helpers';
  */
 class ErrorMessage extends React.Component {
 
+    /**
+     * Renders error messages based on available info
+     *
+     * @method given a message, href, anchorText, and messageType
+     *     {'tel', 'url', 'addr'}, this method will create an HTML fragment
+     * @return {object} returns error message based on available info
+     */
+    createMessageFragment(message, href, anchorText, messageType) {
+        var ElementFrag = '';
+
+        switch (messageType) {
+            case 'tel':
+                ElementFrag = <span>{message} <a href={'tel:' + href}>{anchorText}</a></span>;
+                break;
+            case 'url':
+                ElementFrag = <span>{message} <a href={href}>{anchorText}</a></span>;
+                break;
+            case 'addr':
+                var url = 'https://maps.google.com/?q=' + href;
+                ElementFrag = <span>{message} <a href={url}>{anchorText}</a></span>;
+                break;
+            default:
+                ElementFrag = <span>You&re not calling this method correctly.</span>;
+        }
+
+        return ElementFrag;
+    }
 
     /**
      * Renders error message based on available info
@@ -30,21 +57,9 @@ class ErrorMessage extends React.Component {
         const leoInfo = this.props.leoInfo;
         const seoInfo = this.props.seoInfo;
 
-        var phoneMessage = 'call this fucking number:';
-        var PhoneElementFrag;
-
-        var urlMessage = 'visit this fucking website:'
-        var UrlElementFrag;
-
-        // preference is for local election information
-        var leoPhone;
-        var leoUrl;
-        var leoAddress;
-
-        // the state info is a fallback for where info is missing
-        var seoPhone;
-        var seoUrl;
-        var seoAddress;
+        var phoneMessage = 'call this fucking number,';
+        var urlMessage = 'visit this fucking website,';
+        var addrMessage = 'visit this fucking place,';
 
         var sentence = 'If you want to get to the bottom of this bullshit, ' +
             'you may want to ';
@@ -52,46 +67,92 @@ class ErrorMessage extends React.Component {
         var reasons = [];
 
         if(Object.getOwnPropertyNames(leoInfo).length > 0) {
-
             if(leoInfo.electionOfficials && leoInfo.electionOfficials.length > 0
                 && leoInfo.electionOfficials[0].officePhoneNumber) {
-                leoPhone = leoInfo.electionOfficials[0].officePhoneNumber;
-                PhoneElementFrag = <span>{phoneMessage} <a href={'tel:' + leoPhone}>{leoPhone}</a></span>;
-                reasons.push(PhoneElementFrag);
+                reasons.push(this.createMessageFragment(
+                    phoneMessage,
+                    leoInfo.electionOfficials[0].officePhoneNumber,
+                    leoInfo.electionOfficials[0].officePhoneNumber,
+                    'tel'
+                ));
             }
 
             if(leoInfo.electionInfoUrl) {
-                leoUrl = leoInfo.electionInfoUrl;
+                reasons.push(this.createMessageFragment(
+                    urlMessage,
+                    leoInfo.electionInfoUrl,
+                    'Local Election Information',
+                    'url'
+                ));
+            }
+
+            if(leoInfo.physicalAddress) {
+                var flattenedAddr = helpers.concatStreetAddress(
+                    leoInfo.physicalAddress);
+
+                reasons.push(this.createMessageFragment(
+                    addrMessage,
+                    encodeURIComponent(flattenedAddr),
+                    flattenedAddr,
+                    'addr'
+                ));
             }
         }
-
-        if(Object.getOwnPropertyNames(seoInfo).length > 0) {
+        
+        // we favor local election information first
+        if(Object.getOwnPropertyNames(seoInfo).length > 0
+            && Object.getOwnPropertyNames(leoInfo).length == 0) {
             if(seoInfo.electionOfficials && seoInfo.electionOfficials.length > 0
                 && seoInfo.electionOfficials[0].officePhoneNumber
                 && !leoPhone) {
-                PhoneElementFrag = <span>{phoneMessage} <a href={'tel:' + seoPhone}>{seoPhone}</a></span>;
-                reasons.push(PhoneElementFrag);
+                reasons.push(this.createMessageFragment(
+                    phoneMessage,
+                    seoInfo.electionOfficials[0].officePhoneNumber,
+                    seoInfo.electionOfficials[0].officePhoneNumber,
+                    'tel'
+                ));
+            }
+
+            if(seoInfo.electionInfoUrl) {
+                reasons.push(this.createMessageFragment(
+                    urlMessage,
+                    seoInfo.electionInfoUrl,
+                    'State Election Information',
+                    'url'
+                ));
+            }
+
+            if(seoInfo.physicalAddress) {
+                var flattenedAddr = helpers.concatStreetAddress(
+                    seoInfo.physicalAddress);
+
+                reasons.push(this.createMessageFragment(
+                    addrMessage,
+                    encodeURIComponent(flattenedAddr),
+                    flattenedAddr,
+                    'addr'
+                ));
             }
         }
 
         return (
-            <span className="txt mix-txt_capitalize">We couldn't find any fucking data. In the immortal words of The Great Bard, DJ Khaled: &quot;Congratulations! You just played yourself.&quot;<br />
+            <span className="txt">We couldn't find any fucking data. In the immortal words of The Great Bard, DJ Khaled, &quot;Congratulations! You played yourself.&quot;<br />
                 {(() => {
                     if(reasons.length === 0) {
                         return (
-                            <span className="txt mix-txt_capitalize">'There are currently no elections associated with the fucking address you\'re trying to use. Get your shit together and try another one.'</span>
+                            <span className="txt">There are currently no elections associated with the fucking address you&apos;re trying to use. Get your shit together and try another one.</span>
                         )
                     } else if(reasons.length === 1) {
                         return (
-                            <span className="txt mix-txt_capitalize">{reasons[0]}</span>
+                            <span className="txt">{sentence} {reasons[0]}.</span>
                         )
                     } else if(reasons.length === 2) {
                         return (
-                            <span className="txt mix-txt_capitalize">{reasons[0]} and {reasons[1]}</span>
+                            <span className="txt">{sentence} {reasons[0]}, or {reasons[1]}.</span>
                         )
                     } else if(reasons.length === 3) {
                         return (
-                            <span className="txt mix-txt_capitalize">{reasons[0]}, {reasons[1]}, or {reasons[3]}</span>
+                            <span className="txt">{sentence} {reasons[0]}, {reasons[1]}, or {reasons[2]}.</span>
                         )
                     }
                 })()}
