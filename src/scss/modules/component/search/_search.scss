@@ -58,11 +58,6 @@ search
 @media screen and (max-width: 768px) {
 	
 	.searchForm-input {
-		font-size: 12px;
-
-		&:focus {
-			font-size: $FONT_SIZE_DEFAULT;
-			padding: 16px 55px 16px 18px; // extra right padding makes room for absolutely positioned button
-		}
+		font-size: $FONT_SIZE_DEFAULT;
 	}
 }

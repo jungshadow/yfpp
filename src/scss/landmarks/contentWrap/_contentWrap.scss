@@ -92,3 +92,11 @@ contentWrap - outer container for main content
 		background-position: bottom right;
 	}
 }
+
+
+@media screen and (min-width: 688px) and (min-height: 900px) {
+	
+	.contentWrap-primary {
+		flex: 1 1 auto;
+	}
+}
