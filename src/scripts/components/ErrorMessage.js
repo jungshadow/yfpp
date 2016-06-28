@@ -37,7 +37,7 @@ class ErrorMessage extends React.Component {
                 ElementFrag = <span>{message} <a href={url}>{anchorText}</a></span>;
                 break;
             default:
-                ElementFrag = <span>You&re not calling this method correctly.</span>;
+                ElementFrag = <span>You&apos;re not calling this method correctly.</span>;
         }
 
         return ElementFrag;
@@ -98,7 +98,7 @@ class ErrorMessage extends React.Component {
                 ));
             }
         }
-        
+
         // we favor local election information first
         if(Object.getOwnPropertyNames(seoInfo).length > 0
             && Object.getOwnPropertyNames(leoInfo).length == 0) {
