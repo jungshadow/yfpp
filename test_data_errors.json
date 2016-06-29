@@ -1,0 +1,73 @@
+{
+    "kind": "civicinfo#voterInfoResponse",
+    "election": {
+        "id": "2000",
+        "name": "VIP Test Election",
+        "electionDay": "2017-06-06",
+        "ocdDivisionId": "ocd-division/country:us"
+    },
+    "normalizedInput": {
+        "line1": "1305 cotanche st",
+        "city": "greenville",
+        "state": "NC",
+        "zip": "27858"
+    },
+    "state": [{
+        "name": "North Carolina",
+        "electionAdministrationBody": {
+            "name": "North Carolina State Board of Elections",
+            "electionInfoUrl": "http://www.ncsbe.gov/ncsbe/",
+            "electionRegistrationUrl": "http://www.eac.gov/assets/1/Documents/Federal%20Voter%20Registration_6-25-14_ENG.pdf",
+            "electionRegistrationConfirmationUrl": "https://www.ncsbe.gov/webapps/voter_search/",
+            "absenteeVotingInfoUrl": "http://ncelectionconnection.com/voting-in-nc/absentee-ballot/",
+            "votingLocationFinderUrl": "http://www.ncsbe.gov/webapps/pollingplace_search/",
+            "ballotInfoUrl": "http://na",
+            "electionRulesUrl": "http://www.ncsbe.gov/ncsbe/elections",
+            "correspondenceAddress": {
+                "line1": "P.o. Box 27255",
+                "city": "Raleigh",
+                "state": "North Carolina",
+                "zip": "27611-2767"
+            }
+        },
+        "local_jurisdiction": {
+            "name": "PITT",
+            "electionAdministrationBody": {
+                "name": "Pitt County Board of Elections",
+                "electionInfoUrl": "http://www.ncsbe.gov/",
+                "electionRegistrationUrl": "http://www.ncsbe.gov/",
+                "electionRegistrationConfirmationUrl": "http://www.ncsbe.gov/",
+                "absenteeVotingInfoUrl": "http://www.ncsbe.gov/",
+                "votingLocationFinderUrl": "http://www.ncsbe.gov/",
+                "electionRulesUrl": "http://www.ncsbe.gov/",
+                "correspondenceAddress": {
+                    "line1": "PO Box 56",
+                    "city": "Greenville",
+                    "state": "NC",
+                    "zip": "27835-0056"
+                },
+                "physicalAddress": {
+                    "line1": "201 E Second St",
+                    "city": "Greenville",
+                    "state": "NC",
+                    "zip": "27858"
+                },
+                "electionOfficials": [{
+                    "name": "DAVID P. DAVIS",
+                    "title": "DIRECTOR PITT COUNTY BOARD OF ELECTIONS",
+                    "officePhoneNumber": "252-902-3300",
+                    "faxNumber": "252-830-1157",
+                    "emailAddress": "pitt.boe@ncsbe.gov"
+                }]
+            },
+            "sources": [{
+                "name": "Voting Information Project",
+                "official": true
+            }]
+        },
+        "sources": [{
+            "name": "",
+            "official": false
+        }]
+    }]
+}
