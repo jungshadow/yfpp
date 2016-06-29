@@ -1,4 +1,4 @@
-// Import dependencies 
+// Import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -27,6 +27,7 @@ class Search extends React.Component {
             types: ['address'],
             componentRestrictions: { country: 'us' }
         };
+
         var input = $('.searchForm-input')[0];
         new window.google.maps.places.Autocomplete(input, options);
     }
@@ -52,7 +53,7 @@ class Search extends React.Component {
             error: function(xhr, status, err) {
                 analytics.failure(xhr.responseJSON);
                 this.props.onErrorHandler();
-                
+
             }.bind(this)
         });
     }

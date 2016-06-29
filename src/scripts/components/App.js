@@ -39,6 +39,8 @@ class App extends React.Component {
         // sets initial state with empty results arrays
         // that will be dynamically populated from search results
         this.state = {
+            leoInfo: {},
+            seoInfo: {},
     	    normalizedAddress: {},
     	    electionInfo: {},
             pollingLocations: [],
@@ -61,6 +63,14 @@ class App extends React.Component {
      * @param  {object} data object returned from API
      */
     updateResults(data) {
+        const leoInfo = (
+            data.state && data.state[0]
+            && data.state[0].local_jurisdiction
+            && data.state[0].local_jurisdiction.electionAdministrationBody)
+            || {};
+        const seoInfo = (
+            data.state && data.state[0]
+            && data.state[0].electionAdministrationBody) || {};
     	const normalizedAddress = data.normalizedInput || {};
     	const electionInfo = data.election || {};
     	const pollingLocations = data.pollingLocations || [];
@@ -68,28 +78,36 @@ class App extends React.Component {
         const contests = data.contests || [];
         const partyList = [];
 
-        if(contests.length > 0) {
+        var isActive = false;
+        var isError = false;
 
-            this.setState({
-                isActive: false,
-                isError: false });
+        if(contests.length > 0 || pollingLocations.length > 0) {
+            if(contests.length > 0) {
+                Object.keys(contests).map(function(key) {
+                    if(contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
+                        partyList.push(contests[key].primaryParty);
+                    }
+                });
+            }
 
-            Object.keys(contests).map(function(key) {
-
-                if(contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
-                    partyList.push(contests[key].primaryParty);
-                }
-            });
+            isActive = true;
+            isError = false;
+        } else {
+            isActive = false;
+            isError = true;
         }
 
         this.setState({
+            leoInfo: leoInfo,
+            seoInfo: seoInfo,
     	    normalizedAddress: normalizedAddress,
     	    electionInfo: electionInfo,
             pollingLocations: pollingLocations,
             earlyVoteSites: earlyVoteSites,
             contests: contests,
             primaryParties: partyList,
-            isActive: true
+            isActive: isActive,
+            isError: isError
         });
     }
 
@@ -171,7 +189,7 @@ class App extends React.Component {
      */
     renderErrorMessage() {
 
-        return ( <ErrorMessage /> );
+        return ( <ErrorMessage leoInfo={this.state.leoInfo} seoInfo={this.state.seoInfo} /> );
     }
 
     /**
