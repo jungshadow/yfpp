@@ -136,7 +136,7 @@ class ErrorMessage extends React.Component {
         }
 
         return (
-            <span className="txt">We couldn't find any fucking data. In the immortal words of The Great Bard, DJ Khaled, &quot;Congratulations! You played yourself.&quot;<br />
+            <span className="txt">We couldn&apos;t find any fucking data. In the immortal words of The Great Bard, DJ Khaled, &quot;Congratulations! You played yourself.&quot;<br />
                 {(() => {
                     if(reasons.length === 0) {
                         return (
