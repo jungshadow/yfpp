@@ -30,4 +30,9 @@ class SiteTitle extends React.Component {
 
 };
 
+// set up propType validation
+SiteTitle.propTypes = {
+    activeClassName: React.PropTypes.string
+}
+
 export default SiteTitle;

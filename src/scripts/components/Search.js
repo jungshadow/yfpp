@@ -81,4 +81,12 @@ class Search extends React.Component {
     }
 };
 
+// set up propType validation
+Search.propTypes = {
+    activeClassName: React.PropTypes.string,
+    onErrorHandler: React.PropTypes.func,
+    onErrorRemoveHandler: React.PropTypes.func,
+    updateResults: React.PropTypes.func,
+}
+
 export default Search;
