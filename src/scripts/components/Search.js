@@ -23,12 +23,12 @@ class Search extends React.Component {
      */
     componentDidMount() {
         /* Add Google Autocomplete */
-        var options = {
+        const options = {
             types: ['address'],
             componentRestrictions: { country: 'us' }
         };
 
-        var input = $('.searchForm-input')[0];
+        const input = $('.searchForm-input')[0];
         new window.google.maps.places.Autocomplete(input, options);
     }
 
@@ -42,7 +42,8 @@ class Search extends React.Component {
 
         $.ajax({
             url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
-            // url: '/test_data_san_fran.json',
+            //url: '/test_data_san_fran.json',
+            //url: '/test_data_errors.json',
             type: "GET",
             dataType: 'json',
             data: config,
