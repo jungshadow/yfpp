@@ -136,7 +136,7 @@ class ErrorMessage extends React.Component {
         }
 
         return (
-            <div className="userContent"><p>We couldn&apos;t find any fucking data. In the immortal words of The Great Bard, DJ Khaled, <em>&quot;Congratulations! You played yourself.&quot;</em></p>
+            <div className="userContent userContent_reversed"><p>We couldn&apos;t find any fucking data. In the immortal words of The Great Bard, DJ Khaled, <em>&quot;Congratulations! You played yourself.&quot;</em></p>
                 {(() => {
                     if(reasons.length === 0) {
                         return (
