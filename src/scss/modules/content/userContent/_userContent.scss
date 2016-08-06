@@ -92,3 +92,19 @@ userContent - unclassed element styles
     }
 
 }
+
+.userContent_reversed {
+    
+    color: $WHITE;
+
+    a {
+        color: lighten($RED, 40);
+    }
+
+    a:hover,
+    a:focus,
+    a:visited {
+        color: lighten($RED, 30);
+    }
+
+}
