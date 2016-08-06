@@ -11,6 +11,7 @@ icons
     font-variant: normal;
     text-transform: none;
     line-height: 1;
+    vertical-align: middle;
 
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
@@ -109,6 +110,22 @@ icons
     line-height: 45px;
     font-size: 32px;
     color: rgba($GREY_LIGHT, .3);
+}
+
+.mix-icon_light {
+    color: $WHITE;
+}
+
+.mix-icon_sm {
+    font-size: 16px;
+}
+
+.mix-icon_md {
+    font-size: 30px;
+}
+
+.mix-icon_lrg {
+    font-size: 50px;
 }
 
 
