@@ -1,0 +1,69 @@
+/* ---------------------------------------------------------------------
+carousel
+------------------------------------------------------------------------ */
+
+.carousel {
+
+}
+
+.carousel-slides {
+    position: relative;
+}
+
+.carousel-slides-slide {
+    opacity: 0;
+    width: 100%;
+    left: 0;
+    top: 0;
+    transition: all .5s ease-in-out;
+    position: absolute;
+}
+
+.isActive.carousel-slides-slide {
+    opacity: 1;
+    
+}
+
+
+.carousel-directionNav {
+    position: relative;
+}
+
+.carsousel-directionNav-item {
+    position: absolute;
+    display: block;
+    background: none;
+    border: none;
+    overflow: hidden;
+    text-indent: -999em;
+
+    &:before {
+        display: block;
+        font-family: $FONT_ICON;
+        text-indent: 0;
+        color: $WHITE;
+        font-size: 60px;
+    }
+}
+
+.carsousel-directionNav-item_prev {
+    top: 50%;
+    left: -80px;
+
+    &:before {
+        content: "\e902";
+    }   
+}
+
+.carsousel-directionNav-item_next {
+    top: 50%;
+    right: -80px;
+    
+    &:before {
+        content: "\e903";    
+    }
+}
+
+.js-carouselNav-link {
+
+}
