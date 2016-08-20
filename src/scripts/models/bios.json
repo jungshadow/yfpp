@@ -1,0 +1,52 @@
+{
+  "bios": [
+    {
+      "name": "Mo Maraqa'",
+      "title": "Overlord",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat porro adipisci ullam repellendus non incidunt quasi obcaecati voluptates ab beatae consequatur odit inventore ad sint amet ea nam possimus quisquam dolores similique facilis laboriosam neque, maxime accusamus. Nulla aspernatur iure minus iusto expedita, unde odio recusandae saepe, placeat culpa iste.",
+      "twitter": "https://twitter.com/jungshadow",
+      "linkedIn": "https://www.linkedin.com/in/jason-johnson-75448423",
+      "image": "http://fillmurray.com/150/150"
+    },
+    {
+      "name": "Jared \"Fucking Vote\" Marcotte",
+      "title": "Frontend Developer",
+      "description": "Having worked on eCommerce and corporate sites for much of his career, Jared felt a calling for the greater good: why not create a website that helps people do their civic duty...and berates the fuck out of them while doing it? In 2010, along with Mo [link to Mo's bio], they put up this fucking site to great fucking success. This fucking guy also worked on this fucking project called the Voting Fucking Information Fucking Project, which, through the Google Fucking Civic Information API, helps power this fucking site. Jared currently runs his own fucking consultancy, The Turnout, where he can't swear as fucking much.",
+      "twitter": "https://twitter.com/jungshadow",
+      "linkedIn": "https://www.linkedin.com/in/jason-johnson-75448423",
+      "image": "http://fillmurray.com/150/150"
+    },
+    {
+      "name": "Jay \"Pull the Fucking Lever\"Johnson",
+      "title": "Frontend Developer",
+      "description": "Jay spends his days slinging front-end code at the Nerdery, and whiles his evenings away helping fuckers like you get thier asses to the polls. This son-of-a-bitch hopped on the team in 2012 with an all-night development bender to finally add some CSS to the original fucking site.",
+      "twitter": "https://twitter.com/sixbcreative",
+      "linkedIn": "https://www.linkedin.com/in/jason-johnson-75448423",
+      "image": "http://fillmurray.com/150/150"
+    },
+    {
+      "name": "Nick Catalano",
+      "title": "Analytics",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat porro adipisci ullam repellendus non incidunt quasi obcaecati voluptates ab beatae consequatur odit inventore ad sint amet ea nam possimus quisquam dolores similique facilis laboriosam neque, maxime accusamus. Nulla aspernatur iure minus iusto expedita, unde odio recusandae saepe, placeat culpa iste.",
+      "twitter": "https://twitter.com/jungshadow",
+      "linkedIn": "https://www.linkedin.com/in/jason-johnson-75448423",
+      "image": "http://fillmurray.com/150/150"
+    },
+    {
+      "name": "Anastasia Golovashkina",
+      "title": "Social Media",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat porro adipisci ullam repellendus non incidunt quasi obcaecati voluptates ab beatae consequatur odit inventore ad sint amet ea nam possimus quisquam dolores similique facilis laboriosam neque, maxime accusamus. Nulla aspernatur iure minus iusto expedita, unde odio recusandae saepe, placeat culpa iste.",
+      "twitter": "https://twitter.com/jungshadow",
+      "linkedIn": "https://www.linkedin.com/in/jason-johnson-75448423",
+      "image": "http://fillmurray.com/150/150"
+    },
+    {
+      "name": "Josh \"Fuck off and get to the polls\" Turner",
+      "title": "Design/UX",
+      "description": "Josh has designed and built websites for all sorts of motherfuckers (non profits, tourism boards, renewable energy companies, gravestone manufacturers), but none as important as the very website you are currently viewing... well, except for maybe that gravestone site as that shit's important. In the winter of 2016, Jason [Link to Jay's profile], Jared [link to Jared's profile], and Mo [link to Mo's profile] approached Josh to make YFPP \"not as shitty\" and Josh feels like he lived up to this request. When Josh isn't writing in the third person, he's crafting pretty pictures and  UI/UX for Bandzoogle, the world's best web platform for musicians.",
+      "twitter": "https://twitter.com/jungshadow",
+      "linkedIn": "https://www.linkedin.com/in/jason-johnson-75448423",
+      "image": "http://fillmurray.com/150/150"
+    }
+  ]
+}
