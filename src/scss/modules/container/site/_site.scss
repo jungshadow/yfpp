@@ -3,13 +3,15 @@ site
 ------------------------------------------------------------------------ */
 
 // prevent body from scrolling when msg is active
-body.hasMsg {
+body.hasMsg,
+body.hasModal {
     position: fixed;
     overflow: hidden;
 }
 
 .site {
     position: relative; // creates positioning context for message container
+    width: 100%;
 }
 
 .site-msg {
