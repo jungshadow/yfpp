@@ -140,7 +140,8 @@ body {
   font-size: 13px;
   line-height: 1.286;
   color: #4b4b4b;
-  background-color: #e4e1dd; }
+  background-color: #e4e1dd;
+  width: 100%; }
 
 a {
   color: #000000;
@@ -299,6 +300,21 @@ header
   margin-bottom: 50px; }
 
 /* ---------------------------------------------------------------------
+bio
+------------------------------------------------------------------------ */
+.bio-img {
+  float: left;
+  margin: 0 15px 0 0; }
+  .bio-img img {
+    border: 2px solid #3f3d3c; }
+
+.bio-img-social {
+  margin-top: 10px; }
+
+.bio-bd {
+  overflow: hidden; }
+
+/* ---------------------------------------------------------------------
 icons
 ------------------------------------------------------------------------ */
 .icon {
@@ -310,6 +326,7 @@ icons
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  vertical-align: middle;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -362,6 +379,33 @@ icons
   line-height: 45px;
   font-size: 32px;
   color: rgba(228, 225, 221, 0.3); }
+
+.mix-icon_light {
+  color: #f1eeea; }
+
+.mix-icon_sm {
+  font-size: 16px; }
+
+.mix-icon_md {
+  font-size: 30px; }
+
+.mix-icon_lrg {
+  font-size: 50px; }
+
+/* ---------------------------------------------------------------------
+icon Button
+------------------------------------------------------------------------ */
+.iconBtn {
+  padding: 10px;
+  background: none;
+  border: 0;
+  cursor: pointer; }
+
+.iconBtn-txt {
+  display: inline-block;
+  text-indent: -999em;
+  overflow: hidden;
+  text-align: left; }
 
 /* ---------------------------------------------------------------------
 actionLink
@@ -639,6 +683,9 @@ text
 .txt {
   font-family: "Lato", sanserif; }
 
+.txt_headline {
+  font-family: "Liberator", sanserif; }
+
 .txtCenter {
   text-align: center; }
 
@@ -720,6 +767,15 @@ userContent - unclassed element styles
   .userContent a:visited {
     color: #394b9a; }
 
+.userContent_reversed {
+  color: #f1eeea; }
+  .userContent_reversed a {
+    color: #dc9696; }
+  .userContent_reversed a:hover,
+  .userContent_reversed a:focus,
+  .userContent_reversed a:visited {
+    color: #d06f6f; }
+
 /* ---------------------------------------------------------------------
 card
 ------------------------------------------------------------------------ */
@@ -761,12 +817,14 @@ card
 /* ---------------------------------------------------------------------
 site
 ------------------------------------------------------------------------ */
-body.hasMsg {
+body.hasMsg,
+body.hasModal {
   position: fixed;
   overflow: hidden; }
 
 .site {
-  position: relative; }
+  position: relative;
+  width: 100%; }
 
 .site-msg {
   position: fixed;
@@ -843,6 +901,76 @@ actions
   text-transform: uppercase;
   font-weight: bold;
   line-height: 0.9; }
+
+/* ---------------------------------------------------------------------
+carousel
+------------------------------------------------------------------------ */
+.carousel-slides {
+  position: relative; }
+
+.carousel-slides-slide {
+  opacity: 0;
+  width: 100%;
+  left: 0;
+  top: 0;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  position: absolute; }
+
+.isActive.carousel-slides-slide {
+  opacity: 1; }
+
+.carousel-directionNav {
+  position: relative; }
+
+.carsousel-directionNav-item {
+  position: absolute;
+  display: block;
+  background: none;
+  border: none;
+  overflow: hidden;
+  text-indent: -999em; }
+  .carsousel-directionNav-item:before {
+    display: block;
+    font-family: "yfpp-icons";
+    text-indent: 0;
+    color: #f1eeea;
+    font-size: 60px; }
+
+.carsousel-directionNav-item_prev {
+  top: 50%;
+  left: -80px; }
+  .carsousel-directionNav-item_prev:before {
+    content: "\e902"; }
+
+.carsousel-directionNav-item_next {
+  top: 50%;
+  right: -80px; }
+  .carsousel-directionNav-item_next:before {
+    content: "\e903"; }
+
+/* ---------------------------------------------------------------------
+modal
+------------------------------------------------------------------------ */
+.modal {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none; }
+
+.modal.isActive {
+  display: block; }
+
+.modal-inner {
+  max-width: 600px;
+  margin: 10% auto; }
+
+.modal-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px; }
 
 /* ---------------------------------------------------------------------
 search
@@ -1222,6 +1350,9 @@ vertical list
 ------------------------------------------------------------------------ */
 .vList > * + * {
   margin-top: 1.375em; }
+
+.vList_sm > * + * {
+  margin-top: 0.25em; }
 
 .vList_divided > * {
   padding: 0.5em 0; }
