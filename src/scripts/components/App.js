@@ -79,8 +79,8 @@ class App extends React.Component {
         const contests = data.contests || [];
         const partyList = [];
 
-        var isActive = false;
-        var isError = false;
+        let isActive = false;
+        let isError = false;
 
         if(contests.length > 0 || pollingLocations.length > 0) {
             if(contests.length > 0) {
