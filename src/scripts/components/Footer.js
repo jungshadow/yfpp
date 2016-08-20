@@ -31,40 +31,40 @@ class Footer extends React.Component {
                     <h3 className="hdg hdg_1 mix-hdg_light mix-hdg_uppercase mix-hdg_headline mix-hdg_centered">This Shit Was Made By These Motherfuckers</h3>
                     <i className="icon icon_star-full mix-icon_centered mix-icon_hr"></i>
                     <div className="team">
-                        <ul className="blocks blocks_2upSM blocks_4upMD blocks_6up">
+                        <ul className="blocks blocks_2upSM blocks_4upMD blocks_6up js-carouselNav">
                             <li>
                                 <div className="txtCenter">
-                                    <h4 className="hdg hdg_ mix-hdg_block mix-hdg_medium mix-hdg_headline">Mo Maraqa</h4>
+                                    <h4 className="hdg hdg_ mix-hdg_block mix-hdg_medium mix-hdg_headline"><button className="js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Mo Maraqa</button></h4>
                                     <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/momaraqa" data-show-count="false">@momaraqa</a>
                                 </div>
                             </li>
                             <li>
                                 <div className="txtCenter">
-                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block">Jared Marcotte</h4>
+                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block"><button className="js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Jared Marcotte</button></h4>
                                     <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/jungshadow" data-show-count="false">@jungshadow</a>
                                 </div>
                             </li>
                             <li>
                                 <div className="txtCenter">
-                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block">Jay johnson</h4>
+                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block"><button className="js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Jay Johnson</button></h4>
                                     <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/sixbcreative" data-show-count="false">@sixbcreative</a>
                                 </div>
                             </li>
                             <li>
                                 <div className="txtCenter">
-                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block">Nick catalano</h4>
+                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block"><button className="js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Nick Catalano</button></h4>
                                     <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/NickCatal" data-show-count="false">@NickCatal</a>
                                 </div>
                             </li>
                             <li>
                                 <div className="txtCenter">
-                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block">Anastasia Golovashkina</h4>
+                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block"><button className="js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Anastasia Golovashkina</button></h4>
                                     <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/golovashkina" data-show-count="false">@golovashkina</a>
                                 </div>
                             </li>
                             <li>
                                 <div className="txtCenter">
-                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block">Josh Turner</h4>
+                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block"><button className="js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Josh Turner</button></h4>
                                     <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/joshualturner" data-show-count="false">@joshualturner</a>
                                 </div>
                             </li>
