@@ -14,6 +14,7 @@ import Tabs from './Tabs';
 import TabPanel from './TabPanel';
 import Footer from './Footer';
 import PrivacyPolicy from './PrivacyPolicy';
+import Bios from './Bios';
 
 // active classname
 const ACTIVE_CLASS = 'isActive';
