@@ -1,0 +1,21 @@
+/* ---------------------------------------------------------------------
+iconLink
+------------------------------------------------------------------------ */
+
+.iconLink {
+}
+
+.iconLink > * + * {
+    margin-left: 5px;
+}
+
+.iconLink > * {
+    color: $BLUE_LIGHT;
+}
+
+
+.iconLink:hover > *,
+.iconLink:focus > * {
+    color: lighten($BLUE_LIGHT, 10);
+}
+
