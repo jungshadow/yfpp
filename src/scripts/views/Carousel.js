@@ -48,7 +48,7 @@ class Carousel {
         this.slideContainer = this.carousel.find('.carousel-inner-slides');
         this.slides = this.carousel.find('.carousel-inner-slides-slide');
         this.carouselNav = $('.js-carouselNav');
-        this.carouselNavLinks = this.carouselNav.find('.js-carouselNav-link');
+        this.carouselNavLinks = $('.js-carouselNav-link');
         this.carouselPrev = this.carousel.find('.js-carouselPrev');
         this.carouselNext = this.carousel.find('.js-carouselNext');
         this.hammer = new Hammerjs(this.slideContainer[0]);
