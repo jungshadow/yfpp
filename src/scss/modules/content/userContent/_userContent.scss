@@ -6,6 +6,7 @@ userContent - unclassed element styles
 
     font-family: $FONT_DEFAULT;
     font-size: 1rem;
+    font-weight: 
 
     h1, h2, h3, h4, h5, h6 {
         display: block;
@@ -30,6 +31,7 @@ userContent - unclassed element styles
 
     p {
         margin-bottom: 20px;
+        line-height: 1.6;
     }
 
     small {
@@ -93,6 +95,7 @@ userContent - unclassed element styles
 
 }
 
+/* white text on dark background */
 .userContent_reversed {
     
     color: $WHITE;
@@ -107,4 +110,48 @@ userContent - unclassed element styles
         color: lighten($RED, 30);
     }
 
+}
+
+/* grey text on dark background */
+.userContent_reversedSoft {
+    
+    color: $GREY;
+
+    a {
+        color: $BLUE_LIGHT;
+    }
+
+    a:hover,
+    a:focus,
+    a:visited {
+        color: lighten($BLUE_LIGHT, 10);
+    }
+
+}
+
+/* light grey text on dark background */
+.userContent_reversedSofter {
+    
+    color: $GREY_LIGHT;
+
+    a,
+    a:visited {
+        color: $BLUE_LIGHT;
+    }
+
+    a:hover,
+    a:focus,
+    a:visited {
+        color: lighten($BLUE_LIGHT, 10);
+    }
+
+}
+
+.mix-userContent_md {
+    font-size: 0.875em;
+    line-height: 1.3;
+}
+
+.mix-userContent_ctr {
+    text-align: center;
 }
