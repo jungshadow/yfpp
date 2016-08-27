@@ -22,31 +22,36 @@ class Bios extends React.Component {
 
         return (
 
-            <li className="carousel-slides-slide">
+            <li className="carousel-inner-slides-slide">
                 <div className="bio">
                     <div className="bio-img">
                         <img src={bioData.image} alt="" />
                         <div className="bio-img-social">
                             <ul className="vList vList_sm">
                                 <li>
-                                    <i className="icon icon_twitter mix-icon_md"></i>
-                                    <span>@username</span>
+                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href={bioData.twitter} data-show-count="false">{bioData.twitter}</a>
                                 </li>
                                 <li>
-                                    <i className="icon icon_link mix-icon_md"></i>
-                                    <span>user@website.com</span>
+                                    <a href={bioData.linkedIn} className="iconLink">
+                                        <span className="iconLink-icon">
+                                            <i className="icon icon_linkedin mix-icon_sm"></i>
+                                        </span>
+                                        <span className="iconLink-txt">connect</span>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div className="bio-bd">
-                        <div className="group group_sm">
+                        <div className="group group_md">
                             <div className="group-hd">
-                                <h3 className="hdg hdg_1 mix-hdg_headline mix-hdg_uppercase mix-hdg_light">{bioData.name}</h3>
-                                <div className="txt txt_headline">{bioData.title}</div>
+                            <h4 className="hdg hdg_2 mix-hdg_headline mix-hdg_uppercase mix-hdg_light">{bioData.firstname} {bioData.nickname ? <span className="txt txt_headline mix-txt_lgtBlue">{'\"' + bioData.nickname + '\"'}</span> : '' } {bioData.lastname}</h4>
+                                <div className="txt txt_headline mix-txt_grey">{bioData.title}</div>
                             </div>
                             <div className="group-bd">
-                                <p>{bioData.description}</p>
+                                <div className="userContent userContent_reversedSoft">
+                                    <p>{bioData.description}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
