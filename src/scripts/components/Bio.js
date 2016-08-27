@@ -20,9 +20,11 @@ class Bios extends React.Component {
 
         const bioData = this.props.bio;
 
+        let anchorId = bioData.firstname.toLowerCase();
+
         return (
 
-            <li className="carousel-inner-slides-slide">
+            <li id={anchorId} className="carousel-inner-slides-slide">
                 <div className="bio">
                     <div className="bio-img">
                         <img src={bioData.image} alt="" />
