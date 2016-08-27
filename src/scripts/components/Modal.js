@@ -21,14 +21,12 @@ class Modal extends React.Component {
 
         const activeClassName = this.props.showModal === true ? ACTIVE_CLASS : '';
 
-        console.log(this.props);
-
         return (
-            <div className={'modal ' + activeClassName}>
+            <div className={'modal modal_full ' + activeClassName}>
                 <div className="modal-inner">
                     <div className="modal-btn" onClick={this.props.onModalCloseHandler.bind(this)}>
                         <button className="iconBtn"><span className="iconBtn-txt">Close</span><span className="iconBtn-icon">
-                            <i className="icon icon_close-icon mix-icon_light"></i></span></button>
+                            <i className="icon icon_close mix-icon_light"></i></span></button>
                     </div>
                     <div className="modal-bd">
                         {this.props.children}
