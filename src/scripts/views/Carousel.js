@@ -1,4 +1,5 @@
 import Hammerjs from 'hammerjs';
+import $ from 'jquery';
 /**
  *
  * Carousel Constructor
@@ -52,6 +53,7 @@ class Carousel {
         this.carouselPrev = this.carousel.find('.js-carouselPrev');
         this.carouselNext = this.carousel.find('.js-carouselNext');
         this.hammer = new Hammerjs(this.slideContainer[0]);
+        
     }
 
     setUpHandlers() {
@@ -96,7 +98,6 @@ class Carousel {
 
     gotoSlide(slideIndex) {
 
-
         this.removeClass(this.slides[this.currentSlide], 'isActive');
         this.addClass(this.slides[slideIndex], 'isActive');
 
@@ -111,8 +112,6 @@ class Carousel {
     onNextSlideClick() {
 
         let nextSlide = this.currentSlide + 1;
-
-        console.log(this.currentSlide, nextSlide);
 
         // if the next slide doesn't exist we need to go to the first one
         // subtracting 1 to account for zero based index
@@ -130,7 +129,7 @@ class Carousel {
 
         let prevSlide = this.currentSlide - 1;
 
-        // if the prev slide doesn't exist we need to go to the last one
+        // if the prev slide doesn't exist we need to go to the last one            
         // subtracting 1 to account for zero based index
         // if current slide count is greater than length of carousel, set current slide to last slide
         if (prevSlide < 0) {
@@ -161,18 +160,22 @@ class Carousel {
 
     onNavClick(e) {
             
+            let anchorLink = e.currentTarget.getAttribute('href').replace(/#/, '');
+           
+            const slideCount = this.slides.length
 
-            // map click to the corresponding index value
-            Object.keys(this.carouselNavLinks).map(
-                index => {
+            let i = 0;
 
-                    if (e.target === this.carouselNavLinks[index]) {
+            for(; i< slideCount; i++) {
 
-                        this.gotoSlide(index);
+                if(this.slides[i].getAttribute('id') === anchorLink) {
 
-                    }
-                }
-            )
+                    this.gotoSlide(i);
+
+                    return;
+                };
+            }
+
 
     }
 }
