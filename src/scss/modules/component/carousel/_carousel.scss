@@ -3,30 +3,40 @@ carousel
 ------------------------------------------------------------------------ */
 
 .carousel {
-
-}
-
-.carousel-slides {
     position: relative;
+    padding: 0 10px;
+    @include clearfix;
 }
 
-.carousel-slides-slide {
+.carousel-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-inner-slides {
+    position: relative;
+    transition: all .5s ease-in-out;
+}
+
+.carousel-inner-slides-slide {
     opacity: 0;
     width: 100%;
-    left: 0;
-    top: 0;
-    transition: all .5s ease-in-out;
-    position: absolute;
+    padding: 0 20px;
+    float: left;
+    transition: all 1s ease-in-out;
 }
 
-.isActive.carousel-slides-slide {
+.isActive.carousel-inner-slides-slide {
     opacity: 1;
-    
 }
-
 
 .carousel-directionNav {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    margin-top: -10px;    
 }
 
 .carsousel-directionNav-item {
@@ -34,21 +44,27 @@ carousel
     display: block;
     background: none;
     border: none;
+    color: $BLUE_LIGHT;
     overflow: hidden;
+    font-size: 0;
     text-indent: -999em;
 
     &:before {
         display: block;
         font-family: $FONT_ICON;
         text-indent: 0;
+        font-size: 10px;
+    }
+
+    &:hover,
+    &:focus {
         color: $WHITE;
-        font-size: 60px;
     }
 }
 
 .carsousel-directionNav-item_prev {
     top: 50%;
-    left: -80px;
+    left: 0;
 
     &:before {
         content: "\e902";
@@ -57,13 +73,35 @@ carousel
 
 .carsousel-directionNav-item_next {
     top: 50%;
-    right: -80px;
+    right: 0;
     
     &:before {
         content: "\e903";    
     }
 }
 
-.js-carouselNav-link {
+
+@media screen and (min-width: 768px) {
+
+    .carousel {
+        padding: 0 50px;
+    }
+
+    .carousel-directionNav {
+        margin-top: -20px;
+    }
+    
+    .carsousel-directionNav-item_prev {
+        left: 20px;
+    }
+
+    .carsousel-directionNav-item_next {
+        right: 20px;
+    }
+
+    .carsousel-directionNav-item:before {
+        font-size: 20px;
+    }
+    
 
 }
