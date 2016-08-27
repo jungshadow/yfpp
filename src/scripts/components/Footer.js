@@ -35,7 +35,7 @@ class Footer extends React.Component {
                             <li>
                                 <div className="group group_sm">
                                     <div>
-                                        <button className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Mo Maraqa</button>
+                                        <a href="#mo"className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Mo Maraqa</a>
                                     </div>
                                     <div>
                                         <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/momaraqa" data-show-count="false">@momaraqa</a>
@@ -45,7 +45,7 @@ class Footer extends React.Component {
                             <li>
                                 <div className="group group_sm">
                                     <div>
-                                        <button className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Jared Marcotte</button>
+                                        <a href="#jared"className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Jared Marcotte</a>
                                     </div>
                                     <div>
                                         <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/jungshadow" data-show-count="false">@jungshadow</a>
@@ -55,7 +55,7 @@ class Footer extends React.Component {
                             <li>
                                 <div className="group group_sm">
                                     <div>
-                                        <button className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Jay Johnson</button>
+                                        <a href="#jay"className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Jay Johnson</a>
                                     </div>
                                     <div>
                                         <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/sixbcreative" data-show-count="false">@sixbcreative</a>
@@ -65,7 +65,7 @@ class Footer extends React.Component {
                             <li>
                                 <div className="group group_sm">
                                     <div>
-                                        <button className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Nick Catalano</button>
+                                        <a href="#nick"className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Nick Catalano</a>
                                     </div>
                                     <div>
                                         <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/NickCatal" data-show-count="false">@NickCatal</a>
@@ -75,7 +75,7 @@ class Footer extends React.Component {
                             <li>
                                 <div className="group group_sm">
                                     <div>
-                                        <button className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Anastasia Golovashkina</button>
+                                        <a href="#anastasia"className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Anastasia Golovashkina</a>
                                     </div>
                                     <div>
                                         <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/golovashkina" data-show-count="false">@golovashkina</a>
@@ -85,7 +85,7 @@ class Footer extends React.Component {
                             <li>
                                 <div className="group group_sm">
                                     <div>
-                                        <button className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Josh Turner</button>
+                                        <a href="#josh"className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Josh Turner</a>
                                     </div>
                                     <div>
                                         <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/joshualturner" data-show-count="false">@joshualturner</a>
