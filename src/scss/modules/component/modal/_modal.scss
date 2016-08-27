@@ -7,21 +7,44 @@ modal
     height: 100vh;
     width: 100%;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: none;
+    transition: all .5s ease-in-out;
+    transform: translateY(-100vh);
+    background-color: rgba($GREY_DARK, 0.99);
+    opacity: 0;
 }
 
 .modal.isActive {
-    display: block;
+    opacity: 1;
+    transform: translateY(0vh);
+    z-index: 1;
 }
 
 .modal-inner {
     max-width: 600px;
-    margin: 10% auto;
+    height: 100%;
+    margin: 0 auto;
+    padding: 10% 0 25%;
+    overflow: scroll;
+}
+
+.modal_full .modal-inner {
+    width: 100%;
+    max-width: none;
 }
 
 .modal-btn {
     position: absolute;
+    z-index: 1;
     top: 15px;
     right: 15px;
+
+    .icon {
+        font-size: 30px;
+        color: $BLUE_LIGHT
+    }
+
+    &:hover .icon,
+    &:focus .icon {
+        color: $WHITE;
+    }
 }
