@@ -1,0 +1,19 @@
+/* ---------------------------------------------------------------------
+txtBtn styles
+------------------------------------------------------------------------ */
+
+.txtBtn {
+    display: inline-block;
+    background: none;
+    border: none;
+    appearance: none;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-family: $FONT_HEADLINE;
+    color: $WHITE;
+
+    &:hover,
+    &:focus {
+        color: $BLUE_LIGHT;
+    }
+}
