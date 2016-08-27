@@ -46,9 +46,11 @@ class Bios extends React.Component {
         return (
                 <div className="carousel js-carousel">
 
-                    <ul className="carousel-slides">
-                        {this.buildBioList()}
-                    </ul>
+                    <div className="carousel-inner">
+                        <ul className="carousel-inner-slides">
+                            {this.buildBioList()}
+                        </ul>
+                    </div>
                     <nav className="carousel-directionNav">
                         <button className="carsousel-directionNav-item carsousel-directionNav-item_prev js-carouselPrev">Prev</button>   
                         <button className="carsousel-directionNav-item carsousel-directionNav-item_next js-carouselNext">Next</button> 
