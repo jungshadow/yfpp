@@ -27,13 +27,20 @@ text
 	text-align: center;
 }
 
-.mix-txt_light {
+.mix-txt_greyLgt {
 	color: $GREY_LIGHT;
-	-webkit-font-smoothing: antialiased;
+}
+
+.mix-txt_grey {
+    color: $GREY;
 }
 
 .mix-txt_blue {
     color: $BLUE;
+}
+
+.mix-txt_lgtBlue {
+    color: $BLUE_LIGHT;
 }
 
 .mix-txt_medium_p {
