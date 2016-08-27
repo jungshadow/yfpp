@@ -54,7 +54,7 @@ import ReferendumResults from './ReferendumResults';
                             <div className="card card_secondary">
                                 <span className="card-flag">{currentContest.type}</span> 
                                 <div className="card-bd">
-                                    <div className="group group_sm">
+                                    <div className="group group_md">
                                         <div className="group-hd">
                                             <h3 className="hdg hdg_2 mix-hdg_headline mix-hdg_blue">{currentContest.office}</h3>
                                         </div>                                              
