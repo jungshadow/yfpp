@@ -33,56 +33,85 @@ class Footer extends React.Component {
                     <div className="team">
                         <ul className="blocks blocks_2upSM blocks_4upMD blocks_6up js-carouselNav">
                             <li>
-                                <div className="txtCenter">
-                                    <h4 className="hdg hdg_ mix-hdg_block mix-hdg_medium mix-hdg_headline"><button className="js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Mo Maraqa</button></h4>
-                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/momaraqa" data-show-count="false">@momaraqa</a>
+                                <div className="group group_sm">
+                                    <div>
+                                        <button className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Mo Maraqa</button>
+                                    </div>
+                                    <div>
+                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/momaraqa" data-show-count="false">@momaraqa</a>
+                                    </div>
                                 </div>
                             </li>
                             <li>
-                                <div className="txtCenter">
-                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block"><button className="js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Jared Marcotte</button></h4>
-                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/jungshadow" data-show-count="false">@jungshadow</a>
+                                <div className="group group_sm">
+                                    <div>
+                                        <button className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Jared Marcotte</button>
+                                    </div>
+                                    <div>
+                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/jungshadow" data-show-count="false">@jungshadow</a>
+                                    </div>
                                 </div>
                             </li>
                             <li>
-                                <div className="txtCenter">
-                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block"><button className="js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Jay Johnson</button></h4>
-                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/sixbcreative" data-show-count="false">@sixbcreative</a>
+                                <div className="group group_sm">
+                                    <div>
+                                        <button className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Jay Johnson</button>
+                                    </div>
+                                    <div>
+                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/sixbcreative" data-show-count="false">@sixbcreative</a>
+                                    </div>
                                 </div>
                             </li>
                             <li>
-                                <div className="txtCenter">
-                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block"><button className="js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Nick Catalano</button></h4>
-                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/NickCatal" data-show-count="false">@NickCatal</a>
+                                <div className="group group_sm">
+                                    <div>
+                                        <button className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Nick Catalano</button>
+                                    </div>
+                                    <div>
+                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/NickCatal" data-show-count="false">@NickCatal</a>
+                                    </div>
                                 </div>
                             </li>
                             <li>
-                                <div className="txtCenter">
-                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block"><button className="js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Anastasia Golovashkina</button></h4>
-                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/golovashkina" data-show-count="false">@golovashkina</a>
+                                <div className="group group_sm">
+                                    <div>
+                                        <button className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Anastasia Golovashkina</button>
+                                    </div>
+                                    <div>
+                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/golovashkina" data-show-count="false">@golovashkina</a>
+                                    </div>
                                 </div>
                             </li>
                             <li>
-                                <div className="txtCenter">
-                                    <h4 className="hdg hdg_3 mix-hdg_medium mix-hdg_headline mix-hdg_block"><button className="js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Josh Turner</button></h4>
-                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/joshualturner" data-show-count="false">@joshualturner</a>
+                                <div className="group group_sm">
+                                    <div>
+                                        <button className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Josh Turner</button>
+                                    </div>
+                                    <div>
+                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/joshualturner" data-show-count="false">@joshualturner</a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <i className="icon icon_star-full mix-icon_centered mix-icon_hr"></i>
 
-	            <section className="social-sharing txtCenter">
-                        <div className="fb-shit">
-	                    <div className="fb-like" data-href="http://yourfuckingpollingplace.com/" data-send="false" data-layout="box_count" data-width="50" data-show-faces="true" data-colorscheme="light"></div>
-                        </div>
-	            </section>
-                    <section className="privacy-info txtCenter">
-                        <p className="txt mix-txt_light mix-txt_medium mix-txt_medium_p">Hey fuckface, read the fucking <a className="mix-a_reversed" href="#" onClick={this.onClickHandler.bind(this)}>privacy policy</a>.</p>
-                        <p className="txt mix-txt_light mix-txt_medium mix-txt_centered mix-txt_medium_p">Data via the <a className="mix-a_reversed" href="https://developers.google.com/civic-information/" target="_blank">Google Civic Information API</a>. Use of this site also binds you to the <a className="mix-a_reversed" href="https://www.google.com/intl/en/policies/terms/" target="_blank">Google Terms of Use.</a></p>
-                        <p className="txt mix-txt_light mix-txt_medium mix-txt_medium_p">Data from states that do not provide direct feeds only include addresses with registered voters</p>
-                        <p className="txt mix-txt_light mix-txt_medium mix-txt_medium_p">Election officials sometimes revise data in the last few days before an election. Check back on Election Day for the latest information.</p>
-                    </section>
+    	            <div className="group mix-group_wide">
+                        <section className="group-hd mix-group_txtCtr">
+                            <div className="fb-shit">
+                                <div className="fb-like" data-href="http://yourfuckingpollingplace.com/" data-send="false" data-layout="box_count" data-width="50" data-show-faces="true" data-colorscheme="light">
+                                </div>
+                            </div>
+                        </section>
+                        <section className="group-bd">
+                            <div className="userContent userContent_reversedSofter mix-userContent_md mix-userContent_ctr">
+                                <p>Hey fuckface, read the fucking <a href="#" onClick={this.onClickHandler.bind(this)}>privacy policy</a>.</p>
+                                <p>Data via the <a href="https://developers.google.com/civic-information/" target="_blank">Google Civic Information API</a>. Use of this site also binds you to the <a href="https://www.google.com/intl/en/policies/terms/" target="_blank">Google Terms of Use.</a></p>
+                                <p>Data from states that do not provide direct feeds only include addresses with registered voters</p>
+                                <p>Election officials sometimes revise data in the last few days before an election. Check back on Election Day for the latest information.</p>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </footer>
             
