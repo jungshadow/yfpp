@@ -1,4 +1,4 @@
-// Import dependencies 
+// Import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -50,7 +50,7 @@ class Bios extends React.Component {
                             </div>
                             <div className="group-bd">
                                 <div className="userContent userContent_reversedSoft">
-                                    <p>{bioData.description}</p>
+                                    <p dangerouslySetInnerHTML={ {__html: bioData.description} } />
                                 </div>
                             </div>
                         </div>
@@ -58,7 +58,7 @@ class Bios extends React.Component {
                 </div>
             </li>
 
-                    
+
         )
     }
 
