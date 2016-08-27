@@ -19,85 +19,92 @@ icons
 }
 
 .icon_youtube:before {
-    content: "\e901";
+  content: "\e901";
 }
 .icon_banner-notch:before {
-    content: "\e900";
+  content: "\e900";
 }
 .icon_chevron-left:before {
-    content: "\e902";
+  content: "\e902";
 }
 .icon_chevron-right:before {
-    content: "\e903";
+  content: "\e903";
 }
-.icon_close-icon:before {
-    content: "\e904";
+.icon_close:before {
+  content: "\e904";
 }
 .icon_facebook:before {
-    content: "\e905";
+  content: "\e905";
 }
 .icon_search:before {
-    content: "\e906";
+  content: "\e906";
 }
 .icon_link:before {
-    content: "\e907";
+  content: "\e907";
 }
 .icon_map:before {
-    content: "\e908";
+  content: "\e908";
 }
 .icon_star-full:before {
-    content: "\e909";
+  content: "\e909";
 }
 .icon_star-hollow:before {
-    content: "\e90a";
+  content: "\e90a";
 }
 .icon_star-solid:before {
-    content: "\e90b";
+  content: "\e90b";
 }
 .icon_twitter:before {
-    content: "\e90e";
+  content: "\e90e";
 }
+.icon_linkedin:before {
+  content: "\e90d";
+}
+
 
 
 // mixins
 @mixin icon_youtube {
-    content: "\e901";
+  content: "\e901";
 }
 @mixin icon_banner-notch {
-    content: "\e900";
+  content: "\e900";
 }
 @mixin icon_chevron-left {
-    content: "\e902";
+  content: "\e902";
 }
 @mixin icon_chevron-right {
-    content: "\e903";
+  content: "\e903";
 }
 @mixin icon_close {
-    content: "\e904";
+  content: "\e904";
 }
 @mixin icon_facebook {
-    content: "\e905";
+  content: "\e905";
 }
 @mixin icon_search {
-    content: "\e906";
+  content: "\e906";
 }
 @mixin icon_link {
-    content: "\e907";
+  content: "\e907";
 }
 @mixin icon_map {
-    content: "\e908";
+  content: "\e908";
 }
 @mixin icon_star-full {
-    content: "\e909";
+  content: "\e909";
 }
 @mixin icon_star-hollow {
-    content: "\e90a";
+  content: "\e90a";
 }
 @mixin icon_star-solid {
-    content: "\e90b";
+  content: "\e90b";
 }
 @mixin icon_twitter {
-    content: "\e90e";
+  content: "\e90e";
+}
+@mixin icon_linkedin {
+  content: "\e90d";
 }
 
 .mix-icon_centered {
