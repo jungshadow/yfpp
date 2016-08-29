@@ -27,7 +27,7 @@ class Bios extends React.Component {
             <li id={anchorId} className="carousel-inner-slides-slide">
                 <div className="bio">
                     <div className="bio-img">
-                        <img src={bioData.image} alt="" />
+                        <img src={bioData.image} alt={bioData.firstname + ' ' + bioData.lastname + ' head shot'} />
                         <div className="bio-img-social">
                             <ul className="vList vList_sm">
                                 <li>
