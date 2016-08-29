@@ -4,38 +4,93 @@ import $ from 'jquery';
  *
  * Carousel Constructor
  *
- * @parameter
+ * @parameter 
  */
-class Carousel {
+ class Carousel {
+
     constructor(element) {
 
+        /**
+         * tracks whether component is enabled or not
+         * @property
+         * @type {Boolean}
+         * @default false
+         */
+        this.isEnabled = false;
+
+        /**
+         * Current slide index value
+         * @property
+         * @type {Number}
+         * @default 0
+         */
         this.currentSlide = 0;
-        this.carouselLength = '';
-        this.slideWidth = '';
+
+        /**
+         * Carousel length - total number of slides
+         * @property
+         * @type {number}
+         * @default null
+         */
+        this.carouselLength = null;
+
+        /**
+         * Individual slide's width
+         * @property
+         * @type {number}
+         * @default null
+         */
+        this.slideWidth = null;
 
         this.init();
     }
 
-    init() {
-        this.createChildren();
-        this.setUpHandlers();
+
+    /**
+     * Initializes the Carousel View.
+     * Runs a single _setupHandlers call, followed by _createChildren .
+     * Exits early if it is already initialized.
+     *
+     * @method init
+     */
+     init() {
+        this._createChildren();
+        this._setUpHandlers()
+        this._layout()
         this.enable();
     }
 
-    hasClass(el, className) {
+    /**
+     * Helper function to determine whether an element has a certain class or not
+     * @param  {object}  el        DOM element
+     * @param  {string}  className Class name to check for
+     * @return {Boolean}           True if has class | False if not
+     */
+     hasClass(el, className) {
+
         if (el.classList)
             return el.classList.contains(className)
         else
             return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))
     }
 
-    addClass(el, className) {
+    /**
+     * Helper function to add class name to element
+     * @param {object} el        DOM element
+     * @param {[type]} className Class Name to add
+     */
+     addClass(el, className) {
         if (el.classList)
             el.classList.add(className)
         else if (!hasClass(el, className)) el.className += " " + className
     }
 
-    removeClass(el, className) {
+    /**
+     * Helper function to remove class name from element
+     * @param {object} el        DOM element
+     * @param {[type]} className Class Name to remove
+     */
+     removeClass(el, className) {
         if (el.classList)
             el.classList.remove(className)
         else if (hasClass(el, className)) {
@@ -44,7 +99,15 @@ class Carousel {
         }
     }
 
-    createChildren() {
+    /**
+     * Create any child objects or references to DOM elements.
+     * Should only be run on initialization of the view.
+     *
+     * @method _createChildren
+     * @returns {Carousel}
+     * @private
+     */
+     _createChildren() {
         this.carousel = $('.js-carousel');
         this.slideContainer = this.carousel.find('.carousel-inner-slides');
         this.slides = this.carousel.find('.carousel-inner-slides-slide');
@@ -53,38 +116,97 @@ class Carousel {
         this.carouselPrev = this.carousel.find('.js-carouselPrev');
         this.carouselNext = this.carousel.find('.js-carouselNext');
         this.hammer = new Hammerjs(this.slideContainer[0]);
-        
+
+        return this;        
     }
 
-    setUpHandlers() {
-        this.onNavClickHandler = this.onNavClick.bind(this);
-        this.onNextSlideClickHandler = this.onNextSlideClick.bind(this);
-        this.onPrevSlideClickHandler = this.onPrevSlideClick.bind(this);
-        this.onSwipeHandler = this.onSwipe.bind(this);
+    /**
+     * Binds the scope of any handler functions.
+     * Should only be run on initialization of the view.
+     *
+     * @method _setupHandlers
+     * @returns {Carousel}
+     * @private
+     */
+     _setUpHandlers() {
+        this.onNavClickHandler = this._onNavClick.bind(this);
+        this.onNextSlideClickHandler = this._onNextSlideClick.bind(this);
+        this.onPrevSlideClickHandler = this._onPrevSlideClick.bind(this);
+        this.onSwipeHandler = this._onSwipe.bind(this);
+
+        return this;
     }
 
-    enable() {
+    /**
+     * Enables the component.
+     * Performs any event binding to handlers.
+     * Exits early if it is already enabled.
+     *
+     * @method enable
+     * @returns {Carousel}
+     * @public
+     */
+     enable() {
+
+        if (this.isEnabled) {
+            return this;
+        }
+
+        this.isEnabled = true;
+
         this.carouselNavLinks.on('click', this.onNavClickHandler);
         this.carouselNext.on('click', this.onNextSlideClickHandler);
         this.carouselPrev.on('click', this.onPrevSlideClickHandler);
         this.hammer.on('swipe', this.onSwipeHandler);
 
-        this.carouselWidth = this.slides.length * 100;
-        this.carouselLength = this.slides.length;
-        this.setCarouselWidth(this.carouselWidth);
 
-        this.setSlideWidth(this.carouselLength, 100 / this.carouselLength);
+        return this;
     }
 
-    setCarouselWidth(carouselWidth) {
+    /**
+     * Performs measurements and calculations to set up
+     * necessary carousel component widths
+     *
+     * @method _layout
+     * @return {Carousel}
+     * @private
+     */
+    _layout() {
+        this.carouselWidth = this.slides.length * 100;
+        this.carouselLength = this.slides.length;
+        
+        this._setCarouselWidth(this.carouselWidth);
+
+        this._setSlideWidth(this.carouselLength);
+
+        return this;
+    }
+
+    /**
+     * Sets carousel container width
+     * should be run once when view is initialized
+     * 
+     * @method _setCarouselWidth
+     * @param {string} carouselWidth string representing width of carousel
+     * @private
+     */
+     _setCarouselWidth(carouselWidth) {
 
         this.slideContainer.css('width', carouselWidth + '%');
 
     }
 
-    setSlideWidth(carouselLength, slideWidth) {
+    /**
+     * Sets width of slides based on container width divided by number of slides
+     * should be run once when view is initialized
+     *
+     * @method _setSlideWidth
+     * @param {number} carouselLength number of slides in carousel
+     * @private
+     */
+     _setSlideWidth(carouselLength) {
 
-        this.slideWidth = slideWidth;
+        this.slideWidth = 100 / carouselLength;
 
         let i = 0;
 
@@ -93,10 +215,17 @@ class Carousel {
             this.slides[i].style.width = this.slideWidth + '%';
         }
 
-
     }
 
-    gotoSlide(slideIndex) {
+    /**
+     * Navigates carousel to specific slide index
+     *
+     * @method gotoSlide
+     * @param  {number} slideIndex index value of slide
+     * @return {Carousel}
+     * @public
+     */
+     gotoSlide(slideIndex) {
 
         this.removeClass(this.slides[this.currentSlide], 'isActive');
         this.addClass(this.slides[slideIndex], 'isActive');
@@ -107,9 +236,18 @@ class Carousel {
 
         this.currentSlide = parseInt(slideIndex);
 
+        return this;
+
     }
 
-    onNextSlideClick() {
+    /**
+     * Next slide direction nav event
+     *
+     * @method _onNextSlideClick
+     * @return {Carousel}
+     * @private
+     */
+     _onNextSlideClick() {
 
         let nextSlide = this.currentSlide + 1;
 
@@ -125,7 +263,14 @@ class Carousel {
 
     }
 
-    onPrevSlideClick() {
+    /**
+     * Previous slide direction nav event
+     *
+     * @method _onPrevSlideClick
+     * @return {Carousel}
+     * @private
+     */   
+     _onPrevSlideClick() {
 
         let prevSlide = this.currentSlide - 1;
 
@@ -136,45 +281,63 @@ class Carousel {
             prevSlide = this.carouselLength - 1;
         }
 
-
         this.gotoSlide(prevSlide);
-
 
     }
 
-    onSwipe(e) {
+    /**
+     * Swipe nav event
+     * Handles swipe events for both next and previous nav
+     * Uses Hammer.js to detect swipes
+     *
+     * @method _onSwipe
+     * @return {Carousel}
+     * @private
+     */
+     _onSwipe(e) {
 
+        // sets up readable variables for swipe direction
         const swipeLft = 2;
         const swipeRgt = 4;
 
+        // if swipe is right, call onPrevSlideClick()
+        // if swipe is left, call onNextSlideClick() 
         if (e.direction === swipeRgt) {
 
-            this.onPrevSlideClick();
+            this._onPrevSlideClick();
 
         } else if (e.direction === swipeLft) {
 
-            this.onNextSlideClick();
+            this._onNextSlideClick();
 
         }
+
+        return this;
     }
 
-    onNavClick(e) {
-            
-            let anchorLink = e.currentTarget.getAttribute('href').replace(/#/, '');
-           
-            const slideCount = this.slides.length
+    /**
+     * Carousel navigation click event
+     * Handles clicks from external carousel navigation
+     * @param  {[type]} e [description]
+     * @return {[type]}   [description]
+     */
+     _onNavClick(e) {
 
-            let i = 0;
+        let anchorLink = e.currentTarget.getAttribute('href').replace(/#/, '');
 
-            for(; i< slideCount; i++) {
+        const slideCount = this.slides.length
 
-                if(this.slides[i].getAttribute('id') === anchorLink) {
+        let i = 0;
 
-                    this.gotoSlide(i);
+        for(; i< slideCount; i++) {
 
-                    return;
-                };
-            }
+            if(this.slides[i].getAttribute('id') === anchorLink) {
+
+                this.gotoSlide(i);
+
+                return;
+            };
+        }
 
 
     }
