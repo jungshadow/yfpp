@@ -1,4 +1,4 @@
-// Import dependencies 
+// Import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -19,13 +19,12 @@ class SiteTitle extends React.Component {
      */
     render() {
 
-
         return (
             <h1 className={'siteTitle ' + this.props.activeClassName}>
-                <strong className="siteTitle-seg1">Where's My <span className="mix-siteTitle_accent">Fucking</span></strong>
+                <strong className="siteTitle-seg1">Where&apos;s My <span className="mix-siteTitle_accent">Fucking</span></strong>
                 <strong className="siteTitle-seg2">Polling Place?</strong>
             </h1>
-            )
+        )
     }
 
 };

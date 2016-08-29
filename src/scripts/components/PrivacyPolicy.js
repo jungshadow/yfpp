@@ -1,4 +1,4 @@
-// Import dependencies 
+// Import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -24,9 +24,9 @@ class PrivacyPolicy extends React.Component {
     render() {
 
         return (
-            
+
                 <div className="site-msg">
-                    
+
                     <button className="site-msg-action" onClick={this.onClickClose.bind(this)}>Close</button>
                     <div className="site-msg-bd">
                         <h3 className="hdg hdg_1 mix-hdg_headline">Privacy Policy</h3>
@@ -39,10 +39,10 @@ class PrivacyPolicy extends React.Component {
                             <p>We do not use or collect your precise geographic location.</p>
                             <h3>We do not store personal data.</h3>
                             <p>See heading.</p>
-                            <h3>We don't keep personal data.</h3>
-                            <p>'nuff said.</p>
+                            <h3>We don&apos;t keep personal data.</h3>
+                            <p>&apos;nuff said.</p>
                             <h3>Address lookups are sent directly to Google</h3>
-                            <p>Lookups are done by submitting your address directly to Google via the <a href="https://developers.google.com/civic-information/">Google Civic Information API</a> and <a href="https://developers.google.com/places/">Google Places API</a>. As part of this request some additional information about you, such as the browser you use, the domain name you're submitting your address via (this one) and your IP address are attached. How Google treats user data is governed by the <a href="https://www.google.com/intl/en/policies/privacy/">Google Privacy Policy</a>.</p>
+                            <p>Lookups are done by submitting your address directly to Google via the <a href="https://developers.google.com/civic-information/">Google Civic Information API</a> and <a href="https://developers.google.com/places/">Google Places API</a>. As part of this request some additional information about you, such as the browser you use, the domain name you&apos;re submitting your address via (this one) and your IP address are attached. How Google treats user data is governed by the <a href="https://www.google.com/intl/en/policies/privacy/">Google Privacy Policy</a>.</p>
                             <h3>No ad companies collect data through our service.</h3>
                             <p>We do not allow advertising companies to collect data through our service for ad targeting.</p>
                             <h3>Analytics providers access data on our behalf.</h3>
@@ -55,10 +55,10 @@ class PrivacyPolicy extends React.Component {
                             <p>This privacy policy was last updated on Nov 2, 2014. Our privacy policy may change from time to time. If we make any material changes to our policies, we will place a prominent notice on our website or application.</p>
                         </div>
                     </div>
-                    
+
                 </div>
 
-            
+
             )
     }
 
