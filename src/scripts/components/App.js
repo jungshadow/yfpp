@@ -8,12 +8,14 @@ import ErrorMessage from './ErrorMessage';
 import ErrorReportForm from './ErrorReportForm';
 import PollingPlaceResults from './PollingPlaceResults';
 import ContestResults from './ContestResults';
+import Modal from './Modal';
 import PartySelect from './PartySelect';
 import SiteTitle from './SiteTitle';
 import Tabs from './Tabs';
 import TabPanel from './TabPanel';
 import Footer from './Footer';
 import PrivacyPolicy from './PrivacyPolicy';
+import Bios from './Bios';
 
 // active classname
 const ACTIVE_CLASS = 'isActive';
@@ -39,6 +41,8 @@ class App extends React.Component {
         // sets initial state with empty results arrays
         // that will be dynamically populated from search results
         this.state = {
+            leoInfo: {},
+            seoInfo: {},
     	    normalizedAddress: {},
     	    electionInfo: {},
             pollingLocations: [],
@@ -47,11 +51,13 @@ class App extends React.Component {
             isActive: false,
             isError: false,
             showPrivacyPolicy: false,
+            showModal: false,
             filterBy: 'All',
             primaryParties: []
         };
 
         this.activeMsgClassName = 'hasMsg';
+        this.activeModalClassName = 'hasModal';
     };
 
     /**
@@ -61,6 +67,14 @@ class App extends React.Component {
      * @param  {object} data object returned from API
      */
     updateResults(data) {
+        const leoInfo = (
+            data.state && data.state[0]
+            && data.state[0].local_jurisdiction
+            && data.state[0].local_jurisdiction.electionAdministrationBody)
+            || {};
+        const seoInfo = (
+            data.state && data.state[0]
+            && data.state[0].electionAdministrationBody) || {};
     	const normalizedAddress = data.normalizedInput || {};
     	const electionInfo = data.election || {};
     	const pollingLocations = data.pollingLocations || [];
@@ -68,28 +82,36 @@ class App extends React.Component {
         const contests = data.contests || [];
         const partyList = [];
 
-        if(contests.length > 0) {
+        let isActive = false;
+        let isError = false;
 
-            this.setState({
-                isActive: false,
-                isError: false });
+        if(contests.length > 0 || pollingLocations.length > 0) {
+            if(contests.length > 0) {
+                Object.keys(contests).map(function(key) {
+                    if(contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
+                        partyList.push(contests[key].primaryParty);
+                    }
+                });
+            }
 
-            Object.keys(contests).map(function(key) {
-
-                if(contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
-                    partyList.push(contests[key].primaryParty);
-                }
-            });
+            isActive = true;
+            isError = false;
+        } else {
+            isActive = false;
+            isError = true;
         }
 
         this.setState({
+            leoInfo: leoInfo,
+            seoInfo: seoInfo,
     	    normalizedAddress: normalizedAddress,
     	    electionInfo: electionInfo,
             pollingLocations: pollingLocations,
             earlyVoteSites: earlyVoteSites,
             contests: contests,
             primaryParties: partyList,
-            isActive: true
+            isActive: isActive,
+            isError: isError
         });
     }
 
@@ -147,7 +169,38 @@ class App extends React.Component {
             showPrivacyPolicy: false
         });
 
-        document.getElementsByTagName('body')[0].classList.remove(this.activeMsgClassName);
+        document.getElementsByTagName('body')[0].classList.remove(this.activeModalClassName);
+    }
+
+    /**
+     * Modal link click handler
+     * sets showPrivacyPolicy state to true
+     *
+     * @method onPrivacyClickHandler
+     */
+    onModalClickHandler() {
+
+        this.setState({
+            showModal: true
+        });
+
+
+        document.getElementsByTagName('body')[0].classList.add(this.activeModalClassName);
+    }
+
+    /**
+     * Modal close link click handler
+     * sets showModal state to false
+     *
+     * @method onModalCloseHandler
+     */
+    onModalCloseHandler() {
+
+        this.setState({
+            showModal: false
+        });
+
+        document.getElementsByTagName('body')[0].classList.remove(this.activeModalClassName);
     }
 
     /**
@@ -171,7 +224,7 @@ class App extends React.Component {
      */
     renderErrorMessage() {
 
-        return ( <ErrorMessage /> );
+        return ( <ErrorMessage leoInfo={this.state.leoInfo} seoInfo={this.state.seoInfo} /> );
     }
 
     /**
@@ -234,6 +287,8 @@ class App extends React.Component {
             return <PartySelect primaryParties={this.state.primaryParties} updateFilterText={this.updateFilterText}/>
         }
     }
+
+
 
     /**
      * Renders application to the DOM
@@ -316,10 +371,11 @@ class App extends React.Component {
                     </main>
                     <div className="contentWrap-tertiary"></div>
                 </div>
-                <Footer onPrivacyClickHandler={this.onPrivacyClickHandler}/>
-
+                <Footer onPrivacyClickHandler={this.onPrivacyClickHandler} onModalClickHandler={this.onModalClickHandler} />
                     { this.state.showPrivacyPolicy ? this.renderPrivacyPolicy() : '' }
-
+                <Modal onModalCloseHandler={this.onModalCloseHandler} showModal={this.state.showModal} >
+                    <Bios />
+                </Modal>
             </div>
         )
 

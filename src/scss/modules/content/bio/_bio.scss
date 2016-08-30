@@ -1,0 +1,35 @@
+/* ---------------------------------------------------------------------
+bio
+------------------------------------------------------------------------ */
+
+.bio-img {
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+
+    & img {
+        border: 2px solid darken($GREY, 35);
+        max-width: 150px;
+    }
+}
+
+.bio-img-social {
+    margin-top: 10px;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .bio-img {
+        float: left;
+        margin: 0 15px 0 0;
+    }
+
+    .bio-img-social {
+        margin-top: 10px;
+    }
+
+    .bio-bd {
+        overflow: hidden;
+    }
+}

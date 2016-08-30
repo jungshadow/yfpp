@@ -1,6 +1,6 @@
 {
   "name": "yfpp2016",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,6 @@
     "browser-sync": "2.9.11",
     "browserify": "11.2.0",
     "connect-history-api-fallback": "1.1.0",
-    "firebase": "2.3.1",
     "gulp": "3.9.0",
     "gulp-autoprefixer": "3.1.0",
     "gulp-notify": "2.2.0",
@@ -23,9 +22,10 @@
     "gulp-sass": "^2.3.1",
     "gulp-uglify": "1.4.2",
     "gulp-util": "3.0.7",
+    "hammerjs": "2.0.6",
     "history": "1.12.5",
     "install": "0.1.8",
-    "re-base": "^1.2.1",
+    "jquery": "^3.1.0",
     "react": "0.14.0",
     "react-addons-css-transition-group": "0.14.0",
     "react-catalyst": "0.3.0",
