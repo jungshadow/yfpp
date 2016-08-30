@@ -14,7 +14,7 @@ import ReferendumResults from './ReferendumResults';
  * @extends React.Component
  */
 
-class ContestResults extends React.Component {
+ class ContestResults extends React.Component {
 
     /**
      * Renders Contest results list items
@@ -22,8 +22,8 @@ class ContestResults extends React.Component {
      * @method render
      * @return {object} polling place results component markup
      */
-    render() {
-        
+     render() {
+
         const currentContest = this.props.currentContest;
         const candidates = currentContest.candidates;
 
@@ -48,36 +48,45 @@ class ContestResults extends React.Component {
 
         return (
             <li className={'results_contest ' + currentContest.primaryParty}>
-            {(() => {
-		if(currentContest.candidates) {
-              return (<div className="card card_secondary">
-                <span className="card-flag">{currentContest.type}</span> 
-                <div className="card-bd">
-                  <div className="group group_sm">
-                    <div className="group-hd">
-                      <h3 className="hdg hdg_2 mix-hdg_headline mix-hdg_blue">{currentContest.office}</h3>
-                    </div>                                              
-                    <div className="group-bd">
-                      <ul className="vList vList_divided">
-                        {candidateList}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>);
-		} else {
-	      return (<div className="card card_secondary">
-                <span className="card-flag">{currentContest.type}</span> 
-                <div className="card-bd">
-                  <h3 className="hdg hdg_3 mix-hdg_headline mix-hdg_blue">{currentContest.referendumTitle}</h3>
-                  {currentContest.referendumText ? <p>{currentContest.referendumText}</p> : ''}
-                </div>
-              </div>);
-		}
-            })()}
+                {(() => {
+                    if(currentContest.candidates) {
+                        return (
+                            <div className="card card_secondary">
+                                <span className="card-flag">{currentContest.type}</span> 
+                                <div className="card-bd">
+                                    <div className="group group_md">
+                                        <div className="group-hd">
+                                            <h3 className="hdg hdg_2 mix-hdg_headline mix-hdg_blue">{currentContest.office}</h3>
+                                        </div>                                              
+                                        <div className="group-bd">
+                                            <ul className="vList vList_divided">
+                                                {candidateList}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    } else {
+                        return (
+                            <div className="card card_secondary">
+                                <span className="card-flag">{currentContest.type}</span> 
+                                <div className="card-bd">
+                                    <h3 className="hdg hdg_3 mix-hdg_headline mix-hdg_blue">{currentContest.referendumTitle}</h3>
+                                        {currentContest.referendumText ? <p>{currentContest.referendumText}</p> : ''}
+                                </div>
+                            </div>
+                        );
+                    }
+                })()}
             </li>
         )
     }
 };
 
+// set up propType validation
+ContestResults.propTypes = {
+    currentContest: React.PropTypes.object,
+    filterBy: React.PropTypes.string
+}
 export default ContestResults;

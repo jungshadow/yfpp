@@ -136,27 +136,27 @@ class ErrorMessage extends React.Component {
         }
 
         return (
-            <span className="txt">We couldn&apos;t find any fucking data. In the immortal words of The Great Bard, DJ Khaled, &quot;Congratulations! You played yourself.&quot;<br />
+            <div className="userContent userContent_reversed"><p>We couldn&apos;t find any fucking data. In the immortal words of The Great Bard, DJ Khaled, <em>&quot;Congratulations! You played yourself.&quot;</em></p>
                 {(() => {
                     if(reasons.length === 0) {
                         return (
-                            <span className="txt">There are currently no elections associated with the fucking address you&apos;re trying to use. Get your shit together and try another one.</span>
+                            <p>There are currently no elections associated with the fucking address you&apos;re trying to use. Get your shit together and try another one.</p>
                         )
                     } else if(reasons.length === 1) {
                         return (
-                            <span className="txt">{sentence} {reasons[0]}.</span>
+                            <p>{sentence} {reasons[0]}.</p>
                         )
                     } else if(reasons.length === 2) {
                         return (
-                            <span className="txt">{sentence} {reasons[0]}, or {reasons[1]}.</span>
+                            <p>{sentence} {reasons[0]}, or {reasons[1]}.</p>
                         )
                     } else if(reasons.length === 3) {
                         return (
-                            <span className="txt">{sentence} {reasons[0]}, {reasons[1]}, or {reasons[2]}.</span>
+                            <p>{sentence} {reasons[0]}, {reasons[1]}, or {reasons[2]}.</p>
                         )
                     }
                 })()}
-            </span>
+            </div>
         )
     }
 

@@ -18,7 +18,10 @@
 // modules//////////////////////////////////////
 
 // content
+@import "modules/content/bio/_bio";
 @import "modules/content/icons/_icons";
+@import "modules/content/iconBtn/_iconBtn";
+@import "modules/content/iconLink/_iconLink";
 @import "modules/content/actionLink/_actionLink";
 @import "modules/content/formSelect/_formSelect";
 @import "modules/content/hdg/_hdg";
@@ -26,6 +29,7 @@
 @import "modules/content/siteTitle/_siteTitle";
 @import "modules/content/starsNstripes/_starsNstripes";
 @import "modules/content/txt/_txt";
+@import "modules/content/txtBtn/_txtBtn";
 @import "modules/content/userContent/_userContent";
 
 // container
@@ -34,6 +38,8 @@
 
 // component
 @import "modules/component/actions/_actions";
+@import "modules/component/carousel/_carousel";
+@import "modules/component/modal/_modal";
 @import "modules/component/search/_search";
 @import "modules/component/tabs/_tabs";
 

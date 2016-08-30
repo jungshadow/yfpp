@@ -10,6 +10,8 @@ import ReactDOM from 'react-dom';
  */
 class ReferendumResults extends React.Component {
 
+
+
     /**
      * Renders referendum results list items
      *
@@ -17,6 +19,7 @@ class ReferendumResults extends React.Component {
      * @return {object} referendum results component markup
      */
     render() {
+
         const referendum = this.props.referendum;
 
         if (!referendum.referendumTitle) {

@@ -8,12 +8,14 @@ import ErrorMessage from './ErrorMessage';
 import ErrorReportForm from './ErrorReportForm';
 import PollingPlaceResults from './PollingPlaceResults';
 import ContestResults from './ContestResults';
+import Modal from './Modal';
 import PartySelect from './PartySelect';
 import SiteTitle from './SiteTitle';
 import Tabs from './Tabs';
 import TabPanel from './TabPanel';
 import Footer from './Footer';
 import PrivacyPolicy from './PrivacyPolicy';
+import Bios from './Bios';
 
 // active classname
 const ACTIVE_CLASS = 'isActive';
@@ -49,11 +51,13 @@ class App extends React.Component {
             isActive: false,
             isError: false,
             showPrivacyPolicy: false,
+            showModal: false,
             filterBy: 'All',
             primaryParties: []
         };
 
         this.activeMsgClassName = 'hasMsg';
+        this.activeModalClassName = 'hasModal';
     };
 
     /**
@@ -78,8 +82,8 @@ class App extends React.Component {
         const contests = data.contests || [];
         const partyList = [];
 
-        var isActive = false;
-        var isError = false;
+        let isActive = false;
+        let isError = false;
 
         if(contests.length > 0 || pollingLocations.length > 0) {
             if(contests.length > 0) {
@@ -165,7 +169,38 @@ class App extends React.Component {
             showPrivacyPolicy: false
         });
 
-        document.getElementsByTagName('body')[0].classList.remove(this.activeMsgClassName);
+        document.getElementsByTagName('body')[0].classList.remove(this.activeModalClassName);
+    }
+
+    /**
+     * Modal link click handler
+     * sets showPrivacyPolicy state to true
+     *
+     * @method onPrivacyClickHandler
+     */
+    onModalClickHandler() {
+
+        this.setState({
+            showModal: true
+        });
+
+
+        document.getElementsByTagName('body')[0].classList.add(this.activeModalClassName);
+    }
+
+    /**
+     * Modal close link click handler
+     * sets showModal state to false
+     *
+     * @method onModalCloseHandler
+     */
+    onModalCloseHandler() {
+
+        this.setState({
+            showModal: false
+        });
+
+        document.getElementsByTagName('body')[0].classList.remove(this.activeModalClassName);
     }
 
     /**
@@ -253,6 +288,8 @@ class App extends React.Component {
         }
     }
 
+
+
     /**
      * Renders application to the DOM
      *
@@ -334,10 +371,11 @@ class App extends React.Component {
                     </main>
                     <div className="contentWrap-tertiary"></div>
                 </div>
-                <Footer onPrivacyClickHandler={this.onPrivacyClickHandler}/>
-
+                <Footer onPrivacyClickHandler={this.onPrivacyClickHandler} onModalClickHandler={this.onModalClickHandler} />
                     { this.state.showPrivacyPolicy ? this.renderPrivacyPolicy() : '' }
-
+                <Modal onModalCloseHandler={this.onModalCloseHandler} showModal={this.state.showModal} >
+                    <Bios />
+                </Modal>
             </div>
         )
 

@@ -136,11 +136,14 @@ into other modules.
   box-sizing: border-box; }
 
 body {
+  background-color: #e4e1dd;
+  width: 100%;
   font-family: "Lato", sanserif;
   font-size: 13px;
   line-height: 1.286;
   color: #4b4b4b;
-  background-color: #e4e1dd; }
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 a {
   color: #000000;
@@ -289,14 +292,30 @@ header
 ------------------------------------------------------------------------ */
 .footer {
   background: #3f3d3c url("../images/fucking-eagle.png") bottom center no-repeat;
-  padding: 80px 0; }
+  padding: 80px 0 120px; }
 
-.privacy-info {
-  max-width: 650px;
-  margin: 32px auto 0; }
+/* ---------------------------------------------------------------------
+bio
+------------------------------------------------------------------------ */
+.bio-img {
+  display: block;
+  margin-bottom: 20px;
+  text-align: center; }
+  .bio-img img {
+    border: 2px solid #58544f;
+    max-width: 150px; }
 
-.team {
-  margin-bottom: 50px; }
+.bio-img-social {
+  margin-top: 10px; }
+
+@media screen and (min-width: 768px) {
+  .bio-img {
+    float: left;
+    margin: 0 15px 0 0; }
+  .bio-img-social {
+    margin-top: 10px; }
+  .bio-bd {
+    overflow: hidden; } }
 
 /* ---------------------------------------------------------------------
 icons
@@ -310,6 +329,7 @@ icons
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  vertical-align: middle;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -326,7 +346,7 @@ icons
 .icon_chevron-right:before {
   content: "\e903"; }
 
-.icon_close-icon:before {
+.icon_close:before {
   content: "\e904"; }
 
 .icon_facebook:before {
@@ -353,6 +373,9 @@ icons
 .icon_twitter:before {
   content: "\e90e"; }
 
+.icon_linkedin:before {
+  content: "\e90d"; }
+
 .mix-icon_centered {
   display: block;
   text-align: center; }
@@ -362,6 +385,46 @@ icons
   line-height: 45px;
   font-size: 32px;
   color: rgba(228, 225, 221, 0.3); }
+
+.mix-icon_light {
+  color: #f1eeea; }
+
+.mix-icon_sm {
+  font-size: 16px; }
+
+.mix-icon_md {
+  font-size: 30px; }
+
+.mix-icon_lrg {
+  font-size: 50px; }
+
+/* ---------------------------------------------------------------------
+icon Button
+------------------------------------------------------------------------ */
+.iconBtn {
+  padding: 10px;
+  background: none;
+  border: 0;
+  cursor: pointer; }
+
+.iconBtn-txt {
+  display: inline-block;
+  text-indent: -999em;
+  overflow: hidden;
+  text-align: left; }
+
+/* ---------------------------------------------------------------------
+iconLink
+------------------------------------------------------------------------ */
+.iconLink > * + * {
+  margin-left: 5px; }
+
+.iconLink > * {
+  color: #AED3E1; }
+
+.iconLink:hover > *,
+.iconLink:focus > * {
+  color: #d3e7ef; }
 
 /* ---------------------------------------------------------------------
 actionLink
@@ -639,6 +702,9 @@ text
 .txt {
   font-family: "Lato", sanserif; }
 
+.txt_headline {
+  font-family: "Liberator", sanserif; }
+
 .txtCenter {
   text-align: center; }
 
@@ -652,25 +718,47 @@ text
 .mix-txt_centered {
   text-align: center; }
 
-.mix-txt_light {
-  color: #e4e1dd;
-  -webkit-font-smoothing: antialiased; }
+.mix-txt_greyLgt {
+  color: #e4e1dd; }
+
+.mix-txt_grey {
+  color: #b1ada8; }
 
 .mix-txt_blue {
   color: #2b3975; }
+
+.mix-txt_lgtBlue {
+  color: #AED3E1; }
 
 .mix-txt_medium_p {
   line-height: 1.3em;
   margin-bottom: 1.4em; }
 
 /* ---------------------------------------------------------------------
+txtBtn styles
+------------------------------------------------------------------------ */
+.txtBtn {
+  display: inline-block;
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-family: "Liberator", sanserif;
+  color: #f1eeea; }
+  .txtBtn:hover, .txtBtn:focus {
+    color: #AED3E1; }
+
+/* ---------------------------------------------------------------------
 userContent - unclassed element styles
 ------------------------------------------------------------------------ */
 .userContent {
   font-family: "Lato", sanserif;
-  font-size: 1rem; }
-  .userContent h1, .userContent h2, .userContent h3, .userContent h4, .userContent h5, .userContent h6 {
-    display: block; }
+  font-size: 1rem;
+  font-weight: h1, h2, h3, h4, h5, h6;
+    font-weight-display: block; }
   .userContent h1 {
     font-size: 34px;
     margin-bottom: 5px; }
@@ -683,7 +771,8 @@ userContent - unclassed element styles
     font-weight: bold;
     margin-bottom: 5px; }
   .userContent p {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    line-height: 1.6; }
   .userContent small {
     font-size: 14px;
     margin-bottom: 5px; }
@@ -719,6 +808,44 @@ userContent - unclassed element styles
   .userContent a:focus,
   .userContent a:visited {
     color: #394b9a; }
+
+/* white text on dark background */
+.userContent_reversed {
+  color: #f1eeea; }
+  .userContent_reversed a {
+    color: #dc9696; }
+  .userContent_reversed a:hover,
+  .userContent_reversed a:focus,
+  .userContent_reversed a:visited {
+    color: #d06f6f; }
+
+/* grey text on dark background */
+.userContent_reversedSoft {
+  color: #b1ada8; }
+  .userContent_reversedSoft a {
+    color: #AED3E1; }
+  .userContent_reversedSoft a:hover,
+  .userContent_reversedSoft a:focus,
+  .userContent_reversedSoft a:visited {
+    color: #d3e7ef; }
+
+/* light grey text on dark background */
+.userContent_reversedSofter {
+  color: #e4e1dd; }
+  .userContent_reversedSofter a,
+  .userContent_reversedSofter a:visited {
+    color: #AED3E1; }
+  .userContent_reversedSofter a:hover,
+  .userContent_reversedSofter a:focus,
+  .userContent_reversedSofter a:visited {
+    color: #d3e7ef; }
+
+.mix-userContent_md {
+  font-size: 0.875em;
+  line-height: 1.3; }
+
+.mix-userContent_ctr {
+  text-align: center; }
 
 /* ---------------------------------------------------------------------
 card
@@ -761,12 +888,14 @@ card
 /* ---------------------------------------------------------------------
 site
 ------------------------------------------------------------------------ */
-body.hasMsg {
+body.hasMsg,
+body.hasModal {
   position: fixed;
   overflow: hidden; }
 
 .site {
-  position: relative; }
+  position: relative;
+  width: 100%; }
 
 .site-msg {
   position: fixed;
@@ -843,6 +972,131 @@ actions
   text-transform: uppercase;
   font-weight: bold;
   line-height: 0.9; }
+
+/* ---------------------------------------------------------------------
+carousel
+------------------------------------------------------------------------ */
+.carousel {
+  position: relative;
+  padding: 0 10px; }
+  .carousel:before, .carousel:after {
+    content: " ";
+    display: table; }
+  .carousel:after {
+    clear: both; }
+
+.carousel-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden; }
+
+.carousel-inner-slides {
+  position: relative;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out; }
+
+.carousel-inner-slides-slide {
+  opacity: 0;
+  width: 100%;
+  padding: 0 20px;
+  float: left;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out; }
+
+.isActive.carousel-inner-slides-slide {
+  opacity: 1; }
+
+.carousel-directionNav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  margin-top: -10px; }
+
+.carsousel-directionNav-item {
+  position: absolute;
+  display: block;
+  background: none;
+  border: none;
+  color: #AED3E1;
+  overflow: hidden;
+  font-size: 0;
+  text-indent: -999em; }
+  .carsousel-directionNav-item:before {
+    display: block;
+    font-family: "yfpp-icons";
+    text-indent: 0;
+    font-size: 10px; }
+  .carsousel-directionNav-item:hover, .carsousel-directionNav-item:focus {
+    color: #f1eeea; }
+
+.carsousel-directionNav-item_prev {
+  top: 50%;
+  left: 0; }
+  .carsousel-directionNav-item_prev:before {
+    content: "\e902"; }
+
+.carsousel-directionNav-item_next {
+  top: 50%;
+  right: 0; }
+  .carsousel-directionNav-item_next:before {
+    content: "\e903"; }
+
+@media screen and (min-width: 768px) {
+  .carousel {
+    padding: 0 50px; }
+  .carousel-directionNav {
+    margin-top: -20px; }
+  .carsousel-directionNav-item_prev {
+    left: 20px; }
+  .carsousel-directionNav-item_next {
+    right: 20px; }
+  .carsousel-directionNav-item:before {
+    font-size: 20px; } }
+
+/* ---------------------------------------------------------------------
+modal
+------------------------------------------------------------------------ */
+.modal {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transform: translateY(-100vh);
+          transform: translateY(-100vh);
+  background-color: rgba(63, 61, 60, 0.99);
+  opacity: 0; }
+
+.modal.isActive {
+  opacity: 1;
+  -webkit-transform: translateY(0vh);
+          transform: translateY(0vh);
+  z-index: 1; }
+
+.modal-inner {
+  max-width: 600px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10% 0 25%;
+  overflow: scroll; }
+
+.modal_full .modal-inner {
+  width: 100%;
+  max-width: none; }
+
+.modal-btn {
+  position: absolute;
+  z-index: 1;
+  top: 15px;
+  right: 15px; }
+  .modal-btn .icon {
+    font-size: 30px;
+    color: #AED3E1; }
+  .modal-btn:hover .icon,
+  .modal-btn:focus .icon {
+    color: #f1eeea; }
 
 /* ---------------------------------------------------------------------
 search
@@ -1120,26 +1374,32 @@ Grid
 group
 ------------------------------------------------------------------------ */
 .group {
-  position: relative; }
+  position: relative;
+  margin-left: auto;
+  margin-right: auto; }
 
 .group > * + * {
   margin-top: 22px; }
 
 .group_sm > * + * {
+  margin-top: 5px; }
+
+.group_md > * + * {
   margin-top: 12px; }
 
 /* group variations */
 .mix-group_narrow {
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto; }
+  max-width: 500px; }
+
+.mix-group_wide {
+  max-width: 650px; }
+
+.mix-group_txtCtr {
+  text-align: center; }
 
 .mix-group_absolute {
   position: absolute;
   z-index: 3; }
-
-.contentWrap .group > * + * {
-  margin-top: 11px; }
 
 /* ---------------------------------------------------------------------
 hList
@@ -1222,6 +1482,9 @@ vertical list
 ------------------------------------------------------------------------ */
 .vList > * + * {
   margin-top: 1.375em; }
+
+.vList_sm > * + * {
+  margin-top: 0.25em; }
 
 .vList_divided > * {
   padding: 0.5em 0; }
