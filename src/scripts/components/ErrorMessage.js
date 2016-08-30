@@ -171,7 +171,7 @@ class ErrorMessage extends React.Component {
         return (
             <div className="card card_error">
                 <div className="card-bd">
-	                <h3 className="hdg hdg_1 mix-hdg_headline">For Fuck's Sake</h3>
+	                <h3 className="hdg hdg_1 mix-hdg_headline">For Fuck&apos;s Sake</h3>
                     <div>{this.renderMessage()}</div>
                 </div>
             </div>
