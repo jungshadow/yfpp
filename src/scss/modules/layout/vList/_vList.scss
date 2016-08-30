@@ -6,6 +6,9 @@ vertical list
 	margin-top: 1.375em;
 }
 
+.vList_sm > * + * {
+    margin-top: 0.25em;
+}
 
 .vList_divided > * {
     padding: 0.5em 0;

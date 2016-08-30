@@ -9,11 +9,14 @@ into other modules.
 }
 
 body {
+    background-color: $GREY_LIGHT;
+    width: 100%;
     font-family: $FONT_DEFAULT;
     font-size: $FONT_SIZE_MOBILE;
     line-height: 1.286; // 18px height on standard 14px font-size
     color: $COLOR_TEXT_DEFAULT;
-    background-color: $GREY_LIGHT;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {

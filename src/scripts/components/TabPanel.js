@@ -30,4 +30,11 @@ class TabPanel extends React.Component {
 
 };
 
+// set up propType validation
+TabPanel.propTypes = {
+    electionInfo: React.PropTypes.object,
+    label: React.PropTypes.string,
+    normalizedAddress: React.PropTypes.object
+}
+
 export default TabPanel;
