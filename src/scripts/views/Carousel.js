@@ -230,7 +230,7 @@ import $ from 'jquery';
         this.removeClass(this.slides[this.currentSlide], 'isActive');
         this.addClass(this.slides[slideIndex], 'isActive');
 
-        let translateVal = 'translateX(-' + (this.slideWidth * slideIndex) + '%)';
+        let translateVal = 'translate3d(-' + (this.slideWidth * slideIndex) + '%, 0, 0)';
 
         this.slideContainer.css('transform', translateVal);
 
