@@ -9,14 +9,24 @@ carousel
 }
 
 .carousel-inner {
+    position: relative;
     max-width: 700px;
+    width: 100%;
     margin: 0 auto;
     overflow: hidden;
 }
 
 .carousel-inner-slides {
+    display: block;
     position: relative;
-    transition: all .5s ease-in-out;
+    left: 0;
+    transform: translate3d(0,0,0);
+    @include clearfix;
+}
+
+// adds transitions only when modal is active to resolve display issue
+.modal.isActive .carousel-inner-slides {
+    transition: all .25s linear;
 }
 
 .carousel-inner-slides-slide {

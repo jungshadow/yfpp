@@ -986,14 +986,27 @@ carousel
     clear: both; }
 
 .carousel-inner {
+  position: relative;
   max-width: 700px;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden; }
 
 .carousel-inner-slides {
+  display: block;
   position: relative;
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out; }
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0); }
+  .carousel-inner-slides:before, .carousel-inner-slides:after {
+    content: " ";
+    display: table; }
+  .carousel-inner-slides:after {
+    clear: both; }
+
+.modal.isActive .carousel-inner-slides {
+  -webkit-transition: all .25s linear;
+  transition: all .25s linear; }
 
 .carousel-inner-slides-slide {
   opacity: 0;
