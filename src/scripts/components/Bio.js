@@ -1,6 +1,6 @@
 // Import dependencies
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';   
 
 /**
  * Bios Component
