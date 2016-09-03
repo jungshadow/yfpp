@@ -1,0 +1,2 @@
+# Contributing to YFPP
+Thanks for considering contributing to YFPP. We're still determining our contributing guidelines and open source license, so, until we do, this project is only open to the existing contributors. Follow this project for updates.
