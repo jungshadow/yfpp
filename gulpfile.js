@@ -16,6 +16,12 @@ var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var historyApiFallback = require('connect-history-api-fallback');
 
+/* configuration variables */
+var config = {
+    SRC_DIR: './src/',
+    DEST_DIR: './web/',
+    production: !!gutil.env.prod
+};
 
 /*
   Styles Task
@@ -23,25 +29,25 @@ var historyApiFallback = require('connect-history-api-fallback');
 
 gulp.task('styles',function() {
   // move over fonts
+  gulp.src(config.SRC_DIR + 'fonts/**.*')
+    .pipe(gulp.dest(config.DEST_DIR + 'fonts'));
 
-  gulp.src('./src/fonts/**.*')
-    .pipe(gulp.dest('web/fonts'));
-
-  gulp.src('./src/scripts/vendor/**.*')
-    .pipe(gulp.dest('web/scripts/vendor'))
+  //move over vendor scripts
+  gulp.src(config.SRC_DIR + 'scripts/vendor/**.*')
+    .pipe(gulp.dest(config.DEST_DIR + 'scripts/vendor'))
 });
 
-
 gulp.task('sass', function () {
-  return gulp.src('./src/scss/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
+
+  return gulp.src(config.SRC_DIR + 'scss/**/*.scss')
+    .pipe(sass(config.production ? {outputStyle:'compressed'} : {outputStyle:'expanded'}).on('error', sass.logError))
     .pipe(autoprefixer())
-    .pipe(gulp.dest('./web/css'))
+    .pipe(gulp.dest(config.DEST_DIR +'css'))
     .pipe(browserSync.stream());
 });
 
 gulp.task('sass:watch', function () {
-  gulp.watch('./src/scss/**/*.scss', ['sass']);
+  gulp.watch(config.SRC_DIR + 'scss/**/*.scss', ['sass']);
 });
 
 
@@ -49,8 +55,8 @@ gulp.task('sass:watch', function () {
   Images
 */
 gulp.task('images',function(){
-  gulp.src('./src/images/**')
-    .pipe(gulp.dest('./web/images'))
+  gulp.src(config.SRC_DIR + 'images/**')
+    .pipe(gulp.dest(config.DEST_DIR + 'images'))
 });
 
 /*
@@ -76,7 +82,7 @@ function handleErrors() {
 
 function buildScript(file, watch) {
   var props = {
-    entries: ['src/scripts/' + file],
+    entries: [config.SRC_DIR + 'scripts/' + file],
     debug : true,
     cache: {},
     packageCache: {},
@@ -91,12 +97,10 @@ function buildScript(file, watch) {
     return stream
       .on('error', handleErrors)
       .pipe(source(file))
-      .pipe(gulp.dest('./web/'))
       // If you also want to uglify it
-      // .pipe(buffer())
-      // .pipe(uglify())
-      // .pipe(rename('app.min.js'))
-      // .pipe(gulp.dest('./build'))
+      .pipe(buffer())
+      .pipe(config.production ? uglify() : gutil.noop())
+      .pipe(gulp.dest(config.DEST_DIR))
       .pipe(reload({stream:true}))
   }
 
@@ -115,7 +119,14 @@ gulp.task('scripts', function() {
 });
 
 // run 'scripts' task first, then watch for future changes
-gulp.task('default', ['images', 'styles', 'sass', 'scripts', 'browser-sync'], function() {
-  gulp.watch('./src/scss/**/*.scss', ['sass']); // scss watch for style change
+gulp.task('watch', ['images', 'styles', 'sass', 'scripts', 'browser-sync'], function() {
+  gulp.watch(config.SRC_DIR + 'scss/**/*.scss', ['sass']); // scss watch for style change
   return buildScript('main.js', true); // browserify watch for JS changes
 });
+
+// run 'scripts' task first, then watch for future changes
+gulp.task('default', ['images', 'styles', 'sass', 'scripts'], function() {
+  return buildScript('main.js', false);
+});
+
+

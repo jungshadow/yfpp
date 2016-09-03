@@ -3,8 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import autobind from 'autobind-decorator';
-
 import analytics from '../analytics';
+import $ from 'jquery';
 
 @autobind
 
