@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import helpers from '../helpers';
-
+import $ from 'jquery';
 
 /**
 * Load social media
