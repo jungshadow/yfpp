@@ -26,7 +26,7 @@ carousel
 
 // adds transitions only when modal is active to resolve display issue
 .modal.isActive .carousel-inner-slides {
-    transition: all .25s linear;
+    //transition: transform .25s linear;
 }
 
 .carousel-inner-slides-slide {
