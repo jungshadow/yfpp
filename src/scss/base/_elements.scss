@@ -4,6 +4,12 @@ These styles should be kept to a minimum in order to avoid styles bleeding
 into other modules.
 ------------------------------------------------------------------------ */
 
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 * {
     box-sizing: border-box;
 }
