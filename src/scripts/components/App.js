@@ -179,12 +179,18 @@ class App extends React.Component {
      * @method onPrivacyClickHandler
      */
     onModalClickHandler() {
-
+        
+        // if there's a visible error message, let's hide it
+        if (this.state.isError) {
+            this.onErrorRemoveHandler();
+        }
+        // update showModal state to trigger modal
         this.setState({
             showModal: true
         });
 
-
+        // add active modal classname to body when modal is open
+        // so that we can prevent scrolling behind modal
         document.getElementsByTagName('body')[0].classList.add(this.activeModalClassName);
     }
 
@@ -224,7 +230,7 @@ class App extends React.Component {
      */
     renderErrorMessage() {
 
-        return ( <ErrorMessage leoInfo={this.state.leoInfo} seoInfo={this.state.seoInfo} /> );
+        return ( <ErrorMessage leoInfo={this.state.leoInfo} seoInfo={this.state.seoInfo} errorHandlerRemover={this.onErrorRemoveHandler} /> );
     }
 
     /**
