@@ -14,7 +14,7 @@ import ReferendumResults from './ReferendumResults';
  * @extends React.Component
  */
 
- class ContestResults extends React.Component {
+class ContestResults extends React.Component {
 
     /**
      * Renders Contest results list items
@@ -22,26 +22,26 @@ import ReferendumResults from './ReferendumResults';
      * @method render
      * @return {object} polling place results component markup
      */
-     render() {
+    render() {
 
         const currentContest = this.props.currentContest;
         const candidates = currentContest.candidates;
 
         let candidateList = [];
         let referenda = [];
-        
+
         let i = 0;
 
         let refCount = 0;
-        
+
         if (candidates) {
             candidates.forEach(function(candidate) {
                 candidateList.push(<CandidateResults key={i} candidate_id={i} candidate={candidate} />);
                 i++;
             }.bind(this));
-        } 
+        }
 
-        if(currentContest.type == 'Referendum') {
+        if (currentContest.type == 'Referendum') {
             referenda.push(<ReferendumResults key={refCount} referendum={currentContest} />);
             refCount++;
         }
