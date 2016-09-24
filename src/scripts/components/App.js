@@ -43,8 +43,8 @@ class App extends React.Component {
         this.state = {
             leoInfo: {},
             seoInfo: {},
-    	    normalizedAddress: {},
-    	    electionInfo: {},
+            normalizedAddress: {},
+            electionInfo: {},
             pollingLocations: [],
             earlyVoteSites: [],
             contests: [],
@@ -68,27 +68,23 @@ class App extends React.Component {
      */
     updateResults(data) {
         const leoInfo = (
-            data.state && data.state[0]
-            && data.state[0].local_jurisdiction
-            && data.state[0].local_jurisdiction.electionAdministrationBody)
-            || {};
+            data.state && data.state[0] && data.state[0].local_jurisdiction && data.state[0].local_jurisdiction.electionAdministrationBody) || {};
         const seoInfo = (
-            data.state && data.state[0]
-            && data.state[0].electionAdministrationBody) || {};
-    	const normalizedAddress = data.normalizedInput || {};
-    	const electionInfo = data.election || {};
-    	const pollingLocations = data.pollingLocations || [];
-    	const earlyVoteSites = data.earlyVoteSites || [];
+            data.state && data.state[0] && data.state[0].electionAdministrationBody) || {};
+        const normalizedAddress = data.normalizedInput || {};
+        const electionInfo = data.election || {};
+        const pollingLocations = data.pollingLocations || [];
+        const earlyVoteSites = data.earlyVoteSites || [];
         const contests = data.contests || [];
         const partyList = [];
 
         let isActive = false;
         let isError = false;
 
-        if(contests.length > 0 || pollingLocations.length > 0) {
-            if(contests.length > 0) {
+        if (contests.length > 0 || pollingLocations.length > 0) {
+            if (contests.length > 0) {
                 Object.keys(contests).map(function(key) {
-                    if(contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
+                    if (contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
                         partyList.push(contests[key].primaryParty);
                     }
                 });
@@ -104,8 +100,8 @@ class App extends React.Component {
         this.setState({
             leoInfo: leoInfo,
             seoInfo: seoInfo,
-    	    normalizedAddress: normalizedAddress,
-    	    electionInfo: electionInfo,
+            normalizedAddress: normalizedAddress,
+            electionInfo: electionInfo,
             pollingLocations: pollingLocations,
             earlyVoteSites: earlyVoteSites,
             contests: contests,
@@ -169,6 +165,8 @@ class App extends React.Component {
             showPrivacyPolicy: false
         });
 
+        // add active modal classname to body when modal is open
+        // so that we can prevent scrolling behind modal
         document.getElementsByTagName('body')[0].classList.remove(this.activeModalClassName);
     }
 
@@ -179,7 +177,7 @@ class App extends React.Component {
      * @method onPrivacyClickHandler
      */
     onModalClickHandler() {
-        
+
         // if there's a visible error message, let's hide it
         if (this.state.isError) {
             this.onErrorRemoveHandler();
@@ -230,7 +228,7 @@ class App extends React.Component {
      */
     renderErrorMessage() {
 
-        return ( <ErrorMessage leoInfo={this.state.leoInfo} seoInfo={this.state.seoInfo} errorHandlerRemover={this.onErrorRemoveHandler} /> );
+        return (<ErrorMessage leoInfo={this.state.leoInfo} seoInfo={this.state.seoInfo} errorHandlerRemover={this.onErrorRemoveHandler} />);
     }
 
     /**
@@ -241,7 +239,7 @@ class App extends React.Component {
      */
     renderPrivacyPolicy() {
 
-        return ( <PrivacyPolicy onPrivacyCloseHandler={this.onPrivacyCloseHandler} /> );
+        return (<PrivacyPolicy onPrivacyCloseHandler={this.onPrivacyCloseHandler} />);
     }
 
     /**
@@ -251,31 +249,72 @@ class App extends React.Component {
      * @param  {string} key unique index
      * @return {bject}  PollinPlaceResults component markup
      */
-    renderPollingPlaceResults(key) {
-        return <PollingPlaceResults key={key} pollingLocations={this.state.pollingLocations[key]}  />
-    };
+    renderPollingPlaceResults() {
+        if (this.state.pollingLocations.length > 0) {
+
+            return (
+                <ul className="vList">
+                {Object.keys(this.state.pollingLocations).map(this.generatePollingPlace)}
+            </ul>
+            )
+
+        }
+    }
 
     /**
-     * Renders Contest Results data
+     * Generates single polling place entry
+     *
+     * @method generatePollingPlace
+     * @param  {string} key unique index
+     * @return {object}  single contest result component markup
+     */
+    generatePollingPlace(key) {
+
+        return <PollingPlaceResults key={key} pollingLocations={this.state.pollingLocations[key]} />;
+    }
+
+    /**
+     * Renders Content Results Data
      *
      * @method renderContestResults
-     * @param  {string} key unique index
-     * @return {object}  PollinPlaceResults component markup
+     * @return {object} markup for contest results container and list items
      */
-    renderContestResults(key) {
+    renderContestResults() {
+
+        if (this.state.contests.length > 0) {
+
+            return (
+                <div className="group-item">
+                    <ul className="vList">
+                       {Object.keys(this.state.contests).map(this.generateContestResult)}
+                    </ul>
+                </div>
+            )
+        }
+    }
+
+    /**
+     * Generates single contest result entry
+     *
+     * @method generateContestResult
+     * @param  {string} key unique index
+     * @return {object}  single contest result component markup
+     */
+    generateContestResult(key) {
+
         const currentContest = this.state.contests[key];
 
         // if the current contest has a primaryParty property
-        // and the selected filter is equal to that primaryPary
+        // and the selected filter is equal to that primaryParty
         // return the contest result
         if (currentContest.primaryParty && this.state.filterBy === currentContest.primaryParty) {
 
             return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
 
-        // else if the currentContest does not have primaryParty
-        // or the primaryParty is empty
-        // or the current selected filter is set to all
-        // return the contest result
+            // else if the currentContest does not have primaryParty
+            // or the primaryParty is empty
+            // or the current selected filter is set to all
+            // return the contest result
         } else if (!currentContest.primaryParty || this.state.filterBy === 'All' || currentContest.primaryParty == '') {
 
             return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
@@ -285,16 +324,19 @@ class App extends React.Component {
     /**
      * Renders party select form
      *
-     * @method render
-     * @return {object} PartySelect component markup
+     * @method renderPartySelect
+     * @return {object} PartySelect component markup container and option list
      */
     renderPartySelect() {
-        if (this.state.primaryParties) {
-            return <PartySelect primaryParties={this.state.primaryParties} updateFilterText={this.updateFilterText}/>
+
+        if (this.state.primaryParties.length > 0) {
+            return (
+                <div className="group-item">                
+                    <PartySelect primaryParties={this.state.primaryParties} updateFilterText={this.updateFilterText}/>
+                </div>
+            )
         }
     }
-
-
 
     /**
      * Renders application to the DOM
@@ -309,7 +351,7 @@ class App extends React.Component {
 
         return (
             <div className="site">
-                <div className={ 'contentWrap ' + activeClassName}>
+                <div className={'contentWrap ' + activeClassName}>
                     <div className="contentWrap-ancillary">
                         <div className="wrapper">
                             <ul className="hList">
@@ -332,7 +374,9 @@ class App extends React.Component {
                                     <div className="group-bd">
                                         <Search updateResults={this.updateResults} activeClassName={activeClassName} onErrorHandler={this.onErrorHandler} onErrorRemoveHandler={this.onErrorRemoveHandler} />
                                     </div>
-                                    <div className="group-ft mix-group_absolute">{ this.state.isError ? this.renderErrorMessage() : '' }</div>
+                                    <div className="group-ft mix-group_absolute">
+                                        {this.state.isError ? this.renderErrorMessage() : ''}
+                                    </div>
                                 </div>
                             </div>
                             <div className={ 'starsNstripes ' + activeClassName}>
@@ -350,26 +394,12 @@ class App extends React.Component {
                         <div className="wrapper mix-wrapper_bleed">
                             <Tabs>
                                 <TabPanel label="Fucking Polling Place" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
-                                    <ul className="vList">
-                                        {Object.keys(this.state.pollingLocations).map(this.renderPollingPlaceResults)}
-                                    </ul>
+                                    {this.renderPollingPlaceResults()}
                                 </TabPanel>
                                 <TabPanel label="On Your Fucking Ballot" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
                                     <div className="group">
-                                        {(() => { if(this.state.primaryParties.length > 0) {
-                                            return (
-                                                <div className="group-item">
-                                                    {this.renderPartySelect()}
-                                                </div>
-                                        ); } })()}
-                                        {(() => { if(this.state.contests.length > 0) {
-                                            return (
-                                                <div className="group-item">
-                                                    <ul className="vList">
-                                                        {Object.keys(this.state.contests).map(this.renderContestResults)}
-                                                    </ul>
-                                                </div>
-                                        ); } })()}
+                                        {this.renderPartySelect()}
+                                        {this.renderContestResults()}
                                     </div>
                                 </TabPanel>
                             </Tabs>
@@ -384,9 +414,7 @@ class App extends React.Component {
                 </Modal>
             </div>
         )
-
     };
-
 };
 
 export default App;
