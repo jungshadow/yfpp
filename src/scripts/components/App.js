@@ -149,7 +149,6 @@ class App extends React.Component {
             showPrivacyPolicy: true
         });
 
-
         document.getElementsByTagName('body')[0].classList.add(this.activeMsgClassName);
     }
 
@@ -214,6 +213,7 @@ class App extends React.Component {
      * @param  {string} user input text
      */
     updateFilterText(textString) {
+
         this.setState({
             filterBy: textString
         });
@@ -247,17 +247,17 @@ class App extends React.Component {
      *
      * @method renderPollingPlaceResults
      * @param  {string} key unique index
-     * @return {bject}  PollinPlaceResults component markup
+     * @return {object}  PollinPlaceResults component markup
      */
     renderPollingPlaceResults() {
+
         if (this.state.pollingLocations.length > 0) {
 
             return (
                 <ul className="vList">
-                {Object.keys(this.state.pollingLocations).map(this.generatePollingPlace)}
-            </ul>
+                    {Object.keys(this.state.pollingLocations).map(this.generatePollingPlace)}
+                </ul>
             )
-
         }
     }
 
@@ -298,7 +298,7 @@ class App extends React.Component {
      *
      * @method generateContestResult
      * @param  {string} key unique index
-     * @return {object}  single contest result component markup
+     * @return {object} single contest result component markup
      */
     generateContestResult(key) {
 
@@ -346,7 +346,6 @@ class App extends React.Component {
      */
     render() {
         // sets active classnames
-
         const activeClassName = this.state.isActive === true ? ACTIVE_CLASS : '';
 
         return (

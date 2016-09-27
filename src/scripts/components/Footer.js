@@ -12,8 +12,9 @@ import ReactDOM from 'react-dom';
 class Footer extends React.Component {
 
     onClickHandler(e) {
-
+    
         this.props.onPrivacyClickHandler();
+
     }
 
     /**
@@ -95,7 +96,6 @@ class Footer extends React.Component {
                         </ul>
                     </div>
                     <i className="icon icon_star-full mix-icon_centered mix-icon_hr"></i>
-
     	            <div className="group mix-group_wide">
                         <section className="group-hd mix-group_txtCtr">
                             <div className="fb-shit">
@@ -113,11 +113,9 @@ class Footer extends React.Component {
                         </section>
                     </div>
                 </div>
-            </footer>
-            
-            )
+            </footer>            
+        )
     }
-
 };
 
 export default Footer;
