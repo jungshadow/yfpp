@@ -38,7 +38,7 @@ class Footer extends React.Component {
                                         <a href="#mo"className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Mo Maraqa</a>
                                     </div>
                                     <div>
-                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/momaraqa" data-show-count="false">@momaraqa</a>
+                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" rel="noopener noreferrer" href="https://twitter.com/momaraqa" data-show-count="false">@momaraqa</a>
                                     </div>
                                 </div>
                             </li>
@@ -48,7 +48,7 @@ class Footer extends React.Component {
                                         <a href="#jared"className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Jared Marcotte</a>
                                     </div>
                                     <div>
-                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/jungshadow" data-show-count="false">@jungshadow</a>
+                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" rel="noopener noreferrer" href="https://twitter.com/jungshadow" data-show-count="false">@jungshadow</a>
                                     </div>
                                 </div>
                             </li>
@@ -58,7 +58,7 @@ class Footer extends React.Component {
                                         <a href="#jay"className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Jay Johnson</a>
                                     </div>
                                     <div>
-                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/sixbcreative" data-show-count="false">@sixbcreative</a>
+                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" rel="noopener noreferrer" href="https://twitter.com/sixbcreative" data-show-count="false">@sixbcreative</a>
                                     </div>
                                 </div>
                             </li>
@@ -68,7 +68,7 @@ class Footer extends React.Component {
                                         <a href="#nick"className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Nick Catalano</a>
                                     </div>
                                     <div>
-                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/NickCatal" data-show-count="false">@NickCatal</a>
+                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" rel="noopener noreferrer" href="https://twitter.com/NickCatal" data-show-count="false">@NickCatal</a>
                                     </div>
                                 </div>
                             </li>
@@ -78,7 +78,7 @@ class Footer extends React.Component {
                                         <a href="#anastasia"className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Anastasia Golovashkina</a>
                                     </div>
                                     <div>
-                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/golovashkina" data-show-count="false">@golovashkina</a>
+                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" rel="noopener noreferrer" href="https://twitter.com/golovashkina" data-show-count="false">@golovashkina</a>
                                     </div>
                                 </div>
                             </li>
@@ -88,7 +88,7 @@ class Footer extends React.Component {
                                         <a href="#josh"className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>Josh Turner</a>
                                     </div>
                                     <div>
-                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href="https://twitter.com/joshualturner" data-show-count="false">@joshualturner</a>
+                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" rel="noopener noreferrer" href="https://twitter.com/joshualturner" data-show-count="false">@joshualturner</a>
                                     </div>
                                 </div>
                             </li>
@@ -106,7 +106,7 @@ class Footer extends React.Component {
                         <section className="group-bd">
                             <div className="userContent userContent_reversedSofter mix-userContent_md mix-userContent_ctr">
                                 <p>Hey fuckface, read the fucking <a href="#" onClick={this.onClickHandler.bind(this)}>privacy policy</a>.</p>
-                                <p>Data via the <a href="https://developers.google.com/civic-information/" target="_blank">Google Civic Information API</a>. Use of this site also binds you to the <a href="https://www.google.com/intl/en/policies/terms/" target="_blank">Google Terms of Use.</a></p>
+                                <p>Data via the <a href="https://developers.google.com/civic-information/" target="_blank" rel="noopener noreferrer">Google Civic Information API</a>. Use of this site also binds you to the <a href="https://www.google.com/intl/en/policies/terms/" target="_blank" rel="noopener noreferrer">Google Terms of Use.</a></p>
                                 <p>Data from states that do not provide direct feeds only include addresses with registered voters</p>
                                 <p>Election officials sometimes revise data in the last few days before an election. Check back on Election Day for the latest information.</p>
                             </div>
