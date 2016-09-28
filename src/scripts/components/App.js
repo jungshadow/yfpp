@@ -16,6 +16,7 @@ import TabPanel from './TabPanel';
 import Footer from './Footer';
 import PrivacyPolicy from './PrivacyPolicy';
 import Bios from './Bios';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 // active classname
 const ACTIVE_CLASS = 'isActive';
@@ -373,9 +374,15 @@ class App extends React.Component {
                                     <div className="group-bd">
                                         <Search updateResults={this.updateResults} activeClassName={activeClassName} onErrorHandler={this.onErrorHandler} onErrorRemoveHandler={this.onErrorRemoveHandler} />
                                     </div>
-                                    <div className="group-ft mix-group_absolute">
+                                    <CSSTransitionGroup
+                                        className="group-ft mix-group_absolute"
+                                        transitionName="fade"
+                                        transitionEnterTimeout={500} 
+                                        transitionLeaveTimeout={300}>
+                                
                                         {this.state.isError ? this.renderErrorMessage() : ''}
-                                    </div>
+
+                                    </CSSTransitionGroup>
                                 </div>
                             </div>
                             <div className={ 'starsNstripes ' + activeClassName}>

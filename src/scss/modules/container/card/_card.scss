@@ -7,6 +7,7 @@ card
 	background-color: lighten($GREY, 12);
 	border: solid 2px $RED;
 	border-radius: 6px;
+    transition: all 0.25s ease-in-out;
 }
 
 .card_secondary {
@@ -43,6 +44,18 @@ card
 
 .card-ft {
 	text-align: center
+}
+
+// animate in
+.card.fade-enter,
+.card.fade-leave-active {
+    opacity: 0;
+    transform: translateY(-25px);
+}
+
+.card.fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media screen and (min-width: 568px) {
