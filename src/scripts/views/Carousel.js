@@ -16,7 +16,7 @@ import $ from 'jquery';
          * @type {Boolean}
          * @default false
          */
-        this.isEnabled = false;
+         this.isEnabled = false;
 
         /**
          * Current slide index value
@@ -24,7 +24,7 @@ import $ from 'jquery';
          * @type {Number}
          * @default 0
          */
-        this.currentSlide = 0;
+         this.currentSlideIndex = 0;
 
         /**
          * Carousel length - total number of slides
@@ -32,7 +32,7 @@ import $ from 'jquery';
          * @type {number}
          * @default null
          */
-        this.carouselLength = null;
+         this.carouselLength = null;
 
         /**
          * Individual slide's width
@@ -40,10 +40,10 @@ import $ from 'jquery';
          * @type {number}
          * @default null
          */
-        this.slideWidth = null;
+         this.slideWidth = null;
 
-        this.init();
-    }
+         this.init();
+     }
 
 
     /**
@@ -54,51 +54,15 @@ import $ from 'jquery';
      * @method init
      */
      init() {
-        this._createChildren();
-        this._setUpHandlers()
-        this._layout()
-        this.enable();
+        this._createChildren()
+            ._setUpHandlers()
+            ._layout()        
+            .gotoSlide(this.currentSlideIndex)
+            .enable();
+
     }
 
-    /**
-     * Helper function to determine whether an element has a certain class or not
-     * @param  {object}  el        DOM element
-     * @param  {string}  className Class name to check for
-     * @return {Boolean}           True if has class | False if not
-     */
-     hasClass(el, className) {
-
-        if (el.classList)
-            return el.classList.contains(className)
-        else
-            return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))
-    }
-
-    /**
-     * Helper function to add class name to element
-     * @param {object} el        DOM element
-     * @param {[type]} className Class Name to add
-     */
-     addClass(el, className) {
-        if (el.classList)
-            el.classList.add(className)
-        else if (!hasClass(el, className)) el.className += " " + className
-    }
-
-    /**
-     * Helper function to remove class name from element
-     * @param {object} el        DOM element
-     * @param {[type]} className Class Name to remove
-     */
-     removeClass(el, className) {
-        if (el.classList)
-            el.classList.remove(className)
-        else if (hasClass(el, className)) {
-            var reg = new RegExp('(\\s|^)' + className + '(\\s|$)')
-            el.className = el.className.replace(reg, ' ')
-        }
-    }
-
+    
     /**
      * Create any child objects or references to DOM elements.
      * Should only be run on initialization of the view.
@@ -171,13 +135,13 @@ import $ from 'jquery';
      * @return {Carousel}
      * @private
      */
-    _layout() {
+     _layout() {
         this.carouselWidth = this.slides.length * 100;
         this.carouselLength = this.slides.length;
         
-        this._setCarouselWidth(this.carouselWidth);
+        //this._setCarouselWidth(this.carouselWidth);
 
-        this._setSlideWidth(this.carouselLength);
+        //this._setSlideWidth(this.carouselLength);
 
         return this;
     }
@@ -225,16 +189,22 @@ import $ from 'jquery';
      * @return {Carousel}
      * @public
      */
-     gotoSlide(slideIndex) {
+     gotoSlide(slideIndex, anchor) {      
 
-        this.removeClass(this.slides[this.currentSlide], 'isActive');
-        this.addClass(this.slides[slideIndex], 'isActive');
+        const localCurrentSlide = $(this.slides[this.currentSlideIndex]);      
 
-        let translateVal = 'translate3d(-' + (this.slideWidth * slideIndex) + '%, 0, 0)';
+        this.currentSlide = $(this.slides[slideIndex]);
+
+        localCurrentSlide.removeClass('isActive');
+
+        this.currentSlide.addClass('isActive');
+
+        let translateVal = 'translate3d(-' + (100 * slideIndex) + '%, 0, 0)';
 
         this.slideContainer.css('transform', translateVal);
 
-        this.currentSlide = parseInt(slideIndex);
+        this.currentSlideIndex = parseInt(slideIndex);
+
 
         return this;
 
@@ -249,7 +219,7 @@ import $ from 'jquery';
      */
      _onNextSlideClick() {
 
-        let nextSlide = this.currentSlide + 1;
+        let nextSlide = this.currentSlideIndex + 1;
 
         // if the next slide doesn't exist we need to go to the first one
         // subtracting 1 to account for zero based index
@@ -272,7 +242,7 @@ import $ from 'jquery';
      */   
      _onPrevSlideClick() {
 
-        let prevSlide = this.currentSlide - 1;
+        let prevSlide = this.currentSlideIndex - 1;
 
         // if the prev slide doesn't exist we need to go to the last one            
         // subtracting 1 to account for zero based index
@@ -294,6 +264,8 @@ import $ from 'jquery';
      * @return {Carousel}
      * @private
      */
+
+
      _onSwipe(e) {
 
         // sets up readable variables for swipe direction
@@ -323,8 +295,10 @@ import $ from 'jquery';
      */
      _onNavClick(e) {
 
-        let anchorLink = e.currentTarget.getAttribute('href').replace(/#/, '');
+        e.preventDefault();
 
+        const anchorLink = e.currentTarget.getAttribute('href').replace(/#/, '');
+        
         const slideCount = this.slides.length
 
         let i = 0;
@@ -338,7 +312,6 @@ import $ from 'jquery';
                 return;
             };
         }
-
 
     }
 }

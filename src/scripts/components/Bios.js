@@ -44,6 +44,7 @@ class Bios extends React.Component {
     render() {
 
         return (
+                
                 <div className="carousel js-carousel" role="region" aria-label="Team Biographies">
                     <div className="carousel-inner">
                         <ul className="carousel-inner-slides">
@@ -55,9 +56,7 @@ class Bios extends React.Component {
                         <button className="carsousel-directionNav-item carsousel-directionNav-item_next js-carouselNext">Next</button> 
                     </nav>
                 </div>
-                
-
-        )
+                )
     }
 
 };

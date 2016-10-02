@@ -10,7 +10,7 @@ import ErrorReportForm from './ErrorReportForm'
  * @class TabPanel
  * @extends React.Component
  */
-class TabPanel extends React.Component {
+ class TabPanel extends React.Component {
 
     /**
      * Renders Tab Panel component
@@ -18,14 +18,14 @@ class TabPanel extends React.Component {
      * @method render
      * @return {object} TabPanel component markup
      */
-    render() {
+     render() {
 
         return (
             <div>
                 <ErrorReportForm normalizedAddress={this.props.normalizedAddress} electionInfo={this.props.electionInfo} />
                 {this.props.children}
             </div>
-        )
+            )
     }
 
 };

@@ -10,13 +10,15 @@ modal
     transition: all .5s ease-in-out;
     transform: translateY(-100vh);
     background-color: rgba($GREY_DARK, 0.99);
-    opacity: 0;
+    opacity: 1;
+    visibility: hidden;
 }
 
 .modal.isActive {
     opacity: 1;
     transform: translateY(0vh);
     z-index: 1;
+    visibility: visible;
 }
 
 .modal-inner {
