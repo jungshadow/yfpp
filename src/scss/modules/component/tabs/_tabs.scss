@@ -60,9 +60,10 @@ Tabs
 	font-family: $FONT_ICON;
 	@include icon_banner_notch();
 	font-size: 3.05em;
+	line-height: 0.9;
 	color: $GREY_LIGHT;
 	text-indent: 0;
-	top: -0.09em;
+	top: 0;
 }
 
 .tabs-nav-item:first-of-type .tabs-nav-item-btn:before {

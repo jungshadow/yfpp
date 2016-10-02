@@ -5,11 +5,9 @@ carousel
 .carousel {
     position: relative;
     padding: 0 10px;
-    @include clearfix;
 }
 
 .carousel-inner {
-    position: relative;
     max-width: 700px;
     width: 100%;
     margin: 0 auto;
@@ -20,20 +18,21 @@ carousel
     display: block;
     position: relative;
     left: 0;
+    font-size: 0; // removes whitespace for inline-block child elements
+    white-space: nowrap; // keeps slides from wrapping to next line
     transform: translate3d(0,0,0);
-    @include clearfix;
+    transition: transform .25s linear;
 }
 
-// adds transitions only when modal is active to resolve display issue
-.modal.isActive .carousel-inner-slides {
-    //transition: transform .25s linear;
-}
 
 .carousel-inner-slides-slide {
     opacity: 0;
     width: 100%;
     padding: 0 20px;
-    float: left;
+    display: inline-block;
+    vertical-align: top;
+    font-size: $FONT_SIZE_DEFAULT;
+    white-space: normal;
     transition: all 1s ease-in-out;
 }
 

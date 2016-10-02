@@ -170,6 +170,14 @@ class ErrorMessage extends React.Component {
 
         return (
             <div className="card card_error">
+                <span className="card-btn">
+                    <button className="iconBtn" onClick={this.props.errorHandlerRemover}>
+                        <span className="iconBtn-txt">Close</span>
+                        <span className="iconBtn-icon">
+                            <i className="icon icon_close mix-icon_light"></i>
+                        </span>
+                    </button>
+                </span>    
                 <div className="card-bd">
 	                <h3 className="hdg hdg_1 mix-hdg_headline">For Fuck&apos;s Sake</h3>
                     <div>{this.renderMessage()}</div>
