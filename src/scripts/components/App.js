@@ -11,6 +11,7 @@ import ContestResults from './ContestResults';
 import Modal from './Modal';
 import PartySelect from './PartySelect';
 import SiteTitle from './SiteTitle';
+import ElectionTitle from './ElectionTitle';
 import Tabs from './Tabs';
 import TabPanel from './TabPanel';
 import Footer from './Footer';
@@ -331,7 +332,7 @@ class App extends React.Component {
 
         if (this.state.primaryParties.length > 0) {
             return (
-                <div className="group-item">                
+                <div className="group-item">
                     <PartySelect primaryParties={this.state.primaryParties} updateFilterText={this.updateFilterText}/>
                 </div>
             )
@@ -391,6 +392,7 @@ class App extends React.Component {
                     </header>
                     <main className="contentWrap-secondary" role="main">
                         <div className="wrapper mix-wrapper_bleed">
+                            <ElectionTitle electionInfo={this.state.electionInfo} />
                             <Tabs>
                                 <TabPanel label="Fucking Polling Place" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
                                     {this.renderPollingPlaceResults()}

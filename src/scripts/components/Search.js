@@ -37,13 +37,14 @@ class Search extends React.Component {
 
         var config = {
             'key': 'AIzaSyCm5MGxuhRo7mNmhRlfXlU66OS6Ny-ZPpQ',
+            'electionId': 5000, // TODO: this needs to come out after the general
             'address': this.refs.address.value
         }
 
         $.ajax({
             url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
-            //url: '/test_data_san_fran.json',
-            //url: '/test_data_errors.json',
+            //url: 'test_data/test_data_san_fran.json',
+            //url: 'test_data/test_data_errors.json',
             type: "GET",
             dataType: 'json',
             data: config,
