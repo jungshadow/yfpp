@@ -54,7 +54,15 @@ headings
     -webkit-font-smoothing: antialiased;
 }
 
+.mix-hdg_dark {
+    color: $GREY_DARK;
+    -webkit-font-smoothing: antialiased;
+}
+
 .mix-hdg_blue {
     color: $BLUE;
 }
 
+.mix-hdg_red {
+    color: $RED;
+}

@@ -7,6 +7,7 @@ import Search from './Search';
 import ErrorMessage from './ErrorMessage';
 import ErrorReportForm from './ErrorReportForm';
 import PollingPlaceResults from './PollingPlaceResults';
+import EarlyVoteSiteResults from './EarlyVoteSiteResults';
 import ContestResults from './ContestResults';
 import Modal from './Modal';
 import PartySelect from './PartySelect';
@@ -244,6 +245,23 @@ class App extends React.Component {
     }
 
     /**
+     * Renders Early Vote Site Results data
+     *
+     * @method renderEarlyVoteSiteResults
+     * @param  {string} key unique index
+     * @return {object}  EarlyVoteSiteResults component markup
+     */
+    renderEarlyVoteSiteResults() {
+        if (this.state.earlyVoteSites.length > 0) {
+            return (
+                <ul className="vList">
+                    {Object.keys(this.state.earlyVoteSites).map(this.generateEarlyVoteSite)}
+                </ul>
+            )
+        }
+    }
+
+    /**
      * Renders Polling Place Results data
      *
      * @method renderPollingPlaceResults
@@ -251,9 +269,7 @@ class App extends React.Component {
      * @return {object}  PollinPlaceResults component markup
      */
     renderPollingPlaceResults() {
-
         if (this.state.pollingLocations.length > 0) {
-
             return (
                 <ul className="vList">
                     {Object.keys(this.state.pollingLocations).map(this.generatePollingPlace)}
@@ -265,9 +281,21 @@ class App extends React.Component {
     /**
      * Generates single polling place entry
      *
+     * @method generateEarlyVoteSite
+     * @param  {string} key unique index
+     * @return {object}  single early vote site result component markup
+     */
+    generateEarlyVoteSite(key) {
+
+        return <EarlyVoteSiteResults key={key} earlyVoteSites={this.state.earlyVoteSites[key]} />;
+    }
+
+    /**
+     * Generates single polling place entry
+     *
      * @method generatePollingPlace
      * @param  {string} key unique index
-     * @return {object}  single contest result component markup
+     * @return {object}  single polling place result component markup
      */
     generatePollingPlace(key) {
 
@@ -395,6 +423,7 @@ class App extends React.Component {
                             <ElectionTitle electionInfo={this.state.electionInfo} />
                             <Tabs>
                                 <TabPanel label="Fucking Polling Place" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
+                                    {this.renderEarlyVoteSiteResults()}
                                     {this.renderPollingPlaceResults()}
                                 </TabPanel>
                                 <TabPanel label="On Your Fucking Ballot" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
