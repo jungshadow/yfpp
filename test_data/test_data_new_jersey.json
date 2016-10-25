@@ -1,0 +1,521 @@
+{
+ "kind": "civicinfo#voterInfoResponse",
+ "election": {
+  "id": "5000",
+  "name": "US 2016 General Election",
+  "electionDay": "2016-11-08",
+  "ocdDivisionId": "ocd-division/country:us"
+ },
+ "normalizedInput": {
+  "line1": "5 Clyde Court",
+  "city": "Bergenfield",
+  "state": "NJ",
+  "zip": "07621"
+ },
+ "pollingLocations": [
+  {
+   "address": {
+    "locationName": "ST JOHNS CONLON HALL MAIN HALL  ",
+    "line1": "18 NORTH WILLIAM STREET  ",
+    "city": "BERGENFIELD",
+    "state": "NJ",
+    "zip": "07621"
+   },
+   "notes": "",
+   "pollingHours": "6:00am-8:00pm",
+   "sources": [
+    {
+     "name": "Voting Information Project",
+     "official": true
+    }
+   ]
+  }
+ ],
+ "contests": [
+  {
+   "type": "General",
+   "office": "U.S. President/U.S. Vice President",
+   "level": [
+    "country"
+   ],
+   "roles": [
+    "headOfGovernment"
+   ],
+   "district": {
+    "name": "New Jersey",
+    "scope": "statewide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:nj"
+   },
+   "numberElected": "1",
+   "numberVotingFor": "1",
+   "candidates": [
+    {
+     "name": "Hillary Clinton/Tim Kaine",
+     "party": "Democratic Party",
+     "phone": "646-854-1432",
+     "email": "invites@hillaryclinton.com",
+     "channels": [
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/hillaryclinton"
+      },
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/hillaryclinton"
+      }
+     ]
+    },
+    {
+     "name": "Donald J. Trump/Michael R. Pence",
+     "party": "Republican Party",
+     "phone": "6467361779",
+     "channels": [
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/realdonaldtrump"
+      },
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/donaldtrump"
+      }
+     ]
+    },
+    {
+     "name": "Darrell Castle/Scott Bradley",
+     "party": "Constitution Party",
+     "email": "info@castle2016.com",
+     "channels": [
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/darrellcastle"
+      },
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/darrellcastle2016"
+      }
+     ]
+    },
+    {
+     "name": "\"Rocky\" Roque De La Fuente/Michael Steinberg",
+     "party": "American Delta Party",
+     "phone": "(786) 804 1844",
+     "email": "rocky@rocky2016.com",
+     "channels": [
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/voterocky2016"
+      },
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/darrellcastle2016"
+      }
+     ]
+    },
+    {
+     "name": "Gary Johnson/Bill Weld",
+     "party": "Libertarian Party",
+     "phone": "(801) 303-7922",
+     "email": "info@garyjohnson2016.com",
+     "channels": [
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/govgaryjohnson"
+      },
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/govgaryjohnson"
+      }
+     ]
+    },
+    {
+     "name": "Alyson Kennedy/Osborne Hart",
+     "party": "Socialist Workers Party",
+     "candidateUrl": "http://www.themilitant.com/swpcampaign2016/swpcampaign2016.html",
+     "phone": "646.922.8186",
+     "email": "swp2016campaign@gmail.com"
+    },
+    {
+     "name": "Gloria Estela La Riva/Eugene Puryear",
+     "party": "Socialism and Liberation Party",
+     "candidateUrl": "http://www.glorialariva4president.com",
+     "phone": "202�_234�_2828",
+     "email": "info@votepsl.org",
+     "channels": [
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/glorialariva"
+      },
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/lariva2016"
+      }
+     ]
+    },
+    {
+     "name": "Monica Moorehead/Lamont Lilly",
+     "party": "Workers World Party",
+     "candidateUrl": "http://www.workers.org/wwp/our-campaign-candidates/",
+     "phone": "917-740-2628",
+     "channels": [
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/wwp2016"
+      },
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/mooreheadlilly2016"
+      }
+     ]
+    },
+    {
+     "name": "Jill Stein/Ajamu Baraka",
+     "party": "Green Party",
+     "channels": [
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/drjillstein"
+      },
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/drjillstein"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "General",
+   "office": "U.S. Representative",
+   "level": [
+    "country"
+   ],
+   "roles": [
+    "legislatorLowerBody"
+   ],
+   "district": {
+    "name": "New Jersey's 5th congressional district",
+    "scope": "congressional",
+    "id": "5",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:nj/cd:5"
+   },
+   "numberElected": "1",
+   "numberVotingFor": "1",
+   "candidates": [
+    {
+     "name": "Claudio Belusic",
+     "party": "Libertarian Party"
+    },
+    {
+     "name": "Josh Gottheimer",
+     "party": "Democratic Party"
+    },
+    {
+     "name": "Scott Garrett",
+     "party": "Republican Party"
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "General",
+   "office": "Bergen County Clerk",
+   "level": [
+    "administrativeArea2"
+   ],
+   "roles": [
+    "governmentOfficer"
+   ],
+   "district": {
+    "name": "Bergen County",
+    "scope": "countywide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:nj/county:bergen"
+   },
+   "numberElected": "1",
+   "numberVotingFor": "1",
+   "candidates": [
+    {
+     "name": "John S. Hogan",
+     "party": "Democratic Party"
+    },
+    {
+     "name": "Hector Olmo",
+     "party": "Republican Party"
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "General",
+   "office": "Bergen County Surrogate",
+   "level": [
+    "administrativeArea2"
+   ],
+   "roles": [
+    "governmentOfficer"
+   ],
+   "district": {
+    "name": "Bergen County",
+    "scope": "countywide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:nj/county:bergen"
+   },
+   "numberElected": "1",
+   "numberVotingFor": "1",
+   "candidates": [
+    {
+     "name": "Michael R. Dressler",
+     "party": "Democratic Party"
+    },
+    {
+     "name": "Robert W. Avery",
+     "party": "Republican Party"
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "General",
+   "office": "Bergen County Sheriff",
+   "level": [
+    "administrativeArea2"
+   ],
+   "roles": [
+    "governmentOfficer"
+   ],
+   "district": {
+    "name": "Bergen County",
+    "scope": "countywide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:nj/county:bergen"
+   },
+   "numberElected": "1",
+   "numberVotingFor": "1",
+   "candidates": [
+    {
+     "name": "Michael Saudino",
+     "party": "Democratic Party"
+    },
+    {
+     "name": "Manuel V. Alfonso",
+     "party": "Republican Party"
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "General",
+   "office": "Bergen County Freeholder",
+   "level": [
+    "administrativeArea2"
+   ],
+   "roles": [
+    "legislatorUpperBody"
+   ],
+   "district": {
+    "name": "Bergen County",
+    "scope": "countywide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:nj/county:bergen"
+   },
+   "numberElected": "1",
+   "numberVotingFor": "1",
+   "candidates": [
+    {
+     "name": "Thomas J. Sullivan",
+     "party": "Democratic Party"
+    },
+    {
+     "name": "Robert A. Di Dio",
+     "party": "Republican Party"
+    },
+    {
+     "name": "Peter J. Rohrman",
+     "party": "Libertarian Party"
+    },
+    {
+     "name": "Mary J. Amoroso",
+     "party": "Democratic Party"
+    },
+    {
+     "name": "Demosthenes M. Backos",
+     "party": "Libertarian Party"
+    },
+    {
+     "name": "Germaine M. Ortiz",
+     "party": "Democratic Party"
+    },
+    {
+     "name": "Maura R. Denicola",
+     "party": "Democratic Party"
+    },
+    {
+     "name": "John J. Driscoll Jr.",
+     "party": "Republican Party"
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "General",
+   "office": "Bergenfield Borough Council Member",
+   "level": [
+    "locality"
+   ],
+   "roles": [
+    "legislatorUpperBody"
+   ],
+   "district": {
+    "name": "Bergenfield borough",
+    "scope": "citywide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:nj/place:bergenfield"
+   },
+   "numberElected": "1",
+   "numberVotingFor": "1",
+   "candidates": [
+    {
+     "name": "John M. Long",
+     "party": "Republican Party"
+    },
+    {
+     "name": "Salvador S. Deauna",
+     "party": "Democratic Party"
+    },
+    {
+     "name": "Cynthia Naylis",
+     "party": "Republican Party"
+    },
+    {
+     "name": "Ora C. Kornbluth",
+     "party": "Democratic Party"
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "Referendum",
+   "district": {
+    "name": "New Jersey",
+    "scope": "statewide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:nj"
+   },
+   "referendumTitle": "Public Question No. 1",
+   "referendumSubtitle": "CONSTITUTIONAL AMENDMENT TO PERMIT CASINO GAMBLING IN TWO COUNTIES OTHER THAN ATLANTIC COUNTY",
+   "referendumText": "Do you approve amending the Constitution to permit casino gambling in two additional counties in this State? At present, casino gambling is allowed only in Atlantic City in Atlantic County. Only one casino in each of the two counties would be permitted. Each casino is to be located in a town that is at least 72 miles from Atlantic City. The amendment would allow certain persons to apply first for a casino license.",
+   "referendumBallotResponses": [
+    "Yes",
+    "No"
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "Referendum",
+   "district": {
+    "name": "New Jersey",
+    "scope": "statewide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:nj"
+   },
+   "referendumTitle": "Public Question No. 2",
+   "referendumSubtitle": "CONSTITUTIONAL AMENDMENT TO DEDICATE ADDITIONAL REVENUES TO STATE TRANSPORTATION SYSTEM",
+   "referendumText": "Do you approve amending the Constitution to dedicate all revenue from the State motor fuels tax and petroleum products gross receipts tax to the Transportation Trust Fund? This amendment would provide that an additional three cents of the current motor fuels tax on diesel fuel, which is not dedicated for transportation purposes, be dedicated to the Transportation Trust Fund. In doing so, the entire State tax on diesel fuel would be used for transportation purposes. The entire State tax on gasoline is currently dedicated to the Transportation Trust Fund and used for transportation purposes. The amendment would also provide that all of the revenue from the current State tax on petroleum products gross receipts be dedicated to the Transportation Trust Fund. In doing so, the entire State tax on petroleum products gross receipts would be used for transportation purposes. This amendment does not change the current tax on motor fuels or petroleum products gross receipts.",
+   "referendumBallotResponses": [
+    "Yes",
+    "No"
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  }
+ ],
+ "state": [
+  {
+   "name": "New Jersey",
+   "electionAdministrationBody": {
+    "name": "New Jersey Division of Elections",
+    "electionInfoUrl": "http://nj.gov/state/elections/index.html",
+    "electionRegistrationUrl": "http://nj.gov/state/elections/voting-information.html#1",
+    "electionRegistrationConfirmationUrl": "https://voter.njsvrs.com/PublicAccess/servlet/com.saber.publicaccess.control.PublicAccessNavigationServlet?USERPROCESS=PublicSearch",
+    "absenteeVotingInfoUrl": "http://nj.gov/state/elections/voting-information-vote-by-mail.html",
+    "votingLocationFinderUrl": "https://voter.njsvrs.com/PublicAccess/servlet/com.saber.publicaccess.control.PublicAccessNavigationServlet?USERPROCESS=PollingPlace",
+    "electionRulesUrl": "http://nj.gov/state/elections/election-information-title-19.html",
+    "hoursOfOperation": "8:30a-4:30p (daily) 7a-9p (election day)",
+    "physicalAddress": {
+     "line1": "225 West State Street",
+     "line2": "5th Floor",
+     "city": "Trenton",
+     "state": "NJ",
+     "zip": "08625"
+    }
+   },
+   "local_jurisdiction": {
+    "name": "Bergen County",
+    "electionAdministrationBody": {
+     "electionInfoUrl": "http://www.bergencountyclerk.org/elections/",
+     "physicalAddress": {
+      "line1": "One Bergen County Plaza, Room 130",
+      "city": "Hackensack",
+      "state": "NJ",
+      "zip": "07601"
+     },
+     "electionOfficials": [
+      {
+       "officePhoneNumber": "(201) 336-7006"
+      }
+     ]
+    },
+    "sources": [
+     {
+      "name": "DemocracyWorks",
+      "official": false
+     }
+    ]
+   },
+   "sources": [
+    {
+     "name": "Voting Information Project",
+     "official": true
+    }
+   ]
+  }
+ ]
+}
