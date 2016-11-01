@@ -8,6 +8,7 @@ import ErrorMessage from './ErrorMessage';
 import ErrorReportForm from './ErrorReportForm';
 import PollingPlaceResults from './PollingPlaceResults';
 import EarlyVoteSiteResults from './EarlyVoteSiteResults';
+import DropOffLocationResults from './DropOffLocationResults';
 import ContestResults from './ContestResults';
 import Modal from './Modal';
 import PartySelect from './PartySelect';
@@ -50,6 +51,7 @@ class App extends React.Component {
             electionInfo: {},
             pollingLocations: [],
             earlyVoteSites: [],
+            dropOffLocations: [],
             contests: [],
             isActive: false,
             isError: false,
@@ -78,6 +80,7 @@ class App extends React.Component {
         const electionInfo = data.election || {};
         const pollingLocations = data.pollingLocations || [];
         const earlyVoteSites = data.earlyVoteSites || [];
+        const dropOffLocations = data.dropOffLocations || [];
         const contests = data.contests || [];
         const partyList = [];
 
@@ -107,6 +110,7 @@ class App extends React.Component {
             electionInfo: electionInfo,
             pollingLocations: pollingLocations,
             earlyVoteSites: earlyVoteSites,
+            dropOffLocations: dropOffLocations,
             contests: contests,
             primaryParties: partyList,
             isActive: isActive,
@@ -252,6 +256,23 @@ class App extends React.Component {
      * @param  {string} key unique index
      * @return {object}  EarlyVoteSiteResults component markup
      */
+    renderDropOffLocationResults() {
+        if (this.state.dropOffLocations.length > 0) {
+            return (
+                <ul className="vList">
+                    {Object.keys(this.state.dropOffLocations).map(this.generateDropOffLocations)}
+                </ul>
+            )
+        }
+    }
+
+    /**
+     * Renders Early Vote Site Results data
+     *
+     * @method renderEarlyVoteSiteResults
+     * @param  {string} key unique index
+     * @return {object}  EarlyVoteSiteResults component markup
+     */
     renderEarlyVoteSiteResults() {
         if (this.state.earlyVoteSites.length > 0) {
             return (
@@ -282,12 +303,22 @@ class App extends React.Component {
     /**
      * Generates single polling place entry
      *
+     * @method generateDropOffLocations
+     * @param  {string} key unique index
+     * @return {object}  single drop off location result component markup
+     */
+    generateDropOffLocations(key) {
+        return <DropOffLocationResults key={key} dropOffLocations={this.state.dropOffLocations[key]} />;
+    }
+
+    /**
+     * Generates single polling place entry
+     *
      * @method generateEarlyVoteSite
      * @param  {string} key unique index
      * @return {object}  single early vote site result component markup
      */
     generateEarlyVoteSite(key) {
-
         return <EarlyVoteSiteResults key={key} earlyVoteSites={this.state.earlyVoteSites[key]} />;
     }
 
@@ -406,9 +437,9 @@ class App extends React.Component {
                                     <CSSTransitionGroup
                                         className="group-ft mix-group_absolute"
                                         transitionName="fade"
-                                        transitionEnterTimeout={500} 
+                                        transitionEnterTimeout={500}
                                         transitionLeaveTimeout={300}>
-                                
+
                                         {this.state.isError ? this.renderErrorMessage() : ''}
 
                                     </CSSTransitionGroup>
@@ -431,6 +462,7 @@ class App extends React.Component {
                             <Tabs>
                                 <TabPanel label="Fucking Polling Place" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
                                     {this.renderEarlyVoteSiteResults()}
+                                    {this.renderDropOffLocationResults()}
                                     {this.renderPollingPlaceResults()}
                                 </TabPanel>
                                 <TabPanel label="On Your Fucking Ballot" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
