@@ -2,9 +2,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import moment from 'moment'
+import moment from 'moment';
 
-import Actions from './Actions';
+import DropOffLocationCard from './DropOffLocationCard';
 
 import helpers from '../helpers';
 
@@ -17,17 +17,30 @@ import helpers from '../helpers';
  */
 class DropOffLocationResults extends React.Component {
 
-    /**
-     * Takes a dateString and attempts to parse it into a Date object
-     *
-     * @method getLocationDate
-     * @arg dateString - a string representing a date
-     * @return {Date} Date object either parsed from the string or Date.now()
-     */
-    getLocationDate(dateString) {
-        var date = new Date(dateString);
+    generateCards(index) {
+        var cards = [],
+            locations = this.props.dropOffLocations;
 
-        return isNaN(date) ? Date.now() : date;
+        for(var i=0; i <= index; i++) {
+            cards.push(<DropOffLocationCard dropOffLocation={locations[i]} key={i} />);
+        }
+
+        return cards;
+    }
+
+    renderMoreLink() {
+        let locations = this.props.dropOffLocations;
+
+        if(locations.length > 1 && this.props.index + 1!==locations.length) {
+            return (
+                <div>
+                    <a className="link" onClick={this.props.handleChange}>
+                        {this.props.index > 0 ? "These are" : "This is"} the closest {this.props.index > 0 ? this.props.index + 1 : " "}
+                        {this.props.index > 0 ? " locations" : "location"} of {locations.length} sites.
+                        {this.props.index + 1===locations.length ? " " : " Click here to show more."}</a>
+                </div>
+            )
+        }
     }
 
     /**
@@ -37,35 +50,27 @@ class DropOffLocationResults extends React.Component {
      * @return {object} Drop Off Location results component markup
      */
     render() {
+        var locations = this.props.dropOffLocations,
+            index = this.props.index,
+            cards = [];
 
-        const locations = this.props.dropOffLocations;
+        if(locations.length > 0) {
+            cards = this.generateCards(index);
+        }
 
         return (
-            <li>
-                <div className="card">
-                    <div className="card-bd">
-                        <div className="card-hd">
-                            <h2 className="hdg hdg_2 mix-hdg_capitalize mix-hdg_red mix-hdg_headline">Drop Off Location <small className="mix-hdg_dark">{moment(this.getLocationDate(locations.startDate)).format('MMMM Do')} - {moment(new Date(locations.endDate)).format('MMMM Do')}</small></h2>
-                        </div>
-	                    <h3 className="hdg hdg_3 mix-hdg_capitalize">{helpers.fucktify(locations.address.locationName || locations.name)}</h3>
-                        <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.line1)}</span></div>
-                        <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.line2)}</span></div>
-                        <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.city)}, {locations.address.state} {locations.address.zip}</span></div>
-                        <div><strong>Polling Hours:</strong> {locations.pollingHours}</div>
-                    </div>
-                    <div className="card-ft">
-                        <Actions location={locations.address} />
-                    </div>
-                </div>
-            </li>
-            )
+            <ul className="vList">
+                {cards}
+                <li>{this.renderMoreLink()}</li>
+            </ul>
+        )
     }
 
 };
 
 // set up propType validation
 DropOffLocationResults.propTypes = {
-    dropOffLocations: React.PropTypes.object
+    dropOffLocations: React.PropTypes.Array
 }
 
 export default DropOffLocationResults;

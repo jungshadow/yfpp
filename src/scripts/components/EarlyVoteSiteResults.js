@@ -2,9 +2,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import moment from 'moment'
+import moment from 'moment';
 
-import Actions from './Actions';
+import EarlyVoteSiteCard from './EarlyVoteSiteCard';
 
 import helpers from '../helpers';
 
@@ -16,6 +16,39 @@ import helpers from '../helpers';
  * @extends React.Component
  */
 class EarlyVoteSiteResults extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentWillUnmount() {
+        //pass
+    }
+
+    generateCards(index) {
+        var cards = [],
+            locations = this.props.earlyVoteSites;
+
+        for(var i=0; i <= index; i++) {
+            cards.push(<EarlyVoteSiteCard earlyVoteSite={locations[i]} key={i} />);
+        }
+
+        return cards;
+    }
+
+    renderMoreLink() {
+        let locations = this.props.earlyVoteSites;
+
+        if(locations.length > 1 && this.props.index + 1!==locations.length) {
+            return (
+                <div>
+                    <a className="link" onClick={this.props.handleChange}>
+                        {this.props.index > 0 ? "These are" : "This is"} the closest {this.props.index > 0 ? this.props.index + 1 : " "}
+                        {this.props.index > 0 ? " locations" : "location"} of {locations.length} sites.
+                        {this.props.index + 1===locations.length ? " " : " Click here to show more."}</a>
+                </div>
+            )
+        }
+    }
 
     /**
      * Renders Early Vote Site results list items
@@ -24,28 +57,20 @@ class EarlyVoteSiteResults extends React.Component {
      * @return {object} Early Vote Site results component markup
      */
     render() {
+        var locations = this.props.earlyVoteSites,
+            index = this.props.index,
+            cards = [];
 
-        const locations = this.props.earlyVoteSites;
+        if(locations.length > 0) {
+            cards = this.generateCards(index);
+        }
 
         return (
-            <li>
-                <div className="card">
-                    <div className="card-bd">
-                        <div className="card-hd">
-                            <h2 className="hdg hdg_2 mix-hdg_capitalize mix-hdg_red mix-hdg_headline">Early Vote Site <small className="mix-hdg_dark">{moment(new Date(locations.startDate)).format('MMMM Do')} - {moment(new Date(locations.endDate)).format('MMMM Do')}</small></h2>
-                        </div>
-	                    <h3 className="hdg hdg_3 mix-hdg_capitalize">{helpers.fucktify(locations.address.locationName || locations.name)}</h3>
-                        <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.line1)}</span></div>
-                        <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.line2)}</span></div>
-                        <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.city)}, {locations.address.state} {locations.address.zip}</span></div>
-                        <div><strong>Polling Hours:</strong> {locations.pollingHours}</div>
-                    </div>
-                    <div className="card-ft">
-                        <Actions location={locations.address} />
-                    </div>
-                </div>
-            </li>
-            )
+            <ul className="vList">
+                {cards}
+                <li>{this.renderMoreLink()}</li>
+            </ul>
+        )
     }
 
 };
