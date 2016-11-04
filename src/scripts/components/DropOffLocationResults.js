@@ -4,39 +4,32 @@ import ReactDOM from 'react-dom';
 
 import moment from 'moment';
 
-import EarlyVoteSiteCard from './EarlyVoteSiteCard';
+import DropOffLocationCard from './DropOffLocationCard';
 
 import helpers from '../helpers';
 
 
 /**
- * Early Vote Site Results Component
+ * Drop Off Location Results Component
  *
- * @class EarlyVoteSiteResults
+ * @class DropOffLocationResults
  * @extends React.Component
  */
-class EarlyVoteSiteResults extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    componentWillUnmount() {
-        //pass
-    }
+class DropOffLocationResults extends React.Component {
 
     generateCards(index) {
         var cards = [],
-            locations = this.props.earlyVoteSites;
+            locations = this.props.dropOffLocations;
 
         for(var i=0; i <= index; i++) {
-            cards.push(<EarlyVoteSiteCard earlyVoteSite={locations[i]} key={i} />);
+            cards.push(<DropOffLocationCard dropOffLocation={locations[i]} key={i} />);
         }
 
         return cards;
     }
 
     renderMoreLink() {
-        let locations = this.props.earlyVoteSites;
+        let locations = this.props.dropOffLocations;
 
         if(locations.length > 1 && this.props.index + 1!==locations.length) {
             return (
@@ -51,13 +44,13 @@ class EarlyVoteSiteResults extends React.Component {
     }
 
     /**
-     * Renders Early Vote Site results list items
+     * Renders Drop Off Location results list items
      *
      * @method render
-     * @return {object} Early Vote Site results component markup
+     * @return {object} Drop Off Location results component markup
      */
     render() {
-        var locations = this.props.earlyVoteSites,
+        var locations = this.props.dropOffLocations,
             index = this.props.index,
             cards = [];
 
@@ -75,4 +68,9 @@ class EarlyVoteSiteResults extends React.Component {
 
 };
 
-export default EarlyVoteSiteResults;
+// set up propType validation
+DropOffLocationResults.propTypes = {
+    dropOffLocations: React.PropTypes.Array
+}
+
+export default DropOffLocationResults;

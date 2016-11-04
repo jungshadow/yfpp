@@ -1,0 +1,697 @@
+{
+ "kind": "civicinfo#voterInfoResponse",
+ "election": {
+  "id": "5000",
+  "name": "US 2016 General Election",
+  "electionDay": "2016-11-08",
+  "ocdDivisionId": "ocd-division/country:us"
+ },
+ "normalizedInput": {
+  "line1": "2106 Clark Place",
+  "city": "Silver Spring",
+  "state": "MD",
+  "zip": "20910"
+ },
+ "pollingLocations": [
+  {
+   "address": {
+    "locationName": "Flora M. Singer Elementary School",
+    "line1": "2600 Hayden Drive",
+    "city": "Silver Spring",
+    "state": "md",
+    "zip": "20902"
+   },
+   "notes": "",
+   "pollingHours": "7 am until 8 pm",
+   "sources": [
+    {
+     "name": "Voting Information Project",
+     "official": true
+    }
+   ]
+  }
+ ],
+ "earlyVoteSites": [
+  {
+   "address": {
+    "line1": "2400 Arcola Avenue",
+    "city": "Silver Spring",
+    "state": "MD",
+    "zip": "20902"
+   },
+   "pollingHours": "Thu, Oct 27: 8 am - 8 pm\nFri, Oct 28: 8 am - 8 pm\nSat, Oct 29: 8 am - 8 pm\nSun, Oct 30: 8 am - 8 pm\nMon, Oct 31: 8 am - 8 pm\nTue, Nov 1: 8 am - 8 pm\nWed, Nov 2: 8 am - 8 pm\nThu, Nov 3: 8 am - 8 pm",
+   "startDate": "2016-10-27",
+   "endDate": "2016-11-03",
+   "sources": [
+    {
+     "name": "DemocracyWorks",
+     "official": false
+    }
+   ]
+  },
+  {
+   "address": {
+    "line1": "1 Veterans Place",
+    "city": "Silver Spring",
+    "state": "MD",
+    "zip": "20910"
+   },
+   "pollingHours": "Thu, Oct 27: 8 am - 8 pm\nFri, Oct 28: 8 am - 8 pm\nSat, Oct 29: 8 am - 8 pm\nSun, Oct 30: 8 am - 8 pm\nMon, Oct 31: 8 am - 8 pm\nTue, Nov 1: 8 am - 8 pm\nWed, Nov 2: 8 am - 8 pm\nThu, Nov 3: 8 am - 8 pm",
+   "startDate": "2016-10-27",
+   "endDate": "2016-11-03",
+   "sources": [
+    {
+     "name": "DemocracyWorks",
+     "official": false
+    }
+   ]
+  },
+  {
+   "address": {
+    "line1": "4301 Willow Lane",
+    "city": "Chevy Chase",
+    "state": "MD",
+    "zip": "20815"
+   },
+   "pollingHours": "Thu, Oct 27: 8 am - 8 pm\nFri, Oct 28: 8 am - 8 pm\nSat, Oct 29: 8 am - 8 pm\nSun, Oct 30: 8 am - 8 pm\nMon, Oct 31: 8 am - 8 pm\nTue, Nov 1: 8 am - 8 pm\nWed, Nov 2: 8 am - 8 pm\nThu, Nov 3: 8 am - 8 pm",
+   "startDate": "2016-10-27",
+   "endDate": "2016-11-03",
+   "sources": [
+    {
+     "name": "DemocracyWorks",
+     "official": false
+    }
+   ]
+  },
+  {
+   "address": {
+    "line1": "2004 Queensguard Road",
+    "city": "Silver Spring",
+    "state": "MD",
+    "zip": "20906"
+   },
+   "pollingHours": "Thu, Oct 27: 8 am - 8 pm\nFri, Oct 28: 8 am - 8 pm\nSat, Oct 29: 8 am - 8 pm\nSun, Oct 30: 8 am - 8 pm\nMon, Oct 31: 8 am - 8 pm\nTue, Nov 1: 8 am - 8 pm\nWed, Nov 2: 8 am - 8 pm\nThu, Nov 3: 8 am - 8 pm",
+   "startDate": "2016-10-27",
+   "endDate": "2016-11-03",
+   "sources": [
+    {
+     "name": "DemocracyWorks",
+     "official": false
+    }
+   ]
+  },
+  {
+   "address": {
+    "line1": "11315 Falls Road",
+    "city": "Potomac",
+    "state": "MD",
+    "zip": "20854"
+   },
+   "pollingHours": "Thu, Oct 27: 8 am - 8 pm\nFri, Oct 28: 8 am - 8 pm\nSat, Oct 29: 8 am - 8 pm\nSun, Oct 30: 8 am - 8 pm\nMon, Oct 31: 8 am - 8 pm\nTue, Nov 1: 8 am - 8 pm\nWed, Nov 2: 8 am - 8 pm\nThu, Nov 3: 8 am - 8 pm",
+   "startDate": "2016-10-27",
+   "endDate": "2016-11-03",
+   "sources": [
+    {
+     "name": "DemocracyWorks",
+     "official": false
+    }
+   ]
+  },
+  {
+   "address": {
+    "line1": "101 Monroe Street",
+    "city": "Rockville",
+    "state": "MD",
+    "zip": "20850"
+   },
+   "pollingHours": "Thu, Oct 27: 8 am - 8 pm\nFri, Oct 28: 8 am - 8 pm\nSat, Oct 29: 8 am - 8 pm\nSun, Oct 30: 8 am - 8 pm\nMon, Oct 31: 8 am - 8 pm\nTue, Nov 1: 8 am - 8 pm\nWed, Nov 2: 8 am - 8 pm\nThu, Nov 3: 8 am - 8 pm",
+   "startDate": "2016-10-27",
+   "endDate": "2016-11-03",
+   "sources": [
+    {
+     "name": "DemocracyWorks",
+     "official": false
+    }
+   ]
+  },
+  {
+   "address": {
+    "line1": "14906 Old Columbia Pike",
+    "city": "Burtonsville",
+    "state": "MD",
+    "zip": "20866"
+   },
+   "pollingHours": "Thu, Oct 27: 8 am - 8 pm\nFri, Oct 28: 8 am - 8 pm\nSat, Oct 29: 8 am - 8 pm\nSun, Oct 30: 8 am - 8 pm\nMon, Oct 31: 8 am - 8 pm\nTue, Nov 1: 8 am - 8 pm\nWed, Nov 2: 8 am - 8 pm\nThu, Nov 3: 8 am - 8 pm",
+   "startDate": "2016-10-27",
+   "endDate": "2016-11-03",
+   "sources": [
+    {
+     "name": "DemocracyWorks",
+     "official": false
+    }
+   ]
+  },
+  {
+   "address": {
+    "line1": "506 South Frederick Avenue",
+    "city": "Gaithersburg",
+    "state": "MD",
+    "zip": "20877"
+   },
+   "pollingHours": "Thu, Oct 27: 8 am - 8 pm\nFri, Oct 28: 8 am - 8 pm\nSat, Oct 29: 8 am - 8 pm\nSun, Oct 30: 8 am - 8 pm\nMon, Oct 31: 8 am - 8 pm\nTue, Nov 1: 8 am - 8 pm\nWed, Nov 2: 8 am - 8 pm\nThu, Nov 3: 8 am - 8 pm",
+   "startDate": "2016-10-27",
+   "endDate": "2016-11-03",
+   "sources": [
+    {
+     "name": "DemocracyWorks",
+     "official": false
+    }
+   ]
+  },
+  {
+   "address": {
+    "line1": "18905 Kingsview Road",
+    "city": "Germantown",
+    "state": "MD",
+    "zip": "20874"
+   },
+   "pollingHours": "Thu, Oct 27: 8 am - 8 pm\nFri, Oct 28: 8 am - 8 pm\nSat, Oct 29: 8 am - 8 pm\nSun, Oct 30: 8 am - 8 pm\nMon, Oct 31: 8 am - 8 pm\nTue, Nov 1: 8 am - 8 pm\nWed, Nov 2: 8 am - 8 pm\nThu, Nov 3: 8 am - 8 pm",
+   "startDate": "2016-10-27",
+   "endDate": "2016-11-03",
+   "sources": [
+    {
+     "name": "DemocracyWorks",
+     "official": false
+    }
+   ]
+  },
+  {
+   "address": {
+    "line1": "25520 Oak Drive",
+    "city": "Damascus",
+    "state": "MD",
+    "zip": "20872"
+   },
+   "pollingHours": "Thu, Oct 27: 8 am - 8 pm\nFri, Oct 28: 8 am - 8 pm\nSat, Oct 29: 8 am - 8 pm\nSun, Oct 30: 8 am - 8 pm\nMon, Oct 31: 8 am - 8 pm\nTue, Nov 1: 8 am - 8 pm\nWed, Nov 2: 8 am - 8 pm\nThu, Nov 3: 8 am - 8 pm",
+   "startDate": "2016-10-27",
+   "endDate": "2016-11-03",
+   "sources": [
+    {
+     "name": "DemocracyWorks",
+     "official": false
+    }
+   ]
+  }
+ ],
+ "contests": [
+  {
+   "type": "General",
+   "office": "U.S. President/U.S. Vice President",
+   "level": [
+    "country"
+   ],
+   "roles": [
+    "headOfGovernment"
+   ],
+   "district": {
+    "name": "Maryland",
+    "scope": "statewide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:md"
+   },
+   "numberElected": "1",
+   "numberVotingFor": "1",
+   "candidates": [
+    {
+     "name": "Hillary Clinton/Tim Kaine",
+     "party": "Democratic Party",
+     "phone": "646-854-1432",
+     "email": "invites@hillaryclinton.com",
+     "channels": [
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/hillaryclinton"
+      },
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/hillaryclinton"
+      }
+     ]
+    },
+    {
+     "name": "Donald J. Trump/Michael R. Pence",
+     "party": "Republican Party",
+     "phone": "6467361779",
+     "channels": [
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/donaldtrump"
+      },
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/realdonaldtrump"
+      },
+      {
+       "type": "YouTube",
+       "id": "https://www.youtube.com/channel/UCAql2DyGU2un1Ei2nMYsqOA"
+      }
+     ]
+    },
+    {
+     "name": "Gary Johnson/Bill Weld",
+     "party": "Libertarian Party",
+     "phone": "(801) 303-7922",
+     "email": "info@garyjohnson2016.com",
+     "channels": [
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/govgaryjohnson"
+      },
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/govgaryjohnson"
+      }
+     ]
+    },
+    {
+     "name": "Jill Stein/Ajamu Baraka",
+     "party": "Green Party",
+     "channels": [
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/drjillstein"
+      },
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/drjillstein"
+      },
+      {
+       "type": "YouTube",
+       "id": "https://www.youtube.com/user/JillStein2012"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "General",
+   "office": "U.S. Senator",
+   "level": [
+    "country"
+   ],
+   "roles": [
+    "legislatorUpperBody"
+   ],
+   "district": {
+    "name": "Maryland",
+    "scope": "statewide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:md"
+   },
+   "numberElected": "1",
+   "numberVotingFor": "1",
+   "candidates": [
+    {
+     "name": "Kathy Szeliga",
+     "party": "Republican Party",
+     "candidateUrl": "http://kathyformaryland.com",
+     "phone": "(443) 516-7252",
+     "email": "info@kathyformaryland.com",
+     "channels": [
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/kathy.szeliga"
+      },
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/kathyformd"
+      }
+     ]
+    },
+    {
+     "name": "Chris Van Hollen",
+     "party": "Democratic Party",
+     "candidateUrl": "http://www.vanhollen.org",
+     "phone": "(301) 942-3768",
+     "email": "vanhollenforsenate@vanhollen.org",
+     "channels": [
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/vanhollenformd"
+      },
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/vanhollenformd"
+      }
+     ]
+    },
+    {
+     "name": "Margaret Flowers",
+     "party": "Green Party",
+     "candidateUrl": "http://flowersforsenate.org",
+     "phone": "(410) 983-6895",
+     "email": "flowers4senate@gmail.com",
+     "channels": [
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/flowers4senate"
+      },
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/flowers4senate"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "General",
+   "office": "U.S. Representative",
+   "level": [
+    "country"
+   ],
+   "roles": [
+    "legislatorLowerBody"
+   ],
+   "district": {
+    "name": "Maryland's 8th congressional district",
+    "scope": "congressional",
+    "id": "8",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:md/cd:8"
+   },
+   "numberElected": "1",
+   "numberVotingFor": "1",
+   "candidates": [
+    {
+     "name": "Dan Cox",
+     "party": "Republican Party",
+     "candidateUrl": "http://www.coxforcongress.org",
+     "phone": "(301) 788-5276",
+     "email": "dan@coxforcongress.org",
+     "channels": [
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/coxforcongress"
+      },
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/dancox4congress"
+      }
+     ]
+    },
+    {
+     "name": "Nancy Wallace",
+     "party": "Green Party",
+     "candidateUrl": "http://www.nancywallace.us",
+     "email": "nancy@nancywallace.us",
+     "channels": [
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/nancywallaceforcongress"
+      },
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/nancywallace"
+      }
+     ]
+    },
+    {
+     "name": "Jamie Raskin",
+     "party": "Democratic Party",
+     "candidateUrl": "http://www.jamieraskin.com",
+     "phone": "(301) 642-0668",
+     "email": "jamie@jamieraskin.com",
+     "channels": [
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/raskin.jamie"
+      },
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/jamie_raskin"
+      }
+     ]
+    },
+    {
+     "name": "Jasen Wunder",
+     "party": "Libertarian Party",
+     "email": "jasenwunder@outlook.com",
+     "channels": [
+      {
+       "type": "Facebook",
+       "id": "https://www.facebook.com/jasenwunder"
+      },
+      {
+       "type": "Twitter",
+       "id": "https://twitter.com/jasenwunder"
+      }
+     ]
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "Retention",
+   "office": "MD Judge Court of Special Appeals",
+   "level": [
+    "regional"
+   ],
+   "roles": [
+    "judge"
+   ],
+   "district": {
+    "name": "Maryland",
+    "scope": "statewide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:md"
+   },
+   "candidates": [
+    {
+     "name": "Dan Friedman"
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "Retention",
+   "office": "MD Judge Court of Special Appeals (Circuit 7)",
+   "level": [
+    "regional"
+   ],
+   "roles": [
+    "judge"
+   ],
+   "district": {
+    "name": "Maryland",
+    "scope": "statewide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:md"
+   },
+   "candidates": [
+    {
+     "name": "Patrick L. Woodward"
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "Retention",
+   "office": "MD Judge Court of Appeals (Circuit 5)",
+   "level": [
+    "regional"
+   ],
+   "roles": [
+    "judge"
+   ],
+   "district": {
+    "name": "Maryland",
+    "scope": "statewide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:md"
+   },
+   "candidates": [
+    {
+     "name": "Clayton Greene Jr."
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "Retention",
+   "office": "MD Judge Court of Special Appeals (Circuit 5)",
+   "level": [
+    "regional"
+   ],
+   "roles": [
+    "judge"
+   ],
+   "district": {
+    "name": "Maryland",
+    "scope": "statewide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:md"
+   },
+   "candidates": [
+    {
+     "name": "Timothy E. Meredith"
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "Retention",
+   "office": "MD Judge Court of Appeals (Circuit 4)",
+   "level": [
+    "regional"
+   ],
+   "roles": [
+    "judge"
+   ],
+   "district": {
+    "name": "Maryland",
+    "scope": "statewide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:md"
+   },
+   "candidates": [
+    {
+     "name": "Michele D. Hotten"
+    }
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  },
+  {
+   "type": "continuance in office",
+   "special": "no",
+   "office": "Judge, Court of Special Appeals",
+   "district": {
+    "name": "Appellate Circuit 7",
+    "scope": "judicial"
+   },
+   "ballotPlacement": "4103",
+   "referendumTitle": "Judge, Court of Special Appeals",
+   "referendumSubtitle": "Patrick L. Woodward",
+   "referendumText": "For Continuation in Office",
+   "referendumBallotResponses": [
+    "Yes Patrick L. Woodward",
+    "No Patrick L. Woodward"
+   ],
+   "sources": [
+    {
+     "name": "Voting Information Project",
+     "official": true
+    }
+   ]
+  },
+  {
+   "type": "Referendum",
+   "district": {
+    "name": "Maryland",
+    "scope": "statewide",
+    "kgForeignKey": "/authority/civics/ocd-division/country:us/state:md"
+   },
+   "referendumTitle": "Question 1",
+   "referendumSubtitle": "Appointments and Special Elections for Attorney General and Comptroller",
+   "referendumText": "Changes the way the Governor fills a vacancy of the Attorney General or the Comptroller and requires a special election for vacancies that occur on or before a certain date. Under current law, the Governor fills a vacancy by appointing an individual to serve for the remainder of the term. Under the amended law, if the vacating Attorney General or Comptroller was a member of a political party, the Governor must fill the vacancy from a list of three names provided by the political party of the vacating official, and if no names are provided by the political party within a set time period, then the Governor must select a successor from the political party of the vacating official. If the vacating Attorney General or Comptroller was not a member of a political party, then the amended law requires the Governor to appoint any qualified individual. The Governor must make the appointment within a set time period following the vacancy. The amended law requires a special election to replace the successor if the vacancy occurs early enough in the term to allow for candidates to participate in the regular elections held in the second year of the vacating official's term.",
+   "referendumBallotResponses": [
+    "For the Constitutional Amendment",
+    "Against the Constitutional Amendment"
+   ],
+   "sources": [
+    {
+     "name": "Ballot Information Project",
+     "official": false
+    }
+   ]
+  }
+ ],
+ "state": [
+  {
+   "name": "Maryland",
+   "electionAdministrationBody": {
+    "name": "Maryland State Board of Elections",
+    "electionInfoUrl": "http://www.elections.state.md.us",
+    "votingLocationFinderUrl": "https://voterservices.elections.maryland.gov/VoterSearch",
+    "ballotInfoUrl": "https://voterservices.elections.maryland.gov/VoterSearch",
+    "correspondenceAddress": {
+     "line1": "P.o. Box 6486",
+     "city": "Annapolis",
+     "state": "Maryland",
+     "zip": "21401-0486"
+    }
+   },
+   "local_jurisdiction": {
+    "name": "Montgomery County",
+    "electionAdministrationBody": {
+     "name": "Montgomery",
+     "electionInfoUrl": "http://www.777vote.org",
+     "electionRegistrationUrl": "http://elections.maryland.gov/voter_registration/index.html",
+     "electionRegistrationConfirmationUrl": "https://voterservices.elections.state.md.us/VoterSearch",
+     "absenteeVotingInfoUrl": "http://elections.maryland.gov/voting/absentee.html",
+     "votingLocationFinderUrl": "https://voterservices.elections.state.md.us/VoterSearch",
+     "ballotInfoUrl": "https://voterservices.elections.state.md.us/VoterSearch",
+     "electionRulesUrl": "http://www.dsd.state.md.us/comar/subtitle_chapters/33_Chapters.aspx",
+     "correspondenceAddress": {
+      "line1": "PO Box 4333",
+      "city": "Rockville",
+      "state": "MD",
+      "zip": "20849-4333"
+     },
+     "physicalAddress": {
+      "line1": "18753-210 N. Frederick Avenue",
+      "city": "Gaithersburg",
+      "state": "MD",
+      "zip": "20879-3121"
+     }
+    },
+    "sources": [
+     {
+      "name": "Voting Information Project",
+      "official": true
+     }
+    ]
+   },
+   "sources": [
+    {
+     "name": "",
+     "official": false
+    }
+   ]
+  }
+ ]
+}

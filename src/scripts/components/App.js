@@ -8,6 +8,7 @@ import ErrorMessage from './ErrorMessage';
 import ErrorReportForm from './ErrorReportForm';
 import PollingPlaceResults from './PollingPlaceResults';
 import EarlyVoteSiteResults from './EarlyVoteSiteResults';
+import DropOffLocationResults from './DropOffLocationResults';
 import ContestResults from './ContestResults';
 import Modal from './Modal';
 import PartySelect from './PartySelect';
@@ -18,6 +19,9 @@ import TabPanel from './TabPanel';
 import Footer from './Footer';
 import PrivacyPolicy from './PrivacyPolicy';
 import Bios from './Bios';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
+
+import moment from 'moment'
 
 // active classname
 const ACTIVE_CLASS = 'isActive';
@@ -48,7 +52,11 @@ class App extends React.Component {
             normalizedAddress: {},
             electionInfo: {},
             pollingLocations: [],
+            pollingLocationsIndex: 0,
             earlyVoteSites: [],
+            earlyVoteSitesIndex: 0,
+            dropOffLocations: [],
+            dropOffLocationsIndex: 0,
             contests: [],
             isActive: false,
             isError: false,
@@ -77,6 +85,7 @@ class App extends React.Component {
         const electionInfo = data.election || {};
         const pollingLocations = data.pollingLocations || [];
         const earlyVoteSites = data.earlyVoteSites || [];
+        const dropOffLocations = data.dropOffLocations || [];
         const contests = data.contests || [];
         const partyList = [];
 
@@ -99,13 +108,28 @@ class App extends React.Component {
             isError = true;
         }
 
+        // TODO: I'd rather not filter sites by when they're open here, but
+        // I'm going to for expediency
+        // Early vote sites _should_ be the only sites that we need to worry
+        // about being closed
+        var i = earlyVoteSites.length;
+        while(i--) {
+            if(moment().isAfter(moment(earlyVoteSites[i].endDate), 'day')) {
+                earlyVoteSites.splice(i, 1);
+            }
+        }
+
         this.setState({
             leoInfo: leoInfo,
             seoInfo: seoInfo,
             normalizedAddress: normalizedAddress,
             electionInfo: electionInfo,
             pollingLocations: pollingLocations,
+            pollingLocationsIndex: 0,
             earlyVoteSites: earlyVoteSites,
+            earlyVoteSitesIndex: 0,
+            dropOffLocations: dropOffLocations,
+            dropOffLocationsIndex: 0,
             contests: contests,
             primaryParties: partyList,
             isActive: isActive,
@@ -120,7 +144,6 @@ class App extends React.Component {
      * @method onErrorHandler
      */
     onErrorHandler() {
-
         this.setState({
             isError: true
         })
@@ -133,7 +156,6 @@ class App extends React.Component {
      * @method onErrorRemoveHandler
      */
     onErrorRemoveHandler() {
-
         this.setState({
             isError: false
         })
@@ -146,7 +168,6 @@ class App extends React.Component {
      * @method onPrivacyClickHandler
      */
     onPrivacyClickHandler() {
-
         this.setState({
             showPrivacyPolicy: true
         });
@@ -161,7 +182,6 @@ class App extends React.Component {
      * @method onPrivacyCloseHandler
      */
     onPrivacyCloseHandler() {
-
         this.setState({
             showPrivacyPolicy: false
         });
@@ -178,7 +198,6 @@ class App extends React.Component {
      * @method onPrivacyClickHandler
      */
     onModalClickHandler() {
-
         // if there's a visible error message, let's hide it
         if (this.state.isError) {
             this.onErrorRemoveHandler();
@@ -200,7 +219,6 @@ class App extends React.Component {
      * @method onModalCloseHandler
      */
     onModalCloseHandler() {
-
         this.setState({
             showModal: false
         });
@@ -215,11 +233,9 @@ class App extends React.Component {
      * @param  {string} user input text
      */
     updateFilterText(textString) {
-
         this.setState({
             filterBy: textString
         });
-
     };
 
     /**
@@ -229,7 +245,6 @@ class App extends React.Component {
      * @return error message markup
      */
     renderErrorMessage() {
-
         return (<ErrorMessage leoInfo={this.state.leoInfo} seoInfo={this.state.seoInfo} errorHandlerRemover={this.onErrorRemoveHandler} />);
     }
 
@@ -240,8 +255,55 @@ class App extends React.Component {
      * @return privacy policy markup
      */
     renderPrivacyPolicy() {
-
         return (<PrivacyPolicy onPrivacyCloseHandler={this.onPrivacyCloseHandler} />);
+    }
+
+    /**
+     * Renders Early Vote Site Results data
+     *
+     * @method renderEarlyVoteSiteResults
+     * @param  {string} key unique index
+     * @return {object}  EarlyVoteSiteResults component markup
+     */
+    renderDropOffLocationResults() {
+        if (this.state.dropOffLocations.length > 0) {
+            return (
+                <ul className="vList">
+                    {
+                        Object.keys(
+                            this.state.dropOffLocations
+                        ).map(this.generateDropOffLocations)
+                    }
+                </ul>
+            )
+        }
+    }
+
+    updateDropOffLocations() {
+        let currentIndex = this.state.dropOffLocationsIndex,
+            newIndex = currentIndex + 10 > this.state.dropOffLocations.length-1 ? this.state.dropOffLocations.length-1 : currentIndex + 10;
+
+        this.setState({
+            dropOffLocationsIndex: newIndex
+        });
+    }
+
+    updateEarlyVoteSites() {
+        let currentIndex = this.state.earlyVoteSitesIndex,
+            newIndex = currentIndex + 10 > this.state.earlyVoteSites.length-1 ? this.state.earlyVoteSites.length-1 : currentIndex + 10;
+
+        this.setState({
+            earlyVoteSitesIndex: newIndex
+        });
+    }
+
+    updatePollingLocations() {
+        let currentIndex = this.state.pollingLocationsIndex,
+            newIndex = currentIndex + 10 > this.state.pollingLocations.length-1 ? this.state.pollingLocations.length-1 : currentIndex + 10;
+
+        this.setState({
+            pollingLocationsIndex: newIndex
+        });
     }
 
     /**
@@ -255,7 +317,11 @@ class App extends React.Component {
         if (this.state.earlyVoteSites.length > 0) {
             return (
                 <ul className="vList">
-                    {Object.keys(this.state.earlyVoteSites).map(this.generateEarlyVoteSite)}
+                    {
+                        Object.keys(
+                            this.state.earlyVoteSites
+                        ).map(this.generateEarlyVoteSite)
+                    }
                 </ul>
             )
         }
@@ -272,10 +338,27 @@ class App extends React.Component {
         if (this.state.pollingLocations.length > 0) {
             return (
                 <ul className="vList">
-                    {Object.keys(this.state.pollingLocations).map(this.generatePollingPlace)}
+                    {
+                        Object.keys(
+                            this.state.pollingLocations
+                        ).map(this.generatePollingPlace)
+                    }
                 </ul>
             )
         }
+    }
+
+    /**
+     * Generates single polling place entry
+     *
+     * @method generateDropOffLocations
+     * @param  {string} key unique index
+     * @return {object}  single drop off location result component markup
+     */
+    generateDropOffLocations(key) {
+        return <DropOffLocationResults
+            key={key}
+            dropOffLocations={this.state.dropOffLocations[key]} />;
     }
 
     /**
@@ -286,8 +369,9 @@ class App extends React.Component {
      * @return {object}  single early vote site result component markup
      */
     generateEarlyVoteSite(key) {
-
-        return <EarlyVoteSiteResults key={key} earlyVoteSites={this.state.earlyVoteSites[key]} />;
+        return <EarlyVoteSiteResults
+            key={key}
+            earlyVoteSites={this.state.earlyVoteSites[key]} />;
     }
 
     /**
@@ -298,8 +382,9 @@ class App extends React.Component {
      * @return {object}  single polling place result component markup
      */
     generatePollingPlace(key) {
-
-        return <PollingPlaceResults key={key} pollingLocations={this.state.pollingLocations[key]} />;
+        return <PollingPlaceResults
+            key={key}
+            pollingLocations={this.state.pollingLocations[key]} />;
     }
 
     /**
@@ -309,9 +394,7 @@ class App extends React.Component {
      * @return {object} markup for contest results container and list items
      */
     renderContestResults() {
-
         if (this.state.contests.length > 0) {
-
             return (
                 <div className="group-item">
                     <ul className="vList">
@@ -330,14 +413,12 @@ class App extends React.Component {
      * @return {object} single contest result component markup
      */
     generateContestResult(key) {
-
         const currentContest = this.state.contests[key];
 
         // if the current contest has a primaryParty property
         // and the selected filter is equal to that primaryParty
         // return the contest result
         if (currentContest.primaryParty && this.state.filterBy === currentContest.primaryParty) {
-
             return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
 
             // else if the currentContest does not have primaryParty
@@ -345,7 +426,6 @@ class App extends React.Component {
             // or the current selected filter is set to all
             // return the contest result
         } else if (!currentContest.primaryParty || this.state.filterBy === 'All' || currentContest.primaryParty == '') {
-
             return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
         }
     }
@@ -402,9 +482,15 @@ class App extends React.Component {
                                     <div className="group-bd">
                                         <Search updateResults={this.updateResults} activeClassName={activeClassName} onErrorHandler={this.onErrorHandler} onErrorRemoveHandler={this.onErrorRemoveHandler} />
                                     </div>
-                                    <div className="group-ft mix-group_absolute">
+                                    <CSSTransitionGroup
+                                        className="group-ft mix-group_absolute"
+                                        transitionName="fade"
+                                        transitionEnterTimeout={500}
+                                        transitionLeaveTimeout={300}>
+
                                         {this.state.isError ? this.renderErrorMessage() : ''}
-                                    </div>
+
+                                    </CSSTransitionGroup>
                                 </div>
                             </div>
                             <div className={ 'starsNstripes ' + activeClassName}>
@@ -423,8 +509,19 @@ class App extends React.Component {
                             <ElectionTitle electionInfo={this.state.electionInfo} />
                             <Tabs>
                                 <TabPanel label="Fucking Polling Place" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
-                                    {this.renderEarlyVoteSiteResults()}
-                                    {this.renderPollingPlaceResults()}
+                                    <EarlyVoteSiteResults
+                                        earlyVoteSites={this.state.earlyVoteSites}
+                                        index={this.state.earlyVoteSitesIndex}
+                                        handleChange={this.updateEarlyVoteSites} />
+                                    <DropOffLocationResults
+                                        dropOffLocations={this.state.dropOffLocations}
+                                        index={this.state.dropOffLocationsIndex}
+                                        handleChange={this.updateDropOffLocations} />
+                                    <PollingPlaceResults
+                                        pollingLocations={this.state.pollingLocations}
+                                        index={this.state.pollingLocationsIndex}
+                                        electionInfo={this.state.electionInfo}
+                                        handleChange={this.updatePollingLocations} />
                                 </TabPanel>
                                 <TabPanel label="On Your Fucking Ballot" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
                                     <div className="group">

@@ -4,7 +4,7 @@ carousel
 
 .carousel {
     position: relative;
-    padding: 0 10px;
+    padding: 0 30px;
 }
 
 .carousel-inner {
@@ -23,7 +23,6 @@ carousel
     transform: translate3d(0,0,0);
     transition: transform .25s linear;
 }
-
 
 .carousel-inner-slides-slide {
     opacity: 0;
@@ -44,8 +43,7 @@ carousel
     position: absolute;
     top: 50%;
     left: 0;
-    width: 100%;
-    margin-top: -10px;    
+    width: 100%;  
 }
 
 .carsousel-directionNav-item {
@@ -57,12 +55,14 @@ carousel
     overflow: hidden;
     font-size: 0;
     text-indent: -999em;
+    transform: translateY(-50%); 
 
     &:before {
         display: block;
         font-family: $FONT_ICON;
         text-indent: 0;
-        font-size: 10px;
+        font-size: 18px;
+        padding: 10px;
     }
 
     &:hover,
