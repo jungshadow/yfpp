@@ -21,6 +21,8 @@ import PrivacyPolicy from './PrivacyPolicy';
 import Bios from './Bios';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 
+import moment from 'moment'
+
 // active classname
 const ACTIVE_CLASS = 'isActive';
 
@@ -50,9 +52,11 @@ class App extends React.Component {
             normalizedAddress: {},
             electionInfo: {},
             pollingLocations: [],
+            pollingLocationsIndex: 0,
             earlyVoteSites: [],
-            earlyVoteSiteIndex: 0,
+            earlyVoteSitesIndex: 0,
             dropOffLocations: [],
+            dropOffLocationsIndex: 0,
             contests: [],
             isActive: false,
             isError: false,
@@ -104,15 +108,28 @@ class App extends React.Component {
             isError = true;
         }
 
+        // TODO: I'd rather not filter sites by when they're open here, but
+        // I'm going to for expediency
+        // Early vote sites _should_ be the only sites that we need to worry
+        // about being closed
+        var i = earlyVoteSites.length;
+        while(i--) {
+            if(moment().isAfter(moment(earlyVoteSites[i].endDate), 'day')) {
+                earlyVoteSites.splice(i, 1);
+            }
+        }
+
         this.setState({
             leoInfo: leoInfo,
             seoInfo: seoInfo,
             normalizedAddress: normalizedAddress,
             electionInfo: electionInfo,
             pollingLocations: pollingLocations,
+            pollingLocationsIndex: 0,
             earlyVoteSites: earlyVoteSites,
-            earlyVoteSiteIndex: 0,
+            earlyVoteSitesIndex: 0,
             dropOffLocations: dropOffLocations,
+            dropOffLocationsIndex: 0,
             contests: contests,
             primaryParties: partyList,
             isActive: isActive,
@@ -262,12 +279,30 @@ class App extends React.Component {
         }
     }
 
+    updateDropOffLocations() {
+        let currentIndex = this.state.dropOffLocationsIndex,
+            newIndex = currentIndex + 10 > this.state.dropOffLocations.length-1 ? this.state.dropOffLocations.length-1 : currentIndex + 10;
+
+        this.setState({
+            dropOffLocationsIndex: newIndex
+        });
+    }
+
     updateEarlyVoteSites() {
-        let currentIndex = this.state.earlyVoteSiteIndex,
+        let currentIndex = this.state.earlyVoteSitesIndex,
             newIndex = currentIndex + 10 > this.state.earlyVoteSites.length-1 ? this.state.earlyVoteSites.length-1 : currentIndex + 10;
 
         this.setState({
-            earlyVoteSiteIndex: newIndex
+            earlyVoteSitesIndex: newIndex
+        });
+    }
+
+    updatePollingLocations() {
+        let currentIndex = this.state.pollingLocationsIndex,
+            newIndex = currentIndex + 10 > this.state.pollingLocations.length-1 ? this.state.pollingLocations.length-1 : currentIndex + 10;
+
+        this.setState({
+            pollingLocationsIndex: newIndex
         });
     }
 
@@ -476,10 +511,17 @@ class App extends React.Component {
                                 <TabPanel label="Fucking Polling Place" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
                                     <EarlyVoteSiteResults
                                         earlyVoteSites={this.state.earlyVoteSites}
-                                        index={this.state.earlyVoteSiteIndex}
+                                        index={this.state.earlyVoteSitesIndex}
                                         handleChange={this.updateEarlyVoteSites} />
-                                    {this.renderDropOffLocationResults()}
-                                    {this.renderPollingPlaceResults()}
+                                    <DropOffLocationResults
+                                        dropOffLocations={this.state.dropOffLocations}
+                                        index={this.state.dropOffLocationsIndex}
+                                        handleChange={this.updateDropOffLocations} />
+                                    <PollingPlaceResults
+                                        pollingLocations={this.state.pollingLocations}
+                                        index={this.state.pollingLocationsIndex}
+                                        electionInfo={this.state.electionInfo}
+                                        handleChange={this.updatePollingLocations} />
                                 </TabPanel>
                                 <TabPanel label="On Your Fucking Ballot" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
                                     <div className="group">

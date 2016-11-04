@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import moment from 'moment'
+import moment from 'moment';
 
 import EarlyVoteSiteCard from './EarlyVoteSiteCard';
 
@@ -24,28 +24,12 @@ class EarlyVoteSiteResults extends React.Component {
         //pass
     }
 
-    /**
-     * Takes a dateString and attempts to parse it into a Date object
-     *
-     * @method getLocationDate
-     * @arg dateString - a string representing a date
-     * @return {Date} Date object either parsed from the string or Date.now()
-     */
-    isOpenSite(location) {
-        return moment(location.endDate).isSameOrBefore(moment(), 'day');
-    }
-
     generateCards(index) {
         var cards = [],
-            numberOfValidSites = index,
             locations = this.props.earlyVoteSites;
 
         for(var i=0; i <= index; i++) {
-            if(this.isOpenSite(locations[i])) {
-                cards.push(<EarlyVoteSiteCard earlyVoteSite={locations[i]} key={i} />);
-            } else {
-                numberOfValidSites--;
-            }
+            cards.push(<EarlyVoteSiteCard earlyVoteSite={locations[i]} key={i} />);
         }
 
         return cards;
@@ -54,10 +38,10 @@ class EarlyVoteSiteResults extends React.Component {
     renderMoreLink() {
         let locations = this.props.earlyVoteSites;
 
-        if(locations.length > 1) {
+        if(locations.length > 1 && this.props.index + 1!==locations.length) {
             return (
                 <div>
-                    <a onClick={this.props.handleChange}>
+                    <a className="link" onClick={this.props.handleChange}>
                         {this.props.index > 0 ? "These are" : "This is"} the closest {this.props.index > 0 ? this.props.index + 1 : " "}
                         {this.props.index > 0 ? " locations" : "location"} of {locations.length} sites.
                         {this.props.index + 1===locations.length ? " " : " Click here to show more."}</a>
@@ -82,12 +66,10 @@ class EarlyVoteSiteResults extends React.Component {
         }
 
         return (
-            <div>
-                <ul className="vList">
-                    {cards}
-                </ul>
-                {this.renderMoreLink()}
-            </div>
+            <ul className="vList">
+                {cards}
+                <li>{this.renderMoreLink()}</li>
+            </ul>
         )
     }
 
