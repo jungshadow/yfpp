@@ -89,6 +89,50 @@ window.twttr.ready(function(twttr){ //Wrap on twttr.ready for async compatibilit
 });
 
 
+window.twttr.ready(function(twttr){ //Wrap on twttr.ready for async compatibility.
+    /*
+        Twitter Tracking
+        Create Twitter events for clicks, tweets, RTs, Follows and Favorites.
+        Uses an iterator to avoid repetitive code.
+        Adapted from https://github.com/bluestatedigital/bsd-google-analytics-integration
+        and written by Yahel Carmon https://github.com/yahelc
+        Released under an Apache 2.0 License http://www.apache.org/licenses/
+    */
+    /*
+        getElem: This is a shortcut function for parsing a URL using the DOM.
+        This allows you to quickly get the domain, pathname, etc off of a full URL.
+        From https://github.com/bluestatedigital/bsd-google-analytics-integration
+    */
+
+    function getElem(href) {
+        var target = document.createElement("a");
+        target.href = href;
+        return target;
+    }
+    'click tweet retweet follow favorite'.replace(/\w+/g, function(n) {
+        twttr.events.bind(n, function(intent) {
+            var target;
+            if (intent && intent.target) {
+                if (intent.target.src) {
+                    target = getElem(decodeURIComponent((intent.target.src.match(/[&#?](url=)([^&]*)/)||[""]).pop()));
+                }
+                else if (intent && intent.target && intent.target.href) {
+                    $.each(decodeURIComponent(intent.target.search).replace(/\+/g, " ").split(/&| |\=/g), function(i, v) {
+                    if (v.match(/(^https?:\/\/)|(^www.)/)) {
+                          target = getElem(v);
+                          return false;
+                        }
+                     });
+                }
+            }
+            if(target){
+                analytics.social_action("twitter", intent.type, target.href.replace(target.hash, ""), target.pathname);
+            }
+        });
+    });
+});
+
+
 $(function(){
     $('#app').on('click', '.shareLocationFacebook', function(event) {
         event.preventDefault();
