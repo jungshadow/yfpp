@@ -33,7 +33,7 @@ class EarlyVoteSiteCard extends React.Component {
                         <div className="card-hd">
                             <h2 className="hdg hdg_2 mix-hdg_capitalize mix-hdg_red mix-hdg_headline">Early Vote Site <small className="mix-hdg_dark">{moment(locations.startDate).format('MMMM Do')} - {moment(locations.endDate).format('MMMM Do')}</small></h2>
                         </div>
-                        <h3 className="hdg hdg_3 mix-hdg_capitalize">{helpers.fucktify(locations.address.locationName || locations.name)}</h3>
+                        <h3 className="hdg hdg_3 mix-hdg_capitalize">{helpers.cleanString(helpers.fucktify(locations.address.locationName || locations.name))}</h3>
                         <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.line1)}</span></div>
                         <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.line2)}</span></div>
                         <div><span className="txt mix-txt_capitalize">{helpers.lowerCase(locations.address.city)}, {locations.address.state} {locations.address.zip}</span></div>

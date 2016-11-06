@@ -1,9 +1,11 @@
-// Import dependencies 
+// Import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 import helpers from '../helpers';
 import $ from 'jquery';
+
+import analytics from '../analytics'
 
 /**
 * Load social media
@@ -43,11 +45,101 @@ window.twttr = (function(d, s, id) {
     return window.twttr || (t = { _e: [], ready: function(f) { t._e.push(f); } });
 }(document, "script", "twitter-wjs"));
 
+window.twttr.ready(function(twttr){ //Wrap on twttr.ready for async compatibility.
+    /*
+        Twitter Tracking
+        Create Twitter events for clicks, tweets, RTs, Follows and Favorites.
+        Uses an iterator to avoid repetitive code.
+        Adapted from https://github.com/bluestatedigital/bsd-google-analytics-integration
+        and written by Yahel Carmon https://github.com/yahelc
+        Released under an Apache 2.0 License http://www.apache.org/licenses/
+    */
+    /*
+        getElem: This is a shortcut function for parsing a URL using the DOM.
+        This allows you to quickly get the domain, pathname, etc off of a full URL.
+        From https://github.com/bluestatedigital/bsd-google-analytics-integration
+    */
+
+    function getElem(href) {
+        var target = document.createElement("a");
+        target.href = href;
+        return target;
+    }
+    'click tweet retweet follow favorite'.replace(/\w+/g, function(n) {
+        twttr.events.bind(n, function(intent) {
+            var target;
+            if (intent && intent.target) {
+                if (intent.target.src) {
+                    target = getElem(decodeURIComponent((intent.target.src.match(/[&#?](url=)([^&]*)/)||[""]).pop()));
+                }
+                else if (intent && intent.target && intent.target.href) {
+                    $.each(decodeURIComponent(intent.target.search).replace(/\+/g, " ").split(/&| |\=/g), function(i, v) {
+                    if (v.match(/(^https?:\/\/)|(^www.)/)) {
+                          target = getElem(v);
+                          return false;
+                        }
+                     });
+                }
+            }
+            if(target){
+                analytics.social_action("twitter", intent.type, target.href.replace(target.hash, ""), target.pathname);
+            }
+        });
+    });
+});
+
+
+window.twttr.ready(function(twttr){ //Wrap on twttr.ready for async compatibility.
+    /*
+        Twitter Tracking
+        Create Twitter events for clicks, tweets, RTs, Follows and Favorites.
+        Uses an iterator to avoid repetitive code.
+        Adapted from https://github.com/bluestatedigital/bsd-google-analytics-integration
+        and written by Yahel Carmon https://github.com/yahelc
+        Released under an Apache 2.0 License http://www.apache.org/licenses/
+    */
+    /*
+        getElem: This is a shortcut function for parsing a URL using the DOM.
+        This allows you to quickly get the domain, pathname, etc off of a full URL.
+        From https://github.com/bluestatedigital/bsd-google-analytics-integration
+    */
+
+    function getElem(href) {
+        var target = document.createElement("a");
+        target.href = href;
+        return target;
+    }
+    'click tweet retweet follow favorite'.replace(/\w+/g, function(n) {
+        twttr.events.bind(n, function(intent) {
+            var target;
+            if (intent && intent.target) {
+                if (intent.target.src) {
+                    target = getElem(decodeURIComponent((intent.target.src.match(/[&#?](url=)([^&]*)/)||[""]).pop()));
+                }
+                else if (intent && intent.target && intent.target.href) {
+                    $.each(decodeURIComponent(intent.target.search).replace(/\+/g, " ").split(/&| |\=/g), function(i, v) {
+                    if (v.match(/(^https?:\/\/)|(^www.)/)) {
+                          target = getElem(v);
+                          return false;
+                        }
+                     });
+                }
+            }
+            if(target){
+                analytics.social_action("twitter", intent.type, target.href.replace(target.hash, ""), target.pathname);
+            }
+        });
+    });
+});
 
 
 $(function(){
     $('#app').on('click', '.shareLocationFacebook', function(event) {
         event.preventDefault();
+
+        function facebook_callback(response) {
+            analytics.social_action("facebook", "post", undefined)
+        }
 
         var obj = {
             method: 'feed',
@@ -57,7 +149,7 @@ $(function(){
             caption: "YourFuckingPollingPlace.com",
             description: 'I vote at ' + $(this).data('name') + ' in ' + $(this).data('city') + ' ' + $(this).data('state') + ', where the fuck do you vote? Visit YourFuckingPollingPlace.com to find out.'
         };
-        FB.ui(obj);
+        FB.ui(obj, facebook_callback);
 
     });
 });
@@ -108,13 +200,9 @@ $(function(){
         // if locationName exists setup text string including location name
         // else use predefined string
         if (location.locationName) {
-
-            text = encodeURI('I vote at ' + helpers.titlecase(helpers.fucktify(location.locationName)) + ' where the fuck do you vote? Find out at');
-
+            text = encodeURI('I vote at ' + helpers.titlecase(helpers.fucktify(location.locationName)) + '. Where the fuck do you vote? Find out at');
         } else {
-
-            text = 'I found my fucking polling location, where the fuck do you vote? Find out at';
-
+            text = 'I found my fucking polling location. Where the fuck do you vote? Find out at';
         }
 
         const related = authorTwitter.join(',');
@@ -145,7 +233,6 @@ $(function(){
      * @method buildMap
      */
     buildMap() {
-        
         // sets props.location to local variable
         const location = this.props.location;
 
@@ -154,9 +241,7 @@ $(function(){
 
         // if locationName exists, make that shit title cased
         if (location.locationName) {
-            
             casedLocationName = helpers.titlecase(location.locationName)
-        
         }
 
         // set up url components to build google maps url
@@ -171,7 +256,6 @@ $(function(){
 
         // build google maps url from components array
         const url = "https://maps.google.com/maps?q=" + encodeURI(components.join(' '))
-
 
         return <a className="actionLink actionLink_map" href={url} target="_blank">Map</a>
     }
