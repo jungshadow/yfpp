@@ -70,7 +70,7 @@ class DropOffLocationResults extends React.Component {
 
 // set up propType validation
 DropOffLocationResults.propTypes = {
-    dropOffLocations: React.PropTypes.Array
+    dropOffLocations: React.PropTypes.array
 }
 
 export default DropOffLocationResults;

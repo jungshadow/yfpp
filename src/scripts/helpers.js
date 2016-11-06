@@ -73,6 +73,20 @@ let helpers = {
     },
 
     /**
+     * Cleans a string based on some of the data issues seen so far
+     *
+     * @method cleanString
+     * @return {string} cleaned string
+     */
+    cleanString: function(str) {
+        // underscores in names and multiple spaces between words
+        var charactersRegex = /_/g,
+            multipleSpaces = /\s\s+/g;
+
+        return str && str.replace(charactersRegex, '').replace(multipleSpaces, ' ');
+    },
+
+    /**
      * Titlecases a string. So HI EVERYONE becomes "Hi Everyone"
      *
      * @method titlecase
@@ -80,6 +94,11 @@ let helpers = {
      */
     titlecase: function(str) {
         var words = '';
+
+        // apparently there are situations where the array
+        // could contain multiple blanks between words
+        // (e.g. "orange county registrar of fucking voters_     office")
+        str = this.cleanString(str);
 
         if (str) {
             words = str.toLowerCase().trim().split(' ');

@@ -1,4 +1,4 @@
-// Import dependencies 
+// Import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -44,8 +44,6 @@ window.twttr = (function(d, s, id) {
     fjs.parentNode.insertBefore(js, fjs);
     return window.twttr || (t = { _e: [], ready: function(f) { t._e.push(f); } });
 }(document, "script", "twitter-wjs"));
-
-
 
 window.twttr.ready(function(twttr){ //Wrap on twttr.ready for async compatibility.
     /*
@@ -158,13 +156,9 @@ $(function(){
         // if locationName exists setup text string including location name
         // else use predefined string
         if (location.locationName) {
-
-            text = encodeURI('I vote at ' + helpers.titlecase(helpers.fucktify(location.locationName)) + ' where the fuck do you vote? Find out at');
-
+            text = encodeURI('I vote at ' + helpers.titlecase(helpers.fucktify(location.locationName)) + '. Where the fuck do you vote? Find out at');
         } else {
-
-            text = 'I found my fucking polling location, where the fuck do you vote? Find out at';
-
+            text = 'I found my fucking polling location. Where the fuck do you vote? Find out at';
         }
 
         const related = authorTwitter.join(',');
@@ -195,7 +189,6 @@ $(function(){
      * @method buildMap
      */
     buildMap() {
-        
         // sets props.location to local variable
         const location = this.props.location;
 
@@ -204,9 +197,7 @@ $(function(){
 
         // if locationName exists, make that shit title cased
         if (location.locationName) {
-            
             casedLocationName = helpers.titlecase(location.locationName)
-        
         }
 
         // set up url components to build google maps url
@@ -221,7 +212,6 @@ $(function(){
 
         // build google maps url from components array
         const url = "https://maps.google.com/maps?q=" + encodeURI(components.join(' '))
-
 
         return <a className="actionLink actionLink_map" href={url} target="_blank">Map</a>
     }
