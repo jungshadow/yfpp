@@ -1,0 +1,26 @@
+/* ---------------------------------------------------------------------
+show more link styles
+------------------------------------------------------------------------ */
+
+.showMoreLink {
+    display: block;
+    color: $RED;
+    text-align: center;
+    font-weight: bold;
+
+    &:after {
+        display: block;
+        font-family: $FONT_ICON;
+        @include icon_chevron_down;
+        font-weight: normal;
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    
+    .showMoreLink:hover,
+    .showMoreLink:focus {
+        color: lighten($RED, 10);
+    }
+}
