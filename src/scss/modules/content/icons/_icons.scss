@@ -18,11 +18,17 @@ icons
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon_googleplus:before {
+  content: "\e90c";
+}
 .icon_youtube:before {
   content: "\e901";
 }
 .icon_banner-notch:before {
   content: "\e900";
+}
+.icon_chevron-down:before {
+  content: "\e90f";
 }
 .icon_chevron-left:before {
   content: "\e902";
@@ -60,6 +66,9 @@ icons
 .icon_linkedin:before {
   content: "\e90d";
 }
+.icon_google-plus:before {
+  content: "\e910";
+}
 
 
 
@@ -75,6 +84,9 @@ icons
 }
 @mixin icon_chevron-right {
   content: "\e903";
+}
+@mixin icon_chevron-down {
+  content: "\e90f";
 }
 @mixin icon_close {
   content: "\e904";
@@ -105,6 +117,9 @@ icons
 }
 @mixin icon_linkedin {
   content: "\e90d";
+}
+@mixin icon_googleplus {
+  content: "\e910";
 }
 
 .mix-icon_centered {
