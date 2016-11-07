@@ -19,6 +19,7 @@ import TabPanel from './TabPanel';
 import Footer from './Footer';
 import PrivacyPolicy from './PrivacyPolicy';
 import Bios from './Bios';
+import FuckOff from './FuckOff';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 import moment from 'moment'
@@ -35,13 +36,13 @@ const ACTIVE_CLASS = 'isActive';
  * @extends React.Component
  *
  */
-class App extends React.Component {
+ class App extends React.Component {
 
     /**
      * Sets initial state
      * @constructor
      */
-    constructor() {
+     constructor() {
         super();
 
         // sets initial state with empty results arrays
@@ -68,6 +69,7 @@ class App extends React.Component {
 
         this.activeMsgClassName = 'hasMsg';
         this.activeModalClassName = 'hasModal';
+        this.activeFuckOffClassName = 'isFuckOff';
     };
 
     /**
@@ -76,7 +78,7 @@ class App extends React.Component {
      * @method updateResults
      * @param  {object} data object returned from API
      */
-    updateResults(data) {
+     updateResults(data) {
         const leoInfo = (
             data.state && data.state[0] && data.state[0].local_jurisdiction && data.state[0].local_jurisdiction.electionAdministrationBody) || {};
         const seoInfo = (
@@ -133,7 +135,8 @@ class App extends React.Component {
             contests: contests,
             primaryParties: partyList,
             isActive: isActive,
-            isError: isError
+            isError: isError,
+            isFuckOff: false,
         });
     }
 
@@ -143,7 +146,7 @@ class App extends React.Component {
      *
      * @method onErrorHandler
      */
-    onErrorHandler() {
+     onErrorHandler() {
         this.setState({
             isError: true
         })
@@ -155,10 +158,38 @@ class App extends React.Component {
      *
      * @method onErrorRemoveHandler
      */
-    onErrorRemoveHandler() {
+     onErrorRemoveHandler() {
         this.setState({
             isError: false
         })
+    }
+
+    /**
+     * Fuck Off handler
+     * sets isFuckOff state to true
+     *
+     * @method onFuckOffHandler
+     */
+     onFuckOffHandler() {
+        this.setState({
+            isFuckOff: true
+        });
+
+        document.getElementsByTagName('body')[0].classList.add(this.activeFuckOffClassName);
+    }
+
+    /**
+     * Fuck Off Close handler
+     * sets isFuckOff state to false
+     *
+     * @method onFuckOffCloseHandler
+     */
+     onFuckOffCloseHandler() {
+        this.setState({
+            isFuckOff: false
+        });
+
+        document.getElementsByTagName('body')[0].classList.remove(this.activeFuckOffClassName);
     }
 
     /**
@@ -167,7 +198,7 @@ class App extends React.Component {
      *
      * @method onPrivacyClickHandler
      */
-    onPrivacyClickHandler() {
+     onPrivacyClickHandler() {
         this.setState({
             showPrivacyPolicy: true
         });
@@ -181,7 +212,7 @@ class App extends React.Component {
      *
      * @method onPrivacyCloseHandler
      */
-    onPrivacyCloseHandler() {
+     onPrivacyCloseHandler() {
         this.setState({
             showPrivacyPolicy: false
         });
@@ -197,7 +228,7 @@ class App extends React.Component {
      *
      * @method onPrivacyClickHandler
      */
-    onModalClickHandler() {
+     onModalClickHandler() {
         // if there's a visible error message, let's hide it
         if (this.state.isError) {
             this.onErrorRemoveHandler();
@@ -218,7 +249,7 @@ class App extends React.Component {
      *
      * @method onModalCloseHandler
      */
-    onModalCloseHandler() {
+     onModalCloseHandler() {
         this.setState({
             showModal: false
         });
@@ -232,7 +263,7 @@ class App extends React.Component {
      * @method updateFilterText
      * @param  {string} user input text
      */
-    updateFilterText(textString) {
+     updateFilterText(textString) {
         this.setState({
             filterBy: textString
         });
@@ -244,7 +275,7 @@ class App extends React.Component {
      * @method renderErrorMessage
      * @return error message markup
      */
-    renderErrorMessage() {
+     renderErrorMessage() {
         return (<ErrorMessage leoInfo={this.state.leoInfo} seoInfo={this.state.seoInfo} errorHandlerRemover={this.onErrorRemoveHandler} />);
     }
 
@@ -254,7 +285,7 @@ class App extends React.Component {
      * @method renderPrivacyPolicy
      * @return privacy policy markup
      */
-    renderPrivacyPolicy() {
+     renderPrivacyPolicy() {
         return (<PrivacyPolicy onPrivacyCloseHandler={this.onPrivacyCloseHandler} />);
     }
 
@@ -265,15 +296,15 @@ class App extends React.Component {
      * @param  {string} key unique index
      * @return {object}  EarlyVoteSiteResults component markup
      */
-    renderDropOffLocationResults() {
+     renderDropOffLocationResults() {
         if (this.state.dropOffLocations.length > 0) {
             return (
                 <ul className="vList">
-                    {
-                        Object.keys(
-                            this.state.dropOffLocations
+                {
+                    Object.keys(
+                        this.state.dropOffLocations
                         ).map(this.generateDropOffLocations)
-                    }
+                }
                 </ul>
             )
         }
@@ -281,7 +312,7 @@ class App extends React.Component {
 
     updateDropOffLocations() {
         let currentIndex = this.state.dropOffLocationsIndex,
-            newIndex = currentIndex + 10 > this.state.dropOffLocations.length-1 ? this.state.dropOffLocations.length-1 : currentIndex + 10;
+        newIndex = currentIndex + 10 > this.state.dropOffLocations.length-1 ? this.state.dropOffLocations.length-1 : currentIndex + 10;
 
         this.setState({
             dropOffLocationsIndex: newIndex
@@ -290,7 +321,7 @@ class App extends React.Component {
 
     updateEarlyVoteSites() {
         let currentIndex = this.state.earlyVoteSitesIndex,
-            newIndex = currentIndex + 10 > this.state.earlyVoteSites.length-1 ? this.state.earlyVoteSites.length-1 : currentIndex + 10;
+        newIndex = currentIndex + 10 > this.state.earlyVoteSites.length-1 ? this.state.earlyVoteSites.length-1 : currentIndex + 10;
 
         this.setState({
             earlyVoteSitesIndex: newIndex
@@ -299,7 +330,7 @@ class App extends React.Component {
 
     updatePollingLocations() {
         let currentIndex = this.state.pollingLocationsIndex,
-            newIndex = currentIndex + 10 > this.state.pollingLocations.length-1 ? this.state.pollingLocations.length-1 : currentIndex + 10;
+        newIndex = currentIndex + 10 > this.state.pollingLocations.length-1 ? this.state.pollingLocations.length-1 : currentIndex + 10;
 
         this.setState({
             pollingLocationsIndex: newIndex
@@ -313,15 +344,15 @@ class App extends React.Component {
      * @param  {string} key unique index
      * @return {object}  EarlyVoteSiteResults component markup
      */
-    renderEarlyVoteSiteResults() {
+     renderEarlyVoteSiteResults() {
         if (this.state.earlyVoteSites.length > 0) {
             return (
                 <ul className="vList">
-                    {
-                        Object.keys(
-                            this.state.earlyVoteSites
+                {
+                    Object.keys(
+                        this.state.earlyVoteSites
                         ).map(this.generateEarlyVoteSite)
-                    }
+                }
                 </ul>
             )
         }
@@ -334,15 +365,15 @@ class App extends React.Component {
      * @param  {string} key unique index
      * @return {object}  PollinPlaceResults component markup
      */
-    renderPollingPlaceResults() {
+     renderPollingPlaceResults() {
         if (this.state.pollingLocations.length > 0) {
             return (
                 <ul className="vList">
-                    {
-                        Object.keys(
-                            this.state.pollingLocations
+                {
+                    Object.keys(
+                        this.state.pollingLocations
                         ).map(this.generatePollingPlace)
-                    }
+                }
                 </ul>
             )
         }
@@ -355,10 +386,10 @@ class App extends React.Component {
      * @param  {string} key unique index
      * @return {object}  single drop off location result component markup
      */
-    generateDropOffLocations(key) {
+     generateDropOffLocations(key) {
         return <DropOffLocationResults
-            key={key}
-            dropOffLocations={this.state.dropOffLocations[key]} />;
+        key={key}
+        dropOffLocations={this.state.dropOffLocations[key]} />;
     }
 
     /**
@@ -368,10 +399,10 @@ class App extends React.Component {
      * @param  {string} key unique index
      * @return {object}  single early vote site result component markup
      */
-    generateEarlyVoteSite(key) {
+     generateEarlyVoteSite(key) {
         return <EarlyVoteSiteResults
-            key={key}
-            earlyVoteSites={this.state.earlyVoteSites[key]} />;
+        key={key}
+        earlyVoteSites={this.state.earlyVoteSites[key]} />;
     }
 
     /**
@@ -381,10 +412,10 @@ class App extends React.Component {
      * @param  {string} key unique index
      * @return {object}  single polling place result component markup
      */
-    generatePollingPlace(key) {
+     generatePollingPlace(key) {
         return <PollingPlaceResults
-            key={key}
-            pollingLocations={this.state.pollingLocations[key]} />;
+        key={key}
+        pollingLocations={this.state.pollingLocations[key]} />;
     }
 
     /**
@@ -393,15 +424,15 @@ class App extends React.Component {
      * @method renderContestResults
      * @return {object} markup for contest results container and list items
      */
-    renderContestResults() {
+     renderContestResults() {
         if (this.state.contests.length > 0) {
             return (
                 <div className="group-item">
-                    <ul className="vList">
-                       {Object.keys(this.state.contests).map(this.generateContestResult)}
-                    </ul>
+                <ul className="vList">
+                    {Object.keys(this.state.contests).map(this.generateContestResult)}
+                </ul>
                 </div>
-            )
+                )
         }
     }
 
@@ -412,7 +443,7 @@ class App extends React.Component {
      * @param  {string} key unique index
      * @return {object} single contest result component markup
      */
-    generateContestResult(key) {
+     generateContestResult(key) {
         const currentContest = this.state.contests[key];
 
         // if the current contest has a primaryParty property
@@ -436,14 +467,14 @@ class App extends React.Component {
      * @method renderPartySelect
      * @return {object} PartySelect component markup container and option list
      */
-    renderPartySelect() {
+     renderPartySelect() {
 
         if (this.state.primaryParties.length > 0) {
             return (
                 <div className="group-item">
                     <PartySelect primaryParties={this.state.primaryParties} updateFilterText={this.updateFilterText}/>
                 </div>
-            )
+                )
         }
     }
 
@@ -453,13 +484,13 @@ class App extends React.Component {
      * @method render
      * @return {object} App component markup
      */
-    render() {
+     render() {
         // sets active classnames
         const activeClassName = this.state.isActive === true ? ACTIVE_CLASS : '';
 
         return (
             <div className="site">
-                <div className={'contentWrap ' + activeClassName}>
+                <div className={ 'contentWrap ' + activeClassName}>
                     <div className="contentWrap-ancillary">
                         <div className="wrapper">
                             <ul className="hList">
@@ -480,16 +511,10 @@ class App extends React.Component {
                                         <SiteTitle activeClassName={activeClassName} />
                                     </div>
                                     <div className="group-bd">
-                                        <Search updateResults={this.updateResults} activeClassName={activeClassName} onErrorHandler={this.onErrorHandler} onErrorRemoveHandler={this.onErrorRemoveHandler} />
+                                        <Search updateResults={this.updateResults} activeClassName={activeClassName} onErrorHandler={this.onErrorHandler} onErrorRemoveHandler={this.onErrorRemoveHandler} onFuckOffHandler={this.onFuckOffHandler} onFuckOffCloseHandler={this.onFuckOffCloseHandler}/>
                                     </div>
-                                    <CSSTransitionGroup
-                                        className="group-ft mix-group_absolute"
-                                        transitionName="fade"
-                                        transitionEnterTimeout={500}
-                                        transitionLeaveTimeout={300}>
-
+                                    <CSSTransitionGroup className="group-ft mix-group_absolute" transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
                                         {this.state.isError ? this.renderErrorMessage() : ''}
-
                                     </CSSTransitionGroup>
                                 </div>
                             </div>
@@ -509,39 +534,31 @@ class App extends React.Component {
                             <ElectionTitle electionInfo={this.state.electionInfo} />
                             <Tabs>
                                 <TabPanel label="Fucking Polling Place" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
-                                    <EarlyVoteSiteResults
-                                        earlyVoteSites={this.state.earlyVoteSites}
-                                        index={this.state.earlyVoteSitesIndex}
-                                        handleChange={this.updateEarlyVoteSites} />
-                                    <DropOffLocationResults
-                                        dropOffLocations={this.state.dropOffLocations}
-                                        index={this.state.dropOffLocationsIndex}
-                                        handleChange={this.updateDropOffLocations} />
-                                    <PollingPlaceResults
-                                        pollingLocations={this.state.pollingLocations}
-                                        index={this.state.pollingLocationsIndex}
-                                        electionInfo={this.state.electionInfo}
-                                        handleChange={this.updatePollingLocations} />
+                                    <EarlyVoteSiteResults earlyVoteSites={this.state.earlyVoteSites} index={this.state.earlyVoteSitesIndex} handleChange={this.updateEarlyVoteSites} />
+                                    <DropOffLocationResults dropOffLocations={this.state.dropOffLocations} index={this.state.dropOffLocationsIndex} handleChange={this.updateDropOffLocations} />
+                                    <PollingPlaceResults pollingLocations={this.state.pollingLocations} index={this.state.pollingLocationsIndex} electionInfo={this.state.electionInfo} handleChange={this.updatePollingLocations} />
                                 </TabPanel>
                                 <TabPanel label="On Your Fucking Ballot" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
                                     <div className="group">
-                                        {this.renderPartySelect()}
-                                        {this.renderContestResults()}
+                                        {this.renderPartySelect()} {this.renderContestResults()}
                                     </div>
                                 </TabPanel>
                             </Tabs>
                         </div>
                     </main>
-                    <div className="contentWrap-tertiary"></div>
+                    <div className="contentWrap-tertiary">                      
+                       <CSSTransitionGroup className="fuckOff" transitionName="slide" transitionEnterTimeout={100} transitionLeaveTimeout={100}>
+                            {this.state.isFuckOff ? <FuckOff /> : ''} 
+                       </CSSTransitionGroup>
+                    </div>
                 </div>
-                <Footer onPrivacyClickHandler={this.onPrivacyClickHandler} onModalClickHandler={this.onModalClickHandler} />
-                    { this.state.showPrivacyPolicy ? this.renderPrivacyPolicy() : '' }
-                <Modal onModalCloseHandler={this.onModalCloseHandler} showModal={this.state.showModal} >
+                <Footer onPrivacyClickHandler={this.onPrivacyClickHandler} onModalClickHandler={this.onModalClickHandler} /> { this.state.showPrivacyPolicy ? this.renderPrivacyPolicy() : '' }
+                <Modal onModalCloseHandler={this.onModalCloseHandler} showModal={this.state.showModal}>
                     <Bios />
                 </Modal>
             </div>
         )
-    };
+    };   
 };
 
 export default App;
