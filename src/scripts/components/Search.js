@@ -32,14 +32,15 @@ class Search extends React.Component {
     }
 
     fetchData(e) {
-    
-        e.preventDefault();
-        
-        if (this.refs.address.value.toLowerCase() === 'fuck off') {
-            
-            this.props.onFuckOffHandler();
 
-            return; 
+        e.preventDefault();
+
+        if (this.refs.address.value.toLowerCase() === 'fuck off') {
+            this.props.onFuckOffHandler();
+            // attempt to dismiss virtual keyboard
+            $(this.refs.address).blur();
+
+            return;
         }
 
         this.props.onFuckOffCloseHandler();
@@ -66,12 +67,9 @@ class Search extends React.Component {
 
             }.bind(this)
         });
-
-        $(this.refs.address).blur();
     }
 
     errorRemove() {
-
         this.props.onErrorRemoveHandler();
     }
 
@@ -88,7 +86,7 @@ class Search extends React.Component {
             <input className="searchForm-input" type="search" ref="address" placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006" onChange={this.errorRemove}/>
                 <button className="searchForm-submit" type="submit">Search</button>
             </form>
-            )
+        )
 
     }
 };
