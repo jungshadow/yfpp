@@ -66,6 +66,8 @@ class Search extends React.Component {
 
             }.bind(this)
         });
+
+        $(this.refs.address).blur();
     }
 
     errorRemove() {
