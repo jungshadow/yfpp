@@ -1,0 +1,56 @@
+/* ---------------------------------------------------------------------
+fuckOff - easter egg styles
+------------------------------------------------------------------------ */
+
+.fuckOff-finger {
+    position: absolute;
+    height: auto;
+    width: 17%;
+    bottom: -7px;
+    right: 50%;
+    margin-right: -27%;
+    transition: all 0.5s ease-in;
+    transition-delay: .25s;
+    opacity: 0;
+    overflow: hidden;
+    transform: rotate(-33deg) translateY(53%);
+}
+
+.fuckOff-finger.slide-enter {
+    opacity: 0;
+    transform: rotate(-33deg) translate( 50%, 120%);
+}
+
+.fuckOff-finger.slide-enter-active {
+    opacity: 1;
+    transform: rotate(-33deg) translate(0%, 0%);
+
+}
+
+
+.isFuckOff {
+
+    .fuckOff-finger {
+        opacity: 1;
+    }
+
+    .contentWrap-tertiary {
+        background-position: bottom center;
+    }
+}
+
+@media screen and (min-width: 568px) {
+    .fuckOff-finger {
+        margin-right: -134px;
+        width: 90px;
+        //transform: rotate(-33deg) translateY(52%);
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .fuckOff-finger {
+
+    }
+
+}

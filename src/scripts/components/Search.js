@@ -1,7 +1,6 @@
 // Import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import autobind from 'autobind-decorator';
 import analytics from '../analytics';
 import $ from 'jquery';
@@ -33,8 +32,17 @@ class Search extends React.Component {
     }
 
     fetchData(e) {
+    
         e.preventDefault();
+        
+        if (this.refs.address.value.toLowerCase() === 'fuck off') {
+            
+            this.props.onFuckOffHandler();
 
+            return; 
+        }
+
+        this.props.onFuckOffCloseHandler();
         var config = {
             'key': 'AIzaSyCm5MGxuhRo7mNmhRlfXlU66OS6Ny-ZPpQ',
             'electionId': 5000, // TODO: this needs to come out after the general
