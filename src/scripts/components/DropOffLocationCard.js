@@ -27,7 +27,7 @@ class DropOffLocationCard extends React.Component {
     getLocationDate(dateString) {
         var date = moment(dateString);
 
-        return date.isValid() ? moment() : date;
+        return date.isValid() ? date : moment();
     }
 
     /**
