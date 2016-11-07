@@ -7,8 +7,8 @@ actionLink
     text-indent: -999em;
     font-size: 0;
     overflow: hidden;
-    height: 22px;
-    width: 22px;
+    height: 25px;
+    width: 25px;
     background-color: $GREY_MEDIUM;
     border-radius: 50%;
     vertical-align: middle;
@@ -22,6 +22,7 @@ actionLink
         font-family: $FONT_ICON;
         text-indent: 0;
         font-size: 18px;
+        line-height: 1;
         color: $WHITE;
     }
 
@@ -32,19 +33,26 @@ actionLink
 
 .actionLink_twitter:after {
     @include icon_twitter();
+    font-size: 23px;
 }
 
 .actionLink_facebook:after {
     @include icon_facebook();
+    font-size: 23px;
 }
 
 .actionLink_youtube:after {
     @include icon_youtube();
 }
 
+.actionLink_googleplus:after {
+    @include icon_googleplus();
+}
+
 .actionLink_map:after {
     @include icon_map();
     font-size: 16px;
+    line-height: 1.5;
 }
 
 // alternate color mixin for hover state
@@ -78,5 +86,6 @@ actionLink
 
     &:after {
         font-size: 26px;
+        line-height: 1.3;
     }
 }
