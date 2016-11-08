@@ -117,7 +117,7 @@ const ACTIVE_CLASS = 'isActive';
         // about being closed
         var i = earlyVoteSites.length;
         while(i--) {
-            if(moment().isAfter(moment(earlyVoteSites[i].endDate), 'day')) {
+            if(!earlyVoteSites[i].endDate || moment().isAfter(moment(earlyVoteSites[i].endDate), 'day')) {
                 earlyVoteSites.splice(i, 1);
             }
         }
@@ -555,9 +555,9 @@ const ACTIVE_CLASS = 'isActive';
                             </Tabs>
                         </div>
                     </main>
-                    <div className="contentWrap-tertiary">                      
+                    <div className="contentWrap-tertiary">
                        <CSSTransitionGroup className="fuckOff" transitionName="slide" transitionEnterTimeout={100} transitionLeaveTimeout={100}>
-                            {this.state.isFuckOff ? <FuckOff /> : ''} 
+                            {this.state.isFuckOff ? <FuckOff /> : ''}
                        </CSSTransitionGroup>
                     </div>
                     <a href="#footer" className="contentWrap-anchor js-scrollTo" onClick={this.scrollToTarget}>Who We Are</a>
@@ -568,7 +568,7 @@ const ACTIVE_CLASS = 'isActive';
                 </Modal>
             </div>
         )
-    };   
+    };
 };
 
 export default App;
