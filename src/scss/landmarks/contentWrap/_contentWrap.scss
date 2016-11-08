@@ -61,6 +61,29 @@ contentWrap - outer container for main content
 	transition: all 0.25s ease-in-out;
 }
 
+.contentWrap-anchor {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    display: block;
+    color: $RED;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    text-indent: -999em;
+    overflow: hidden;
+
+    &:after {
+        display: block;
+        font-family: $FONT_ICON;
+        @include icon_chevron_down;
+        font-weight: normal;
+        font-size: 1.5em;
+        text-indent: 0;
+        transition: all .25s ease-in-out;
+    }
+}
+
 /* active state */
 .isActive.contentWrap {	
 	height: auto;
@@ -84,6 +107,23 @@ contentWrap - outer container for main content
 	.contentWrap-ancillary {
 		align-self: flex-end;
 	}
+
+    .contentWrap-anchor {
+        text-indent: 0;
+
+        &:after {
+            font-size: 1.1em;
+        }
+    }
+
+    .contentWrap-anchor:hover,
+    .contentWrap-anchor:focus {
+        color: lighten($RED, 10);
+
+        &:after {
+           transform: translateY(3px);
+        }
+    }
 }
 
 @media screen and (min-width: 568px) {
