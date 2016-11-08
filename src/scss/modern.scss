@@ -5,6 +5,7 @@
 @import "helpers/_globalVars";
 @import "base/_fonts";
 @import "base/_elements";
+@import "base/_icons";
 
 // helpers
 @import "helpers/_utils";
@@ -19,12 +20,12 @@
 
 // content
 @import "modules/content/bio/_bio";
-@import "modules/content/icons/_icons";
 @import "modules/content/iconBtn/_iconBtn";
 @import "modules/content/iconLink/_iconLink";
 @import "modules/content/actionLink/_actionLink";
 @import "modules/content/formSelect/_formSelect";
 @import "modules/content/hdg/_hdg";
+@import "modules/content/imgSize/_imgSize";
 @import "modules/content/links/_links";
 @import "modules/content/siteTitle/_siteTitle";
 @import "modules/content/showMoreLink/_showMoreLink";

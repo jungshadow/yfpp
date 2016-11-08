@@ -1,4 +1,5 @@
 // Import dependencies
+import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import autobind from 'autobind-decorator';
@@ -478,6 +479,14 @@ const ACTIVE_CLASS = 'isActive';
         }
     }
 
+    scrollToTarget(event) {
+        const $target = $(event.currentTarget.hash);
+        $('html, body').animate({
+          scrollTop: $target.offset().top
+        }, 500);
+        return false;
+    }
+
     /**
      * Renders application to the DOM
      *
@@ -551,6 +560,7 @@ const ACTIVE_CLASS = 'isActive';
                             {this.state.isFuckOff ? <FuckOff /> : ''} 
                        </CSSTransitionGroup>
                     </div>
+                    <a href="#footer" className="contentWrap-anchor js-scrollTo" onClick={this.scrollToTarget}>Who We Are</a>
                 </div>
                 <Footer onPrivacyClickHandler={this.onPrivacyClickHandler} onModalClickHandler={this.onModalClickHandler} /> { this.state.showPrivacyPolicy ? this.renderPrivacyPolicy() : '' }
                 <Modal onModalCloseHandler={this.onModalCloseHandler} showModal={this.state.showModal}>
