@@ -46,7 +46,6 @@ class Search extends React.Component {
         this.props.onFuckOffCloseHandler();
         var config = {
             'key': 'AIzaSyCm5MGxuhRo7mNmhRlfXlU66OS6Ny-ZPpQ',
-            'electionId': 5000, // TODO: this needs to come out after the general
             'address': this.refs.address.value
         }
 
