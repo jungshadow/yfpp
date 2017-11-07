@@ -95,7 +95,7 @@ const ACTIVE_CLASS = 'isActive';
         let isActive = false;
         let isError = false;
 
-        if (contests.length > 0 || pollingLocations.length > 0) {
+        if (contests.length > 0 || (pollingLocations.length > 0 || earlyVoteSites.length > 0 || dropOffLocations.length > 0)) {
             if (contests.length > 0) {
                 Object.keys(contests).map(function(key) {
                     if (contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
@@ -291,11 +291,11 @@ const ACTIVE_CLASS = 'isActive';
     }
 
     /**
-     * Renders Early Vote Site Results data
+     * Renders Drop Off Location Results data
      *
-     * @method renderEarlyVoteSiteResults
+     * @method renderDropOffLocationResults
      * @param  {string} key unique index
-     * @return {object}  EarlyVoteSiteResults component markup
+     * @return {object}  DropOffLocationResults component markup
      */
      renderDropOffLocationResults() {
         if (this.state.dropOffLocations.length > 0) {

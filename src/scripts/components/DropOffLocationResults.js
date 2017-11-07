@@ -16,6 +16,13 @@ import helpers from '../helpers';
  * @extends React.Component
  */
 class DropOffLocationResults extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentWillUnmount() {
+        //pass
+    }
 
     generateCards(index) {
         var cards = [],

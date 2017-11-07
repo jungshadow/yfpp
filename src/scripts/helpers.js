@@ -69,6 +69,7 @@ let helpers = {
             // put that shit back together
             str = str_arr.join(" ");
         }
+
         return str;
     },
 
