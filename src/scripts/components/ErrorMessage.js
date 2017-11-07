@@ -140,7 +140,7 @@ class ErrorMessage extends React.Component {
                 {(() => {
                     if(reasons.length === 0) {
                         return (
-                            <p>There are currently no elections associated with the fucking address you&apos;re trying to use. Get your shit together and try another one.</p>
+                            <p>There are currently no elections associated with the fucking address you&apos;re trying to use. <a href="https://www.fvap.gov/search-offices">Look up your local election official</a> and find out if you're fucking voting.</p>
                         )
                     } else if(reasons.length === 1) {
                         return (
@@ -177,7 +177,7 @@ class ErrorMessage extends React.Component {
                             <i className="icon icon_close mix-icon_light"></i>
                         </span>
                     </button>
-                </span>    
+                </span>
                 <div className="card-bd">
 	                <h3 className="hdg hdg_1 mix-hdg_headline">For Fuck&apos;s Sake</h3>
                     <div>{this.renderMessage()}</div>
