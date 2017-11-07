@@ -53,6 +53,8 @@ class Search extends React.Component {
             url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
             //url: 'test_data/test_data_san_fran.json',
             //url: 'test_data/test_data_errors.json',
+            //url: 'test_data/test_data_new_jersey.json',
+            //url: 'test_data/test_data_portland.json',
             type: "GET",
             dataType: 'json',
             data: config,
