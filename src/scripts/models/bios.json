@@ -1,16 +1,6 @@
 {
   "bios": [
     {
-      "firstname": "Mo",
-      "lastname": "Maraqa",
-      "nickname": "FORSOOTH! VOTING!",
-      "title": "Overlord",
-      "description": "In between being a jouster at local Renaissance fairs and his day job as a data nerd, Mo is a human version of this fucking site (i.e. a massive amount of election information contained in a salty package). Most of the engineers in YFPP R&D have decided to scrap the idea of developing more sophisticated swearing algorithms and create a direct link between the Civic Information API and Mo's brain as the swears were more inventive and caustic than what the computer could create. After the election, Mo's planning to embark upon his real dream: teaching courses in Middle English.",
-      "twitter": "https://twitter.com/momaraqa",
-      "linkedIn": "https://www.linkedin.com/in/mo-maraqa-0234825",
-      "image": "web/images/bios/mo-maraqa.jpg"
-    },
-    {
       "firstname": "Jared",
       "lastname": "Marcotte",
       "nickname": "To Hell with the Safety Margins",

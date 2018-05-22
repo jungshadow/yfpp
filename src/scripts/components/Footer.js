@@ -1,4 +1,4 @@
-// Import dependencies 
+// Import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -12,13 +12,13 @@ import ReactDOM from 'react-dom';
 class Footer extends React.Component {
 
     onClickHandler(e) {
-    
+
         this.props.onPrivacyClickHandler();
 
     }
 
     /**
-     * Renders Footer 
+     * Renders Footer
      *
      * @method render
      * @return {object} footer component markup
@@ -26,29 +26,12 @@ class Footer extends React.Component {
     render() {
 
         return (
-            
+
             <footer id="footer" className="footer">
                 <div className="wrapper wrapper_large">
                     <h3 className="hdg hdg_1 mix-hdg_light mix-hdg_uppercase mix-hdg_headline mix-hdg_centered">This Shit Was Made By These Motherfuckers</h3> <i className="icon icon_star-full mix-icon_centered mix-icon_hr"></i>
                     <div className="team">
                         <ul className="blocks blocks_2upSM blocks_4upMD blocks_6up js-carouselNav">
-                            <li>
-                                <div className="group group_sm">
-                                    <div>
-                                        <a href="#mo" className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>
-                                            <div className="group group_md">
-                                                <div className="group-img"> <img className="imgSize imgSize_sm" src="web/images/bios/mo-maraqa.jpg" alt="Mo Maraqa"
-                                                    /> </div>
-                                                <div className="group-txt">Mo Maraqa</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" rel="noopener noreferrer"
-                                            href="https://twitter.com/momaraqa" data-show-count="false">@momaraqa</a>
-                                    </div>
-                                </div>
-                            </li>
                             <li>
                                 <div className="group group_sm">
                                     <div>
@@ -160,7 +143,7 @@ class Footer extends React.Component {
                     </div>
                 </div>
             </footer>
-         
+
         )
     }
 };
