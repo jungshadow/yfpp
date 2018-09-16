@@ -130,10 +130,17 @@ class Footer extends React.Component {
                             <div className="userContent userContent_reversedSofter mix-userContent_md mix-userContent_ctr">
                                 <p>Hey fuckface, read the fucking
                                     <a href="#" onClick={this.onClickHandler.bind(this)}> privacy policy</a>.</p>
-                                <p>Data via the
-                                    <a href="https://developers.google.com/civic-information/" target="_blank" rel="noopener noreferrer">Google Civic Information API</a>. Use of this site also binds you to the
-                                    <a href="https://www.google.com/intl/en/policies/terms/"
-                                        target="_blank" rel="noopener noreferrer">Google Terms of Use.</a>
+                                <p>Data via the <a
+                                    href="https://developers.google.com/civic-information/"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                        Google Civic Information API
+                                    </a>. Use of this site also binds you to the <a
+                                        href="https://www.google.com/intl/en/policies/terms/"
+                                        target="_blank"
+                                        rel="noopener noreferrer">
+                                            Google Terms of Use
+                                    </a>.
                                 </p>
                                 <p>Data from states that do not provide direct feeds only include addresses with registered voters</p>
                                 <p>Election officials sometimes revise data in the last few days before an election. Check back on Election
