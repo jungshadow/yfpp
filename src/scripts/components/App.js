@@ -521,6 +521,9 @@ const ACTIVE_CLASS = 'isActive';
                                     </div>
                                     <div className="group-bd">
                                         <Search updateResults={this.updateResults} activeClassName={activeClassName} onErrorHandler={this.onErrorHandler} onErrorRemoveHandler={this.onErrorRemoveHandler} onFuckOffHandler={this.onFuckOffHandler} onFuckOffCloseHandler={this.onFuckOffCloseHandler}/>
+                                        <div className="userContent mix-userContent_md mix-userContent_ctr">
+                                            <p>Not registered to vote? The fuck? <a href="https://register.rockthevote.com/">Fucking do it here!</a></p>
+                                        </div>
                                     </div>
                                     <CSSTransitionGroup className="group-ft mix-group_absolute" transitionName="fade" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
                                         {this.state.isError ? this.renderErrorMessage() : ''}
