@@ -35,6 +35,23 @@ class Footer extends React.Component {
                             <li>
                                 <div className="group group_sm">
                                     <div>
+                                        <a href="#mo" className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>
+                                            <div className="group group_md">
+                                                <div className="group-img"> <img className="imgSize imgSize_sm" src="web/images/bios/mo-maraqa.jpg" alt="Mo Maraqa"
+                                                    /> </div>
+                                                <div className="group-txt">Mo Maraqa</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" rel="noopener noreferrer"
+                                            href="https://twitter.com/momaraqa" data-show-count="false">@momaraqa</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="group group_sm">
+                                    <div>
                                         <a href="#jared" className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>
                                             <div className="group group_md">
                                                 <div className="group-img"> <img className="imgSize imgSize_sm" src="web/images/bios/jared-marcotte.jpg" alt="Jared Marcotte"
