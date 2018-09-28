@@ -1,6 +1,6 @@
 {
   "name": "yfpp2016",
-  "version": "1.9.4",
+  "version": "1.9.5",
   "description": "A foul-mouthed election information application",
   "main": "index.js",
   "scripts": {
