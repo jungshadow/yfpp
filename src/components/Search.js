@@ -24,7 +24,7 @@ class Search extends React.Component {
         };
 
         const input = $('.searchForm-input')[0];
-        // new window.google.maps.places.Autocomplete(input, options);
+        new window.google.maps.places.Autocomplete(input, options);
     }
 
     fetchData = e => {
@@ -45,8 +45,8 @@ class Search extends React.Component {
         };
 
         $.ajax({
-            // url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
-            url: `${process.env.PUBLIC_URL}test_data/test_data_san_fran.json`,
+            url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
+            // url: `${process.env.PUBLIC_URL}test_data/test_data_san_fran.json`,
             //url: `${process.env.PUBLIC_URL}/test_data/test_data_errors.json`,
             //url: `${process.env.PUBLIC_URL}/test_data/test_data_new_jersey.json`,
             //url: `${process.env.PUBLIC_URL}/test_data/test_data_portland.json`,
