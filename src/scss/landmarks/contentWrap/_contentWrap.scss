@@ -54,7 +54,7 @@ contentWrap - outer container for main content
 	position: relative;
 	flex: 1 1 auto;
 	align-self: stretch;
-	background: url(../images/fucking-patriot.png) no-repeat bottom center;
+	background: url(./images//fucking-patriot.png) no-repeat bottom center;
 	background-size: contain;
 	max-height: 462px;
 	overflow: hidden;
@@ -85,9 +85,9 @@ contentWrap - outer container for main content
 }
 
 /* active state */
-.isActive.contentWrap {	
+.isActive.contentWrap {
 	height: auto;
-	
+
 	.contentWrap-primary {
 		top: 0;
 		margin: 0 auto 20px;
@@ -103,7 +103,7 @@ contentWrap - outer container for main content
 }
 
 @media screen and (min-width: 768px) {
-	
+
 	.contentWrap-ancillary {
 		align-self: flex-end;
 	}
@@ -127,7 +127,7 @@ contentWrap - outer container for main content
 }
 
 @media screen and (min-width: 568px) {
-	
+
 	.contentWrap-primary {
 		flex: 0.3 1 auto;
 	}
@@ -139,7 +139,7 @@ contentWrap - outer container for main content
 
 
 @media screen and (min-width: 688px) and (min-height: 900px) {
-	
+
 	.contentWrap-primary {
 		flex: 1 1 auto;
 	}
