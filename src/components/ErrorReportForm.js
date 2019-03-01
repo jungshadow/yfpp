@@ -37,8 +37,8 @@ class ErrorReportForm extends React.Component {
                     This fucking thing wrong? <strong>Report it here.</strong>
                 </a>
                 <form className="hidden" style={{ display: 'none' }} method="post" action="https://voter-info-tool.appspot.com/feedback" ref="errorFeedbackForm" id="error-feedback-form">
-                    <input type="hidden" value={electionInfo.id} name="electionId" />
-                    <input type="hidden" value={helpers.concatStreetAddress(normalizedAddress)} name="address" />
+                    <input type="hidden" defaultValue={electionInfo.id} name="electionId" />
+                    <input type="hidden" defaultValue={helpers.concatStreetAddress(normalizedAddress)} name="address" />
                     <input type="submit" id="error-feedback-link-submit" value="" />
                 </form>
             </div>

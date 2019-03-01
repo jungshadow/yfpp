@@ -295,14 +295,14 @@ class App extends React.Component {
         }
     }
 
-    updateDropOffLocations() {
+    updateDropOffLocations = () => {
         let currentIndex = this.state.dropOffLocationsIndex,
             newIndex = currentIndex + 10 > this.state.dropOffLocations.length - 1 ? this.state.dropOffLocations.length - 1 : currentIndex + 10;
 
         this.setState({
             dropOffLocationsIndex: newIndex,
         });
-    }
+    };
 
     updateEarlyVoteSites() {
         let currentIndex = this.state.earlyVoteSitesIndex,
