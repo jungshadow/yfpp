@@ -82,19 +82,18 @@ class App extends React.Component {
         const earlyVoteSites = data.earlyVoteSites || [];
         const dropOffLocations = data.dropOffLocations || [];
         const contests = data.contests || [];
-        const partyList = [];
+        let partyList = [];
 
         let isActive = false;
         let isError = false;
 
         if (contests.length > 0 || (pollingLocations.length > 0 || earlyVoteSites.length > 0 || dropOffLocations.length > 0)) {
-            if (contests.length > 0) {
-                Object.keys(contests).map(function(key) {
-                    if (contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
-                        partyList.push(contests[key].primaryParty);
-                    }
-                });
-            }
+            Object.keys(contests).forEach(function(key) {
+                if (contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
+                    return partyList.push(contests[key].primaryParty);
+                }
+                return false;
+            });
 
             isActive = true;
             isError = false;
@@ -417,7 +416,7 @@ class App extends React.Component {
             // or the primaryParty is empty
             // or the current selected filter is set to all
             // return the contest result
-        } else if (!currentContest.primaryParty || this.state.filterBy === 'All' || currentContest.primaryParty == '') {
+        } else if (!currentContest.primaryParty || this.state.filterBy === 'All' || currentContest.primaryParty === '') {
             return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
         }
     };
@@ -467,14 +466,24 @@ class App extends React.Component {
                         <div className="wrapper">
                             <ul className="hList">
                                 <li>
-                                    <a href="https://twitter.com/fnpollingplace" target="_blank" className="actionLink actionLink_twitter mix-actionLink_lrg mix-actionLink_twitter" />
+                                    <a
+                                        href="https://twitter.com/fnpollingplace"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="actionLink actionLink_twitter mix-actionLink_lrg mix-actionLink_twitter"
+                                    >
+                                        <span className="isVisuallyHidden">Twitter</span>
+                                    </a>
                                 </li>
                                 <li>
                                     <a
                                         href="https://www.facebook.com/Your-Fucking-Polling-Place-120373578023062"
                                         target="_blank"
+                                        rel="noopener noreferrer"
                                         className="actionLink actionLink_facebook mix-actionLink_lrg mix-actionLink_facebook"
-                                    />
+                                    >
+                                        <span className="isVisuallyHidden">Facebook</span>
+                                    </a>
                                 </li>
                             </ul>
                         </div>

@@ -1,6 +1,5 @@
 // Import dependencies
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import helpers from '../helpers';
 import $ from 'jquery';
@@ -89,7 +88,7 @@ window.twttr.ready(function(twttr) {
                     $.each(
                         decodeURIComponent(intent.target.search)
                             .replace(/\+/g, ' ')
-                            .split(/&| |\=/g),
+                            .split(/&| |=/g),
                         function(i, v) {
                             if (v.match(/(^https?:\/\/)|(^www.)/)) {
                                 target = getElem(v);
@@ -186,15 +185,15 @@ class Actions extends React.Component {
     buildFB() {
         const location = this.props.location;
         return (
-            <a
+            <button
                 className="actionLink actionLink_facebook mix-actionLink_blue shareLocationFacebook"
-                href="#"
+                type="button"
                 data-name={helpers.titlecase(helpers.fucktify(location.locationName))}
                 data-city={helpers.titlecase(location.city)}
                 data-state={location.state}
             >
                 Facebook
-            </a>
+            </button>
         );
     }
 
@@ -208,6 +207,7 @@ class Actions extends React.Component {
         const location = this.props.location;
 
         // set variable for correctly cased locationName
+        // eslint-disable-next-line no-unused-vars
         let casedLocationName = '';
 
         // if locationName exists, make that shit title cased
@@ -229,7 +229,7 @@ class Actions extends React.Component {
         const url = 'https://maps.google.com/maps?q=' + encodeURI(components.join(' '));
 
         return (
-            <a className="actionLink actionLink_map" href={url} target="_blank">
+            <a className="actionLink actionLink_map" href={url} target="_blank" rel="noopener noreferrer">
                 Map
             </a>
         );

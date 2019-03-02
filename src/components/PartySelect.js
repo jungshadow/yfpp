@@ -22,9 +22,6 @@ class PartySelect extends React.Component {
      */
     render() {
         const partyList = this.props.primaryParties;
-        const primaryParties = [<PartySelectOptions key="all" primartyPartyAbbr="all" primaryPartyName="All" />];
-
-        let i = 0;
 
         const partyFullName = {
             REP: 'Republican',
@@ -32,21 +29,20 @@ class PartySelect extends React.Component {
             LIB: 'Libertarian',
         };
 
-        partyList.map(function(party) {
+        const primaryParties = partyList.map((party, index) => {
             let partyName = party;
 
             if (partyFullName[party]) {
                 partyName = partyFullName[party];
             }
 
-            primaryParties.push(<PartySelectOptions key={i} primaryPartyAbbr={party} primaryPartyName={partyName} />);
-
-            i++;
+            return <PartySelectOptions key={index} primaryPartyAbbr={party} primaryPartyName={partyName} />;
         });
 
         return (
             <form action="">
                 <select className="formSelect" name="" ref="partySelect" onChange={this.onChangeHandler}>
+                    <PartySelectOptions key="all" primartyPartyAbbr="all" primaryPartyName="All" />
                     {primaryParties}
                 </select>
             </form>

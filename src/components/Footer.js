@@ -210,10 +210,10 @@ class Footer extends React.Component {
                             <div className="userContent userContent_reversedSofter mix-userContent_md mix-userContent_ctr">
                                 <p>
                                     Hey fuckface, read the fucking
-                                    <a href="#" onClick={this.onClickHandler.bind(this)}>
+                                    <button type="button" onClick={this.onClickHandler.bind(this)}>
                                         {' '}
                                         privacy policy
-                                    </a>
+                                    </button>
                                     .
                                 </p>
                                 <p>

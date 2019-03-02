@@ -11,10 +11,10 @@ import helpers from '../helpers';
  * @extends React.Component
  */
 class Search extends React.Component {
-    // API_URL_DEV = `${process.env.PUBLIC_URL}test_data/test_data_san_fran.json`;
+    API_URL_DEV = `${process.env.PUBLIC_URL}test_data/test_data_san_fran.json`;
     // API_URL_DEV =`${process.env.PUBLIC_URL}/test_data/test_data_errors.json`
     // API_URL_DEV =`${process.env.PUBLIC_URL}/test_data/test_data_new_jersey.json`
-    API_URL_DEV = `test_data/test_data_portland.json`;
+    // API_URL_DEV = `test_data/test_data_portland.json`;
     API_URL = process.env.REACT_APP_API_URL;
 
     constructor(props) {
@@ -30,7 +30,6 @@ class Search extends React.Component {
      */
     componentDidMount() {
         if (process.env.NODE_ENV !== 'development') {
-            console.log(process.env.NODE_ENV);
             this.initAutocomplete();
         }
     }
@@ -42,7 +41,7 @@ class Search extends React.Component {
             componentRestrictions: { country: 'us' },
         };
 
-        // new window.google.maps.places.Autocomplete(this.searchInput.current, options);
+        new window.google.maps.places.Autocomplete(this.searchInput.current, options);
     }
 
     getRequestURL(requestParams) {

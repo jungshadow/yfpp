@@ -17,7 +17,7 @@ let helpers = {
             address = '';
 
         for (var i = 0; i < addr.length; i++) {
-            if (addr[i].length > 0 && i != addr.length - 1) {
+            if (addr[i].length > 0 && i !== addr.length - 1) {
                 addr_str += ' ' + addr[i].trim();
             }
         }

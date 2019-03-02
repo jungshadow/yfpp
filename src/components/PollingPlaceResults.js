@@ -1,11 +1,7 @@
 // Import dependencies
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import PollingPlaceCard from './PollingPlaceCard';
-
-import helpers from '../helpers';
-
 
 /**
  * Polling Place Results Component
@@ -14,16 +10,12 @@ import helpers from '../helpers';
  * @extends React.Component
  */
 class PollingPlaceResults extends React.Component {
-
     generateCards(index) {
         var cards = [],
             locations = this.props.pollingLocations;
 
-        for(var i=0; i <= index; i++) {
-            cards.push(<PollingPlaceCard
-                pollingLocation={locations[i]}
-                key={i}
-                electionDay={this.props.electionInfo.electionDay} />);
+        for (var i = 0; i <= index; i++) {
+            cards.push(<PollingPlaceCard pollingLocation={locations[i]} key={i} electionDay={this.props.electionInfo.electionDay} />);
         }
 
         return cards;
@@ -32,15 +24,16 @@ class PollingPlaceResults extends React.Component {
     renderMoreLink() {
         let locations = this.props.pollingLocations;
 
-        if(locations.length > 1 && this.props.index + 1!==locations.length) {
+        if (locations.length > 1 && this.props.index + 1 !== locations.length) {
             return (
                 <div>
-                    <a className="link" onClick={this.props.handleChange}>
-                        {this.props.index > 0 ? "These are" : "This is"} the closest {this.props.index > 0 ? this.props.index + 1 : " "}
-                        {this.props.index > 0 ? " locations" : "location"} of {locations.length} sites.
-                        {this.props.index + 1===locations.length ? " " : " Click here to show more."}</a>
+                    <button type="button" className="link" onClick={this.props.handleChange}>
+                        {this.props.index > 0 ? 'These are' : 'This is'} the closest {this.props.index > 0 ? this.props.index + 1 : ' '}
+                        {this.props.index > 0 ? ' locations' : 'location'} of {locations.length} sites.
+                        {this.props.index + 1 === locations.length ? ' ' : ' Click here to show more.'}
+                    </button>
                 </div>
-            )
+            );
         }
     }
 
@@ -55,7 +48,7 @@ class PollingPlaceResults extends React.Component {
             index = this.props.index,
             cards = [];
 
-        if(locations.length > 0) {
+        if (locations.length > 0) {
             cards = this.generateCards(index);
         }
 
@@ -64,8 +57,8 @@ class PollingPlaceResults extends React.Component {
                 {cards}
                 <li>{this.renderMoreLink()}</li>
             </ul>
-        )
+        );
     }
-};
+}
 
 export default PollingPlaceResults;

@@ -16,10 +16,10 @@ class ErrorReportForm extends React.Component {
      * @method onClickHandler
      * @return none
      */
-    onClickHandler(e) {
+    onClickHandler = e => {
         e.preventDefault();
         this.refs.errorFeedbackForm.submit();
-    }
+    };
 
     /**
      * Renders error report form component
@@ -33,9 +33,9 @@ class ErrorReportForm extends React.Component {
 
         return (
             <div className="tabs-panel-errorLink">
-                <a className="link" href="#" id="error-feedback-link" data-state={normalizedAddress.state} onClick={this.onClickHandler}>
+                <button type="button" className="link" id="error-feedback-link" data-state={normalizedAddress.state} onClick={this.onClickHandler}>
                     This fucking thing wrong? <strong>Report it here.</strong>
-                </a>
+                </button>
                 <form className="hidden" style={{ display: 'none' }} method="post" action="https://voter-info-tool.appspot.com/feedback" ref="errorFeedbackForm" id="error-feedback-form">
                     <input type="hidden" defaultValue={electionInfo.id} name="electionId" />
                     <input type="hidden" defaultValue={helpers.concatStreetAddress(normalizedAddress)} name="address" />

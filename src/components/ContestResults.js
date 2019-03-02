@@ -37,7 +37,7 @@ class ContestResults extends React.Component {
             });
         }
 
-        if (currentContest.type == 'Referendum') {
+        if (currentContest.type === 'Referendum') {
             referenda.push(<ReferendumResults key={refCount} referendum={currentContest} />);
             refCount++;
         }

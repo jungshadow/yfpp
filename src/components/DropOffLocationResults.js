@@ -32,11 +32,11 @@ class DropOffLocationResults extends React.Component {
         if (locations.length > 1 && this.props.index + 1 !== locations.length) {
             return (
                 <div>
-                    <a className="showMoreLink" onClick={this.props.handleChange}>
+                    <button type="button" className="showMoreLink" onClick={this.props.handleChange}>
                         {this.props.index > 0 ? 'These are' : 'This is'} the closest {this.props.index > 0 ? this.props.index + 1 : ' '}
                         {this.props.index > 0 ? ' locations' : 'location'} of {locations.length} sites.
                         {this.props.index + 1 === locations.length ? ' ' : ' Click here to show more.'}
-                    </a>
+                    </button>
                 </div>
             );
         }

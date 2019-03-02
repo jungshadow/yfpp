@@ -1,9 +1,7 @@
-// Import dependencies 
+// Import dependencies
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import CSSTransitionGroup from 'react-addons-css-transition-group';
-
 
 /**
  * Tabs Component
@@ -11,84 +9,62 @@ import CSSTransitionGroup from 'react-addons-css-transition-group';
  * @class Tabs
  * @extends React.Component
  */
- class Tabs extends React.Component {
-
-
-
+class Tabs extends React.Component {
     /**
-     * Sets initial state 
+     * Sets initial state
      * @constructor
      */
-     constructor() {
-
+    constructor() {
         super();
 
         this.state = {
-            activeTab: 0
-        }
+            activeTab: 0,
+        };
+    }
 
-     };
-
-     onClick(index, event) {
+    onClick(index) {
         this.setState({
-            activeTab: index
-        })
-     }
+            activeTab: index,
+        });
+    }
 
-     renderTabsNav() {
-
+    renderTabsNav() {
         function labels(child, index) {
-
-            let activeClass = (this.state.activeTab === index ? 'isActive' : '');
+            let activeClass = this.state.activeTab === index ? 'isActive' : '';
 
             return (
                 <li className="tabs-nav-item" key={index}>
-                <button className={'tabs-nav-item-btn ' + activeClass} onClick={this.onClick.bind(this, index)}>
-                    {child.props.label}
-                </button>
+                    <button className={'tabs-nav-item-btn ' + activeClass} onClick={this.onClick.bind(this, index)}>
+                        {child.props.label}
+                    </button>
                 </li>
-                );
+            );
         }
 
+        return <ul className="tabs-nav">{this.props.children.map(labels.bind(this))}</ul>;
+    }
+
+    renderTabPanel() {
         return (
-            <ul className="tabs-nav">
-                {this.props.children.map(labels.bind(this))}
-            </ul>
-            );
-     }
-
-     renderTabPanel() {
-        return (
-
-            <div className="tabs-panel" key={this.state.activeTab}>{this.props.children[this.state.activeTab]}</div>
-
-            );
-     }
+            <div className="tabs-panel" key={this.state.activeTab}>
+                {this.props.children[this.state.activeTab]}
+            </div>
+        );
+    }
     /**
      * Renders Tab component
      *
      * @method render
      * @return {object} site title component markup
      */
-     render() {
-        
-
+    render() {
         return (
-            <CSSTransitionGroup
-                component="div"
-                className="tabs"
-                transitionName="fade"
-                transitionAppear={true}
-                transitionAppearTimeout={500}
-                transitionLeaveTimeout={200}
-                transitionEnterTimeout={500}>       
+            <CSSTransitionGroup component="div" className="tabs" transitionName="fade" transitionAppear={true} transitionAppearTimeout={500} transitionLeaveTimeout={200} transitionEnterTimeout={500}>
                 {this.renderTabsNav()}
                 {this.renderTabPanel()}
             </CSSTransitionGroup>
-            )
-     }
+        );
+    }
+}
 
-    };
-
-    export default Tabs;
-
+export default Tabs;

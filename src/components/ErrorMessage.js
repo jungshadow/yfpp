@@ -1,9 +1,5 @@
 // Import dependencies
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-import Actions from './Actions';
-
 import helpers from '../helpers';
 
 /**
@@ -39,7 +35,7 @@ class ErrorMessage extends React.Component {
                 );
                 break;
             case 'addr':
-                var url = 'https://maps.google.com/?q=' + href;
+                const url = 'https://maps.google.com/?q=' + href;
                 ElementFrag = (
                     <span>
                         {message} <a href={url}>{anchorText}</a>
@@ -72,7 +68,7 @@ class ErrorMessage extends React.Component {
         var urlMessage = 'visit this fucking website,';
         var addrMessage = 'visit this fucking place,';
 
-        var sentence = 'If you want to get to the bottom of this bullshit, ' + 'you may want to ';
+        var sentence = `If you want to get to the bottom of this bullshit, you may want to `;
 
         var reasons = [];
 
@@ -86,14 +82,14 @@ class ErrorMessage extends React.Component {
             }
 
             if (leoInfo.physicalAddress) {
-                var flattenedAddr = helpers.concatStreetAddress(leoInfo.physicalAddress);
+                const flattenedAddr = helpers.concatStreetAddress(leoInfo.physicalAddress);
 
                 reasons.push(this.createMessageFragment(addrMessage, encodeURIComponent(flattenedAddr), flattenedAddr, 'addr'));
             }
         }
 
         // we favor local election information first
-        if (Object.getOwnPropertyNames(seoInfo).length > 0 && Object.getOwnPropertyNames(leoInfo).length == 0) {
+        if (Object.getOwnPropertyNames(seoInfo).length > 0 && Object.getOwnPropertyNames(leoInfo).length === 0) {
             if (seoInfo.electionOfficials && seoInfo.electionOfficials.length > 0 && seoInfo.electionOfficials[0].officePhoneNumber && !leoPhone) {
                 reasons.push(this.createMessageFragment(phoneMessage, seoInfo.electionOfficials[0].officePhoneNumber, seoInfo.electionOfficials[0].officePhoneNumber, 'tel'));
             }
@@ -103,7 +99,7 @@ class ErrorMessage extends React.Component {
             }
 
             if (seoInfo.physicalAddress) {
-                var flattenedAddr = helpers.concatStreetAddress(seoInfo.physicalAddress);
+                const flattenedAddr = helpers.concatStreetAddress(seoInfo.physicalAddress);
 
                 reasons.push(this.createMessageFragment(addrMessage, encodeURIComponent(flattenedAddr), flattenedAddr, 'addr'));
             }

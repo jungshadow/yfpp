@@ -27,7 +27,7 @@ class Bios extends React.Component {
                         <div className="bio-img-social">
                             <ul className="vList vList_sm">
                                 <li>
-                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" href={bioData.twitter} data-show-count="false">
+                                    <a className="mix-a_reversed mix-txt_medium twitter-follow-button" target="_blank" rel="noopener noreferrer" href={bioData.twitter} data-show-count="false">
                                         {bioData.twitter}
                                     </a>
                                 </li>

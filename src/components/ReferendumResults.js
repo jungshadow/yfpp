@@ -1,6 +1,5 @@
-// Import dependencies 
+// Import dependencies
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 /**
  * Referendum Results Component
@@ -9,9 +8,6 @@ import ReactDOM from 'react-dom';
  * @extends React.Component
  */
 class ReferendumResults extends React.Component {
-
-
-
     /**
      * Renders referendum results list items
      *
@@ -19,7 +15,6 @@ class ReferendumResults extends React.Component {
      * @return {object} referendum results component markup
      */
     render() {
-
         const referendum = this.props.referendum;
 
         if (!referendum.referendumTitle) {
@@ -28,12 +23,17 @@ class ReferendumResults extends React.Component {
 
         return (
             <div className="referendum">
-	        {referendum.referendumText ? <p>{referendum.referendumText}</p> : ''}
-                {referendum.referendumUrl ? <a href={referendum.referendumUrl} target="_blank">Learn More</a> : '' }
+                {referendum.referendumText ? <p>{referendum.referendumText}</p> : ''}
+                {referendum.referendumUrl ? (
+                    <a href={referendum.referendumUrl} target="_blank" rel="noopener noreferrer">
+                        Learn More
+                    </a>
+                ) : (
+                    ''
+                )}
             </div>
         );
     }
-
-};
+}
 
 export default ReferendumResults;
