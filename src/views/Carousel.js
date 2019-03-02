@@ -8,6 +8,10 @@ import $ from 'jquery';
  */
 class Carousel {
     constructor(element) {
+        if (!element) {
+            return;
+        }
+        this.element = element;
         /**
          * tracks whether component is enabled or not
          * @property
@@ -67,7 +71,7 @@ class Carousel {
      * @private
      */
     _createChildren() {
-        this.carousel = $('.js-carousel');
+        this.carousel = $(this.element);
         this.slideContainer = this.carousel.find('.carousel-inner-slides');
         this.slides = this.carousel.find('.carousel-inner-slides-slide');
         this.carouselNav = $('.js-carouselNav');

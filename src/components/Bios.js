@@ -2,6 +2,7 @@
 import React from 'react';
 
 import Bio from './Bio';
+import Carousel from '../views/Carousel';
 
 /**
  * Bios Component
@@ -10,7 +11,22 @@ import Bio from './Bio';
  * @extends React.Component
  */
 class Bios extends React.Component {
-    componentDidMount() {}
+    constructor(props) {
+        super(props);
+        this.carousel = React.createRef();
+        this.carouselController = null;
+    }
+
+    componentDidMount() {
+        if (this.carousel) {
+            this.carouselController = new Carousel(this.carousel.current);
+        }
+    }
+    componentWillUnmount() {
+        if (this.carouselController) {
+            this.carouselController = null;
+        }
+    }
 
     buildBioList() {
         const BioData = require('./../models/bios.json');
@@ -34,7 +50,7 @@ class Bios extends React.Component {
      */
     render() {
         return (
-            <div className="carousel js-carousel" role="region" aria-label="Team Biographies">
+            <div className="carousel js-carousel" ref={this.carousel} role="region" aria-label="Team Biographies">
                 <div className="carousel-inner">
                     <ul className="carousel-inner-slides">{this.buildBioList()}</ul>
                 </div>
