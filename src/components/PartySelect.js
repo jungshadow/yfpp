@@ -10,8 +10,8 @@ import PartySelectOptions from './PartySelectOptions';
  * @extends React.Component
  */
 class PartySelect extends React.Component {
-    onChangeHandler = () => {
-        this.props.updateFilterText(this.refs.partySelect.value);
+    onSelectHandler = () => {
+        this.props.handleOnSelect(this.refs.partySelect.value);
     };
 
     /**
@@ -41,7 +41,7 @@ class PartySelect extends React.Component {
 
         return (
             <form action="">
-                <select className="formSelect" name="" ref="partySelect" onChange={this.onChangeHandler}>
+                <select className="formSelect" name="" ref="partySelect" onChange={this.onSelectHandler}>
                     <PartySelectOptions key="all" primartyPartyAbbr="all" primaryPartyName="All" />
                     {primaryParties}
                 </select>

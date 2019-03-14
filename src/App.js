@@ -7,13 +7,8 @@ import ErrorMessage from './components/ErrorMessage';
 import PollingPlaceResults from './components/PollingPlaceResults';
 import EarlyVoteSiteResults from './components/EarlyVoteSiteResults';
 import DropOffLocationResults from './components/DropOffLocationResults';
-import ContestResults from './components/ContestResults';
 import Modal from './components/Modal';
-import PartySelect from './components/PartySelect';
 import SiteTitle from './components/SiteTitle';
-import ElectionTitle from './components/ElectionTitle';
-import Tabs from './components/Tabs';
-import TabPanel from './components/TabPanel';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Bios from './components/Bios';
@@ -21,6 +16,8 @@ import FuckOff from './components/FuckOff';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 import moment from 'moment';
+import SocialLinks from './components/SocialLinks';
+import Results from './components/Results';
 
 // active classname
 const ACTIVE_CLASS = 'isActive';
@@ -380,63 +377,6 @@ class App extends React.Component {
         return <PollingPlaceResults key={key} pollingLocations={this.state.pollingLocations[key]} />;
     }
 
-    /**
-     * Renders Content Results Data
-     *
-     * @method renderContestResults
-     * @return {object} markup for contest results container and list items
-     */
-    renderContestResults() {
-        if (this.state.contests.length > 0) {
-            return (
-                <div className="group-item">
-                    <ul className="vList">{Object.keys(this.state.contests).map(this.generateContestResult)}</ul>
-                </div>
-            );
-        }
-    }
-
-    /**
-     * Generates single contest result entry
-     *
-     * @method generateContestResult
-     * @param  {string} key unique index
-     * @return {object} single contest result component markup
-     */
-    generateContestResult = key => {
-        const currentContest = this.state.contests[key];
-
-        // if the current contest has a primaryParty property
-        // and the selected filter is equal to that primaryParty
-        // return the contest result
-        if (currentContest.primaryParty && this.state.filterBy === currentContest.primaryParty) {
-            return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
-
-            // else if the currentContest does not have primaryParty
-            // or the primaryParty is empty
-            // or the current selected filter is set to all
-            // return the contest result
-        } else if (!currentContest.primaryParty || this.state.filterBy === 'All' || currentContest.primaryParty === '') {
-            return <ContestResults key={key} filterBy={this.state.filterBy} currentContest={currentContest} />;
-        }
-    };
-
-    /**
-     * Renders party select form
-     *
-     * @method renderPartySelect
-     * @return {object} PartySelect component markup container and option list
-     */
-    renderPartySelect() {
-        if (this.state.primaryParties.length > 0) {
-            return (
-                <div className="group-item">
-                    <PartySelect primaryParties={this.state.primaryParties} updateFilterText={this.updateFilterText} />
-                </div>
-            );
-        }
-    }
-
     scrollToTarget(event) {
         // debugger;
         const $target = $(event.currentTarget.hash);
@@ -463,30 +403,7 @@ class App extends React.Component {
             <div className="site">
                 <div className={'contentWrap ' + activeClassName}>
                     <div className="contentWrap-ancillary">
-                        <div className="wrapper">
-                            <ul className="hList">
-                                <li>
-                                    <a
-                                        href="https://twitter.com/fnpollingplace"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="actionLink actionLink_twitter mix-actionLink_lrg mix-actionLink_twitter"
-                                    >
-                                        <span className="isVisuallyHidden">Twitter</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="https://www.facebook.com/Your-Fucking-Polling-Place-120373578023062"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="actionLink actionLink_facebook mix-actionLink_lrg mix-actionLink_facebook"
-                                    >
-                                        <span className="isVisuallyHidden">Facebook</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        <SocialLinks />
                     </div>
                     <header className="contentWrap-primary" role="banner">
                         <div className="contentWrap-primary-inner">
@@ -529,26 +446,23 @@ class App extends React.Component {
                         </div>
                     </header>
                     <main className="contentWrap-secondary" role="main">
-                        <div className="wrapper mix-wrapper_bleed">
-                            <ElectionTitle electionInfo={this.state.electionInfo} />
-                            <Tabs>
-                                <TabPanel label="Fucking Polling Place" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
-                                    <EarlyVoteSiteResults earlyVoteSites={this.state.earlyVoteSites} index={this.state.earlyVoteSitesIndex} handleChange={this.updateEarlyVoteSites} />
-                                    <DropOffLocationResults dropOffLocations={this.state.dropOffLocations} index={this.state.dropOffLocationsIndex} handleChange={this.updateDropOffLocations} />
-                                    <PollingPlaceResults
-                                        pollingLocations={this.state.pollingLocations}
-                                        index={this.state.pollingLocationsIndex}
-                                        electionInfo={this.state.electionInfo}
-                                        handleChange={this.updatePollingLocations}
-                                    />
-                                </TabPanel>
-                                <TabPanel label="On Your Fucking Ballot" normalizedAddress={this.state.normalizedAddress} electionInfo={this.state.electionInfo}>
-                                    <div className="group">
-                                        {this.renderPartySelect()} {this.renderContestResults()}
-                                    </div>
-                                </TabPanel>
-                            </Tabs>
-                        </div>
+                        <Results
+                            normalizedAddress={this.state.normalizedAddress}
+                            contests={this.state.contests}
+                            electionInfo={this.state.electionInfo}
+                            earlyVoteSites={this.state.earlyVoteSites}
+                            earlyVoteSitesIndex={this.state.earlyVoteSitesIndex}
+                            handleUpdateEarlyVoteSites={this.updateEarlyVoteSites}
+                            dropOffLocations={this.state.dropOffLocations}
+                            dropOffLocationsIndex={this.state.dropOffLocationsIndex}
+                            handleUpdateDropOffLocations={this.updateDropOffLocations}
+                            pollingLocations={this.state.pollingLocations}
+                            pollingLocationsIndex={this.state.pollingLocationsIndex}
+                            handleUpdatePollingLocations={this.updatePollingLocations}
+                            primaryParties={this.state.primaryParties}
+                            filterBy={this.state.filterBy}
+                            handleOnSelect={this.updateFilterText}
+                        />
                     </main>
                     <div className="contentWrap-tertiary">
                         <CSSTransitionGroup className="fuckOff" transitionName="slide" transitionEnterTimeout={100} transitionLeaveTimeout={100}>
