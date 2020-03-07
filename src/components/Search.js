@@ -11,10 +11,7 @@ import helpers from '../helpers';
  * @extends React.Component
  */
 class Search extends React.Component {
-    API_URL_DEV = `${process.env.PUBLIC_URL}test_data/test_data_san_fran.json`;
-    // API_URL_DEV =`${process.env.PUBLIC_URL}/test_data/test_data_errors.json`
-    // API_URL_DEV =`${process.env.PUBLIC_URL}/test_data/test_data_new_jersey.json`
-    // API_URL_DEV = `test_data/test_data_portland.json`;
+    API_URL_DEV = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_URL;
     API_URL = process.env.REACT_APP_API_URL;
 
     constructor(props) {
@@ -30,19 +27,19 @@ class Search extends React.Component {
      */
     componentDidMount() {
         if (process.env.NODE_ENV !== 'development') {
-            this.initAutocomplete();
+            // this.initAutocomplete();
         }
     }
 
-    initAutocomplete() {
-        /* Add Google Autocomplete */
-        const options = {
-            types: ['address'],
-            componentRestrictions: { country: 'us' },
-        };
+    // initAutocomplete() {
+    //     /* Add Google Autocomplete */
+    //     const options = {
+    //         types: ['address'],
+    //         componentRestrictions: { country: 'us' },
+    //     };
 
-        new window.google.maps.places.Autocomplete(this.searchInput.current, options);
-    }
+    //     new window.google.maps.places.Autocomplete(this.searchInput.current, options);
+    // }
 
     getRequestURL(requestParams) {
         switch (process.env.NODE_ENV) {
