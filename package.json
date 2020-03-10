@@ -5,13 +5,13 @@
     "homepage": "https://yourfuckingpollingplace.com",
     "dependencies": {
         "hammerjs": "^2.0.8",
-        "jquery": "^3.3.1",
-        "moment": "^2.22.2",
+        "jquery": "^3.4.1",
+        "moment": "^2.24.0",
         "node-sass": "^4.13.1",
-        "react": "^16.5.2",
+        "react": "^16.13.0",
         "react-addons-css-transition-group": "^15.6.2",
-        "react-dom": "^16.5.2",
-        "react-scripts": "2.1.5"
+        "react-dom": "^16.13.0",
+        "react-scripts": "3.4.0"
     },
     "scripts": {
         "predeploy": "npm run build",
@@ -31,13 +31,13 @@
         "not op_mini all"
     ],
     "devDependencies": {
-        "ajv": "^6.5.4",
-        "eslint-config-prettier": "^3.1.0",
-        "eslint-plugin-import": "^2.14.0",
-        "eslint-plugin-jsx-a11y": "^6.1.2",
-        "eslint-plugin-prettier": "^3.0.0",
-        "eslint-plugin-react": "^7.11.1",
-        "gh-pages": "^2.0.1",
-        "prettier": "^1.14.3"
+        "ajv": "^6.12.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-react": "^7.19.0",
+        "gh-pages": "^2.2.0",
+        "prettier": "^1.19.1"
     }
 }
