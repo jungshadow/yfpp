@@ -14,25 +14,7 @@ import $ from 'jquery';
  * @extends React.Component
  */
 class Search extends React.Component {
-
-    /**
-     * Handles post-render actions
-     *
-     * @method componentDidMount
-     */
-    componentDidMount() {
-        /* Add Google Autocomplete */
-        const options = {
-            types: ['address'],
-            componentRestrictions: { country: 'us' }
-        };
-
-        const input = $('.searchForm-input')[0];
-        new window.google.maps.places.Autocomplete(input, options);
-    }
-
     fetchData(e) {
-
         e.preventDefault();
 
         if (this.refs.address.value.toLowerCase() === 'fuck off') {
@@ -45,9 +27,9 @@ class Search extends React.Component {
 
         this.props.onFuckOffCloseHandler();
         var config = {
-            'key': 'AIzaSyCm5MGxuhRo7mNmhRlfXlU66OS6Ny-ZPpQ',
-            'address': this.refs.address.value
-        }
+            key: 'AIzaSyCm5MGxuhRo7mNmhRlfXlU66OS6Ny-ZPpQ',
+            address: this.refs.address.value,
+        };
 
         $.ajax({
             url: 'https://www.googleapis.com/civicinfo/v2/voterinfo?',
@@ -55,7 +37,7 @@ class Search extends React.Component {
             //url: 'test_data/test_data_errors.json',
             //url: 'test_data/test_data_new_jersey.json',
             //url: 'test_data/test_data_portland.json',
-            type: "GET",
+            type: 'GET',
             dataType: 'json',
             data: config,
             success: function(data) {
@@ -65,8 +47,7 @@ class Search extends React.Component {
             error: function(xhr, status, err) {
                 analytics.failure(xhr.responseJSON);
                 this.props.onErrorHandler();
-
-            }.bind(this)
+            }.bind(this),
         });
     }
 
@@ -81,16 +62,16 @@ class Search extends React.Component {
      * @return {object} search component markup
      */
     render() {
-
         return (
-            <form className={'searchForm ' + this.props.activeClassName} action="" ref="searchForm" onSubmit={this.fetchData} >
-            <input className="searchForm-input" type="search" ref="address" placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006" onChange={this.errorRemove}/>
-                <button className="searchForm-submit" type="submit">Search</button>
+            <form className={'searchForm ' + this.props.activeClassName} action="" ref="searchForm" onSubmit={this.fetchData}>
+                <input className="searchForm-input" type="search" ref="address" placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006" onChange={this.errorRemove} />
+                <button className="searchForm-submit" type="submit">
+                    Search
+                </button>
             </form>
-        )
-
+        );
     }
-};
+}
 
 // set up propType validation
 Search.propTypes = {
@@ -98,6 +79,6 @@ Search.propTypes = {
     onErrorHandler: React.PropTypes.func,
     onErrorRemoveHandler: React.PropTypes.func,
     updateResults: React.PropTypes.func,
-}
+};
 
 export default Search;
