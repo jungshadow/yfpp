@@ -3,62 +3,62 @@ contentWrap - outer container for main content
 ------------------------------------------------------------------------ */
 
 .contentWrap {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: stretch;
-	align-content: stretch;
-	position: relative;
-	height: 100vh;
-	width: 100%;
-	padding-top: 20px;
-	overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    padding-top: 20px;
+    overflow: hidden;
 }
 
 .no-flexbox .contentWrap {
-	display: block;
-	height: auto;
+    display: block;
+    height: auto;
 }
 
 .contentWrap-ancillary {
-	align-self: center;
-	flex: 0 1 auto;
-	margin-bottom: 10px;
+    align-self: center;
+    flex: 0 1 auto;
+    margin-bottom: 10px;
 }
 
 .contentWrap-primary {
-	display: flex;
-	flex: 0.7 1 auto;
-	width: 100%;
-	transition: all .25s ease-in-out;
+    display: flex;
+    flex: 0.7 1 auto;
+    width: 100%;
+    transition: all 0.25s ease-in-out;
 }
 
 .no-flexbox .contentWrap-primary {
-	display: block;
+    display: block;
 }
 
 .contentWrap-primary-inner {
-	width: 100%;
-	align-self: center;
+    width: 100%;
+    align-self: center;
 }
 
 .contentWrap-secondary {
-	width: 100%;
-	height: 0;
-	transition: all .45s ease-in-out;
-	transform: translateY(500px);
-	opacity: 0;
+    width: 100%;
+    height: 0;
+    transition: all 0.45s ease-in-out;
+    transform: translateY(500px);
+    opacity: 0;
 }
 
 .contentWrap-tertiary {
-	position: relative;
-	flex: 1 1 auto;
-	align-self: stretch;
-	background: url(./images//fucking-patriot.png) no-repeat bottom center;
-	background-size: contain;
-	max-height: 462px;
-	overflow: hidden;
-	transition: all 0.25s ease-in-out;
+    position: relative;
+    flex: 1 1 auto;
+    align-self: stretch;
+    background: url(../../../images/fucking-patriot.png) no-repeat bottom center;
+    background-size: contain;
+    max-height: 462px;
+    overflow: hidden;
+    transition: all 0.25s ease-in-out;
 }
 
 .contentWrap-anchor {
@@ -80,33 +80,32 @@ contentWrap - outer container for main content
         font-weight: normal;
         font-size: 1.5em;
         text-indent: 0;
-        transition: all .25s ease-in-out;
+        transition: all 0.25s ease-in-out;
     }
 }
 
 /* active state */
 .isActive.contentWrap {
-	height: auto;
+    height: auto;
 
-	.contentWrap-primary {
-		top: 0;
-		margin: 0 auto 20px;
-	}
+    .contentWrap-primary {
+        top: 0;
+        margin: 0 auto 20px;
+    }
 
-	.contentWrap-secondary {
-		height: auto;
-		max-width: 728px;
-		margin: 0 auto 50px;
-		transform: translateY(0px);
-		opacity: 1;
-	}
+    .contentWrap-secondary {
+        height: auto;
+        max-width: 728px;
+        margin: 0 auto 50px;
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }
 
 @media screen and (min-width: 768px) {
-
-	.contentWrap-ancillary {
-		align-self: flex-end;
-	}
+    .contentWrap-ancillary {
+        align-self: flex-end;
+    }
 
     .contentWrap-anchor {
         text-indent: 0;
@@ -121,26 +120,23 @@ contentWrap - outer container for main content
         color: lighten($RED, 10);
 
         &:after {
-           transform: translateY(3px);
+            transform: translateY(3px);
         }
     }
 }
 
 @media screen and (min-width: 568px) {
+    .contentWrap-primary {
+        flex: 0.3 1 auto;
+    }
 
-	.contentWrap-primary {
-		flex: 0.3 1 auto;
-	}
-
-	.contentWrap-tertiary {
-		background-position: bottom right;
-	}
+    .contentWrap-tertiary {
+        background-position: bottom right;
+    }
 }
 
-
 @media screen and (min-width: 688px) and (min-height: 900px) {
-
-	.contentWrap-primary {
-		flex: 1 1 auto;
-	}
+    .contentWrap-primary {
+        flex: 1 1 auto;
+    }
 }
