@@ -43,8 +43,8 @@ class Search extends React.Component {
 
     getRequestURL(requestParams) {
         switch (process.env.NODE_ENV) {
-            case 'development':
-                return this.API_URL_DEV;
+            // case 'development':
+            //     return this.API_URL_DEV;
 
             default:
                 return this.API_URL + helpers.buildQueryString(requestParams);
