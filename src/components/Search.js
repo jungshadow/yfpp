@@ -18,6 +18,10 @@ class Search extends React.Component {
         super(props);
         this.searchForm = React.createRef();
         this.searchInput = React.createRef();
+
+        this.state = {
+            searchQuery: '',
+        };
     }
 
     /**
@@ -27,41 +31,42 @@ class Search extends React.Component {
      */
     componentDidMount() {
         if (process.env.NODE_ENV !== 'development') {
-            // this.initAutocomplete();
         }
     }
 
-    // initAutocomplete() {
-    //     /* Add Google Autocomplete */
-    //     const options = {
-    //         types: ['address'],
-    //         componentRestrictions: { country: 'us' },
-    //     };
-
-    //     new window.google.maps.places.Autocomplete(this.searchInput.current, options);
-    // }
-
-    getRequestURL(requestParams) {
+    getRequestURL(route, requestParams) {
+        const baseParams = {
+            key: process.env.REACT_APP_API_KEY,
+        };
         switch (process.env.NODE_ENV) {
-            case 'development':
-                return this.API_URL_DEV;
+            // case 'development':
+            //     return this.API_URL_DEV;
 
             default:
-                return this.API_URL + helpers.buildQueryString(requestParams);
+                return `${this.API_URL}/${route}?${helpers.buildQueryString({ ...baseParams, ...requestParams })}`;
         }
     }
 
-    fetchData = e => {
+    fetchData = async e => {
         e.preventDefault();
 
         const searchQuery = this.searchInput.current.value;
-        const requestParams = {
-            key: process.env.REACT_APP_API_KEY,
-            address: searchQuery,
-        };
+        const requests = [this.getLocations(searchQuery), this.getRepresentatives(searchQuery)];
 
-        const requestURL = this.getRequestURL(requestParams);
+        let [locations, representatives] = await Promise.all(requests);
 
+        console.log(locations, representatives);
+        analytics.success(locations);
+        this.props.updateElectionResults(locations);
+
+        this.showEasterEgg(searchQuery);
+    };
+
+    errorRemove = () => {
+        this.props.onErrorRemoveHandler();
+    };
+
+    showEasterEgg = searchQuery => {
         if (searchQuery.toLowerCase() === 'fuck off') {
             this.props.onFuckOffHandler();
             // attempt to dismiss virtual keyboard
@@ -71,8 +76,16 @@ class Search extends React.Component {
         }
 
         this.props.onFuckOffCloseHandler();
+    };
 
-        fetch(requestURL, {
+    getLocations = async searchQuery => {
+        const requestParams = {
+            address: searchQuery,
+        };
+
+        const requestURL = this.getRequestURL('voterinfo', requestParams);
+
+        return fetch(requestURL, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -83,26 +96,27 @@ class Search extends React.Component {
                 if (!response.ok) {
                     throw response;
                 }
-                return response.json(); //we only get here if there is no error
-            })
-            .then(response => {
-                console.log(response);
-                analytics.success(response);
-                this.props.updateResults(response);
+
+                return response.json();
             })
             .catch(error => {
-                error.json().then(errorMessage => {
-                    console.log(errorMessage.error.message);
-                    analytics.failure(errorMessage.error.message);
-                    this.props.onErrorHandler();
-                });
+                console.log(error);
+
+                const errorMessage = error;
+                console.log(errorMessage.error.message);
+                analytics.failure(errorMessage.error.message);
+                this.props.onErrorHandler();
             });
     };
 
-    errorRemove = () => {
-        this.props.onErrorRemoveHandler();
-    };
+    getRepresentatives = async searchQuery => {
+        const requestParams = {
+            address: searchQuery,
+        };
 
+        const requestURL = this.getRequestURL('representatives', requestParams);
+        return fetch(requestURL).then(response => response.json());
+    };
     /**
      * Renders search form
      *
@@ -126,7 +140,7 @@ Search.propTypes = {
     activeClassName: PropTypes.string,
     onErrorHandler: PropTypes.func,
     onErrorRemoveHandler: PropTypes.func,
-    updateResults: PropTypes.func,
+    updateElectionResults: PropTypes.func,
 };
 
 export default Search;

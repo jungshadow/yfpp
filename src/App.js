@@ -67,10 +67,10 @@ class App extends React.Component {
     /**
      * Sets state with results from search
      *
-     * @method updateResults
+     * @method updateElectionResults
      * @param  {object} data object returned from API
      */
-    updateResults = data => {
+    updateElectionResults = data => {
         const leoInfo = (data.state && data.state[0] && data.state[0].local_jurisdiction && data.state[0].local_jurisdiction.electionAdministrationBody) || {};
         const seoInfo = (data.state && data.state[0] && data.state[0].electionAdministrationBody) || {};
         const normalizedAddress = data.normalizedInput || {};
@@ -84,7 +84,7 @@ class App extends React.Component {
         let isActive = false;
         let isError = false;
 
-        if (contests.length > 0 || (pollingLocations.length > 0 || earlyVoteSites.length > 0 || dropOffLocations.length > 0)) {
+        if (contests.length > 0 || pollingLocations.length > 0 || earlyVoteSites.length > 0 || dropOffLocations.length > 0) {
             Object.keys(contests).forEach(function(key) {
                 if (contests[key].primaryParty && contests[key].primaryParty !== '' && partyList.indexOf(contests[key].primaryParty) === -1) {
                     return partyList.push(contests[key].primaryParty);
@@ -414,7 +414,7 @@ class App extends React.Component {
                                     </div>
                                     <div className="group-bd">
                                         <Search
-                                            updateResults={this.updateResults}
+                                            updateElectionResults={this.updateElectionResults}
                                             activeClassName={activeClassName}
                                             onErrorHandler={this.onErrorHandler}
                                             onErrorRemoveHandler={this.onErrorRemoveHandler}
