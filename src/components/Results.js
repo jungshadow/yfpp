@@ -8,26 +8,28 @@ import PollingPlaceResults from './PollingPlaceResults';
 import EarlyVoteSiteResults from './EarlyVoteSiteResults';
 import PartySelect from './PartySelect';
 import ContestsList from './ContestsList';
+import Representatives from './Representatives/Representatives';
 
 Results.propTypes = {};
 
 function Results(props) {
     const {
+        contests,
         dropOffLocations,
         dropOffLocationsIndex,
         earlyVoteSites,
         earlyVoteSitesIndex,
         electionInfo,
+        filterBy,
+        handleOnSelect,
         normalizedAddress,
         pollingLocations,
         pollingLocationsIndex,
-        handleOnSelect,
+        primaryParties,
+        representatives,
         updateDropOffLocations,
         updateEarlyVoteSites,
         updatePollingLocations,
-        primaryParties,
-        contests,
-        filterBy,
     } = props;
     return (
         <div className="wrapper mix-wrapper_bleed">
@@ -37,6 +39,9 @@ function Results(props) {
                     <EarlyVoteSiteResults earlyVoteSites={earlyVoteSites} index={earlyVoteSitesIndex} handleChange={updateEarlyVoteSites} />
                     <DropOffLocationResults dropOffLocations={dropOffLocations} index={dropOffLocationsIndex} handleChange={updateDropOffLocations} />
                     <PollingPlaceResults pollingLocations={pollingLocations} index={pollingLocationsIndex} electionInfo={electionInfo} handleChange={updatePollingLocations} />
+                </TabPanel>
+                <TabPanel label="Your Fucking Representatives" normalizedAddress={normalizedAddress} electionInfo={electionInfo}>
+                    <Representatives representatives={representatives} />
                 </TabPanel>
                 <TabPanel label="On Your Fucking Ballot" normalizedAddress={normalizedAddress} electionInfo={electionInfo}>
                     <div className="group">

@@ -18,6 +18,7 @@ import CSSTransitionGroup from 'react-addons-css-transition-group';
 import moment from 'moment';
 import SocialLinks from './components/SocialLinks';
 import Results from './components/Results';
+import Representatives from './components/Representatives/Representatives';
 
 // active classname
 const ACTIVE_CLASS = 'isActive';
@@ -57,6 +58,7 @@ class App extends React.Component {
             showModal: false,
             filterBy: 'All',
             primaryParties: [],
+            representatives: [],
         };
 
         this.activeMsgClassName = 'hasMsg';
@@ -318,6 +320,12 @@ class App extends React.Component {
         });
     }
 
+    updateRepresentativesResults = response => {
+        const { officials } = response;
+
+        this.setState({ representatives: officials });
+    };
+
     /**
      * Renders Early Vote Site Results data
      *
@@ -420,6 +428,7 @@ class App extends React.Component {
                                             onErrorRemoveHandler={this.onErrorRemoveHandler}
                                             onFuckOffHandler={this.onFuckOffHandler}
                                             onFuckOffCloseHandler={this.onFuckOffCloseHandler}
+                                            updateRepresentativesResults={this.updateRepresentativesResults}
                                         />
                                         <div className="userContent mix-userContent_md mix-userContent_ctr">
                                             <p>
@@ -447,21 +456,22 @@ class App extends React.Component {
                     </header>
                     <main className="contentWrap-secondary" role="main">
                         <Results
-                            normalizedAddress={this.state.normalizedAddress}
                             contests={this.state.contests}
-                            electionInfo={this.state.electionInfo}
-                            earlyVoteSites={this.state.earlyVoteSites}
-                            earlyVoteSitesIndex={this.state.earlyVoteSitesIndex}
-                            handleUpdateEarlyVoteSites={this.updateEarlyVoteSites}
                             dropOffLocations={this.state.dropOffLocations}
                             dropOffLocationsIndex={this.state.dropOffLocationsIndex}
-                            handleUpdateDropOffLocations={this.updateDropOffLocations}
-                            pollingLocations={this.state.pollingLocations}
-                            pollingLocationsIndex={this.state.pollingLocationsIndex}
-                            handleUpdatePollingLocations={this.updatePollingLocations}
-                            primaryParties={this.state.primaryParties}
+                            earlyVoteSites={this.state.earlyVoteSites}
+                            earlyVoteSitesIndex={this.state.earlyVoteSitesIndex}
+                            electionInfo={this.state.electionInfo}
                             filterBy={this.state.filterBy}
                             handleOnSelect={this.updateFilterText}
+                            handleUpdateDropOffLocations={this.updateDropOffLocations}
+                            handleUpdateEarlyVoteSites={this.updateEarlyVoteSites}
+                            handleUpdatePollingLocations={this.updatePollingLocations}
+                            normalizedAddress={this.state.normalizedAddress}
+                            pollingLocations={this.state.pollingLocations}
+                            pollingLocationsIndex={this.state.pollingLocationsIndex}
+                            primaryParties={this.state.primaryParties}
+                            representatives={this.state.representatives}
                         />
                     </main>
                     <div className="contentWrap-tertiary">

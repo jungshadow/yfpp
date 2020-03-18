@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import analytics from '../analytics';
-import helpers from '../helpers';
+import APIService from '../services/APIService';
 
 /**
  * Search Form Component
@@ -11,9 +11,6 @@ import helpers from '../helpers';
  * @extends React.Component
  */
 class Search extends React.Component {
-    API_URL_DEV = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_URL;
-    API_URL = process.env.REACT_APP_API_URL;
-
     constructor(props) {
         super(props);
         this.searchForm = React.createRef();
@@ -24,42 +21,23 @@ class Search extends React.Component {
         };
     }
 
-    /**
-     * Handles post-render actions
-     *
-     * @method componentDidMount
-     */
-    componentDidMount() {
-        if (process.env.NODE_ENV !== 'development') {
-        }
-    }
-
-    getRequestURL(route, requestParams) {
-        const baseParams = {
-            key: process.env.REACT_APP_API_KEY,
-        };
-        switch (process.env.NODE_ENV) {
-            // case 'development':
-            //     return this.API_URL_DEV;
-
-            default:
-                return `${this.API_URL}/${route}?${helpers.buildQueryString({ ...baseParams, ...requestParams })}`;
-        }
-    }
-
     fetchData = async e => {
         e.preventDefault();
+        try {
+            const searchQuery = this.searchInput.current.value;
+            const requests = [APIService.getLocations(searchQuery), APIService.getRepresentatives(searchQuery)];
 
-        const searchQuery = this.searchInput.current.value;
-        const requests = [this.getLocations(searchQuery), this.getRepresentatives(searchQuery)];
+            let [locations, representatives] = await Promise.all(requests);
 
-        let [locations, representatives] = await Promise.all(requests);
+            console.log(locations, representatives);
+            analytics.success(locations);
+            this.props.updateElectionResults(locations);
+            this.props.updateRepresentativesResults(representatives);
 
-        console.log(locations, representatives);
-        analytics.success(locations);
-        this.props.updateElectionResults(locations);
-
-        this.showEasterEgg(searchQuery);
+            this.showEasterEgg(searchQuery);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     errorRemove = () => {
@@ -78,45 +56,6 @@ class Search extends React.Component {
         this.props.onFuckOffCloseHandler();
     };
 
-    getLocations = async searchQuery => {
-        const requestParams = {
-            address: searchQuery,
-        };
-
-        const requestURL = this.getRequestURL('voterinfo', requestParams);
-
-        return fetch(requestURL, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw response;
-                }
-
-                return response.json();
-            })
-            .catch(error => {
-                console.log(error);
-
-                const errorMessage = error;
-                console.log(errorMessage.error.message);
-                analytics.failure(errorMessage.error.message);
-                this.props.onErrorHandler();
-            });
-    };
-
-    getRepresentatives = async searchQuery => {
-        const requestParams = {
-            address: searchQuery,
-        };
-
-        const requestURL = this.getRequestURL('representatives', requestParams);
-        return fetch(requestURL).then(response => response.json());
-    };
     /**
      * Renders search form
      *

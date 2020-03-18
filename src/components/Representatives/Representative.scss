@@ -1,0 +1,26 @@
+@import '../../scss/helpers/globalVars';
+
+.rep {
+    display: flex;
+    background-color: $GREY_DARK;
+    color: $COLOR_TEXT_LIGHT;
+}
+
+.rep_democratic-party {
+    background-color: $BLUE;
+    color: $COLOR_TEXT_LIGHT;
+}
+
+.rep_republican-party {
+    background-color: $RED;
+    color: $COLOR_TEXT_LIGHT;
+}
+
+.rep-img {
+    max-width: 100px;
+    border-right: 4px solid $GREY_LIGHT;
+}
+
+.rep-details {
+    padding: 10px;
+}
