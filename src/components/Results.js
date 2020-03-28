@@ -23,6 +23,7 @@ function Results(props) {
         filterBy,
         handleOnSelect,
         normalizedAddress,
+        offices,
         pollingLocations,
         pollingLocationsIndex,
         primaryParties,
@@ -31,26 +32,34 @@ function Results(props) {
         updateEarlyVoteSites,
         updatePollingLocations,
     } = props;
+    console.log('results');
+
     return (
         <div className="wrapper mix-wrapper_bleed">
             <ElectionTitle electionInfo={electionInfo} />
             <Tabs>
-                <TabPanel label="Fucking Polling Place" normalizedAddress={normalizedAddress} electionInfo={electionInfo}>
-                    <EarlyVoteSiteResults earlyVoteSites={earlyVoteSites} index={earlyVoteSitesIndex} handleChange={updateEarlyVoteSites} />
-                    <DropOffLocationResults dropOffLocations={dropOffLocations} index={dropOffLocationsIndex} handleChange={updateDropOffLocations} />
-                    <PollingPlaceResults pollingLocations={pollingLocations} index={pollingLocationsIndex} electionInfo={electionInfo} handleChange={updatePollingLocations} />
-                </TabPanel>
-                <TabPanel label="Your Fucking Representatives" normalizedAddress={normalizedAddress} electionInfo={electionInfo}>
-                    <Representatives representatives={representatives} />
-                </TabPanel>
-                <TabPanel label="On Your Fucking Ballot" normalizedAddress={normalizedAddress} electionInfo={electionInfo}>
-                    <div className="group">
-                        <div className="group-item">
-                            <PartySelect primaryParties={primaryParties} handleOnSelect={handleOnSelect} />
+                {pollingLocations && (
+                    <TabPanel label="Fucking Polling Place" normalizedAddress={normalizedAddress} electionInfo={electionInfo}>
+                        <EarlyVoteSiteResults earlyVoteSites={earlyVoteSites} index={earlyVoteSitesIndex} handleChange={updateEarlyVoteSites} />
+                        <DropOffLocationResults dropOffLocations={dropOffLocations} index={dropOffLocationsIndex} handleChange={updateDropOffLocations} />
+                        <PollingPlaceResults pollingLocations={pollingLocations} index={pollingLocationsIndex} electionInfo={electionInfo} handleChange={updatePollingLocations} />
+                    </TabPanel>
+                )}
+                {representatives && (
+                    <TabPanel label="Your Fucking Representatives" normalizedAddress={normalizedAddress} electionInfo={electionInfo}>
+                        <Representatives representatives={representatives} offices={offices} />
+                    </TabPanel>
+                )}
+                {primaryParties && (
+                    <TabPanel label="On Your Fucking Ballot" normalizedAddress={normalizedAddress} electionInfo={electionInfo}>
+                        <div className="group">
+                            <div className="group-item">
+                                <PartySelect primaryParties={primaryParties} handleOnSelect={handleOnSelect} />
+                            </div>
+                            <ContestsList contests={contests} filterBy={filterBy} />
                         </div>
-                        <ContestsList contests={contests} filterBy={filterBy} />
-                    </div>
-                </TabPanel>
+                    </TabPanel>
+                )}
             </Tabs>
         </div>
     );

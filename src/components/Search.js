@@ -30,12 +30,19 @@ class Search extends React.Component {
             let [locations, representatives] = await Promise.all(requests);
 
             console.log(locations, representatives);
-            analytics.success(locations);
-            this.props.updateElectionResults(locations);
-            this.props.updateRepresentativesResults(representatives);
+            if (locations) {
+                analytics.success(locations);
+                this.props.updateElectionResults(locations);
+            }
+
+            if (representatives) {
+                this.props.updateRepresentativesResults(representatives);
+            }
 
             this.showEasterEgg(searchQuery);
         } catch (error) {
+            console.log('fetchData Error', error);
+
             console.error(error);
         }
     };

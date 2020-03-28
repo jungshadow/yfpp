@@ -59,6 +59,7 @@ class App extends React.Component {
             filterBy: 'All',
             primaryParties: [],
             representatives: [],
+            offices: [],
         };
 
         this.activeMsgClassName = 'hasMsg';
@@ -321,9 +322,9 @@ class App extends React.Component {
     }
 
     updateRepresentativesResults = response => {
-        const { officials } = response;
+        const { officials, offices } = response;
 
-        this.setState({ representatives: officials });
+        this.setState({ representatives: officials, offices, isActive: true });
     };
 
     /**
@@ -472,6 +473,7 @@ class App extends React.Component {
                             pollingLocationsIndex={this.state.pollingLocationsIndex}
                             primaryParties={this.state.primaryParties}
                             representatives={this.state.representatives}
+                            offices={this.state.offices}
                         />
                     </main>
                     <div className="contentWrap-tertiary">

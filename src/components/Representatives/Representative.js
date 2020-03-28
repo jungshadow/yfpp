@@ -6,7 +6,7 @@ import avatar from '../../images/avatar.jpg';
 import './Representative.scss';
 
 const Representative = props => {
-    const { name, party, urls, photoUrl, channels } = props.details;
+    const { name, party, office, urls, photoUrl, channels } = props.details;
 
     const repClass = `rep rep_${helpers.slugify(party)}`;
 
@@ -24,6 +24,7 @@ const Representative = props => {
                         <h3 className="hdg hdg_3">{name}</h3>
                     </div>
                     <div className="rep-details-party">{party}</div>
+                    <div className="rep-details-office">{office}</div>
                 </div>
             </div>
         </li>

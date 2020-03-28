@@ -63,10 +63,11 @@ class APIService {
                 return response.json();
             })
             .catch(error => {
-                console.error(error);
+                console.log('error', error);
 
-                const errorMessage = error;
-                analytics.failure(errorMessage.error.message);
+                // console.error(error);
+                // const errorMessage = error;
+                // analytics.failure(errorMessage.error.message);
             });
     };
 }

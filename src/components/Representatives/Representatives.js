@@ -4,10 +4,27 @@ import Representative from './Representative';
 import helpers from '../../helpers';
 
 const Representatives = props => {
-    const { representatives } = props;
+    const { representatives, offices } = props;
+    console.log({ offices });
+
+    function buildRepresentativesList(offices, representatives) {
+        const transformedReps = offices.reduce((acc, currentValue) => {
+            const officialIndices = currentValue.officialIndices;
+
+            officialIndices.forEach(index => {
+                const transformedRep = { ...representatives[index], office: currentValue.name };
+                acc.push(transformedRep);
+            });
+            return acc;
+        }, []);
+        return transformedReps;
+    }
+
+    console.log();
+
     return (
         <ul className="vList vList_divided">
-            {representatives.map(rep => (
+            {buildRepresentativesList(offices, representatives).map(rep => (
                 <Representative key={`rep_${helpers.slugify(rep.name)}`} details={rep} />
             ))}
         </ul>
