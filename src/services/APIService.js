@@ -1,8 +1,9 @@
-import helpers from '../helpers';
-import analytics from '../analytics';
+import helpers from 'helpers';
+import analytics from 'analytics';
 
 class APIService {
-    static API_URL_DEV = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_URL;
+    static API_URL_VOTER_INFO_DEV = process.env.PUBLIC_URL + process.env.REACT_APP_API_VOTER_INFO_DEV_URL;
+    static API_URL_REPRESENTATIVES_DEV = process.env.PUBLIC_URL + process.env.REACT_APP_API_REPRESENTATIVES_DEV_URL;
     static API_URL = process.env.REACT_APP_API_URL;
 
     static getRequestURL(route, requestParams) {
@@ -11,29 +12,33 @@ class APIService {
         };
 
         switch (process.env.NODE_ENV) {
-            // case 'development':
-            //     return this.API_URL_DEV;
+            case 'development':
+                if (route === 'voterinfo') {
+                    return this.API_URL_VOTER_INFO_DEV;
+                } else {
+                    return this.API_URL_REPRESENTATIVES_DEV;
+                }
 
             default:
                 return `${this.API_URL}/${route}?${helpers.buildQueryString({ ...baseParams, ...requestParams })}`;
         }
     }
 
-    static getRepresentatives = async searchQuery => {
+    static getRepresentatives = async (searchQuery) => {
         const requestParams = {
             address: searchQuery,
         };
 
         const requestURL = this.getRequestURL('representatives', requestParams);
         return fetch(requestURL)
-            .then(response => {
+            .then((response) => {
                 if (!response.ok) {
                     throw response;
                 }
 
                 return response.json();
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error(error);
 
                 const errorMessage = error;
@@ -41,7 +46,7 @@ class APIService {
             });
     };
 
-    static getLocations = async searchQuery => {
+    static getLocations = async (searchQuery) => {
         const requestParams = {
             address: searchQuery,
         };
@@ -55,14 +60,14 @@ class APIService {
                 Accept: 'application/json',
             },
         })
-            .then(response => {
+            .then((response) => {
                 if (!response.ok) {
                     throw response;
                 }
 
                 return response.json();
             })
-            .catch(error => {
+            .catch((error) => {
                 console.log('error', error);
 
                 // console.error(error);
