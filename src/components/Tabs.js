@@ -28,7 +28,7 @@ class Tabs extends React.Component {
         });
     }
 
-    renderTabsNav() {
+    renderTabsNav = () => {
         function labels(child, index) {
             let activeClass = this.state.activeTab === index ? 'isActive' : '';
 
@@ -40,17 +40,18 @@ class Tabs extends React.Component {
                 </li>
             );
         }
+        const filteredChildren = this.props.children.filter((child) => child);
 
-        return <ul className="tabs-nav">{this.props.children.map(labels.bind(this))}</ul>;
-    }
+        return <ul className="tabs-nav">{filteredChildren.map(labels.bind(this))}</ul>;
+    };
 
-    renderTabPanel() {
+    renderTabPanel = () => {
         return (
             <div className="tabs-panel" key={this.state.activeTab}>
                 {this.props.children[this.state.activeTab]}
             </div>
         );
-    }
+    };
     /**
      * Renders Tab component
      *
@@ -58,10 +59,11 @@ class Tabs extends React.Component {
      * @return {object} site title component markup
      */
     render() {
+        console.log(this.props);
         return (
             <CSSTransitionGroup component="div" className="tabs" transitionName="fade" transitionAppear={true} transitionAppearTimeout={500} transitionLeaveTimeout={200} transitionEnterTimeout={500}>
-                {this.renderTabsNav()}
-                {this.renderTabPanel()}
+                {this.props.children && this.renderTabsNav()}
+                {this.props.children && this.renderTabPanel()}
             </CSSTransitionGroup>
         );
     }
