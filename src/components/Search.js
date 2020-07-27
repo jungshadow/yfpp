@@ -41,8 +41,6 @@ class Search extends React.Component {
 
             this.showEasterEgg(searchQuery);
         } catch (error) {
-            console.log('fetchData Error', error);
-
             console.error(error);
         }
     };

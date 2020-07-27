@@ -59,7 +59,6 @@ class Tabs extends React.Component {
      * @return {object} site title component markup
      */
     render() {
-        console.log(this.props);
         return (
             <CSSTransitionGroup component="div" className="tabs" transitionName="fade" transitionAppear={true} transitionAppearTimeout={500} transitionLeaveTimeout={200} transitionEnterTimeout={500}>
                 {this.props.children && this.renderTabsNav()}

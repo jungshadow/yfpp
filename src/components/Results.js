@@ -32,7 +32,6 @@ function Results(props) {
         updateEarlyVoteSites,
         updatePollingLocations,
     } = props;
-    console.log('results');
 
     return (
         <div className="wrapper mix-wrapper_bleed">
