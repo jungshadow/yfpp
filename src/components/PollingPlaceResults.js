@@ -1,7 +1,7 @@
 // Import dependencies
 import React from 'react';
 
-import PollingPlaceCard from './PollingPlaceCard';
+import PollingPlaceCard from 'components/PollingPlaceCard';
 
 /**
  * Polling Place Results Component

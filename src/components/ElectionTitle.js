@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import moment from 'moment';
 
-import helpers from '../helpers';
+import helpers from 'helpers';
 
 /**
  * ElectionTitle Component

@@ -1,8 +1,8 @@
 // Import dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
-import analytics from '../analytics';
-import APIService from '../services/APIService';
+import analytics from 'analytics';
+import APIService from 'services/APIService';
 
 /**
  * Search Form Component
@@ -21,7 +21,7 @@ class Search extends React.Component {
         };
     }
 
-    fetchData = async e => {
+    fetchData = async (e) => {
         e.preventDefault();
         try {
             const searchQuery = this.searchInput.current.value;
@@ -51,7 +51,7 @@ class Search extends React.Component {
         this.props.onErrorRemoveHandler();
     };
 
-    showEasterEgg = searchQuery => {
+    showEasterEgg = (searchQuery) => {
         if (searchQuery.toLowerCase() === 'fuck off') {
             this.props.onFuckOffHandler();
             // attempt to dismiss virtual keyboard

@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ErrorReportForm from './ErrorReportForm';
+import ErrorReportForm from 'components/ErrorReportForm';
 
 /**
  * TabPanel Component

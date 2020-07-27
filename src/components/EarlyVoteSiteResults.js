@@ -1,7 +1,7 @@
 // Import dependencies
 import React from 'react';
 
-import EarlyVoteSiteCard from './EarlyVoteSiteCard';
+import EarlyVoteSiteCard from 'components/EarlyVoteSiteCard';
 
 /**
  * Early Vote Site Results Component

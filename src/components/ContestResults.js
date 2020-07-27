@@ -2,8 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CandidateResults from './CandidateResults';
-import ReferendumResults from './ReferendumResults';
+import CandidateResults from 'components/CandidateResults';
+import ReferendumResults from 'components/ReferendumResults';
 
 /**
  * Contest Results Component

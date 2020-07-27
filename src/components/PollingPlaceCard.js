@@ -1,9 +1,9 @@
 // Import dependencies
 import React from 'react';
 import moment from 'moment';
-import Actions from './Actions';
+import Actions from 'components/Actions';
 
-import helpers from '../helpers';
+import helpers from 'helpers';
 
 /**
  * Polling Place Card Component

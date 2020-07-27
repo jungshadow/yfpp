@@ -1,14 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import ElectionTitle from './ElectionTitle';
-import Tabs from './Tabs';
-import TabPanel from './TabPanel';
-import DropOffLocationResults from './DropOffLocationResults';
-import PollingPlaceResults from './PollingPlaceResults';
-import EarlyVoteSiteResults from './EarlyVoteSiteResults';
-import PartySelect from './PartySelect';
-import ContestsList from './ContestsList';
-import Representatives from './Representatives/Representatives';
+
+import ElectionTitle from 'components/ElectionTitle';
+import Tabs from 'components/Tabs';
+import TabPanel from 'components/TabPanel';
+import DropOffLocationResults from 'components/DropOffLocationResults';
+import PollingPlaceResults from 'components/PollingPlaceResults';
+import EarlyVoteSiteResults from 'components/EarlyVoteSiteResults';
+import PartySelect from 'components/PartySelect';
+import ContestsList from 'components/ContestsList';
+import Representatives from 'components/representatives/Representatives';
 
 Results.propTypes = {};
 

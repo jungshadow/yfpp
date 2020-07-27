@@ -1,10 +1,10 @@
 // Import dependencies
 import React from 'react';
 
-import helpers from '../helpers';
+import helpers from 'helpers';
 import $ from 'jquery';
 
-import analytics from '../analytics';
+import analytics from 'analytics';
 
 /**
  * Load social media

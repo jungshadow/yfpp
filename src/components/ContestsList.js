@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ContestResults from './ContestResults';
+import ContestResults from 'components/ContestResults';
 
 class ContestsList extends Component {
     renderContestsList() {
@@ -13,7 +13,7 @@ class ContestsList extends Component {
      * @param  {string} key unique index
      * @return {object} single contest result component markup
      */
-    generateContestResult = key => {
+    generateContestResult = (key) => {
         const currentContest = this.props.contests[key];
 
         // if the current contest has a primaryParty property

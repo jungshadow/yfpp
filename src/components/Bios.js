@@ -1,8 +1,8 @@
 // Import dependencies
 import React from 'react';
 
-import Bio from './Bio';
-import Carousel from '../views/Carousel';
+import Bio from 'components/Bio';
+import Carousel from 'views/Carousel';
 
 /**
  * Bios Component

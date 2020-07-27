@@ -2,23 +2,22 @@
 import $ from 'jquery';
 import React from 'react';
 
-import Search from './components/Search';
-import ErrorMessage from './components/ErrorMessage';
-import PollingPlaceResults from './components/PollingPlaceResults';
-import EarlyVoteSiteResults from './components/EarlyVoteSiteResults';
-import DropOffLocationResults from './components/DropOffLocationResults';
-import Modal from './components/Modal';
-import SiteTitle from './components/SiteTitle';
-import Footer from './components/Footer';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import Bios from './components/Bios';
-import FuckOff from './components/FuckOff';
+import Search from 'components/Search';
+import ErrorMessage from 'components/ErrorMessage';
+import PollingPlaceResults from 'components/PollingPlaceResults';
+import EarlyVoteSiteResults from 'components/EarlyVoteSiteResults';
+import DropOffLocationResults from 'components/DropOffLocationResults';
+import Modal from 'components/Modal';
+import SiteTitle from 'components/SiteTitle';
+import Footer from 'components/Footer';
+import PrivacyPolicy from 'components/PrivacyPolicy';
+import Bios from 'components/Bios';
+import FuckOff from 'components/FuckOff';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 import moment from 'moment';
-import SocialLinks from './components/SocialLinks';
-import Results from './components/Results';
-import Representatives from './components/Representatives/Representatives';
+import SocialLinks from 'components/SocialLinks';
+import Results from 'components/Results';
 
 // active classname
 const ACTIVE_CLASS = 'isActive';
@@ -73,7 +72,7 @@ class App extends React.Component {
      * @method updateElectionResults
      * @param  {object} data object returned from API
      */
-    updateElectionResults = data => {
+    updateElectionResults = (data) => {
         const leoInfo = (data.state && data.state[0] && data.state[0].local_jurisdiction && data.state[0].local_jurisdiction.electionAdministrationBody) || {};
         const seoInfo = (data.state && data.state[0] && data.state[0].electionAdministrationBody) || {};
         const normalizedAddress = data.normalizedInput || {};
@@ -255,7 +254,7 @@ class App extends React.Component {
      * @method updateFilterText
      * @param  {string} user input text
      */
-    updateFilterText = textString => {
+    updateFilterText = (textString) => {
         this.setState({
             filterBy: textString,
         });
@@ -321,7 +320,7 @@ class App extends React.Component {
         });
     }
 
-    updateRepresentativesResults = response => {
+    updateRepresentativesResults = (response) => {
         const { officials, offices } = response;
 
         this.setState({ representatives: officials, offices, isActive: true });

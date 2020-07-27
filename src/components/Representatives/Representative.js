@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import helpers from '../../helpers';
+import helpers from 'helpers';
 
-import avatar from '../../images/avatar.jpg';
-import './Representative.scss';
+import avatar from 'images/avatar.jpg';
+import './representative.scss';
 
-const Representative = props => {
+const Representative = (props) => {
     const { name, party, office, urls, photoUrl, channels } = props.details;
 
     const repClass = `rep rep_${helpers.slugify(party)}`;

@@ -1,7 +1,7 @@
 // Import dependencies
 import React from 'react';
 
-import PartySelectOptions from './PartySelectOptions';
+import PartySelectOptions from 'components/PartySelectOptions';
 
 /**
  * Party Select Component

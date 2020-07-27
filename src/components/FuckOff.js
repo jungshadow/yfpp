@@ -1,6 +1,6 @@
 // Import dependencies
 import React from 'react';
-import finger from '../images/finger.png';
+import finger from 'images/finger.png';
 /**
  * Party Select Component
  *

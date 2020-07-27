@@ -1,11 +1,11 @@
 // Import dependencies
 import React from 'react';
-import moMaraqa from '../images/bios/mo-maraqa.jpg';
-import joshTurner from '../images/bios/josh-turner.jpg';
-import jaredMarcotte from '../images/bios/jared-marcotte.jpg';
-import jayJohnson from '../images/bios/jay-johnson.jpg';
-import nickCatalano from '../images/bios/nick-catalano.jpg';
-import anastasiaGolovashkina from '../images/bios/anastasia-golovashkina.jpg';
+import moMaraqa from 'images/bios/mo-maraqa.jpg';
+import joshTurner from 'images/bios/josh-turner.jpg';
+import jaredMarcotte from 'images/bios/jared-marcotte.jpg';
+import jayJohnson from 'images/bios/jay-johnson.jpg';
+import nickCatalano from 'images/bios/nick-catalano.jpg';
+import anastasiaGolovashkina from 'images/bios/anastasia-golovashkina.jpg';
 /**
  * Footer Component
  *

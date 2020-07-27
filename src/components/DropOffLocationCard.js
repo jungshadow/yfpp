@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 import moment from 'moment';
 
-import Actions from './Actions';
+import Actions from 'components/Actions';
 
-import helpers from '../helpers';
+import helpers from 'helpers';
 
 /**
  * Drop Off Location Card Component

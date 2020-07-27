@@ -1,6 +1,6 @@
 // Import dependencies
 import React from 'react';
-import helpers from '../helpers';
+import helpers from 'helpers';
 
 /**
  * Error Message Component

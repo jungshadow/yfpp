@@ -1,7 +1,7 @@
 // Import dependencies
 import React from 'react';
 
-import helpers from '../helpers';
+import helpers from 'helpers';
 
 /**
  * Error Report Form Component
@@ -16,7 +16,7 @@ class ErrorReportForm extends React.Component {
      * @method onClickHandler
      * @return none
      */
-    onClickHandler = e => {
+    onClickHandler = (e) => {
         e.preventDefault();
         this.refs.errorFeedbackForm.submit();
     };
