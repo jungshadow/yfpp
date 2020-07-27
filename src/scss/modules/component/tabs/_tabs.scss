@@ -3,127 +3,122 @@ Tabs
 ------------------------------------------------------------------------ */
 
 .tabs-nav {
-	display: block;
-	text-align: center;
-	margin-bottom: 40px;
+    display: flex;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .tabs-nav > * {
-	display: inline-block;
-	width: 50%;
 }
 
 .tabs-nav-item-btn {
-	position: relative; // creates positioning context for absolutely positioned pseudo elements
-	display: block;
-	width: 100%;
-	background-color: $GREY;
-	border: none;
-	color: $GREY_LIGHT;
-	padding: 16px;
-	font-size: 20px;
-	font-family: $FONT_HEADLINE;
-	letter-spacing: 1.5px;
+    position: relative; // creates positioning context for absolutely positioned pseudo elements
+    display: block;
+    width: 100%;
+    background-color: $GREY;
+    border: none;
+    color: $GREY_LIGHT;
+    padding: 16px;
+    font-size: 20px;
+    font-family: $FONT_HEADLINE;
+    letter-spacing: 1.5px;
 }
 
 .tabs-nav-item:first-of-type .isActive.tabs-nav-item-btn:after,
 .tabs-nav-item:last-of-type .isActive.tabs-nav-item-btn:after {
-	display: block;
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	margin-left: -5px; // half the width to horizontally center
-	content: '';
-	height: 0;
-	width: 0;
-	border-style: solid;
-	border-width: 10px 10px 0 10px;
-	border-color: $BLUE transparent transparent transparent;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px; // half the width to horizontally center
+    content: '';
+    height: 0;
+    width: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: $BLUE transparent transparent transparent;
 }
 
 .tabs-nav-item:first-of-type .isActive.tabs-nav-item-btn {
-	background-color: $RED;
+    background-color: $RED;
 
-	&:after {
-		border-color: $RED transparent transparent transparent;
-	}
+    &:after {
+        border-color: $RED transparent transparent transparent;
+    }
 }
 
 .isActive.tabs-nav-item-btn {
-	background-color: $BLUE;
+    background-color: $BLUE;
 }
 
 .tabs-nav-item:first-of-type .tabs-nav-item-btn:before,
 .tabs-nav-item:last-of-type .tabs-nav-item-btn:before {
-	position: absolute;
-	display: block;
-	font-family: $FONT_ICON;
-	@include icon_banner_notch();
-	font-size: 3.05em;
-	line-height: 0.9;
-	color: $GREY_LIGHT;
-	text-indent: 0;
-	top: 0;
+    position: absolute;
+    display: block;
+    font-family: $FONT_ICON;
+    @include icon_banner_notch();
+    font-size: 3.05em;
+    line-height: 0.9;
+    color: $GREY_LIGHT;
+    text-indent: 0;
+    top: 0;
 }
 
 .tabs-nav-item:first-of-type .tabs-nav-item-btn:before {
-	left: -.295em;
+    left: -0.295em;
 }
 
 .tabs-nav-item:last-of-type .tabs-nav-item-btn:before {
-	right: -.295em;
+    right: -0.295em;
 }
 
 .tabs-panel {
-	transition: all .15s ease-in-out;
-	padding: 0 12px;
+    transition: all 0.15s ease-in-out;
+    padding: 0 12px;
 }
 
 .tabs-panel-errorLink {
-	text-align: center;
-	margin-bottom: 10px;
-	font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 14px;
 }
 
 // animate in
 .tabs-panel.fade-enter {
-	opacity: 0;
-	transform: translateY(-25px);
+    opacity: 0;
+    transform: translateY(-25px);
 }
 
 .tabs-panel.fade-enter-active {
-	opacity: 1;
-	transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 // animate out
 .tabs-panel.fade-leave {
-	opacity: 0;
-	transform: translateY(25px);
+    opacity: 0;
+    transform: translateY(25px);
 }
 
 .tabs-panel.fade-enter-active {
-	opacity: 1;
-	transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media screen and (max-width: 568px) {
+    .tabs-nav-item-btn {
+        font-size: 14px;
+        padding: 12px;
+        letter-spacing: 0.5px;
+    }
 
-	.tabs-nav-item-btn {
-		font-size: 14px;
-		padding: 12px;
-		letter-spacing: .5px;
-	}
+    .tabs-nav-item:first-of-type .tabs-nav-item-btn:before,
+    .tabs-nav-item:last-of-type .tabs-nav-item-btn:before {
+        font-size: 2.75em;
+        display: none;
+    }
 
-	.tabs-nav-item:first-of-type .tabs-nav-item-btn:before,
-	.tabs-nav-item:last-of-type .tabs-nav-item-btn:before {
-		font-size: 2.75em;
-		display: none;
-	}
-
-	.tabs-panel {
-		padding: 0 10px;
-	}
+    .tabs-panel {
+        padding: 0 10px;
+    }
 }
-
-
