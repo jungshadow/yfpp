@@ -3,15 +3,54 @@
     "version": "0.1.0",
     "private": true,
     "homepage": "https://yourfuckingpollingplace.com",
+    "author": {
+        "name": "Jay Johnson",
+        "email": "jay@polling.place",
+        "url": "polling.place"
+    },
+    "contributors": [
+        {
+          "name": "Josh Turner",
+          "email": "josh@polling.place",
+          "url": "polling.place"
+        },
+        {
+          "name": "Jared Marcotte",
+          "email": "jared@polling.place",
+          "url": "polling.place"
+        },
+        {
+          "name": "Nick Catalano",
+          "email": "nick@polling.place",
+          "url": "polling.place"
+        },
+        {
+          "name": "Anastasia Golovashkina",
+          "email": "anastasia@polling.place",
+          "url": "polling.place"
+        },
+        {
+          "name": "Mo Maraqa",
+          "email": "mo@polling.place",
+          "url": "polling.place"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:jungshadow/yfpp.git"
+    },
+    "bugs": {
+        "url": "https://github.com/jungshadow/yfpp/issues"
+    },
     "dependencies": {
         "hammerjs": "^2.0.8",
-        "jquery": "^3.4.1",
-        "moment": "^2.24.0",
-        "node-sass": "^4.13.1",
-        "react": "^16.13.0",
+        "jquery": "^3.5.1",
+        "moment": "^2.27.0",
+        "node-sass": "^4.14.1",
+        "react": "^16.3.1",
         "react-addons-css-transition-group": "^15.6.2",
-        "react-dom": "^16.13.0",
-        "react-scripts": "3.4.0"
+        "react-dom": "^16.3.1",
+        "react-scripts": "3.4.3"
     },
     "resolutions": {
         "**/**/node-gyp": "5.0.0"
@@ -34,12 +73,12 @@
         "not op_mini all"
     ],
     "devDependencies": {
-        "ajv": "^6.12.0",
-        "eslint-config-prettier": "^6.10.0",
-        "eslint-plugin-import": "^2.20.1",
-        "eslint-plugin-jsx-a11y": "^6.2.3",
-        "eslint-plugin-prettier": "^3.1.2",
-        "eslint-plugin-react": "^7.19.0",
+        "ajv": "^6.12.3",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-jsx-a11y": "^6.3.1",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.6",
         "gh-pages": "^2.2.0",
         "prettier": "^1.19.1"
     }
