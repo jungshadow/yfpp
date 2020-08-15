@@ -1,0 +1,896 @@
+{
+    "kind": "civicinfo#voterInfoResponse",
+    "election": {
+        "id": "4209",
+        "name": "California Primary",
+        "electionDay": "2016-06-07",
+        "ocdDivisionId": "ocd-division/country:us/state:ca"
+    },
+    "normalizedInput": {
+        "line1": "311 eureka st",
+        "city": "san francisco",
+        "state": "CA",
+        "zip": "94114"
+    },
+    "pollingLocations": [
+        {
+            "address": {
+                "line1": "625 Douglass St",
+                "city": "San Francisco",
+                "state": "CA",
+                "zip": "94114"
+            },
+            "notes": "",
+            "pollingHours": "7am-8pm",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        }
+    ],
+    "contests": [
+        {
+            "type": "state",
+            "primaryParty": "peace and freedom (presidential)",
+            "office": "President of the United States - Peace Freedom",
+            "district": {
+                "name": "State of California",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "1",
+            "candidates": [
+                {
+                    "name": "LYNN S. KAHN",
+                    "party": "Peace and Freedom"
+                },
+                {
+                    "name": "GLORIA ESTELA LA RIVA",
+                    "party": "Peace and Freedom"
+                },
+                {
+                    "name": "MONICA MOOREHEAD",
+                    "party": "Peace and Freedom"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "state",
+            "primaryParty": "libertarian (presidential)",
+            "office": "President of the United States - Lib",
+            "district": {
+                "name": "State of California",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "1",
+            "candidates": [
+                {
+                    "name": "MARC FELDMAN",
+                    "party": "Libertarian"
+                },
+                {
+                    "name": "JOHN HALE",
+                    "party": "Libertarian"
+                },
+                {
+                    "name": "CECIL INCE",
+                    "party": "Libertarian"
+                },
+                {
+                    "name": "GARY JOHNSON",
+                    "party": "Libertarian"
+                },
+                {
+                    "name": "STEVE KERBEL",
+                    "party": "Libertarian"
+                },
+                {
+                    "name": "JOHN MCAFEE",
+                    "party": "Libertarian"
+                },
+                {
+                    "name": "DARRYL W. PERRY",
+                    "party": "Libertarian"
+                },
+                {
+                    "name": "AUSTIN PETERSEN",
+                    "party": "Libertarian"
+                },
+                {
+                    "name": "DERRICK M. REID",
+                    "party": "Libertarian"
+                },
+                {
+                    "name": "JACK ROBINSON, JR.",
+                    "party": "Libertarian"
+                },
+                {
+                    "name": "RHETT WHITE FEATHER SMITH",
+                    "party": "Libertarian"
+                },
+                {
+                    "name": "JOY WAYMIRE",
+                    "party": "Libertarian"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "state",
+            "primaryParty": "green (presidential)",
+            "office": "President of the United States - Gre",
+            "district": {
+                "name": "State of California",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "1",
+            "candidates": [
+                {
+                    "name": "DARRYL CHERNEY",
+                    "party": "Green"
+                },
+                {
+                    "name": "WILLIAM KREML",
+                    "party": "Green"
+                },
+                {
+                    "name": "KENT MESPLAY",
+                    "party": "Green"
+                },
+                {
+                    "name": "SEDINAM MOYOWASIFSA-CURRY",
+                    "party": "Green"
+                },
+                {
+                    "name": "JILL STEIN",
+                    "party": "Green"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "state",
+            "primaryParty": "american independent (presidential)",
+            "office": "President of the United States - Amer. Ind.",
+            "district": {
+                "name": "State of California",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "1",
+            "candidates": [
+                {
+                    "name": "WILEY DRAKE",
+                    "party": "American Independent"
+                },
+                {
+                    "name": "ARTHUR HARRIS",
+                    "party": "American Independent"
+                },
+                {
+                    "name": "JAMES HEDGES",
+                    "party": "American Independent"
+                },
+                {
+                    "name": "THOMAS HOEFLING",
+                    "party": "American Independent"
+                },
+                {
+                    "name": "J.R. MYERS",
+                    "party": "American Independent"
+                },
+                {
+                    "name": "ROBERT ORNELAS",
+                    "party": "American Independent"
+                },
+                {
+                    "name": "ALAN SPEARS",
+                    "party": "American Independent"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "state",
+            "primaryParty": "democratic (presidential)",
+            "office": "President of the United States - Dem",
+            "district": {
+                "name": "State of California",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "1",
+            "candidates": [
+                {
+                    "name": "HILLARY CLINTON",
+                    "party": "Democratic"
+                },
+                {
+                    "name": "ROQUE DE LA FUENTE",
+                    "party": "Democratic"
+                },
+                {
+                    "name": "HENRY HEWES",
+                    "party": "Democratic"
+                },
+                {
+                    "name": "KEITH JUDD",
+                    "party": "Democratic"
+                },
+                {
+                    "name": "BERNIE SANDERS",
+                    "party": "Democratic"
+                },
+                {
+                    "name": "MICHAEL STEINBERG",
+                    "party": "Democratic"
+                },
+                {
+                    "name": "WILLIE WILSON",
+                    "party": "Democratic"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "state",
+            "primaryParty": "republican (presidential)",
+            "office": "President of the United States - Rep",
+            "district": {
+                "name": "State of California",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "1",
+            "candidates": [
+                {
+                    "name": "BEN CARSON",
+                    "party": "Republican"
+                },
+                {
+                    "name": "TED CRUZ",
+                    "party": "Republican"
+                },
+                {
+                    "name": "JIM GILMORE",
+                    "party": "Republican"
+                },
+                {
+                    "name": "JOHN R. KASICH",
+                    "party": "Republican"
+                },
+                {
+                    "name": "DONALD TRUMP",
+                    "party": "Republican"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "state",
+            "primaryParty": "Voter Nominated Contests",
+            "office": "U.S. Senate",
+            "district": {
+                "name": "State of California",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "2",
+            "candidates": [
+                {
+                    "name": "GEORGE C. YANG",
+                    "party": "REP"
+                },
+                {
+                    "name": "PHIL WYMAN",
+                    "party": "REP"
+                },
+                {
+                    "name": "KAREN ROSEBERRY",
+                    "party": "REP"
+                },
+                {
+                    "name": "KAMALA D. HARRIS",
+                    "party": "DEM"
+                },
+                {
+                    "name": "MASSIE MUNROE",
+                    "party": "DEM"
+                },
+                {
+                    "name": "EMORY RODGERS",
+                    "party": "DEM"
+                },
+                {
+                    "name": "HERBERT G. PETERS",
+                    "party": "DEM"
+                },
+                {
+                    "name": "VON HOUGO",
+                    "party": "REP"
+                },
+                {
+                    "name": "DON KRAMPE",
+                    "party": "REP"
+                },
+                {
+                    "name": "JERRY J. LAWS",
+                    "party": "REP"
+                },
+                {
+                    "name": "PAMELA ELIZONDO",
+                    "party": "GRN"
+                },
+                {
+                    "name": "PAUL MERRITT",
+                    "party": "NPP"
+                },
+                {
+                    "name": "MIKE BEITIKS",
+                    "party": "NPP"
+                },
+                {
+                    "name": "ELEANOR GARCIA",
+                    "party": "NPP"
+                },
+                {
+                    "name": "PRESIDENT CRISTINA GRAPPO",
+                    "party": "DEM"
+                },
+                {
+                    "name": "DON J. GRUNDMANN",
+                    "party": "NPP"
+                },
+                {
+                    "name": "JASON HANANIA",
+                    "party": "NPP"
+                },
+                {
+                    "name": "JASON KRAUS",
+                    "party": "NPP"
+                },
+                {
+                    "name": "LING LING SHI",
+                    "party": "NPP"
+                },
+                {
+                    "name": "DUF SUNDHEIM",
+                    "party": "REP"
+                },
+                {
+                    "name": "JARRELL WILLIAMSON",
+                    "party": "REP"
+                },
+                {
+                    "name": "LORETTA L. SANCHEZ",
+                    "party": "DEM"
+                },
+                {
+                    "name": "STEVE STOKES",
+                    "party": "DEM"
+                },
+                {
+                    "name": "GREG CONLON",
+                    "party": "REP"
+                },
+                {
+                    "name": "THOMAS G. DEL BECCARO",
+                    "party": "REP"
+                },
+                {
+                    "name": "TIM GILDERSLEEVE",
+                    "party": "NPP"
+                },
+                {
+                    "name": "GAR MYERS",
+                    "party": "NPP"
+                },
+                {
+                    "name": "SCOTT A. VINEBERG",
+                    "party": "NPP"
+                },
+                {
+                    "name": "TOM PALZER",
+                    "party": "REP"
+                },
+                {
+                    "name": "RON UNZ",
+                    "party": "REP"
+                },
+                {
+                    "name": "MARK MATTHEW HERD",
+                    "party": "LIB"
+                },
+                {
+                    "name": "CLIVE GREY",
+                    "party": "NPP"
+                },
+                {
+                    "name": "JOHN THOMPSON PARKER",
+                    "party": "PF"
+                },
+                {
+                    "name": "GAIL K. LIGHTFOOT",
+                    "party": "LIB"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "state",
+            "primaryParty": "Voter Nominated Contests",
+            "office": "US House of Rep, 12th District",
+            "district": {
+                "name": "12TH CONG",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "1020",
+            "candidates": [
+                {
+                    "name": "EVE FRANCES DEL CASTELLO"
+                },
+                {
+                    "name": "PRESTON PICUS",
+                    "party": "NPP"
+                },
+                {
+                    "name": "BARRY HERMANSON",
+                    "party": "GRN"
+                },
+                {
+                    "name": "Bob Miller",
+                    "party": "REP"
+                },
+                {
+                    "name": "NANCY PELOSI",
+                    "party": "DEM"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "state",
+            "primaryParty": "Voter Nominated Contests",
+            "office": "State Senate, 11th District",
+            "district": {
+                "name": "11TH SENATE",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "1130",
+            "candidates": [
+                {
+                    "name": "SCOTT WIENER",
+                    "party": "DEM"
+                },
+                {
+                    "name": "JANE KIM",
+                    "party": "DEM"
+                },
+                {
+                    "name": "HILARY WINTERS HAGENBUCH",
+                    "party": "REP"
+                },
+                {
+                    "name": "KENNETH JASON LOO",
+                    "party": "REP"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "state",
+            "primaryParty": "Voter Nominated Contests",
+            "office": "Member, State Assembly, 17th District",
+            "district": {
+                "name": "17TH ASMBLY",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "1310",
+            "candidates": [
+                {
+                    "name": "DAVID CHIU",
+                    "party": "DEM"
+                },
+                {
+                    "name": "MATTHEW DEL CARLO",
+                    "party": "REP"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "state",
+            "primaryParty": "Voter Nominated Contests",
+            "office": "Superior Court Judge, Seat 7",
+            "district": {
+                "name": "CITY OF S.F.",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "2060",
+            "candidates": [
+                {
+                    "name": "PAUL HENDERSON"
+                },
+                {
+                    "name": "VICTOR HWANG"
+                },
+                {
+                    "name": "SIGRID ELIZABETH IRIAS"
+                },
+                {
+                    "name": "BRUCE STEVEN KAPSACK"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "state",
+            "primaryParty": "democratic",
+            "office": "Dem CCC",
+            "district": {
+                "name": "17TH ASMBLY",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "3010",
+            "candidates": [
+                {
+                    "name": "ARLO HALE SMITH",
+                    "party": "DEM"
+                },
+                {
+                    "name": "RAFAEL MANDELMAN",
+                    "party": "DEM"
+                },
+                {
+                    "name": "CINDY WU",
+                    "party": "DEM"
+                },
+                {
+                    "name": "CRISPIN JOHN HOLLINGS",
+                    "party": "DEM"
+                },
+                {
+                    "name": "MATT DORSEY",
+                    "party": "DEM"
+                },
+                {
+                    "name": "JOSHUA ARCE",
+                    "party": "DEM"
+                },
+                {
+                    "name": "LEAH MARIE PIMENTEL",
+                    "party": "DEM"
+                },
+                {
+                    "name": "FRANCIS TSANG",
+                    "party": "DEM"
+                },
+                {
+                    "name": "ALIX ROSENTHAL",
+                    "party": "DEM"
+                },
+                {
+                    "name": "GARY MCCOY",
+                    "party": "DEM"
+                },
+                {
+                    "name": "JON GOLINGER",
+                    "party": "DEM"
+                },
+                {
+                    "name": "BEVAN DUFTY",
+                    "party": "DEM"
+                },
+                {
+                    "name": "WADE WOODS",
+                    "party": "DEM"
+                },
+                {
+                    "name": "AARON BRANDON HOFFMEYER",
+                    "party": "DEM"
+                },
+                {
+                    "name": "FRANCES HSIEH",
+                    "party": "DEM"
+                },
+                {
+                    "name": "MALIA MICHELLE COHEN",
+                    "party": "DEM"
+                },
+                {
+                    "name": "SCOTT WIENER",
+                    "party": "DEM"
+                },
+                {
+                    "name": "JULISSA M HERNANDEZ",
+                    "party": "DEM"
+                },
+                {
+                    "name": "NICHOLAS PASQUARIELLO",
+                    "party": "DEM"
+                },
+                {
+                    "name": "ZOE DUNNING",
+                    "party": "DEM"
+                },
+                {
+                    "name": "SHAUN HAINES",
+                    "party": "DEM"
+                },
+                {
+                    "name": "PRATIMA GUPTA",
+                    "party": "DEM"
+                },
+                {
+                    "name": "REBECCA PROZAN",
+                    "party": "DEM"
+                },
+                {
+                    "name": "RODNEY HAUGE",
+                    "party": "DEM"
+                },
+                {
+                    "name": "WENDY HA CHAU",
+                    "party": "DEM"
+                },
+                {
+                    "name": "MARLENE TRAN",
+                    "party": "DEM"
+                },
+                {
+                    "name": "TOM AMMIANO",
+                    "party": "DEM"
+                },
+                {
+                    "name": "SOPHIE MAXWELL",
+                    "party": "DEM"
+                },
+                {
+                    "name": "DAVID CAMPOS",
+                    "party": "DEM"
+                },
+                {
+                    "name": "ALYSABETH ALEXANDER",
+                    "party": "DEM"
+                },
+                {
+                    "name": "DAVID GIESEN",
+                    "party": "DEM"
+                },
+                {
+                    "name": "JO ELIAS-JACKSON",
+                    "party": "DEM"
+                },
+                {
+                    "name": "PETRA M. DEJESUS",
+                    "party": "DEM"
+                },
+                {
+                    "name": "MELISSA SAN MIGUEL",
+                    "party": "DEM"
+                },
+                {
+                    "name": "AARON PESKIN",
+                    "party": "DEM"
+                },
+                {
+                    "name": "JANE KIM",
+                    "party": "DEM"
+                },
+                {
+                    "name": "JILL WYNNS",
+                    "party": "DEM"
+                },
+                {
+                    "name": "MICHAEL E GRAFTON",
+                    "party": "DEM"
+                },
+                {
+                    "name": "RICK HAUPTMAN",
+                    "party": "DEM"
+                },
+                {
+                    "name": "GLADYS SOTO",
+                    "party": "DEM"
+                },
+                {
+                    "name": "LONDON BREED",
+                    "party": "DEM"
+                },
+                {
+                    "name": "JOHN BURTON",
+                    "party": "DEM"
+                },
+                {
+                    "name": "TOM HSIEH",
+                    "party": "DEM"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "state",
+            "primaryParty": "republican",
+            "office": "Rep CCC",
+            "district": {
+                "name": "17TH ASMBLY",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "3110",
+            "candidates": [
+                {
+                    "name": "SALVADOR MIKE GARZA",
+                    "party": "REP"
+                },
+                {
+                    "name": "BARRY A. GRAYNOR",
+                    "party": "REP"
+                },
+                {
+                    "name": "CHRISTINE HUGHES",
+                    "party": "REP"
+                },
+                {
+                    "name": "EVE FRANCES DEL CASTELLO",
+                    "party": "REP"
+                },
+                {
+                    "name": "LISA REMMER",
+                    "party": "REP"
+                },
+                {
+                    "name": "CHRIS CHENG",
+                    "party": "REP"
+                },
+                {
+                    "name": "JASON P. CLARK",
+                    "party": "REP"
+                },
+                {
+                    "name": "TROY BODNAR",
+                    "party": "REP"
+                },
+                {
+                    "name": "MATTHEW DEL CARLO",
+                    "party": "REP"
+                },
+                {
+                    "name": "CHANTAL ANDERSON",
+                    "party": "REP"
+                },
+                {
+                    "name": "MASON HARRISON",
+                    "party": "REP"
+                },
+                {
+                    "name": "HARMEET K. DHILLON",
+                    "party": "REP"
+                },
+                {
+                    "name": "SARVJIT S. RANDHAWA",
+                    "party": "REP"
+                },
+                {
+                    "name": "LAUREN R. AMMATUNA",
+                    "party": "REP"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "state",
+            "primaryParty": "green",
+            "office": "Green County Council",
+            "district": {
+                "name": "County Wide",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "3400",
+            "candidates": [
+                {
+                    "name": "BARRY HERMANSON",
+                    "party": "GRN"
+                },
+                {
+                    "name": "RICHARD W. STONE",
+                    "party": "GRN"
+                },
+                {
+                    "name": "JOHN-MARC CHANDONIA",
+                    "party": "GRN"
+                },
+                {
+                    "name": "MIKE MURPHY",
+                    "party": "GRN"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "referendum",
+            "primaryParty": "Voter Nominated Contests",
+            "office": "Proposition 50",
+            "district": {
+                "name": "State of California",
+                "scope": "statewide"
+            },
+            "ballotPlacement": "99999",
+            "referendumTitle": "Proposition 50",
+            "referendumText": "Suspension Of Legislators. Legislative Constitutional Amendment. Authorizes each house of Legislature to suspend one of its Members by two - thirds vote, and to require Member to forfeit salary and benefits while suspended.Prohibits suspended Member from exercising rights, privileges, duties, or powers of office, or using any legislative resources.Provides suspension may end on specified date, or upon two - thirds vote of Members house. ",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        }
+    ]
+}

@@ -7,6 +7,10 @@
 }
 
 .link {
+    display: inline-block;
+    cursor: pointer;
+    background: none;
+    border: 0;
     color: $BLUE;
     font-weight: lighter;
 
