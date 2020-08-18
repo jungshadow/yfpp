@@ -23,6 +23,8 @@ class Search extends React.Component {
             autocompleteEvent: '',
             autocompleteValue: ''
         };
+        this.handleOnSelect = e => {};
+        this.handleOnSearch = e => {};
     }
 
     logEvent() {
@@ -31,13 +33,18 @@ class Search extends React.Component {
     }
 
     handleOnSelect(val) {
-        this.setState({autocompleteEvent: 'onSelect'});
-        this.setState({autocompleteValue: val}, () => { this.logEvent() });
+        this.setState({
+            autocompleteValue: val,
+            autocompleteEvent: 'onSelect'
+        }, () => { this.logEvent() });
     }
 
     handleOnSearch(val) {
-        this.setState({autocompleteEvent: 'onSearch'});
-        this.setState({autocompleteValue: val}, () => { this.logEvent() });
+        this.setState({});
+        this.setState({
+            autocompleteValue: val,
+            autocompleteEvent: 'onSearch'
+        }, () => { this.logEvent() });
     }
     /**
      * Handles post-render actions
@@ -119,11 +126,13 @@ class Search extends React.Component {
         return (
             <form className={'searchForm ' + this.props.activeClassName} action="" ref={this.searchForm} onSubmit={this.fetchData}>
                 <Autocomplete
-                    onSelect={this.handleOnSelect.bind(this)}
-                    onSearch={this.handleOnSearch.bind(this)}
+                    placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006"
+                    reference={this.searchInput}
+                    onSelect={this.handleOnSelect}
+                    onSearch={this.handleOnSearch}
+                    onChange={this.errorRemove}
                     dataSource={['one', 'two', 'three']}
                 />
-                <input className="searchForm-input" type="search" ref={this.searchInput} placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006" onChange={this.errorRemove} />
                 <button className="searchForm-submit" type="submit">
                     Search
                 </button>

@@ -14,8 +14,7 @@ class Autocomplete extends React.Component {
         this.state = {
             lastValue: ''
         };
-
-        this.handleOnChange = this.handleOnChange.bind(this);
+        this.handleOnChange = e => {};
     }
 
     logValue() {
@@ -25,13 +24,29 @@ class Autocomplete extends React.Component {
 
     componentDidMount() {
         if (!this.props.dataSource || !Array.isArray(this.props.dataSource)) {
-            throw new Error('Autocomplete requires a dataSource[] prop')
+            throw new Error('Autocomplete requires a dataSource[] prop');
+        }
+
+        if (!this.props.placeholder) {
+            throw new Error('Autocomplete requires a placeholder prop');
+        }
+
+        if (!(typeof this.props.reference === 'object') || (typeof this.props.reference === null)) {
+            throw new Error('Autocomplete requires a ref prop');
         }
     }
 
     componentDidUpdate() {
         if (!this.props.dataSource || !Array.isArray(this.props.dataSource)) {
-            throw new Error('Autocomplete requires a dataSource[] prop')
+            throw new Error('Autocomplete requires a dataSource[] prop');
+        }
+
+        if (!this.props.placeholder) {
+            throw new Error('Autocomplete requires a placeholder prop');
+        }
+
+        if (!(typeof this.props.reference === 'object') || (typeof this.props.reference === null)) {
+            throw new Error('Autocomplete requires a ref prop');
         }
     }
 
@@ -48,27 +63,32 @@ class Autocomplete extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
+            <>
                 <input
                     autoComplete='off'
                     list="autocomplete-list"
                     id="list"
                     name="list"
-                    placeholder="Search"
+                    placeholder={this.props.placeholder}
                     onChange={this.handleOnChange}
+                    className="searchForm-input"
+                    type="search"
+                    ref={this.props.reference}
                 />
 
                 <datalist id="autocomplete-list">
                     {this.props.dataSource.map(
                         item => <option key={item} value={item} /> )}
                 </datalist>
-            </React.Fragment>
+            </>
         )
     }
 }
 
 Autocomplete.propTypes = {
-    dataSource: PropTypes.array.isRequired
+    dataSource: PropTypes.array.isRequired,
+    placeholder: PropTypes.string.isRequired,
+    reference: PropTypes.object.isRequired
 };
 
 export default Autocomplete;
