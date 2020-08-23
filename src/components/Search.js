@@ -131,7 +131,6 @@ class Search extends React.Component {
                     onSelect={this.handleOnSelect}
                     onSearch={this.handleOnSearch}
                     onChange={this.errorRemove}
-                    dataSource={['one', 'two', 'three']}
                 />
                 <button className="searchForm-submit" type="submit">
                     Search

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 /**
  * Autocomplete Form Component
@@ -8,13 +8,16 @@ import PropTypes from 'prop-types'
  * @extends React.Component
  */
 class Autocomplete extends React.Component {
+    MBX_ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN;
 
     constructor(props) {
         super(props);
         this.state = {
-            lastValue: ''
+            lastValue: '',
+            dataSource: []
         };
-        this.handleOnChange = e => {};
+        this.geocodingClient = {};
+        //this.handleOnChange = e => {};
     }
 
     logValue() {
@@ -23,10 +26,6 @@ class Autocomplete extends React.Component {
     }
 
     componentDidMount() {
-        if (!this.props.dataSource || !Array.isArray(this.props.dataSource)) {
-            throw new Error('Autocomplete requires a dataSource[] prop');
-        }
-
         if (!this.props.placeholder) {
             throw new Error('Autocomplete requires a placeholder prop');
         }
@@ -37,10 +36,6 @@ class Autocomplete extends React.Component {
     }
 
     componentDidUpdate() {
-        if (!this.props.dataSource || !Array.isArray(this.props.dataSource)) {
-            throw new Error('Autocomplete requires a dataSource[] prop');
-        }
-
         if (!this.props.placeholder) {
             throw new Error('Autocomplete requires a placeholder prop');
         }
@@ -50,10 +45,42 @@ class Autocomplete extends React.Component {
         }
     }
 
-    handleOnChange(e) {
-        const val = e.target.value;
+    forwardGeocode(value) {
+        const mbxClient = require('@mapbox/mapbox-sdk');
+        const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 
-        const eventType = this.props.dataSource.find(
+        const baseClient = mbxClient({ accessToken: this.MBX_ACCESS_TOKEN });
+        const geocodingService = mbxGeocoding(baseClient);
+
+        const searchQuery = value;
+
+        let placeNames = [];
+
+        geocodingService.forwardGeocode({
+            query: searchQuery,
+            limit: 5,
+            types: ['address'],
+            countries: ['US']
+        })
+        .send()
+        .then(response => {
+            const match = response.body;
+            const features = match.features;
+
+            features.forEach((item, i) => {
+                console.log(item);
+                placeNames.push(item.place_name);
+            });
+
+            this.setState({ dataSource: placeNames });
+        });
+    };
+
+    handleOnChange = e => {
+        const val = e.target.value;
+        const geocodeResults = this.forwardGeocode.bind(this)(val);
+
+        const eventType = this.state.dataSource.find(
             item => item === val) && this.state.lastValue.length < (
                 val.length - 1) ? 'onSelect' : 'onSearch';
         this.props[eventType] && this.props[eventType](val);
@@ -77,7 +104,7 @@ class Autocomplete extends React.Component {
                 />
 
                 <datalist id="autocomplete-list">
-                    {this.props.dataSource.map(
+                    {this.state.dataSource.map(
                         item => <option key={item} value={item} /> )}
                 </datalist>
             </>
@@ -86,7 +113,6 @@ class Autocomplete extends React.Component {
 }
 
 Autocomplete.propTypes = {
-    dataSource: PropTypes.array.isRequired,
     placeholder: PropTypes.string.isRequired,
     reference: PropTypes.object.isRequired
 };
