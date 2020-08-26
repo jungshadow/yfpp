@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ElectionTitle from './ElectionTitle';
 import Tabs from './Tabs';
 import TabPanel from './TabPanel';
