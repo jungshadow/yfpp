@@ -137,7 +137,7 @@ class Autocomplete extends React.Component {
                 <input
                     className="searchForm-input"
                     id="searchFormInput"
-                    name="lsearchFormInputist"
+                    name="searchFormInput"
                     onChange={this.handleOnChange}
                     onKeyDown={this.handleInputKeyDown}
                     placeholder={this.props.placeholder}
@@ -170,7 +170,6 @@ class Autocomplete extends React.Component {
 
 Autocomplete.propTypes = {
     placeholder: PropTypes.string.isRequired,
-    onSelect: PropTypes.func.isRequired,
     onSearch: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
 };
