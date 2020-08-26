@@ -1,9 +1,9 @@
 // Import dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
-import analytics from '../analytics';
-import helpers from '../helpers';
-import Autocomplete from './Autocomplete'
+import analytics from 'analytics';
+import helpers from 'helpers';
+import Autocomplete from 'components/Autocomplete/Autocomplete';
 
 /**
  * Search Form Component
@@ -21,31 +21,26 @@ class Search extends React.Component {
         this.searchInput = React.createRef();
         this.state = {
             autocompleteEvent: '',
-            autocompleteValue: ''
+            autocompleteValue: '',
         };
-        this.handleOnSelect = e => {};
-        this.handleOnSearch = e => {};
     }
 
     logEvent() {
-        const {autocompleteEvent, autocompleteValue} = this.state;
+        const { autocompleteEvent, autocompleteValue } = this.state;
         console.log(`Event: ${autocompleteEvent} : ${autocompleteValue}`);
     }
 
-    handleOnSelect(val) {
-        this.setState({
-            autocompleteValue: val,
-            autocompleteEvent: 'onSelect'
-        }, () => { this.logEvent() });
-    }
-
-    handleOnSearch(val) {
-        this.setState({});
-        this.setState({
-            autocompleteValue: val,
-            autocompleteEvent: 'onSearch'
-        }, () => { this.logEvent() });
-    }
+    handleOnSearch = (val) => {
+        this.setState(
+            {
+                autocompleteValue: val,
+                autocompleteEvent: 'onSearch',
+            },
+            () => {
+                this.logEvent();
+            }
+        );
+    };
     /**
      * Handles post-render actions
      *
@@ -67,10 +62,10 @@ class Search extends React.Component {
         }
     }
 
-    fetchData = e => {
+    fetchData = (e) => {
         e.preventDefault();
 
-        const searchQuery = this.searchInput.current.value;
+        const searchQuery = this.state.autocompleteValue;
         const requestParams = {
             key: process.env.REACT_APP_API_KEY,
             address: searchQuery,
@@ -94,22 +89,25 @@ class Search extends React.Component {
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
             },
-        }).then(response => {
-            if (!response.ok) {
-                throw response;
-            }
-            return response.json(); //we only get here if there is no error
-        }).then(response => {
-            console.log(response);
-            analytics.success(response);
-            this.props.updateResults(response);
-        }).catch(error => {
-            error.json().then(errorMessage => {
-                console.log(errorMessage.error.message);
-                analytics.failure(errorMessage.error.message);
-                this.props.onErrorHandler();
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw response;
+                }
+                return response.json(); //we only get here if there is no error
+            })
+            .then((response) => {
+                console.log(response);
+                analytics.success(response);
+                this.props.updateResults(response);
+            })
+            .catch((error) => {
+                error.json().then((errorMessage) => {
+                    console.log(errorMessage.error.message);
+                    analytics.failure(errorMessage.error.message);
+                    this.props.onErrorHandler();
+                });
             });
-        });
     };
 
     errorRemove = () => {
@@ -127,10 +125,10 @@ class Search extends React.Component {
             <form className={'searchForm ' + this.props.activeClassName} action="" ref={this.searchForm} onSubmit={this.fetchData}>
                 <Autocomplete
                     placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006"
-                    reference={this.searchInput}
                     onSelect={this.handleOnSelect}
                     onSearch={this.handleOnSearch}
                     onChange={this.errorRemove}
+                    value={this.state.autocompleteValue}
                 />
                 <button className="searchForm-submit" type="submit">
                     Search
