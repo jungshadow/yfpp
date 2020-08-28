@@ -1,0 +1,28 @@
+.autocomplete {
+    position: relative;
+}
+
+.autocomplete__list {
+    position: absolute;
+    background: black;
+    width: 100%;
+}
+
+.autocomplete__action {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    color: white;
+    background: none;
+    border: 0;
+    text-align: left;
+
+    &:hover,
+    &:focus {
+        background: #666666;
+    }
+
+    b {
+        font-weight: bold;
+    }
+}

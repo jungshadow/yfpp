@@ -1,8 +1,9 @@
 // Import dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
-import analytics from '../analytics';
-import helpers from '../helpers';
+import analytics from 'analytics';
+import helpers from 'helpers';
+import Autocomplete from 'components/Autocomplete/Autocomplete';
 
 /**
  * Search Form Component
@@ -18,8 +19,28 @@ class Search extends React.Component {
         super(props);
         this.searchForm = React.createRef();
         this.searchInput = React.createRef();
+        this.state = {
+            autocompleteEvent: '',
+            autocompleteValue: '',
+        };
     }
 
+    logEvent() {
+        const { autocompleteEvent, autocompleteValue } = this.state;
+        console.log(`Event: ${autocompleteEvent} : ${autocompleteValue}`);
+    }
+
+    handleOnSearch = (val) => {
+        this.setState(
+            {
+                autocompleteValue: val,
+                autocompleteEvent: 'onSearch',
+            },
+            () => {
+                this.logEvent();
+            }
+        );
+    };
     /**
      * Handles post-render actions
      *
@@ -31,16 +52,6 @@ class Search extends React.Component {
         }
     }
 
-    // initAutocomplete() {
-    //     /* Add Google Autocomplete */
-    //     const options = {
-    //         types: ['address'],
-    //         componentRestrictions: { country: 'us' },
-    //     };
-
-    //     new window.google.maps.places.Autocomplete(this.searchInput.current, options);
-    // }
-
     getRequestURL(requestParams) {
         switch (process.env.NODE_ENV) {
             case 'development':
@@ -51,10 +62,10 @@ class Search extends React.Component {
         }
     }
 
-    fetchData = e => {
+    fetchData = (e) => {
         e.preventDefault();
 
-        const searchQuery = this.searchInput.current.value;
+        const searchQuery = this.state.autocompleteValue;
         const requestParams = {
             key: process.env.REACT_APP_API_KEY,
             address: searchQuery,
@@ -79,19 +90,19 @@ class Search extends React.Component {
                 Accept: 'application/json',
             },
         })
-            .then(response => {
+            .then((response) => {
                 if (!response.ok) {
                     throw response;
                 }
                 return response.json(); //we only get here if there is no error
             })
-            .then(response => {
+            .then((response) => {
                 console.log(response);
                 analytics.success(response);
                 this.props.updateResults(response);
             })
-            .catch(error => {
-                error.json().then(errorMessage => {
+            .catch((error) => {
+                error.json().then((errorMessage) => {
                     console.log(errorMessage.error.message);
                     analytics.failure(errorMessage.error.message);
                     this.props.onErrorHandler();
@@ -112,7 +123,13 @@ class Search extends React.Component {
     render() {
         return (
             <form className={'searchForm ' + this.props.activeClassName} action="" ref={this.searchForm} onSubmit={this.fetchData}>
-                <input className="searchForm-input" type="search" ref={this.searchInput} placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006" onChange={this.errorRemove} />
+                <Autocomplete
+                    placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006"
+                    onSelect={this.handleOnSelect}
+                    onSearch={this.handleOnSearch}
+                    onChange={this.errorRemove}
+                    value={this.state.autocompleteValue}
+                />
                 <button className="searchForm-submit" type="submit">
                     Search
                 </button>
