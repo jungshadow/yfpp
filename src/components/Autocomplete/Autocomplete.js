@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { debounce } from 'lodash';
 import './autocomplete.scss';
 
 const MBX_ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN;
@@ -23,12 +24,15 @@ class Autocomplete extends React.Component {
         this.geocodingClient = {};
         this.searchInputRef = React.createRef();
         this.refsArray = [];
+        console.log(debounce);
     }
 
     logValue() {
         const { value } = this.state;
         console.log(`Last value: ${value}`);
     }
+
+    debouncedGetAutoCompleteAddresses = debounce(async (val) => this.getAutoCompleteAddresses(val), 200);
 
     getAutoCompleteAddresses = async (value) => {
         const searchQuery = value;
@@ -58,7 +62,7 @@ class Autocomplete extends React.Component {
 
     handleOnChange = (e) => {
         const val = e.target.value;
-        this.getAutoCompleteAddresses(val);
+        this.debouncedGetAutoCompleteAddresses(val);
         this.props.onSearch(val);
     };
 
@@ -144,6 +148,7 @@ class Autocomplete extends React.Component {
                     id="searchFormInput"
                     name="searchFormInput"
                     onChange={this.handleOnChange}
+                    onBlur={this.handleCloseAutoComplete}
                     onKeyDown={this.handleInputKeyDown}
                     placeholder={this.props.placeholder}
                     ref={this.searchInputRef}
