@@ -75,6 +75,7 @@ class Autocomplete extends React.Component {
         }
         switch (event.key) {
             case 'ArrowDown':
+                event.preventDefault();
                 this.refsArray[0].focus();
                 break;
 
@@ -97,14 +98,18 @@ class Autocomplete extends React.Component {
             case 'ArrowDown':
                 {
                     const nextIndex = index < results.length ? index + 1 : index;
-                    this.refsArray[nextIndex].focus();
+                    if (this.refsArray[nextIndex]) {
+                        this.refsArray[nextIndex].focus();
+                    }
                 }
                 break;
 
             case 'ArrowUp':
                 {
                     const nextIndex = index > 0 ? index - 1 : index;
-                    this.refsArray[nextIndex].focus();
+                    if (this.refsArray[nextIndex]) {
+                        this.refsArray[nextIndex].focus();
+                    }
                 }
                 break;
 
