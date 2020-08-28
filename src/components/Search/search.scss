@@ -1,0 +1,66 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.searchForm {
+    display: inline-block;
+    position: relative; // provides positioning context for absolutely positioned submit button
+    width: 100%;
+    margin-bottom: 10px;
+    transition: all 0.75s ease-in-out;
+}
+
+.searchForm-input {
+    display: block;
+    background: $WHITE;
+    width: 100%;
+    padding: 18px 55px 18px 18px; // extra right padding makes room for absolutely positioned button
+    margin: 0;
+    border: 1px solid $GREY_MEDIUM;
+    font-size: 15px;
+    line-height: 1.1;
+    font-family: $FONT_HEADLINE;
+    font-weight: 200;
+    letter-spacing: 1.15px;
+    border-radius: 11px;
+}
+
+.searchForm__submit {
+    @include BUTTON_RESET;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 51px;
+    overflow: hidden;
+    text-indent: -999em;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover,
+    &:focus {
+        svg {
+            fill: $GREY_DARK;
+        }
+    }
+}
+
+.searchForm__text {
+    @include VISUALLY_HIDDEN;
+}
+.searchForm__icon {
+    display: block;
+    width: 28px;
+    margin: 0;
+
+    svg {
+        fill: $GREY_LIGHT;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .searchForm-input {
+        font-size: $FONT_SIZE_DEFAULT;
+    }
+}

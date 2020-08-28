@@ -1,58 +1,55 @@
-
 /* ---------------------------------------------------------------------
  Modern Styles
 ------------------------------------------------------------------------ */
-@import "scss/base/_reset";
-@import "scss/helpers/_globalVars";
-@import "scss/base/_fonts";
-@import "scss/base/_elements";
-@import "scss/base/_icons";
+@import 'scss/base/_reset';
+@import 'scss/helpers/_globalVars';
+@import 'scss/base/_fonts';
+@import 'scss/base/_elements';
+@import 'scss/base/_icons';
 
 // helpers
-@import "scss/helpers/_utils";
+@import 'scss/helpers/_utils';
 
 // landmarks
-@import "scss/landmarks/contentWrap/_contentWrap";
-@import "scss/landmarks/header/_header";
-@import "scss/landmarks/footer/_footer";
-
+@import 'scss/landmarks/contentWrap/_contentWrap';
+@import 'scss/landmarks/header/_header';
+@import 'scss/landmarks/footer/_footer';
 
 // modules//////////////////////////////////////
 
 // content
-@import "scss/modules/content/bio/_bio";
-@import "scss/modules/content/iconBtn/_iconBtn";
-@import "scss/modules/content/iconLink/_iconLink";
-@import "scss/modules/content/actionLink/_actionLink";
-@import "scss/modules/content/formSelect/_formSelect";
-@import "scss/modules/content/hdg/_hdg";
-@import "scss/modules/content/imgSize/_imgSize";
-@import "scss/modules/content/links/_links";
-@import "scss/modules/content/siteTitle/_siteTitle";
-@import "scss/modules/content/showMoreLink/_showMoreLink";
-@import "scss/modules/content/starsNstripes/_starsNstripes";
-@import "scss/modules/content/txt/_txt";
-@import "scss/modules/content/txtBtn/_txtBtn";
-@import "scss/modules/content/userContent/_userContent";
+@import 'scss/modules/content/bio/_bio';
+@import 'scss/modules/content/iconBtn/_iconBtn';
+@import 'scss/modules/content/iconLink/_iconLink';
+@import 'scss/modules/content/actionLink/_actionLink';
+@import 'scss/modules/content/formSelect/_formSelect';
+@import 'scss/modules/content/hdg/_hdg';
+@import 'scss/modules/content/imgSize/_imgSize';
+@import 'scss/modules/content/links/_links';
+@import 'scss/modules/content/siteTitle/_siteTitle';
+@import 'scss/modules/content/showMoreLink/_showMoreLink';
+@import 'scss/modules/content/starsNstripes/_starsNstripes';
+@import 'scss/modules/content/txt/_txt';
+@import 'scss/modules/content/txtBtn/_txtBtn';
+@import 'scss/modules/content/userContent/_userContent';
 
 // container
-@import "scss/modules/container/card/_card";
-@import "scss/modules/container/site/_site";
+@import 'scss/modules/container/card/_card';
+@import 'scss/modules/container/site/_site';
 
 // component
-@import "scss/modules/component/actions/_actions";
-@import "scss/modules/component/carousel/_carousel";
-@import "scss/modules/component/fuckOff/_fuckOff";
-@import "scss/modules/component/modal/_modal";
-@import "scss/modules/component/search/_search";
-@import "scss/modules/component/tabs/_tabs";
+@import 'scss/modules/component/actions/_actions';
+@import 'scss/modules/component/carousel/_carousel';
+@import 'scss/modules/component/fuckOff/_fuckOff';
+@import 'scss/modules/component/modal/_modal';
+@import 'scss/modules/component/tabs/_tabs';
 
 // layout
-@import "scss/modules/layout/blocks/_blocks";
-@import "scss/modules/layout/grid/_grid";
-@import "scss/modules/layout/group/_group";
-@import "scss/modules/layout/hList/_hList";
-@import "scss/modules/layout/media/_media";
-@import "scss/modules/layout/split/_split";
-@import "scss/modules/layout/vList/_vList";
-@import "scss/modules/layout/wrapper/_wrapper";
+@import 'scss/modules/layout/blocks/_blocks';
+@import 'scss/modules/layout/grid/_grid';
+@import 'scss/modules/layout/group/_group';
+@import 'scss/modules/layout/hList/_hList';
+@import 'scss/modules/layout/media/_media';
+@import 'scss/modules/layout/split/_split';
+@import 'scss/modules/layout/vList/_vList';
+@import 'scss/modules/layout/wrapper/_wrapper';

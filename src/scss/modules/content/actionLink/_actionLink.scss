@@ -14,7 +14,7 @@ actionLink
     border-radius: 50%;
     vertical-align: middle;
     text-align: center;
-    transition: background-color .25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
     -webkit-font-smoothing: antialiased;
 
     &:after {
@@ -27,7 +27,8 @@ actionLink
         color: $WHITE;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         background-color: $RED;
     }
 }
@@ -58,8 +59,8 @@ actionLink
 
 // alternate color mixin for hover state
 .mix-actionLink_blue:hover,
-.mix-actionLink_blue:focus, {
-    background-color: $BLUE;
+.mix-actionLink_blue:focus {
+    background-color: $COLOR_PRIMARY;
 }
 
 .mix-actionLink_twitter {
@@ -72,11 +73,11 @@ actionLink
 }
 
 .mix-actionLink_facebook {
-    background-color: $BLUE;
+    background-color: $COLOR_PRIMARY;
 
     &:hover,
     &:focus {
-        background-color: lighten($BLUE, 10);
+        background-color: lighten($COLOR_PRIMARY, 10);
     }
 }
 

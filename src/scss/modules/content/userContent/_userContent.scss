@@ -3,12 +3,9 @@ userContent - unclassed element styles
 ------------------------------------------------------------------------ */
 
 .userContent {
-
     font-family: $FONT_DEFAULT;
     font-size: 1rem;
-    font-weight: 
-
-    h1, h2, h3, h4, h5, h6 {
+    font-weight: h1, h2, h3, h4, h5, h6 {
         display: block;
     }
 
@@ -60,7 +57,7 @@ userContent - unclassed element styles
     }
 
     li {
-        margin: 0 0 5px ;
+        margin: 0 0 5px;
     }
 
     li > ul,
@@ -83,21 +80,19 @@ userContent - unclassed element styles
     }
 
     a {
-        color: $BLUE;
+        color: $COLOR_PRIMARY;
         text-decoration: none;
     }
 
     a:hover,
     a:focus,
     a:visited {
-        color: lighten($BLUE, 10);
+        color: lighten($COLOR_PRIMARY, 10);
     }
-
 }
 
 /* white text on dark background */
 .userContent_reversed {
-    
     color: $WHITE;
 
     a {
@@ -109,42 +104,37 @@ userContent - unclassed element styles
     a:visited {
         color: lighten($RED, 30);
     }
-
 }
 
 /* grey text on dark background */
 .userContent_reversedSoft {
-    
     color: $GREY;
 
     a {
-        color: $BLUE_LIGHT;
+        color: $COLOR_PRIMARY;
     }
 
     a:hover,
     a:focus,
     a:visited {
-        color: lighten($BLUE_LIGHT, 10);
+        color: lighten($COLOR_PRIMARY, 10);
     }
-
 }
 
 /* light grey text on dark background */
 .userContent_reversedSofter {
-    
     color: $GREY_LIGHT;
 
     a,
     a:visited {
-        color: $BLUE_LIGHT;
+        color: $COLOR_PRIMARY;
     }
 
     a:hover,
     a:focus,
     a:visited {
-        color: lighten($BLUE_LIGHT, 10);
+        color: lighten($COLOR_PRIMARY, 10);
     }
-
 }
 
 .mix-userContent_md {

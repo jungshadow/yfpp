@@ -7,7 +7,7 @@ modal
     height: 100vh;
     width: 100%;
     top: 0;
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
     transform: translateY(-100vh);
     background-color: rgba($GREY_DARK, 0.99);
     opacity: 1;
@@ -42,7 +42,7 @@ modal
 
     .icon {
         font-size: 30px;
-        color: $BLUE_LIGHT
+        color: $COLOR_PRIMARY;
     }
 
     &:hover .icon,

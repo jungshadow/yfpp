@@ -20,8 +20,8 @@ carousel
     left: 0;
     font-size: 0; // removes whitespace for inline-block child elements
     white-space: nowrap; // keeps slides from wrapping to next line
-    transform: translate3d(0,0,0);
-    transition: transform .25s linear;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.25s linear;
 }
 
 .carousel-inner-slides-slide {
@@ -43,7 +43,7 @@ carousel
     position: absolute;
     top: 50%;
     left: 0;
-    width: 100%;  
+    width: 100%;
 }
 
 .carsousel-directionNav-item {
@@ -51,11 +51,11 @@ carousel
     display: block;
     background: none;
     border: none;
-    color: $BLUE_LIGHT;
+    color: $COLOR_PRIMARY;
     overflow: hidden;
     font-size: 0;
     text-indent: -999em;
-    transform: translateY(-50%); 
+    transform: translateY(-50%);
 
     &:before {
         display: block;
@@ -76,22 +76,20 @@ carousel
     left: 0;
 
     &:before {
-        content: "\e902";
-    }   
+        content: '\e902';
+    }
 }
 
 .carsousel-directionNav-item_next {
     top: 50%;
     right: 0;
-    
+
     &:before {
-        content: "\e903";    
+        content: '\e903';
     }
 }
 
-
 @media screen and (min-width: 768px) {
-
     .carousel {
         padding: 0 50px;
     }
@@ -99,7 +97,7 @@ carousel
     .carousel-directionNav {
         margin-top: -20px;
     }
-    
+
     .carsousel-directionNav-item_prev {
         left: 20px;
     }
@@ -111,6 +109,4 @@ carousel
     .carsousel-directionNav-item:before {
         font-size: 20px;
     }
-    
-
 }

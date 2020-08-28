@@ -5,7 +5,8 @@ import analytics from 'analytics';
 import helpers from 'helpers';
 import Autocomplete from 'components/Autocomplete/Autocomplete';
 import { AppContext, DispatchContext } from 'appReducer';
-
+import './search.scss';
+import SearchIcon from 'components/Icons/SearchIcon';
 /**
  * Search Form Component
  *
@@ -88,8 +89,11 @@ function Search(props) {
     return (
         <form className={'searchForm '} action="" onSubmit={fetchData}>
             <Autocomplete placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006" onSearch={handleOnSearch} onChange={errorRemove} value={searchValue} />
-            <button className="searchForm-submit" type="submit">
-                Search
+            <button className="searchForm__submit" type="submit">
+                <span className="searchForm__text">Search</span>
+                <span className="searchForm__icon">
+                    <SearchIcon />
+                </span>
             </button>
         </form>
     );

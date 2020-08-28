@@ -7,12 +7,10 @@ iconLink
 }
 
 .iconLink > * {
-    color: $BLUE_LIGHT;
+    color: $COLOR_PRIMARY;
 }
-
 
 .iconLink:hover > *,
 .iconLink:focus > * {
-    color: lighten($BLUE_LIGHT, 10);
+    color: lighten($COLOR_PRIMARY, 10);
 }
-
