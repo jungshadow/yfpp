@@ -24,7 +24,6 @@ class Autocomplete extends React.Component {
         this.geocodingClient = {};
         this.searchInputRef = React.createRef();
         this.refsArray = [];
-        console.log(debounce);
     }
 
     logValue() {
@@ -97,6 +96,7 @@ class Autocomplete extends React.Component {
     };
 
     handleActionKeyDown = (event, index, results) => {
+        console.log(event);
         event.preventDefault();
         switch (event.key) {
             case 'ArrowDown':
@@ -148,7 +148,7 @@ class Autocomplete extends React.Component {
                     id="searchFormInput"
                     name="searchFormInput"
                     onChange={this.handleOnChange}
-                    onBlur={this.handleCloseAutoComplete}
+                    // onBlur={this.handleCloseAutoComplete}
                     onKeyDown={this.handleInputKeyDown}
                     placeholder={this.props.placeholder}
                     ref={this.searchInputRef}
