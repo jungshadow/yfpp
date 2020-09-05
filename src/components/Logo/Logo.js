@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import './logo.scss';
 
 const Logo = (props) => {
+    const getLogoClassName = () => {
+        return classnames({ logo: true, 'logo--isCompact': props.isCompact });
+    };
+
     return (
         <header role="banner">
-            <h1 className="logo">
+            <h1 className={getLogoClassName()}>
                 <span className="logo_seg1">
                     Where's My <span className="logo__accent">Fucking</span>
                 </span>{' '}

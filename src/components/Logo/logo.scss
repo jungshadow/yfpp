@@ -1,8 +1,9 @@
 @import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
 
 .logo {
     font-family: 'Bebas Neue', cursive;
-    font-size: 72px;
+    font-size: 50px;
     color: $WHITE;
     text-align: center;
     line-height: 0.95;
@@ -28,4 +29,33 @@
 
 .logo__seg2 {
     display: block;
+}
+
+.logo--isCompact {
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+@include breakpoint(xs) {
+    .logo {
+        font-size: 60px;
+    }
+
+    .logo--isCompact {
+        font-size: 24px;
+    }
+}
+
+@include breakpoint(md) {
+    .logo {
+        font-size: 72px;
+    }
+
+    .logo--isCompact {
+        font-size: 24px;
+
+        .logo__seg2 {
+            display: inline;
+        }
+    }
 }

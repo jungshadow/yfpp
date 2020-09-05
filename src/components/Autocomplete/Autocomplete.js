@@ -144,7 +144,7 @@ class Autocomplete extends React.Component {
         return (
             <div className="autocomplete">
                 <input
-                    className="searchForm-input"
+                    className="searchForm__input"
                     id="searchFormInput"
                     name="searchFormInput"
                     onChange={this.handleOnChange}

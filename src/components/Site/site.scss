@@ -1,12 +1,14 @@
 @import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
 
 .site {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background: $WHITE;
 }
 
-.site__bd {
+.site__hd {
     flex: 1;
     background-color: $COLOR_PRIMARY;
     display: flex;
@@ -14,6 +16,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding: 20px;
 }
 
 .site__logo {
@@ -21,5 +24,31 @@
 }
 
 .site__search {
-    width: 560px;
+    width: 100%;
+    max-width: 560px;
+}
+
+.site--hasSearchVal {
+    .site__hd {
+        flex-direction: row;
+        flex: 0 1 auto;
+        justify-content: flex-start;
+        padding: 0;
+        border-bottom: 1px solid $BLACK;
+    }
+
+    .site__logo {
+        margin-bottom: 0;
+        padding: 10px 20px;
+        max-width: 470px;
+        width: 45%;
+    }
+
+    .site__search {
+        flex: 1;
+        max-width: none;
+    }
+}
+
+@include breakpoint(md) {
 }

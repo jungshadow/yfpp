@@ -3,8 +3,9 @@
 // ----------------------------------------------------------------------------
 // Font
 // ----------------------------------------------------------------------------
-$FONT_DEFAULT: 'Lato', sanserif;
-$FONT_HEADLINE: 'Liberator', sanserif;
+$FONT_DEFAULT: 'Roboto', sans-serif;
+$FONT_HEADLINE: 'Montserrat', sans-serif;
+$FONT_DISPLAY: 'Bebas Neue', cursive;
 $FONT_ICON: 'yfpp-icons';
 $FONT_SIZE_DEFAULT: 16px;
 $FONT_SIZE_MOBILE: 13px;
@@ -18,6 +19,7 @@ $COLOR_LINK_DEFAULT: #000000;
 $COLOR_TEXT_LIGHT: #ffffff;
 
 $WHITE: #ebeae9;
+$BLACK: #3f3d3c;
 $GREY_LIGHT: #cac9c9;
 $GREY_MEDIUM: #bbbbbb;
 $GREY: #b1ada8;

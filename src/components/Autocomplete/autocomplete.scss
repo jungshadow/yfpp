@@ -1,25 +1,31 @@
+@import 'scss/helpers/_globalVars';
+
 .autocomplete {
     position: relative;
 }
 
 .autocomplete__list {
     position: absolute;
-    background: black;
+    background: $WHITE;
     width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 11px;
+    font-size: 18px;
 }
 
 .autocomplete__action {
     display: block;
     width: 100%;
-    padding: 10px 20px;
-    color: white;
+    padding: 24px 34px;
+    color: $BLACK;
     background: none;
     border: 0;
     text-align: left;
 
     &:hover,
     &:focus {
-        background: #666666;
+        background: $GREY_LIGHT;
     }
 
     b {

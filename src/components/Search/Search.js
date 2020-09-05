@@ -1,6 +1,7 @@
 // Import dependencies
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import analytics from 'analytics';
 import helpers from 'helpers';
 import Autocomplete from 'components/Autocomplete/Autocomplete';
@@ -17,6 +18,7 @@ function Search(props) {
     const API_URL_DEV = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_URL;
     const API_URL = process.env.REACT_APP_API_URL;
     const dispatch = useContext(DispatchContext);
+    const { isActive } = useContext(AppContext);
     const [searchValue, setsearchValue] = useState('');
 
     const handleOnSearch = (val) => {
@@ -86,8 +88,12 @@ function Search(props) {
         this.props.onErrorRemoveHandler();
     };
 
+    const getSearchClassName = () => {
+        return classnames({ searchForm: true, 'searchForm--hasSearchVal': isActive });
+    };
+
     return (
-        <form className={'searchForm '} action="" onSubmit={fetchData}>
+        <form className={getSearchClassName()} action="" onSubmit={fetchData}>
             <Autocomplete placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006" onSearch={handleOnSearch} onChange={errorRemove} value={searchValue} />
             <button className="searchForm__submit" type="submit">
                 <span className="searchForm__text">Search</span>
