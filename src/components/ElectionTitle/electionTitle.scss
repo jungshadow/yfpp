@@ -1,0 +1,17 @@
+@import 'scss/helpers/_globalVars';
+
+.electionTitle__text {
+    font-family: $FONT_HEADLINE;
+    font-weight: 900;
+    color: $WHITE;
+    font-size: 26px;
+    text-transform: capitalize;
+}
+
+.electionTitle__date {
+    font-family: $FONT_DEFAULT;
+    font-size: 14px;
+    color: $GREY_LIGHT;
+    text-transform: uppercase;
+    margin-bottom: 11px;
+}

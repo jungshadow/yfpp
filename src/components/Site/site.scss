@@ -37,9 +37,22 @@
         border-bottom: 1px solid $BLACK;
     }
 
+    .site__bd {
+        display: flex;
+        flex: 1;
+    }
+
+    .site__secondary {
+        max-width: 470px;
+        padding: 30px 53px;
+        width: 45%;
+        background-color: $COLOR_PRIMARY;
+        border-top: 1px solid transparentize($WHITE, 0.89);
+    }
+
     .site__logo {
         margin-bottom: 0;
-        padding: 10px 20px;
+        padding: 10px 53px;
         max-width: 470px;
         width: 45%;
     }

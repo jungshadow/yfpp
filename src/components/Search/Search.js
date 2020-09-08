@@ -37,6 +37,7 @@ function Search(props) {
 
     const fetchData = (e) => {
         e.preventDefault();
+        console.log('submit');
 
         const searchQuery = searchValue;
         const requestParams = {

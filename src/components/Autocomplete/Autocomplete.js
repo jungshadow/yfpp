@@ -119,6 +119,7 @@ class Autocomplete extends React.Component {
 
             case 'Enter':
                 this.handleSelectItem(index);
+                this.searchInputRef.current.focus();
                 break;
 
             case 'Escape':

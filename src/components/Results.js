@@ -1,5 +1,5 @@
-import React from 'react';
-import ElectionTitle from './ElectionTitle';
+import React, { useContext } from 'react';
+
 import Tabs from './Tabs';
 import TabPanel from './TabPanel';
 import DropOffLocationResults from './DropOffLocationResults';
@@ -7,6 +7,8 @@ import PollingPlaceResults from './PollingPlaceResults';
 import EarlyVoteSiteResults from './EarlyVoteSiteResults';
 import PartySelect from './PartySelect';
 import ContestsList from './ContestsList';
+import { AppContext } from 'appReducer';
+import { Switch, Route } from 'react-router-dom';
 
 Results.propTypes = {};
 
@@ -27,26 +29,25 @@ function Results(props) {
         primaryParties,
         contests,
         filterBy,
-    } = props;
+    } = useContext(AppContext);
+
     return (
-        <div className="wrapper mix-wrapper_bleed">
-            <ElectionTitle electionInfo={electionInfo} />
-            <Tabs>
-                <TabPanel label="Fucking Polling Place" normalizedAddress={normalizedAddress} electionInfo={electionInfo}>
-                    <EarlyVoteSiteResults earlyVoteSites={earlyVoteSites} index={earlyVoteSitesIndex} handleChange={updateEarlyVoteSites} />
-                    <DropOffLocationResults dropOffLocations={dropOffLocations} index={dropOffLocationsIndex} handleChange={updateDropOffLocations} />
-                    <PollingPlaceResults pollingLocations={pollingLocations} index={pollingLocationsIndex} electionInfo={electionInfo} handleChange={updatePollingLocations} />
-                </TabPanel>
-                <TabPanel label="On Your Fucking Ballot" normalizedAddress={normalizedAddress} electionInfo={electionInfo}>
-                    <div className="group">
-                        <div className="group-item">
-                            <PartySelect primaryParties={primaryParties} handleOnSelect={handleOnSelect} />
-                        </div>
-                        <ContestsList contests={contests} filterBy={filterBy} />
+        <Switch>
+            <Route path="/polling-place">
+                <EarlyVoteSiteResults earlyVoteSites={earlyVoteSites} index={earlyVoteSitesIndex} handleChange={updateEarlyVoteSites} />
+                <DropOffLocationResults dropOffLocations={dropOffLocations} index={dropOffLocationsIndex} handleChange={updateDropOffLocations} />
+                <PollingPlaceResults pollingLocations={pollingLocations} index={pollingLocationsIndex} electionInfo={electionInfo} handleChange={updatePollingLocations} />
+            </Route>
+            <Route path="/ballot">
+                <div className="group">
+                    <div className="group-item">
+                        <PartySelect primaryParties={primaryParties} handleOnSelect={handleOnSelect} />
                     </div>
-                </TabPanel>
-            </Tabs>
-        </div>
+                    <ContestsList contests={contests} filterBy={filterBy} />
+                </div>
+            </Route>
+            <Route path="/representatives"></Route>
+        </Switch>
     );
 }
 

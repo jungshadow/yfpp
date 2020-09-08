@@ -4,6 +4,8 @@ import Search from 'components/Search/Search';
 import Logo from 'components/Logo/Logo';
 import { AppContext } from 'appReducer';
 import './site.scss';
+import Results from 'components/Results';
+import Secondary from 'components/Secondary/Secondary';
 
 const Site = () => {
     const { isActive } = useContext(AppContext);
@@ -22,7 +24,16 @@ const Site = () => {
                     <Search />
                 </div>
             </div>
-            <div className="site__bd"></div>
+            {isActive && (
+                <div className="site__bd">
+                    <div className="site__secondary">
+                        <Secondary />
+                    </div>
+                    <div className="site__content">
+                        <Results />
+                    </div>
+                </div>
+            )}
             <div className="site__ft"></div>
         </div>
     );

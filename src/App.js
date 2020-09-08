@@ -1,9 +1,9 @@
 import React, { useReducer } from 'react';
-import PropTypes from 'prop-types';
+
 import { appReducer, initialState, AppContext, DispatchContext } from 'appReducer';
 import Site from 'components/Site/Site';
 
-const App = (props) => {
+const App = () => {
     const [state, dispatch] = useReducer(appReducer, initialState);
     return (
         <AppContext.Provider value={state}>
@@ -13,7 +13,5 @@ const App = (props) => {
         </AppContext.Provider>
     );
 };
-
-App.propTypes = {};
 
 export default App;

@@ -1,0 +1,20 @@
+@import 'scss/helpers/_globalVars';
+
+.mainNav__listItem {
+    display: block;
+}
+
+.mainNav__listItem + .mainNav__listItem {
+    margin-top: 25px;
+}
+
+.mainNav__listItemLink {
+    font-family: $FONT_HEADLINE;
+    font-weight: 700;
+    color: $PLUM_LIGHT;
+    font-size: 26px;
+}
+
+.mainNav__listItemLink--isActive {
+    color: $WHITE;
+}
