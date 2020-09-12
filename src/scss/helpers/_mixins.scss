@@ -55,7 +55,11 @@
 
 // Breakpoints
 @mixin breakpoint($size) {
-    @if $size == xs {
+    @if $size == smOnly {
+        @media (max-width: 768px) {
+            @content;
+        }
+    } @else if $size == xs {
         @media (min-width: 500px) {
             @content;
         }

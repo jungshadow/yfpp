@@ -1,5 +1,5 @@
 // Import dependencies
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import analytics from 'analytics';
@@ -7,7 +7,9 @@ import helpers from 'helpers';
 import Autocomplete from 'components/Autocomplete/Autocomplete';
 import { AppContext, DispatchContext } from 'appReducer';
 import './search.scss';
+import useWindowSize from 'hooks/useWindowSize';
 import SearchIcon from 'components/Icons/SearchIcon';
+import CloseIcon from 'components/Icons/CloseIcon';
 /**
  * Search Form Component
  *
@@ -18,8 +20,9 @@ function Search(props) {
     const API_URL_DEV = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_URL;
     const API_URL = process.env.REACT_APP_API_URL;
     const dispatch = useContext(DispatchContext);
-    const { isActive } = useContext(AppContext);
+    const { isActive, searchToggleIsOpen } = useContext(AppContext);
     const [searchValue, setsearchValue] = useState('');
+    const windowSize = useWindowSize();
 
     const handleOnSearch = (val) => {
         setsearchValue(val);
@@ -37,7 +40,6 @@ function Search(props) {
 
     const fetchData = (e) => {
         e.preventDefault();
-        console.log('submit');
 
         const searchQuery = searchValue;
         const requestParams = {
@@ -76,7 +78,6 @@ function Search(props) {
                 dispatch({ type: 'UPDATE_SEARCH_RESULTS', data: response });
             })
             .catch((error) => {
-                debugger;
                 error.json().then((errorMessage) => {
                     console.log(errorMessage.error.message);
                     analytics.failure(errorMessage.error.message);
@@ -90,18 +91,31 @@ function Search(props) {
     };
 
     const getSearchClassName = () => {
-        return classnames({ searchForm: true, 'searchForm--hasSearchVal': isActive });
+        return classnames({ searchForm: true, 'searchForm--hasSearchVal': isActive, 'searchForm--isClosed': !searchToggleIsOpen && isActive });
+    };
+
+    const shouldShowSearchToggle = isActive && windowSize.width < 768;
+
+    const setsearchToggleIsOpen = () => {
+        dispatch({ type: 'SET_SEARCH_TOGGLE_STATUS', status: !searchToggleIsOpen });
     };
 
     return (
         <form className={getSearchClassName()} action="" onSubmit={fetchData}>
-            <Autocomplete placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006" onSearch={handleOnSearch} onChange={errorRemove} value={searchValue} />
-            <button className="searchForm__submit" type="submit">
-                <span className="searchForm__text">Search</span>
-                <span className="searchForm__icon">
-                    <SearchIcon />
-                </span>
-            </button>
+            <div className="searchForm__input">
+                <Autocomplete placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006" onSearch={handleOnSearch} onChange={errorRemove} value={searchValue} isActive={isActive} />
+                <button className="searchForm__submit" type="submit">
+                    <span className="searchForm__text">Search</span>
+                    <span className="searchForm__icon">
+                        <SearchIcon />
+                    </span>
+                </button>
+            </div>
+            {shouldShowSearchToggle && (
+                <button type="button" className="searchForm__searchToggle" onClick={setsearchToggleIsOpen}>
+                    <span className="searchForm__icon">{searchToggleIsOpen ? <CloseIcon /> : <SearchIcon />}</span>
+                </button>
+            )}
         </form>
     );
 }

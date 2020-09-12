@@ -1,20 +1,56 @@
 @import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.mainNav__list {
+    display: flex;
+    align-items: flex-start;
+}
 
 .mainNav__listItem {
     display: block;
 }
 
 .mainNav__listItem + .mainNav__listItem {
-    margin-top: 25px;
+    margin: 0 0 0 20px;
 }
 
 .mainNav__listItemLink {
+    position: relative;
     font-family: $FONT_HEADLINE;
     font-weight: 700;
     color: $PLUM_LIGHT;
-    font-size: 26px;
+    font-size: 14px;
+    z-index: 1;
+    white-space: nowrap;
 }
 
 .mainNav__listItemLink--isActive {
     color: $WHITE;
+
+    &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 60%;
+        left: 50%;
+        background: $RED;
+        width: 110%;
+        height: 42%;
+        z-index: -1;
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@include breakpoint(md) {
+    .mainNav__list {
+        display: block;
+    }
+
+    .mainNav__listItem + .mainNav__listItem {
+        margin: 25px 0 0;
+    }
+
+    .mainNav__listItemLink {
+        font-size: 26px;
+    }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { debounce } from 'lodash';
+import classnames from 'classnames';
 import './autocomplete.scss';
 
 const MBX_ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN;
@@ -25,6 +26,10 @@ class Autocomplete extends React.Component {
         this.searchInputRef = React.createRef();
         this.refsArray = [];
     }
+
+    getAutoCompleteClassNames = () => {
+        return classnames({ autocomplete: true, 'autocomplete--hasSearchVal': this.props.isActive });
+    };
 
     logValue() {
         const { value } = this.state;
@@ -96,7 +101,6 @@ class Autocomplete extends React.Component {
     };
 
     handleActionKeyDown = (event, index, results) => {
-        console.log(event);
         event.preventDefault();
         switch (event.key) {
             case 'ArrowDown':
@@ -143,9 +147,9 @@ class Autocomplete extends React.Component {
         const { dataSource } = this.state;
 
         return (
-            <div className="autocomplete">
+            <div className={this.getAutoCompleteClassNames()}>
                 <input
-                    className="searchForm__input"
+                    className="autocomplete__input"
                     id="searchFormInput"
                     name="searchFormInput"
                     onChange={this.handleOnChange}

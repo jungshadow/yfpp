@@ -1,5 +1,6 @@
 import React from 'react';
 import updateSearchResults from 'actions/updateSearchResults';
+import setSearchToggleIsOpen from 'actions/setSearchToggleIsOpen';
 
 export const AppContext = React.createContext();
 export const DispatchContext = React.createContext();
@@ -8,6 +9,9 @@ export function appReducer(state, action) {
     switch (action.type) {
         case 'UPDATE_SEARCH_RESULTS': {
             return updateSearchResults(state, action);
+        }
+        case 'SET_SEARCH_TOGGLE_STATUS': {
+            return setSearchToggleIsOpen(state, action);
         }
 
         default:
@@ -33,4 +37,5 @@ export const initialState = {
     showModal: false,
     filterBy: 'All',
     primaryParties: [],
+    searchToggleIsOpen: true,
 };

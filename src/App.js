@@ -5,6 +5,7 @@ import Site from 'components/Site/Site';
 
 const App = () => {
     const [state, dispatch] = useReducer(appReducer, initialState);
+
     return (
         <AppContext.Provider value={state}>
             <DispatchContext.Provider value={dispatch}>

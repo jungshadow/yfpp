@@ -1,3 +1,11 @@
+@import 'scss/helpers/_mixins';
+
 .secondary__heading {
-    margin-bottom: 53px;
+    margin-bottom: 26px;
+}
+
+@include breakpoint(md) {
+    .secondary__heading {
+        margin-bottom: 53px;
+    }
 }

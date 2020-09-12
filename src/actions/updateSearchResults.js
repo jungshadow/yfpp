@@ -42,6 +42,7 @@ export default function updateSearchResults(state, action) {
     }
 
     return {
+        ...state,
         leoInfo: leoInfo,
         seoInfo: seoInfo,
         normalizedAddress: normalizedAddress,

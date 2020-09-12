@@ -1,7 +1,24 @@
 @import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
 
 .autocomplete {
-    position: relative;
+    flex: 1;
+}
+
+.autocomplete__input {
+    background: $WHITE;
+    border-radius: 11px 0 0 11px;
+    border: 1px solid $GREY_MEDIUM;
+    border-right: 0px;
+    display: block;
+    font-family: $FONT_HEADLINE;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+    padding: 18px; // extra right padding makes room for absolutely positioned button
+    width: 100%;
+    flex: 1;
 }
 
 .autocomplete__list {
@@ -30,5 +47,20 @@
 
     b {
         font-weight: bold;
+    }
+}
+
+.autocomplete--hasSearchVal {
+    .autocomplete__input {
+        border-radius: 0;
+        text-align: center;
+        padding-top: 34px;
+        padding-bottom: 34px;
+    }
+}
+
+@include breakpoint(smOnly) {
+    .autoComplete__input {
+        font-size: $FONT_SIZE_DEFAULT;
     }
 }

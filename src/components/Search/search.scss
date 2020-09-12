@@ -2,7 +2,8 @@
 @import 'scss/helpers/_mixins';
 
 .searchForm {
-    display: inline-block;
+    display: flex;
+    align-items: stretch;
     position: relative; // provides positioning context for absolutely positioned submit button
     width: 100%;
     margin-bottom: 10px;
@@ -10,26 +11,20 @@
 }
 
 .searchForm__input {
-    background: $WHITE;
-    border-radius: 11px;
-    border: 1px solid $GREY_MEDIUM;
-    display: block;
-    font-family: $FONT_HEADLINE;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.1;
+    display: flex;
     margin: 0;
-    padding: 18px 55px 18px 18px; // extra right padding makes room for absolutely positioned button
     width: 100%;
+    opacity: 1;
+    transition: width 0.35s ease-in-out, opacity 0.25s ease-in-out;
 }
 
 .searchForm__submit {
     @include BUTTON_RESET;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 51px;
+    background: $WHITE;
+    border: 1px solid $GREY_MEDIUM;
+    border-left: 0px;
+    border-radius: 0 11px 11px 0;
+    padding: 0 22px 0 0;
     overflow: hidden;
     text-indent: -999em;
     text-align: left;
@@ -59,19 +54,27 @@
     }
 }
 
+.searchForm__searchToggle {
+    @include BUTTON_RESET;
+    padding: 0 20px;
+}
+
 .searchForm--hasSearchVal {
     margin: 0;
+    justify-content: flex-end;
 
-    .searchForm__input {
+    .searchForm__submit {
         border-radius: 0;
-        text-align: center;
-        padding-top: 34px;
-        padding-bottom: 34px;
     }
 }
 
-@media screen and (max-width: 768px) {
-    .searchForm__input {
-        font-size: $FONT_SIZE_DEFAULT;
+@include breakpoint(smOnly) {
+    .searchForm--isClosed {
+        .searchForm__input {
+            width: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: width 0.35s ease-in-out, opacity 0.45s ease-in-out;
+        }
     }
 }

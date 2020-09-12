@@ -37,31 +37,50 @@
         border-bottom: 1px solid $BLACK;
     }
 
-    .site__bd {
-        display: flex;
-        flex: 1;
-    }
-
     .site__secondary {
-        max-width: 470px;
-        padding: 30px 53px;
-        width: 45%;
+        padding: 26px 22px;
         background-color: $COLOR_PRIMARY;
         border-top: 1px solid transparentize($WHITE, 0.89);
     }
 
     .site__logo {
         margin-bottom: 0;
-        padding: 10px 53px;
-        max-width: 470px;
-        width: 45%;
+        padding: 32px 15px;
     }
 
     .site__search {
-        flex: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
         max-width: none;
     }
-}
 
-@include breakpoint(md) {
+    @include breakpoint(md) {
+        .site__logo {
+            padding: 10px 53px;
+            max-width: 470px;
+            width: 45%;
+            flex: 1 0 100%;
+        }
+
+        .site__search {
+            flex: 1;
+            position: relative;
+        }
+
+        .site__bd {
+            display: flex;
+            flex: 1;
+        }
+
+        .site__secondary {
+            flex: 1 0 100%;
+            max-width: 470px;
+            padding: 30px 53px;
+            width: 45%;
+            background-color: $COLOR_PRIMARY;
+            border-top: 1px solid transparentize($WHITE, 0.89);
+        }
+    }
 }
