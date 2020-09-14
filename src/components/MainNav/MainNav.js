@@ -22,6 +22,11 @@ const MainNav = () => {
                         Representatives
                     </NavLink>
                 </li>
+                <li className="mainNav__listItem">
+                    <NavLink className="mainNav__listItemLink" to="/drop-off-sites" activeClassName="mainNav__listItemLink--isActive">
+                        Drop Off Sites
+                    </NavLink>
+                </li>
             </ul>
         </nav>
     );

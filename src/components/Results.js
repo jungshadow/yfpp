@@ -1,42 +1,23 @@
 import React, { useContext } from 'react';
 
-import Tabs from './Tabs';
-import TabPanel from './TabPanel';
-import DropOffLocationResults from './DropOffLocationResults';
-import PollingPlaceResults from './PollingPlaceResults';
-import EarlyVoteSiteResults from './EarlyVoteSiteResults';
 import PartySelect from './PartySelect';
 import ContestsList from './ContestsList';
 import { AppContext } from 'appReducer';
 import { Switch, Route } from 'react-router-dom';
+import EarlyVoteResults from './EarlyVoteResults/EarlyVoteResults';
+import PollingPlaceResults from './PollingPlaceResults/PollingPlaceResults';
+import DropOffLocationResults from './DropOffLocationResults/DropOffLocationResults';
 
 Results.propTypes = {};
 
-function Results(props) {
-    const {
-        dropOffLocations,
-        dropOffLocationsIndex,
-        earlyVoteSites,
-        earlyVoteSitesIndex,
-        electionInfo,
-        normalizedAddress,
-        pollingLocations,
-        pollingLocationsIndex,
-        handleOnSelect,
-        updateDropOffLocations,
-        updateEarlyVoteSites,
-        updatePollingLocations,
-        primaryParties,
-        contests,
-        filterBy,
-    } = useContext(AppContext);
+function Results() {
+    const { dropOffLocations, earlyVoteSites, pollingLocations, handleOnSelect, primaryParties, contests, filterBy } = useContext(AppContext);
 
     return (
         <Switch>
             <Route path="/polling-place">
-                <EarlyVoteSiteResults earlyVoteSites={earlyVoteSites} index={earlyVoteSitesIndex} handleChange={updateEarlyVoteSites} />
-                <DropOffLocationResults dropOffLocations={dropOffLocations} index={dropOffLocationsIndex} handleChange={updateDropOffLocations} />
-                <PollingPlaceResults pollingLocations={pollingLocations} index={pollingLocationsIndex} electionInfo={electionInfo} handleChange={updatePollingLocations} />
+                <EarlyVoteResults locations={earlyVoteSites} />
+                <PollingPlaceResults locations={pollingLocations} />
             </Route>
             <Route path="/ballot">
                 <div className="group">
@@ -47,6 +28,10 @@ function Results(props) {
                 </div>
             </Route>
             <Route path="/representatives"></Route>
+
+            <Route path="/drop-off-sites">
+                <DropOffLocationResults locations={dropOffLocations} />
+            </Route>
         </Switch>
     );
 }

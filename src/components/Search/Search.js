@@ -1,5 +1,5 @@
 // Import dependencies
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import analytics from 'analytics';
@@ -16,7 +16,7 @@ import CloseIcon from 'components/Icons/CloseIcon';
  * @class Search
  * @extends React.Component
  */
-function Search(props) {
+function Search() {
     const API_URL_DEV = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_URL;
     const API_URL = process.env.REACT_APP_API_URL;
     const dispatch = useContext(DispatchContext);
