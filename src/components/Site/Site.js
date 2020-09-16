@@ -40,7 +40,9 @@ const Site = () => {
                         <Secondary />
                     </div>
                     <div className="site__content">
-                        <Results />
+                        <div className="site__contentInner">
+                            <Results />
+                        </div>
                     </div>
                 </div>
             )}

@@ -7,11 +7,12 @@ import { Switch, Route } from 'react-router-dom';
 import EarlyVoteResults from './EarlyVoteResults/EarlyVoteResults';
 import PollingPlaceResults from './PollingPlaceResults/PollingPlaceResults';
 import DropOffLocationResults from './DropOffLocationResults/DropOffLocationResults';
+import Representatives from './Representatives/Representatives';
 
 Results.propTypes = {};
 
 function Results() {
-    const { dropOffLocations, earlyVoteSites, pollingLocations, handleOnSelect, primaryParties, contests, filterBy } = useContext(AppContext);
+    const { dropOffLocations, earlyVoteSites, pollingLocations, handleOnSelect, primaryParties, contests, filterBy, representatives, offices } = useContext(AppContext);
 
     return (
         <Switch>
@@ -27,7 +28,9 @@ function Results() {
                     <ContestsList contests={contests} filterBy={filterBy} />
                 </div>
             </Route>
-            <Route path="/representatives"></Route>
+            <Route path="/representatives">
+                <Representatives representatives={representatives} offices={offices} />
+            </Route>
 
             <Route path="/drop-off-sites">
                 <DropOffLocationResults locations={dropOffLocations} />

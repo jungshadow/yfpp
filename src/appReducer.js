@@ -1,5 +1,6 @@
 import React from 'react';
 import updateSearchResults from 'actions/updateSearchResults';
+import updateRepresentativesResults from 'actions/updateRepresentativesResults';
 import setSearchToggleIsOpen from 'actions/setSearchToggleIsOpen';
 
 export const AppContext = React.createContext();
@@ -9,6 +10,9 @@ export function appReducer(state, action) {
     switch (action.type) {
         case 'UPDATE_SEARCH_RESULTS': {
             return updateSearchResults(state, action);
+        }
+        case 'UPDATE_REPRESENTATIVES_RESULTS': {
+            return updateRepresentativesResults(state, action);
         }
         case 'SET_SEARCH_TOGGLE_STATUS': {
             return setSearchToggleIsOpen(state, action);
@@ -38,4 +42,6 @@ export const initialState = {
     filterBy: 'All',
     primaryParties: [],
     searchToggleIsOpen: true,
+    representatives: [],
+    offices: [],
 };

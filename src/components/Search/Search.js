@@ -16,8 +16,9 @@ import CloseIcon from 'components/Icons/CloseIcon';
  * @class Search
  * @extends React.Component
  */
-function Search() {
-    const API_URL_DEV = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_URL;
+function Search(props) {
+    const API_DEV_VOTER_INFO_URL = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_VOTER_INFO_URL;
+    const API_DEV_REPRESENTATIVES_URL = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_REPRESENTATIVES_URL;
     const API_URL = process.env.REACT_APP_API_URL;
     const dispatch = useContext(DispatchContext);
     const { isActive, searchToggleIsOpen } = useContext(AppContext);
@@ -28,63 +29,81 @@ function Search() {
         setsearchValue(val);
     };
 
-    const getRequestURL = function(requestParams) {
+    const getRequestURL = function(route, requestParams) {
+        const baseParams = {
+            key: process.env.REACT_APP_API_KEY,
+        };
+
         switch (process.env.NODE_ENV) {
             case 'development':
-                return API_URL_DEV;
+                return route === 'voterinfo' ? API_DEV_VOTER_INFO_URL : API_DEV_REPRESENTATIVES_URL;
 
             default:
-                return API_URL + helpers.buildQueryString(requestParams);
+                return `${API_URL}/${route}?${helpers.buildQueryString({ ...baseParams, ...requestParams })}`;
         }
     };
 
-    const fetchData = (e) => {
+    const fetchData = async (e) => {
         e.preventDefault();
 
-        const searchQuery = searchValue;
+        const requests = [getLocations(searchValue), getRepresentatives(searchValue)];
+
+        let [locations, representatives] = await Promise.all(requests);
+
+        analytics.success(locations);
+        dispatch({ type: 'UPDATE_SEARCH_RESULTS', data: locations });
+        dispatch({ type: 'UPDATE_REPRESENTATIVES_RESULTS', data: representatives });
+
+        // this.showEasterEgg(searchValue);
+    };
+
+    async function getLocations(searchValue) {
         const requestParams = {
-            key: process.env.REACT_APP_API_KEY,
-            address: searchQuery,
+            address: searchValue,
         };
 
-        const requestURL = getRequestURL(requestParams);
+        const requestURL = getRequestURL('voterinfo', requestParams);
 
-        // if (searchQuery.toLowerCase() === 'fuck off') {
-        //     this.props.onFuckOffHandler();
-        //     // attempt to dismiss virtual keyboard
-        //     this.searchInput.current.blur();
-
-        //     return;
-        // }
-
-        // this.props.onFuckOffCloseHandler();
-
-        fetch(requestURL, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw response;
-                }
-                return response.json(); //we only get here if there is no error
-            })
-            .then((response) => {
-                console.log(response);
-                analytics.success(response);
-                dispatch({ type: 'UPDATE_SEARCH_RESULTS', data: response });
-            })
-            .catch((error) => {
-                error.json().then((errorMessage) => {
-                    console.log(errorMessage.error.message);
-                    analytics.failure(errorMessage.error.message);
-                    this.props.onErrorHandler();
-                });
+        try {
+            const response = await fetch(requestURL, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
             });
-    };
+
+            const locations = await response.json();
+            return locations;
+        } catch (error) {
+            console.log(error);
+
+            const errorMessage = error;
+            console.log(errorMessage.error.message);
+            analytics.failure(errorMessage.error.message);
+            props.onErrorHandler();
+        }
+    }
+
+    async function getRepresentatives(searchValue) {
+        const requestParams = {
+            address: searchValue,
+        };
+
+        const requestURL = getRequestURL('representatives', requestParams);
+        try {
+            const response = await fetch(requestURL);
+            const representatives = await response.json();
+            return representatives;
+        } catch (error) {
+            console.log(error);
+
+            const errorMessage = error;
+            console.log(errorMessage.error.message);
+            analytics.failure(errorMessage.error.message);
+            props.onErrorHandler();
+        }
+    }
 
     const errorRemove = () => {
         this.props.onErrorRemoveHandler();

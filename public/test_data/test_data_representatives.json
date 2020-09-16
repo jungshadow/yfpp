@@ -1,0 +1,625 @@
+{
+    "normalizedInput": {
+        "line1": "16 Victoria Drive",
+        "city": "South Burlington",
+        "state": "VT",
+        "zip": "05403"
+    },
+    "kind": "civicinfo#representativeInfoResponse",
+    "divisions": {
+        "ocd-division/country:us/state:vt/sldu:chittenden": {
+            "name": "Vermont Chittenden State Senate district",
+            "officeIndices": [6]
+        },
+        "ocd-division/country:us/state:vt/sldl:chittenden-7-2": {
+            "name": "Vermont Chittenden-7-2 State House district",
+            "officeIndices": [7]
+        },
+        "ocd-division/country:us": {
+            "name": "United States",
+            "officeIndices": [0, 1]
+        },
+        "ocd-division/country:us/state:vt/county:chittenden": {
+            "name": "Chittenden County",
+            "officeIndices": [12, 13, 14]
+        },
+        "ocd-division/country:us/state:vt/place:south_burlington": {
+            "name": "South Burlington city"
+        },
+        "ocd-division/country:us/state:vt": {
+            "name": "Vermont",
+            "alsoKnownAs": ["ocd-division/country:us/state:vt/cd:1"],
+            "officeIndices": [2, 3, 4, 5, 8, 9, 10, 11]
+        }
+    },
+    "offices": [
+        {
+            "name": "President of the United States",
+            "divisionId": "ocd-division/country:us",
+            "levels": ["country"],
+            "roles": ["headOfState", "headOfGovernment"],
+            "officialIndices": [0]
+        },
+        {
+            "name": "Vice President of the United States",
+            "divisionId": "ocd-division/country:us",
+            "levels": ["country"],
+            "roles": ["deputyHeadOfGovernment"],
+            "officialIndices": [1]
+        },
+        {
+            "name": "U.S. Senator",
+            "divisionId": "ocd-division/country:us/state:vt",
+            "levels": ["country"],
+            "roles": ["legislatorUpperBody"],
+            "officialIndices": [2, 3]
+        },
+        {
+            "name": "U.S. Representative",
+            "divisionId": "ocd-division/country:us/state:vt",
+            "levels": ["country"],
+            "roles": ["legislatorLowerBody"],
+            "officialIndices": [4]
+        },
+        {
+            "name": "Governor of Vermont",
+            "divisionId": "ocd-division/country:us/state:vt",
+            "levels": ["administrativeArea1"],
+            "roles": ["headOfGovernment"],
+            "officialIndices": [5]
+        },
+        {
+            "name": "Lieutenant Governor of Vermont",
+            "divisionId": "ocd-division/country:us/state:vt",
+            "levels": ["administrativeArea1"],
+            "roles": ["deputyHeadOfGovernment"],
+            "officialIndices": [6]
+        },
+        {
+            "name": "VT State Senator",
+            "divisionId": "ocd-division/country:us/state:vt/sldu:chittenden",
+            "levels": ["administrativeArea1"],
+            "roles": ["legislatorUpperBody"],
+            "officialIndices": [7, 8, 9, 10, 11, 12]
+        },
+        {
+            "name": "VT State Representative",
+            "divisionId": "ocd-division/country:us/state:vt/sldl:chittenden-7-2",
+            "levels": ["administrativeArea1"],
+            "roles": ["legislatorLowerBody"],
+            "officialIndices": [13]
+        },
+        {
+            "name": "VT Attorney General",
+            "divisionId": "ocd-division/country:us/state:vt",
+            "levels": ["administrativeArea1"],
+            "officialIndices": [14]
+        },
+        {
+            "name": "VT State Treasurer",
+            "divisionId": "ocd-division/country:us/state:vt",
+            "levels": ["administrativeArea1"],
+            "officialIndices": [15]
+        },
+        {
+            "name": "VT State Auditor",
+            "divisionId": "ocd-division/country:us/state:vt",
+            "levels": ["administrativeArea1"],
+            "officialIndices": [16]
+        },
+        {
+            "name": "VT Secretary of State",
+            "divisionId": "ocd-division/country:us/state:vt",
+            "levels": ["administrativeArea1"],
+            "officialIndices": [17]
+        },
+        {
+            "name": "Chittenden County High Bailiff",
+            "divisionId": "ocd-division/country:us/state:vt/county:chittenden",
+            "levels": ["administrativeArea2"],
+            "officialIndices": [18]
+        },
+        {
+            "name": "Chittenden County Sheriff",
+            "divisionId": "ocd-division/country:us/state:vt/county:chittenden",
+            "levels": ["administrativeArea2"],
+            "officialIndices": [19]
+        },
+        {
+            "name": "Chittenden County State's Attorney",
+            "divisionId": "ocd-division/country:us/state:vt/county:chittenden",
+            "levels": ["administrativeArea2"],
+            "officialIndices": [20]
+        }
+    ],
+    "officials": [
+        {
+            "name": "Donald J. Trump",
+            "address": [
+                {
+                    "line1": "1600 Pennsylvania Avenue Northwest",
+                    "city": "Washington",
+                    "state": "DC",
+                    "zip": "20500"
+                }
+            ],
+            "party": "Republican Party",
+            "phones": ["(202) 456-1111"],
+            "urls": ["https://www.whitehouse.gov/"],
+            "photoUrl": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/45/PE%20Color.jpg",
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "DonaldTrump"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "potus"
+                },
+                {
+                    "type": "YouTube",
+                    "id": "whitehouse"
+                }
+            ]
+        },
+        {
+            "name": "Mike Pence",
+            "address": [
+                {
+                    "line1": "1600 Pennsylvania Avenue Northwest",
+                    "city": "Washington",
+                    "state": "DC",
+                    "zip": "20500"
+                }
+            ],
+            "party": "Republican Party",
+            "phones": ["(202) 456-1111"],
+            "urls": ["https://www.whitehouse.gov/"],
+            "photoUrl": "https://www.whitehouse.gov/sites/whitehouse.gov/files/images/45/VPE%20Color.jpg",
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "mikepence"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "VP"
+                }
+            ]
+        },
+        {
+            "name": "Bernie Sanders",
+            "address": [
+                {
+                    "line1": "332 Dirksen Senate Office Building",
+                    "city": "Washington",
+                    "state": "DC",
+                    "zip": "20510"
+                }
+            ],
+            "party": "Independent",
+            "phones": ["(202) 224-5141"],
+            "urls": ["https://www.sanders.senate.gov/"],
+            "photoUrl": "http://bioguide.congress.gov/bioguide/photo/S/S000033.jpg",
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "senatorsanders"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "sensanders"
+                },
+                {
+                    "type": "YouTube",
+                    "id": "SenatorSanders"
+                },
+                {
+                    "type": "YouTube",
+                    "id": "UCH1dpzjCEiGAt8CXkryhkZg"
+                }
+            ]
+        },
+        {
+            "name": "Patrick J. Leahy",
+            "address": [
+                {
+                    "line1": "437 Russell Senate Office Building",
+                    "city": "Washington",
+                    "state": "DC",
+                    "zip": "20510"
+                }
+            ],
+            "party": "Democratic Party",
+            "phones": ["(202) 224-4242"],
+            "urls": ["https://www.leahy.senate.gov/"],
+            "photoUrl": "http://bioguide.congress.gov/bioguide/photo/L/L000174.jpg",
+            "emails": ["senator_leahy@leahy.senate.gov"],
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "SenatorPatrickLeahy"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "SenatorLeahy"
+                },
+                {
+                    "type": "YouTube",
+                    "id": "SenatorPatrickLeahy"
+                }
+            ]
+        },
+        {
+            "name": "Peter Welch",
+            "address": [
+                {
+                    "line1": "2187 Rayburn House Office Building",
+                    "city": "Washington",
+                    "state": "DC",
+                    "zip": "20515"
+                }
+            ],
+            "party": "Democratic Party",
+            "phones": ["(202) 225-4115"],
+            "urls": ["https://welch.house.gov/", "http://www.welchforcongress.com/"],
+            "photoUrl": "http://bioguide.congress.gov/bioguide/photo/W/W000800.jpg",
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "PeterWelch"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "PeterWelch"
+                },
+                {
+                    "type": "YouTube",
+                    "id": "RepPeterWelch"
+                }
+            ]
+        },
+        {
+            "name": "Phil Scott",
+            "address": [
+                {
+                    "line1": "109 State Street Pavilion",
+                    "city": "Montpelier",
+                    "state": "VT",
+                    "zip": "05609"
+                }
+            ],
+            "party": "Republican Party",
+            "phones": ["(802) 828-3333"],
+            "urls": ["https://governor.vermont.gov/"],
+            "photoUrl": "http://governor.vermont.gov/sites/scott/files/images/28400479996_e465908cf9_m.jpg",
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "GovPhilScott"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "GovPhilScott"
+                }
+            ]
+        },
+        {
+            "name": "David Zuckerman",
+            "address": [
+                {
+                    "line1": "115 State Street",
+                    "city": "Montpelier",
+                    "state": "VT",
+                    "zip": "05633"
+                }
+            ],
+            "party": "Democratic Party",
+            "phones": ["(802) 828-2226"],
+            "urls": ["http://ltgov.vermont.gov/"],
+            "photoUrl": "http://ltgov.vermont.gov/sites/zuckerman/files/WEBProfile.jpg",
+            "emails": ["megan.polyte@vermont.gov"],
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "VTLtGov"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "VTLgGov"
+                }
+            ]
+        },
+        {
+            "name": "Tim Ashe",
+            "address": [
+                {
+                    "line1": "115 State Street",
+                    "city": "Montpelier",
+                    "state": "VT",
+                    "zip": "05633"
+                }
+            ],
+            "party": "Democratic/Progressive",
+            "phones": ["(802) 318-0903"],
+            "urls": ["http://legislature.vermont.gov/people/single/2020/14665"],
+            "photoUrl": "http://vermont-elections.org/2009-2010BioBook/jpegs/ashe.jpg",
+            "emails": ["tashe@leg.state.vt.us"],
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "Tim-Ashe-205077056243826"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "TimAsheVT"
+                }
+            ]
+        },
+        {
+            "name": "Christopher A Pearson",
+            "address": [
+                {
+                    "line1": "115 State Street",
+                    "city": "Montpelier",
+                    "state": "VT",
+                    "zip": "05633"
+                }
+            ],
+            "party": "Democratic/Progressive",
+            "phones": ["(802) 860-3933"],
+            "urls": ["http://legislature.vermont.gov/people/single/2020/27150"],
+            "emails": ["CPearson@leg.state.vt.us"],
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "VotePearson"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "SenatorCP"
+                }
+            ]
+        },
+        {
+            "name": "Phil Baruth",
+            "address": [
+                {
+                    "line1": "115 State Street",
+                    "city": "Montpelier",
+                    "state": "VT",
+                    "zip": "05633"
+                }
+            ],
+            "party": "Democratic Party",
+            "phones": ["(802) 503-5266"],
+            "urls": ["http://legislature.vermont.gov/people/single/2020/15791"],
+            "photoUrl": "http://ballotpedia.org/wiki/images/7/7a/Philip_Baruth.jpg",
+            "emails": ["pbaruth@leg.state.vt.us"],
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "baruthsenate"
+                }
+            ]
+        },
+        {
+            "name": "Debbie Ingram",
+            "address": [
+                {
+                    "line1": "115 State Street",
+                    "city": "Montpelier",
+                    "state": "VT",
+                    "zip": "05633"
+                }
+            ],
+            "party": "Democratic Party",
+            "phones": ["(802) 879-0054"],
+            "urls": ["http://legislature.vermont.gov/people/single/2020/27149"],
+            "emails": ["DIngram@leg.state.vt.us"],
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "IngramForSenate"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "DebbieIngramdeb"
+                }
+            ]
+        },
+        {
+            "name": "Michael Sirotkin",
+            "address": [
+                {
+                    "line1": "115 State Street",
+                    "city": "Montpelier",
+                    "state": "VT",
+                    "zip": "05633"
+                }
+            ],
+            "party": "Democratic Party",
+            "phones": ["(802) 999-4360"],
+            "urls": ["http://legislature.vermont.gov/people/single/2020/23179"],
+            "photoUrl": "http://ballotpedia.org/wiki/images/thumb/6/6c/Michael_Sirotkin.jpg/200px-Michael_Sirotkin.jpg",
+            "emails": ["msirotkin@leg.state.vt.us"],
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "senatorsirotkin"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "senatorsirotkin"
+                }
+            ]
+        },
+        {
+            "name": "Virginia \"Ginny\" Lyons",
+            "address": [
+                {
+                    "line1": "115 State Street",
+                    "city": "Montpelier",
+                    "state": "VT",
+                    "zip": "05633"
+                }
+            ],
+            "party": "Democratic Party",
+            "phones": ["(802) 863-6129"],
+            "urls": ["http://legislature.vermont.gov/people/single/2020/14616"],
+            "emails": ["vlyons@leg.state.vt.us"]
+        },
+        {
+            "name": "Ann Pugh",
+            "address": [
+                {
+                    "line1": "115 State Street",
+                    "city": "Montpelier",
+                    "state": "VT",
+                    "zip": "05633"
+                }
+            ],
+            "party": "Democratic Party",
+            "phones": ["(802) 863-6705"],
+            "urls": ["http://legislature.vermont.gov/people/single/2020/14530"],
+            "photoUrl": "http://vermont-elections.org/2009-2010BioBook/jpegs/pugh.jpg",
+            "emails": ["apugh@leg.state.vt.us"],
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "vtrepannpugh"
+                }
+            ]
+        },
+        {
+            "name": "TJ Donovan",
+            "address": [
+                {
+                    "line1": "109 State Street",
+                    "city": "Montpelier",
+                    "state": "VT",
+                    "zip": "05609"
+                }
+            ],
+            "party": "Democratic Party",
+            "phones": ["(802) 828-3171"],
+            "urls": ["https://ago.vermont.gov/"],
+            "emails": ["ago.info@vermont.gov"],
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "AttorneyGeneralDonovan"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "VTAttorneyGen"
+                }
+            ]
+        },
+        {
+            "name": "Beth Pearce",
+            "address": [
+                {
+                    "line1": "109 State Street",
+                    "city": "Montpelier",
+                    "state": "VT",
+                    "zip": "05609"
+                }
+            ],
+            "party": "Democratic Party",
+            "phones": ["(802) 828-2301"],
+            "urls": ["https://www.vermonttreasurer.gov/"],
+            "emails": ["Treasurers.Office@vermont.gov"],
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "Beth-Pearce-343317092414108"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "VTTreasurer"
+                }
+            ]
+        },
+        {
+            "name": "Douglas R. Hoffer",
+            "address": [
+                {
+                    "line1": "132 State Street",
+                    "city": "Montpelier",
+                    "state": "VT",
+                    "zip": "05633"
+                }
+            ],
+            "party": "Democratic Party",
+            "phones": ["(802) 828-2281"],
+            "urls": ["https://auditor.vermont.gov/"],
+            "channels": [
+                {
+                    "type": "Twitter",
+                    "id": "VTstateauditor"
+                }
+            ]
+        },
+        {
+            "name": "Jim Condos",
+            "address": [
+                {
+                    "line1": "128 State Street",
+                    "city": "Montpelier",
+                    "state": "VT",
+                    "zip": "05633"
+                }
+            ],
+            "party": "Democratic Party",
+            "phones": ["(802) 828-2363"],
+            "urls": ["https://sos.vermont.gov/"],
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "SecretaryOfStateJimCondos"
+                },
+                {
+                    "type": "Twitter",
+                    "id": "VermontSOS"
+                }
+            ]
+        },
+        {
+            "name": "Daniel L. Gamelin",
+            "party": "Democratic"
+        },
+        {
+            "name": "Kevin McLaughlin",
+            "party": "Democratic",
+            "phones": ["(802) 863-4341"],
+            "urls": ["http://www.chittendencountysheriff.com/"],
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "mclaughlinforsheriff"
+                }
+            ]
+        },
+        {
+            "name": "Sarah George",
+            "address": [
+                {
+                    "line1": "32 Cherry Street",
+                    "city": "Burlington",
+                    "state": "VT",
+                    "zip": "05401"
+                }
+            ],
+            "party": "Democratic",
+            "phones": ["(802) 863-2865"],
+            "urls": ["http://prosecutors.vermont.gov/offices/chittenden"],
+            "channels": [
+                {
+                    "type": "Facebook",
+                    "id": "Chittenden-County-States-Attorneys-Office-152659241438888"
+                }
+            ]
+        }
+    ]
+}
