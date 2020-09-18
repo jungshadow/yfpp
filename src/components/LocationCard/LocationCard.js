@@ -6,6 +6,7 @@ import Actions from 'components/Actions';
 import helpers from 'helpers';
 
 import './locationCard.scss';
+import LocationActions from './LocationActions';
 
 const LocationCard = ({ data, locationType }) => {
     const { startDate, endDate, address, pollingHours, name } = data;
@@ -42,7 +43,7 @@ const LocationCard = ({ data, locationType }) => {
                 </div>
             </div>
             <div className="locationCard__ft">
-                <Actions location={address} />
+                <LocationActions location={address} />
             </div>
         </div>
     );

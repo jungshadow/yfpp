@@ -31,7 +31,6 @@ function Results() {
             <Route path="/representatives">
                 <Representatives representatives={representatives} offices={offices} />
             </Route>
-
             <Route path="/drop-off-sites">
                 <DropOffLocationResults locations={dropOffLocations} />
             </Route>
