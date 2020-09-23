@@ -8,6 +8,7 @@ import EarlyVoteResults from './EarlyVoteResults/EarlyVoteResults';
 import PollingPlaceResults from './PollingPlaceResults/PollingPlaceResults';
 import DropOffLocationResults from './DropOffLocationResults/DropOffLocationResults';
 import Representatives from './Representatives/Representatives';
+import BallotResults from './BallotResults/BallotResults';
 
 Results.propTypes = {};
 
@@ -23,9 +24,8 @@ function Results() {
             <Route path="/ballot">
                 <div className="group">
                     <div className="group-item">
-                        <PartySelect primaryParties={primaryParties} handleOnSelect={handleOnSelect} />
+                        <BallotResults primaryParties={primaryParties} contests={contests} />
                     </div>
-                    <ContestsList contests={contests} filterBy={filterBy} />
                 </div>
             </Route>
             <Route path="/representatives">

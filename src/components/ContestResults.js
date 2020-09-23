@@ -12,70 +12,12 @@ import ReferendumResults from './ReferendumResults';
  * @extends React.Component
  */
 
-class ContestResults extends React.Component {
-    /**
-     * Renders Contest results list items
-     *
-     * @method render
-     * @return {object} polling place results component markup
-     */
-    render() {
-        const currentContest = this.props.currentContest;
-        const candidates = currentContest.candidates;
+function ContestResults(props) {
+    const getResults = (contest) => {
+        return contest.type === 'Referendum' ? <ReferendumResults contest={contest} /> : <CandidateResults contest={contest} />;
+    };
 
-        let candidateList = [];
-        let referenda = [];
-
-        let i = 0;
-
-        let refCount = 0;
-
-        if (candidates) {
-            candidates.forEach(function(candidate) {
-                candidateList.push(<CandidateResults key={i} candidate_id={i} candidate={candidate} />);
-                i++;
-            });
-        }
-
-        if (currentContest.type === 'Referendum') {
-            referenda.push(<ReferendumResults key={refCount} referendum={currentContest} />);
-            refCount++;
-        }
-
-        return (
-            <li className={'results_contest ' + currentContest.primaryParty}>
-                {(() => {
-                    if (currentContest.candidates) {
-                        return (
-                            <div className="card card_secondary">
-                                <span className="card-flag">{currentContest.type}</span>
-                                <div className="card-bd">
-                                    <div className="group group_md">
-                                        <div className="group-hd">
-                                            <h3 className="hdg hdg_2 mix-hdg_headline mix-hdg_blue">{currentContest.office}</h3>
-                                        </div>
-                                        <div className="group-bd">
-                                            <ul className="vList vList_divided">{candidateList}</ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    } else {
-                        return (
-                            <div className="card card_secondary">
-                                <span className="card-flag">{currentContest.type}</span>
-                                <div className="card-bd">
-                                    <h3 className="hdg hdg_3 mix-hdg_headline mix-hdg_blue">{currentContest.referendumTitle}</h3>
-                                    {currentContest.referendumText ? <p>{currentContest.referendumText}</p> : ''}
-                                </div>
-                            </div>
-                        );
-                    }
-                })()}
-            </li>
-        );
-    }
+    return <li className={'results_contest ' + props.contest.primaryParty}>{getResults(props.contest)}</li>;
 }
 
 // set up propType validation
