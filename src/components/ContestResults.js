@@ -2,8 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CandidateResults from './CandidateResults';
-import ReferendumResults from './ReferendumResults';
+import CandidateCard from 'components/CandidateCard/CandidateCard';
+import ReferendumCard from 'components/ReferendumCard/ReferendumCard';
 
 /**
  * Contest Results Component
@@ -14,7 +14,7 @@ import ReferendumResults from './ReferendumResults';
 
 function ContestResults(props) {
     const getResults = (contest) => {
-        return contest.type === 'Referendum' ? <ReferendumResults contest={contest} /> : <CandidateResults contest={contest} />;
+        return contest.type === 'Referendum' ? <ReferendumCard contest={contest} /> : <CandidateCard contest={contest} />;
     };
 
     return <li className={'results_contest ' + props.contest.primaryParty}>{getResults(props.contest)}</li>;

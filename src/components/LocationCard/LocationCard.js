@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import Actions from 'components/Actions';
 import helpers from 'helpers';
 
 import './locationCard.scss';

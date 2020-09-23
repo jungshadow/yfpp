@@ -1,0 +1,55 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.referendumCard {
+    background: $WHITE;
+    padding: 20px;
+    border-radius: 11px;
+    border: 1px solid $GREY_LIGHT;
+}
+
+.referendumCard__type {
+    font-family: $FONT_DEFAULT;
+    font-size: 14px;
+    color: $BLACK;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.referendumCard__title {
+    font-family: $FONT_HEADLINE;
+    font-size: 24px;
+    color: $BLACK;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.referendumCard__hd {
+    margin-bottom: 22px;
+}
+
+.referendumCard__bd {
+    margin-bottom: 22px;
+}
+
+.referendumCard__text {
+    font-family: $FONT_DEFAULT;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 12px 0;
+    display: flex;
+}
+
+.referendumCard__url {
+    margin-left: 5px;
+    font-family: $FONT_DEFAULT;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $GREY_MEDIUM;
+}
+
+@include breakpoint(md) {
+    .referendumCard {
+        padding: 26px 48px 48px;
+    }
+}

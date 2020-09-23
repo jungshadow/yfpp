@@ -15,8 +15,8 @@ function CandidateResults(props) {
     };
 
     const renderCandidateList = (contest) => {
-        return contest.candidates.map((candidate) => (
-            <li className="candidate">
+        return contest.candidates.map((candidate, index) => (
+            <li className="candidate" key={`candidate_${index}`}>
                 <div className="split">
                     <div className="split-lft">
                         <strong className="txt mix-txt_blue">{candidate.name}</strong>
