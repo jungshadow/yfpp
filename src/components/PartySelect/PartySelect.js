@@ -2,6 +2,7 @@
 import React from 'react';
 
 import PartySelectOptions from './PartySelectOptions';
+import './partySelect.scss';
 
 /**
  * Party Select Component
@@ -41,7 +42,7 @@ class PartySelect extends React.Component {
 
         return (
             <form action="">
-                <select className="formSelect" name="partyFilter" onChange={this.props.onSelect}>
+                <select className="partySelect" name="partyFilter" onChange={this.props.onSelect}>
                     <PartySelectOptions key="all" value="all" label="All" />
                     {primaryParties}
                 </select>

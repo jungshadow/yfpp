@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import PartySelect from 'components/PartySelect';
+
 import ContestsList from 'components/ContestsList';
+import PartySelect from 'components/PartySelect/PartySelect';
+
+import './ballotResults.scss';
 
 const BallotResults = (props) => {
     const [currentPartyFilter, setCurrentPartyFilter] = useState('all');
@@ -18,9 +21,13 @@ const BallotResults = (props) => {
     };
 
     return (
-        <div>
-            <PartySelect onSelect={handleOnFilterChange} primaryParties={props.primaryParties} />
-            <ContestsList contests={getFilteredContests(props.contests)} />
+        <div className="ballotResults">
+            <div className="ballotResults__hd">
+                <PartySelect onSelect={handleOnFilterChange} primaryParties={props.primaryParties} />
+            </div>
+            <div className="ballotResults__bd">
+                <ContestsList contests={getFilteredContests(props.contests)} />
+            </div>
         </div>
     );
 };

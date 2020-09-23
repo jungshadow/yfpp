@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
 
-import PartySelect from './PartySelect';
-import ContestsList from './ContestsList';
 import { AppContext } from 'appReducer';
 import { Switch, Route } from 'react-router-dom';
 import EarlyVoteResults from './EarlyVoteResults/EarlyVoteResults';
@@ -13,7 +11,7 @@ import BallotResults from './BallotResults/BallotResults';
 Results.propTypes = {};
 
 function Results() {
-    const { dropOffLocations, earlyVoteSites, pollingLocations, handleOnSelect, primaryParties, contests, filterBy, representatives, offices } = useContext(AppContext);
+    const { dropOffLocations, earlyVoteSites, pollingLocations, primaryParties, contests, representatives, offices } = useContext(AppContext);
 
     return (
         <Switch>
