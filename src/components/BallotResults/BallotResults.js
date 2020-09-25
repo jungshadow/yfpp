@@ -6,7 +6,7 @@ import PartySelect from 'components/PartySelect/PartySelect';
 
 import './ballotResults.scss';
 
-const BallotResults = (props) => {
+const BallotResults = ({ contests, primaryParties }) => {
     const [currentPartyFilter, setCurrentPartyFilter] = useState('all');
 
     const handleOnFilterChange = (e) => {
@@ -20,13 +20,17 @@ const BallotResults = (props) => {
         return contests;
     };
 
+    if (!contests.length) {
+        return null;
+    }
+
     return (
         <div className="ballotResults">
             <div className="ballotResults__hd">
-                <PartySelect onSelect={handleOnFilterChange} primaryParties={props.primaryParties} />
+                <PartySelect onSelect={handleOnFilterChange} primaryParties={primaryParties} />
             </div>
             <div className="ballotResults__bd">
-                <ContestsList contests={getFilteredContests(props.contests)} />
+                <ContestsList contests={getFilteredContests(contests)} />
             </div>
         </div>
     );

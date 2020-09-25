@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 import Pager from 'components/Pager/Pager';
 import LocationCard from 'components/LocationCard/LocationCard';
 
-const PollingPlaceResults = (props) => {
+const PollingPlaceResults = (locations) => {
+    if (!locations.length) {
+        return null;
+    }
     return (
-        <Pager data={props.locations}>
+        <Pager data={locations}>
             <LocationCard locationType="polling-place" />
         </Pager>
     );

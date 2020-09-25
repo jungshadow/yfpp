@@ -15,7 +15,7 @@ body {
 }
 
 body {
-    background-color: $GREY_LIGHT;
+    background-color: $WHITE;
     width: 100%;
     font-family: $FONT_DEFAULT;
     font-size: $FONT_SIZE_MOBILE;
@@ -45,7 +45,6 @@ img {
 }
 
 @media screen and (min-width: 768px) {
-
     body {
         font-size: $FONT_SIZE_DEFAULT;
     }

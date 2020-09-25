@@ -7,30 +7,35 @@ import PollingPlaceResults from './PollingPlaceResults/PollingPlaceResults';
 import DropOffLocationResults from './DropOffLocationResults/DropOffLocationResults';
 import Representatives from './Representatives/Representatives';
 import BallotResults from './BallotResults/BallotResults';
+import ResultsErrorBoundry from './ResultsErrorBoundry/ResultsErrorBoundry';
 
 Results.propTypes = {};
 
 function Results() {
-    const { dropOffLocations, earlyVoteSites, pollingLocations, primaryParties, contests, representatives, offices } = useContext(AppContext);
+    const { dropOffLocations, earlyVoteSites, pollingLocations, primaryParties, contests, representatives, offices, errors } = useContext(AppContext);
 
     return (
         <Switch>
             <Route path="/polling-place">
-                <EarlyVoteResults locations={earlyVoteSites} />
-                <PollingPlaceResults locations={pollingLocations} />
+                <ResultsErrorBoundry errorType="locations" errors={errors}>
+                    <EarlyVoteResults locations={earlyVoteSites} />
+                    <PollingPlaceResults locations={pollingLocations} />
+                </ResultsErrorBoundry>
             </Route>
             <Route path="/ballot">
-                <div className="group">
-                    <div className="group-item">
-                        <BallotResults primaryParties={primaryParties} contests={contests} />
-                    </div>
-                </div>
+                <ResultsErrorBoundry errorType="locations" errors={errors}>
+                    <BallotResults primaryParties={primaryParties} contests={contests} />
+                </ResultsErrorBoundry>
             </Route>
             <Route path="/representatives">
-                <Representatives representatives={representatives} offices={offices} />
+                <ResultsErrorBoundry errorType="representatives" errors={errors}>
+                    <Representatives representatives={representatives} offices={offices} />
+                </ResultsErrorBoundry>
             </Route>
             <Route path="/drop-off-sites">
-                <DropOffLocationResults locations={dropOffLocations} />
+                <ResultsErrorBoundry errorType="locations" errors={errors}>
+                    <DropOffLocationResults locations={dropOffLocations} />
+                </ResultsErrorBoundry>
             </Route>
         </Switch>
     );

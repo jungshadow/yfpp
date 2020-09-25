@@ -13,7 +13,7 @@ const MainNav = () => {
                     </NavLink>
                 </li>
                 <li className="mainNav__listItem">
-                    <NavLink className="mainNav__listItemLink" to="/ballot" activeClassName="mainNav__listItemLink--isActive">
+                    <NavLink className="mainNav__listItemLink" to={{ pathname: '/ballot', search: window.location.search }} activeClassName="mainNav__listItemLink--isActive">
                         Ballot
                     </NavLink>
                 </li>

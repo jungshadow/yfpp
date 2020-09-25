@@ -49,6 +49,9 @@ class DropOffLocationResults extends React.Component {
      * @return {object} Drop Off Location results component markup
      */
     render() {
+        if (!this.props.dropOffLocations.length) {
+            return null;
+        }
         var locations = this.props.dropOffLocations,
             index = this.props.index,
             cards = [];

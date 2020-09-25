@@ -10,6 +10,8 @@ import './search.scss';
 import useWindowSize from 'hooks/useWindowSize';
 import SearchIcon from 'components/Icons/SearchIcon';
 import CloseIcon from 'components/Icons/CloseIcon';
+import { useLocation } from 'react-router-dom';
+import useQuery from 'hooks/useQuery';
 /**
  * Search Form Component
  *
@@ -17,6 +19,7 @@ import CloseIcon from 'components/Icons/CloseIcon';
  * @extends React.Component
  */
 function Search(props) {
+    const isDevelopmentMode = useQuery().get('development');
     const API_DEV_VOTER_INFO_URL = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_VOTER_INFO_URL;
     const API_DEV_REPRESENTATIVES_URL = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_REPRESENTATIVES_URL;
     const API_URL = process.env.REACT_APP_API_URL;
@@ -34,13 +37,11 @@ function Search(props) {
             key: process.env.REACT_APP_API_KEY,
         };
 
-        switch (process.env.NODE_ENV) {
-            case 'development':
-                return route === 'voterinfo' ? API_DEV_VOTER_INFO_URL : API_DEV_REPRESENTATIVES_URL;
-
-            default:
-                return `${API_URL}/${route}?${helpers.buildQueryString({ ...baseParams, ...requestParams })}`;
+        if (process.env.NODE_ENV === 'development' && isDevelopmentMode) {
+            return route === 'voterinfo' ? API_DEV_VOTER_INFO_URL : API_DEV_REPRESENTATIVES_URL;
         }
+
+        return `${API_URL}/${route}?${helpers.buildQueryString({ ...baseParams, ...requestParams })}`;
     };
 
     const fetchData = async (e) => {
@@ -50,10 +51,24 @@ function Search(props) {
 
         let [locations, representatives] = await Promise.all(requests);
 
-        analytics.success(locations);
-        dispatch({ type: 'UPDATE_SEARCH_RESULTS', data: locations });
-        dispatch({ type: 'UPDATE_REPRESENTATIVES_RESULTS', data: representatives });
+        // TODO let's maybe move this outta here into a function
+        if (locations.error) {
+            analytics.failure(locations.error);
+            dispatch({ type: 'SET_ERROR', error: { locations: locations.error } });
+        } else {
+            analytics.success(locations);
+            dispatch({ type: 'UPDATE_SEARCH_RESULTS', data: locations });
+        }
 
+        if (representatives.error) {
+            analytics.failure(representatives.error);
+            dispatch({ type: 'SET_ERROR', error: { representatives: representatives.error } });
+        } else {
+            analytics.success(representatives);
+            dispatch({ type: 'UPDATE_REPRESENTATIVES_RESULTS', data: representatives });
+        }
+
+        console.log(locations, representatives);
         // this.showEasterEgg(searchValue);
     };
 
@@ -76,7 +91,7 @@ function Search(props) {
             const locations = await response.json();
             return locations;
         } catch (error) {
-            console.log(error);
+            console.error('error in getLocations call:', error);
 
             const errorMessage = error;
             console.log(errorMessage.error.message);
@@ -96,7 +111,7 @@ function Search(props) {
             const representatives = await response.json();
             return representatives;
         } catch (error) {
-            console.log(error);
+            console.error('error in getRepresentatives call:', error);
 
             const errorMessage = error;
             console.log(errorMessage.error.message);

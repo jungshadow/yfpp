@@ -43,6 +43,8 @@
 }
 
 .site--hasSearchVal {
+    height: auto;
+
     .site__hd {
         flex-direction: row;
         flex: 0 1 auto;
@@ -67,6 +69,8 @@
     }
 
     @include breakpoint(md) {
+        height: 100vh;
+
         .site__logo {
             padding: 10px 53px;
             max-width: 470px;

@@ -88,6 +88,7 @@ class Autocomplete extends React.Component {
                 break;
 
             case 'Escape':
+            case 'Enter':
                 this.handleCloseAutoComplete();
                 break;
 
@@ -102,6 +103,7 @@ class Autocomplete extends React.Component {
 
     handleActionKeyDown = (event, index, results) => {
         event.preventDefault();
+
         switch (event.key) {
             case 'ArrowDown':
                 {
@@ -123,6 +125,7 @@ class Autocomplete extends React.Component {
 
             case 'Enter':
                 this.handleSelectItem(index);
+                this.handleCloseAutoComplete();
                 this.searchInputRef.current.focus();
                 break;
 
