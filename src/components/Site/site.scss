@@ -20,6 +20,7 @@
 }
 
 .site__bd {
+    background-color: $COLOR_PRIMARY;
     overflow: hidden;
 }
 
@@ -29,8 +30,9 @@
 }
 
 .site__contentInner {
+    padding: 20px 10px;
     max-width: 640px;
-    margin: 42px auto;
+    margin: auto;
 }
 
 .site__logo {
@@ -84,8 +86,13 @@
         }
 
         .site__bd {
+            background-color: $WHITE;
             display: flex;
             flex: 1;
+        }
+
+        .site__contentInner {
+            padding: 40px;
         }
 
         .site__secondary {

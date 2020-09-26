@@ -2,9 +2,9 @@ import React from 'react';
 
 import RepresentativeCard from 'components/Representatives/RepresentativeCard';
 import helpers from 'helpers';
+import FallbackMessage from 'components/FallbackMessage/FallbackMessage';
 
 const Representatives = (props) => {
-    console.log(props);
     const { representatives, offices } = props;
 
     function buildRepresentativesList(offices, representatives) {
@@ -18,6 +18,10 @@ const Representatives = (props) => {
             return acc;
         }, []);
         return transformedReps;
+    }
+
+    if (!representatives.length) {
+        return <FallbackMessage message="No fucking representatives results for that address" />;
     }
 
     return (

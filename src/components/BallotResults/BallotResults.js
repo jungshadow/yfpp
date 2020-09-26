@@ -5,6 +5,7 @@ import ContestsList from 'components/ContestsList';
 import PartySelect from 'components/PartySelect/PartySelect';
 
 import './ballotResults.scss';
+import FallbackMessage from 'components/FallbackMessage/FallbackMessage';
 
 const BallotResults = ({ contests, primaryParties }) => {
     const [currentPartyFilter, setCurrentPartyFilter] = useState('all');
@@ -21,7 +22,7 @@ const BallotResults = ({ contests, primaryParties }) => {
     };
 
     if (!contests.length) {
-        return null;
+        return <FallbackMessage message="No fucking ballot results for that address" />;
     }
 
     return (

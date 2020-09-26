@@ -1,7 +1,3 @@
-/* ---------------------------------------------------------------------
-site
------------------------------------------------------------------------- */
-
 // prevent body from scrolling when msg is active
 body.hasMsg,
 body.hasModal {
@@ -52,9 +48,7 @@ body.hasModal {
 }
 
 @media screen and (min-width: 480px) {
-    
     .site-msg-bd {
         padding: 50px;
     }
-
 }
