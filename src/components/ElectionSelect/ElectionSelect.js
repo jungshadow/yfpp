@@ -27,6 +27,10 @@ const ElectionSelect = (props) => {
         }
     };
 
+    if (!relevantElections || relevantElections.length === 1) {
+        return null;
+    }
+
     return (
         <form action="">
             <select className="electionSelect" name="electionSelect" onChange={handleOnChange} value={electionInfo.id}>

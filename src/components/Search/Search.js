@@ -66,11 +66,14 @@ function Search(props) {
         let usersState = null;
         // this is pretty gross, but it's parsing the search string and trying to determine the state
         let searchValueSegments = searchValue
-            .replace(/,|[0-9]|United States|US/gi, '')
+            .replace(/,|[0-9]|United States/gi, '')
             .split(' ')
             .filter((segment) => segment !== '')
             .slice(-2);
 
+        if (searchValueSegments.length !== 2) {
+            return;
+        }
         // grabbing the last 2 items in this array since some states can have 2 words in their names
         // first we'll check the last word to see if it matches anything
         // if the length is greater than 2 the input probably contains the full name of the state, not an abbreviation
