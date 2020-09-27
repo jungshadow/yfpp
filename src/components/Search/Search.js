@@ -3,15 +3,16 @@ import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import analytics from 'analytics';
-import helpers from 'helpers';
 import Autocomplete from 'components/Autocomplete/Autocomplete';
 import { AppContext, DispatchContext } from 'appReducer';
-import './search.scss';
 import useWindowSize from 'hooks/useWindowSize';
 import SearchIcon from 'components/Icons/SearchIcon';
 import CloseIcon from 'components/Icons/CloseIcon';
-import { useLocation } from 'react-router-dom';
-import useQuery from 'hooks/useQuery';
+import './search.scss';
+import statesMap from './statesMap';
+import getLocations from 'requests/getLocations';
+import getRepresentatives from 'requests/getRepresentatives';
+
 /**
  * Search Form Component
  *
@@ -19,12 +20,8 @@ import useQuery from 'hooks/useQuery';
  * @extends React.Component
  */
 function Search(props) {
-    const isDevelopmentMode = useQuery().get('development');
-    const API_DEV_VOTER_INFO_URL = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_VOTER_INFO_URL;
-    const API_DEV_REPRESENTATIVES_URL = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_REPRESENTATIVES_URL;
-    const API_URL = process.env.REACT_APP_API_URL;
     const dispatch = useContext(DispatchContext);
-    const { isActive, searchToggleIsOpen } = useContext(AppContext);
+    const { isActive, searchToggleIsOpen, elections } = useContext(AppContext);
     const [searchValue, setsearchValue] = useState('');
     const windowSize = useWindowSize();
 
@@ -32,22 +29,12 @@ function Search(props) {
         setsearchValue(val);
     };
 
-    const getRequestURL = function(route, requestParams) {
-        const baseParams = {
-            key: process.env.REACT_APP_API_KEY,
-        };
-
-        if (process.env.NODE_ENV === 'development' && isDevelopmentMode) {
-            return route === 'voterinfo' ? API_DEV_VOTER_INFO_URL : API_DEV_REPRESENTATIVES_URL;
-        }
-
-        return `${API_URL}/${route}?${helpers.buildQueryString({ ...baseParams, ...requestParams })}`;
-    };
-
     const fetchData = async (e) => {
         e.preventDefault();
+        const relevantElections = getRelevantElections(searchValue);
+        const electionId = getElectionId(relevantElections);
 
-        const requests = [getLocations(searchValue), getRepresentatives(searchValue)];
+        const requests = [getLocations(searchValue, electionId), getRepresentatives(searchValue)];
 
         let [locations, representatives] = await Promise.all(requests);
 
@@ -57,7 +44,7 @@ function Search(props) {
             dispatch({ type: 'SET_ERROR', error: { locations: locations.error } });
         } else {
             analytics.success(locations);
-            dispatch({ type: 'UPDATE_SEARCH_RESULTS', data: locations });
+            dispatch({ type: 'UPDATE_SEARCH_RESULTS', data: { ...locations, relevantElections, searchQuery: searchValue } });
         }
 
         if (representatives.error) {
@@ -72,53 +59,66 @@ function Search(props) {
         // this.showEasterEgg(searchValue);
     };
 
-    async function getLocations(searchValue) {
-        const requestParams = {
-            address: searchValue,
-        };
+    const getRelevantElections = (searchValue) => {
+        if (!elections.length) {
+            return;
+        }
+        let usersState = null;
+        // this is pretty gross, but it's parsing the search string and trying to determine the state
+        let searchValueSegments = searchValue
+            .replace(/,|[0-9]|United States|US/gi, '')
+            .split(' ')
+            .filter((segment) => segment !== '')
+            .slice(-2);
 
-        const requestURL = getRequestURL('voterinfo', requestParams);
-
-        try {
-            const response = await fetch(requestURL, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
+        // grabbing the last 2 items in this array since some states can have 2 words in their names
+        // first we'll check the last word to see if it matches anything
+        // if the length is greater than 2 the input probably contains the full name of the state, not an abbreviation
+        // so we need to look only at the values in our states map
+        if (searchValueSegments[1].length > 2) {
+            usersState = Object.values(statesMap).filter((state) => state.toLowerCase().includes(searchValueSegments[1].toLowerCase()));
+            if (usersState && usersState.length > 1) {
+                usersState = Object.values(statesMap).filter((state) => state.toLowerCase().includes(`${searchValueSegments[0].toLowerCase()} ${searchValueSegments[1].toLowerCase()}`));
+            }
+            usersState = Object.keys(statesMap).find((state) => {
+                return statesMap[state] === usersState[0];
             });
-
-            const locations = await response.json();
-            return locations;
-        } catch (error) {
-            console.error('error in getLocations call:', error);
-
-            const errorMessage = error;
-            console.log(errorMessage.error.message);
-            analytics.failure(errorMessage.error.message);
-            props.onErrorHandler();
+        } else {
+            usersState = searchValueSegments[1].toUpperCase();
         }
-    }
 
-    async function getRepresentatives(searchValue) {
-        const requestParams = {
-            address: searchValue,
-        };
+        // once we have the user's state figured out, we need to check the current elections and see if there's anything specific to their state in there
 
-        const requestURL = getRequestURL('representatives', requestParams);
-        try {
-            const response = await fetch(requestURL);
-            const representatives = await response.json();
-            return representatives;
-        } catch (error) {
-            console.error('error in getRepresentatives call:', error);
-
-            const errorMessage = error;
-            console.log(errorMessage.error.message);
-            analytics.failure(errorMessage.error.message);
-            props.onErrorHandler();
+        if (elections.length === 1) {
+            return elections[0].id;
         }
-    }
+
+        // get rid of all elections that are not in this state
+        const relevantElections = elections.filter((election) => {
+            const stateSegment = election.ocdDivisionId.split('/').find((segment) => segment.includes('state:'));
+
+            if (!stateSegment) {
+                return true;
+            }
+            const electionState = stateSegment.split(':')[1];
+
+            if (electionState === usersState.toLowerCase()) {
+                return true;
+            }
+            return false;
+        });
+
+        return relevantElections;
+    };
+
+    const getElectionId = (relevantElections) => {
+        if (relevantElections && relevantElections.length > 1) {
+            relevantElections.sort((a, b) => new Date(a.electionDay) - new Date(b.electionDay));
+            return relevantElections[0].id;
+        } else if (relevantElections && relevantElections.length === 1) {
+            return relevantElections[0].id;
+        }
+    };
 
     const errorRemove = () => {
         this.props.onErrorRemoveHandler();

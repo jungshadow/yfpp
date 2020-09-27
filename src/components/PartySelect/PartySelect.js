@@ -24,6 +24,9 @@ class PartySelect extends React.Component {
     render() {
         const partyList = this.props.primaryParties;
 
+        if (!partyList.length) {
+            return null;
+        }
         const partyFullName = {
             REP: 'Republican',
             DEM: 'Democrat',

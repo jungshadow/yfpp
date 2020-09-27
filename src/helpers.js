@@ -1,4 +1,9 @@
+import useQuery from 'hooks/useQuery';
 // global helper functions
+const isDevelopmentMode = useQuery().get('development');
+const API_DEV_VOTER_INFO_URL = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_VOTER_INFO_URL;
+const API_DEV_REPRESENTATIVES_URL = process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_REPRESENTATIVES_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 let helpers = {
     /**
@@ -156,6 +161,17 @@ let helpers = {
             .replace(/--+/g, '-')
             .replace(/^-+/, '')
             .replace(/-+$/, '');
+    },
+    getRequestURL: function(route, requestParams) {
+        const baseParams = {
+            key: process.env.REACT_APP_API_KEY,
+        };
+
+        if (process.env.NODE_ENV === 'development' && isDevelopmentMode) {
+            return route === 'voterinfo' ? API_DEV_VOTER_INFO_URL : API_DEV_REPRESENTATIVES_URL;
+        }
+
+        return `${API_URL}/${route}?${helpers.buildQueryString({ ...baseParams, ...requestParams })}`;
     },
 };
 

@@ -7,11 +7,17 @@ import './site.scss';
 import Results from 'components/Results';
 import Secondary from 'components/Secondary/Secondary';
 import useWindowSize from 'hooks/useWindowSize';
+import useElections from 'hooks/useElections';
 
 const Site = () => {
-    const { isActive } = useContext(AppContext);
     const dispatch = useContext(DispatchContext);
+    const elections = useElections(dispatch);
+
+    const { isActive } = useContext(AppContext);
     const windowSize = useWindowSize();
+    useEffect(() => {
+        dispatch({ type: 'UPDATE_ELECTION_RESULTS', elections });
+    }, [dispatch, elections]);
     useEffect(() => {
         dispatch({ type: 'SET_SEARCH_TOGGLE_STATUS', status: windowSize.width > 768 });
     }, [windowSize, dispatch]);

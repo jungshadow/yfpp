@@ -8,6 +8,7 @@ import DropOffLocationResults from './DropOffLocationResults/DropOffLocationResu
 import Representatives from './Representatives/Representatives';
 import BallotResults from './BallotResults/BallotResults';
 import ResultsErrorBoundry from './ResultsErrorBoundry/ResultsErrorBoundry';
+import ElectionSelect from './ElectionSelect/ElectionSelect';
 
 Results.propTypes = {};
 
@@ -18,12 +19,14 @@ function Results() {
         <Switch>
             <Route path="/polling-place">
                 <ResultsErrorBoundry errorType="locations" errors={errors}>
+                    <ElectionSelect />
                     <EarlyVoteResults locations={earlyVoteSites} />
                     <PollingPlaceResults locations={pollingLocations} />
                 </ResultsErrorBoundry>
             </Route>
             <Route path="/ballot">
                 <ResultsErrorBoundry errorType="locations" errors={errors}>
+                    <ElectionSelect />
                     <BallotResults primaryParties={primaryParties} contests={contests} />
                 </ResultsErrorBoundry>
             </Route>
@@ -34,6 +37,7 @@ function Results() {
             </Route>
             <Route path="/drop-off-sites">
                 <ResultsErrorBoundry errorType="locations" errors={errors}>
+                    <ElectionSelect />
                     <DropOffLocationResults locations={dropOffLocations} />
                 </ResultsErrorBoundry>
             </Route>

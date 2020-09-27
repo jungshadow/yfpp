@@ -10,10 +10,11 @@ export default function updateSearchResults(state, action) {
     const earlyVoteSites = data.earlyVoteSites || [];
     const dropOffLocations = data.dropOffLocations || [];
     const contests = data.contests || [];
+    const relevantElections = data.relevantElections || [];
     let partyList = [];
+    const searchQuery = data.searchQuery;
 
     let isActive = false;
-    let isError = false;
 
     if (contests.length > 0 || pollingLocations.length > 0 || earlyVoteSites.length > 0 || dropOffLocations.length > 0) {
         Object.keys(contests).forEach(function(key) {
@@ -24,10 +25,11 @@ export default function updateSearchResults(state, action) {
         });
 
         isActive = true;
-        isError = false;
+    }
+    if (data.normalizedInput) {
+        isActive = true;
     } else {
         isActive = false;
-        isError = true;
     }
 
     // TODO: I'd rather not filter sites by when they're open here, but
@@ -43,20 +45,21 @@ export default function updateSearchResults(state, action) {
 
     return {
         ...state,
-        leoInfo: leoInfo,
-        seoInfo: seoInfo,
-        normalizedAddress: normalizedAddress,
-        electionInfo: electionInfo,
-        pollingLocations: pollingLocations,
-        pollingLocationsIndex: 0,
-        earlyVoteSites: earlyVoteSites,
-        earlyVoteSitesIndex: 0,
-        dropOffLocations: dropOffLocations,
+        contests,
+        dropOffLocations,
         dropOffLocationsIndex: 0,
-        contests: contests,
-        primaryParties: partyList,
-        isActive: isActive,
-        isError: isError,
+        earlyVoteSites,
+        earlyVoteSitesIndex: 0,
+        electionInfo,
+        isActive,
         isFuckOff: false,
+        leoInfo,
+        normalizedAddress,
+        pollingLocations,
+        pollingLocationsIndex: 0,
+        primaryParties: partyList,
+        relevantElections,
+        searchQuery,
+        seoInfo,
     };
 }
