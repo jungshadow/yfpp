@@ -12,8 +12,7 @@ import useElections from 'hooks/useElections';
 
 const Site = () => {
     const dispatch = useContext(DispatchContext);
-    const elections = useElections(dispatch);
-    console.log(elections);
+    useElections(dispatch);
 
     const { isActive } = useContext(AppContext);
     const windowSize = useWindowSize();

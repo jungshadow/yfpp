@@ -9,7 +9,7 @@ const EarlyVoteResults = ({ locations }) => {
         return <FallbackMessage message="No fucking early voting results for that address" />;
     }
     return (
-        <Pager data={locations}>
+        <Pager data={locations} numberPerPage={2}>
             <LocationCard locationType="early-vote" />
         </Pager>
     );

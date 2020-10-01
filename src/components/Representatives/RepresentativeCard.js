@@ -13,16 +13,14 @@ const Representative = ({ data }) => {
         return photoUrl ? photoUrl : avatar;
     }
     return (
-        <li>
-            <div className={repClass}>
-                <div className="representativeCard__img" style={{ backgroundImage: `url(${getImgUrl(photoUrl)})` }}></div>
-                <div className="representativeCard__details">
-                    <div className="representativeCard__detailsParty">{party}</div>
-                    <h3 className="representativeCard__detailsName">{name}</h3>
-                    <div className="representativeCard__detailsOffice">{office}</div>
-                </div>
+        <div className={repClass}>
+            <div className="representativeCard__img" style={{ backgroundImage: `url(${getImgUrl(photoUrl)})` }}></div>
+            <div className="representativeCard__details">
+                <div className="representativeCard__detailsParty">{party}</div>
+                <h3 className="representativeCard__detailsName">{name}</h3>
+                <div className="representativeCard__detailsOffice">{office}</div>
             </div>
-        </li>
+        </div>
     );
 };
 

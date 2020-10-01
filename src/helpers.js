@@ -168,7 +168,12 @@ let helpers = {
         };
 
         if (process.env.NODE_ENV === 'development' && isDevelopmentMode) {
-            return route === 'voterinfo' ? API_DEV_VOTER_INFO_URL : API_DEV_REPRESENTATIVES_URL;
+            if (route === 'voterinfo') {
+                return API_DEV_VOTER_INFO_URL;
+            }
+            if (route === 'representatives') {
+                return API_DEV_REPRESENTATIVES_URL;
+            }
         }
 
         return `${API_URL}/${route}?${helpers.buildQueryString({ ...baseParams, ...requestParams })}`;

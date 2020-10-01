@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import helpers from 'helpers';
 
 function useElections(dispatch) {
-    const [elections, setElections] = useState([]);
     useEffect(() => {
         async function getElections() {
             const requestParams = {};
@@ -33,8 +32,6 @@ function useElections(dispatch) {
         }
         getElections();
     }, [dispatch]);
-
-    return elections;
 }
 
 export default useElections;
