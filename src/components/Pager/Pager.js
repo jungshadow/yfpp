@@ -7,7 +7,6 @@ const Pager = (props) => {
     const [pageIndex, setPageIndex] = useState(1);
 
     const generatePageNav = () => {
-        debugger;
         if (props.data.length <= props.numberPerPage) {
             return null;
         }
