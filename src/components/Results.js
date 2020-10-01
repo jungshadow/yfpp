@@ -18,6 +18,7 @@ function Results() {
     return (
         <Switch>
             <Route path="/polling-place">
+                <PollingPlaceResults locations={pollingLocations} />
                 <ResultsErrorBoundry errorType="locations" errors={errors}>
                     <ElectionSelect />
                     <EarlyVoteResults locations={earlyVoteSites} />

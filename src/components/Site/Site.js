@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import classnames from 'classnames';
+
 import Search from 'components/Search/Search';
 import Logo from 'components/Logo/Logo';
 import { AppContext, DispatchContext } from 'appReducer';
@@ -12,12 +13,13 @@ import useElections from 'hooks/useElections';
 const Site = () => {
     const dispatch = useContext(DispatchContext);
     const elections = useElections(dispatch);
+    console.log(elections);
 
     const { isActive } = useContext(AppContext);
     const windowSize = useWindowSize();
-    useEffect(() => {
-        dispatch({ type: 'UPDATE_ELECTION_RESULTS', elections });
-    }, [dispatch, elections]);
+    // useEffect(() => {
+    //     dispatch({ type: 'UPDATE_ELECTION_RESULTS', elections });
+    // }, [dispatch, elections]);
     useEffect(() => {
         dispatch({ type: 'SET_SEARCH_TOGGLE_STATUS', status: windowSize.width > 768 });
     }, [windowSize, dispatch]);

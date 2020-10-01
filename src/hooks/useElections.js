@@ -20,7 +20,8 @@ function useElections(dispatch) {
                 });
 
                 response = await response.json();
-                setElections(response.elections);
+
+                dispatch({ type: 'UPDATE_ELECTION_RESULTS', elections: response.elections });
             } catch (error) {
                 console.error('error in getLocations call:', error);
 

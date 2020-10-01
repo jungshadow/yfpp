@@ -9,7 +9,7 @@ const PollingPlaceResults = (locations) => {
         return <FallbackMessage message="No fucking polling place results for that address" />;
     }
     return (
-        <Pager data={locations}>
+        <Pager data={locations} numberPerPage={5}>
             <LocationCard locationType="polling-place" />
         </Pager>
     );

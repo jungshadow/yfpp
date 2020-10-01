@@ -4,8 +4,8 @@ import helpers from 'helpers';
 import avatar from 'images/avatar.jpg';
 import './representativeCard.scss';
 
-const Representative = (props) => {
-    const { name, party, office, urls, photoUrl, channels } = props.details;
+const Representative = ({ data }) => {
+    const { name, party, office, urls, photoUrl, channels } = data;
 
     const repClass = `representativeCard representativeCard--${helpers.slugify(party)}`;
 

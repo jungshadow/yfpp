@@ -3,6 +3,7 @@ import React from 'react';
 import RepresentativeCard from 'components/Representatives/RepresentativeCard';
 import helpers from 'helpers';
 import FallbackMessage from 'components/FallbackMessage/FallbackMessage';
+import Pager from 'components/Pager/Pager';
 
 const Representatives = (props) => {
     const { representatives, offices } = props;
@@ -23,13 +24,11 @@ const Representatives = (props) => {
     if (!representatives.length) {
         return <FallbackMessage message="No fucking representatives results for that address" />;
     }
-
+    const reps = buildRepresentativesList(offices, representatives);
     return (
-        <ul className="vList">
-            {buildRepresentativesList(offices, representatives).map((rep) => (
-                <RepresentativeCard key={`rep_${helpers.slugify(rep.name)}`} details={rep} />
-            ))}
-        </ul>
+        <Pager data={reps}>
+            <RepresentativeCard />
+        </Pager>
     );
 };
 
