@@ -17,17 +17,31 @@
     line-height: 2.2;
     margin-bottom: 4px;
     text-transform: uppercase;
+    display: flex;
 }
 
-.representativeCard--democratic-party {
+.representativeCard__partyIcon {
+    width: 25px;
+    margin-right: 8px;
+}
+
+.representativeCard--democrat {
     .representativeCard__detailsParty {
         color: $BLUE;
     }
+
+    .representativeCard__partyIcon {
+        fill: $BLUE;
+    }
 }
 
-.representativeCard--republican-party {
+.representativeCard--republican {
     .representativeCard__detailsParty {
         color: $RED;
+    }
+
+    .representativeCard__partyIcon {
+        fill: $RED;
     }
 }
 

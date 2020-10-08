@@ -6,7 +6,7 @@ import './mainNav.scss';
 import { BallotIcon, DropBoxIcon, MapIcon, RepresentativesIcon } from 'components/Icons';
 
 const MainNav = () => {
-    const { earlyVoteSites, pollingLocations, primaryParties, contests, representatives } = useContext(AppContext);
+    const { dropOffLocations, earlyVoteSites, pollingLocations, primaryParties, contests, representatives } = useContext(AppContext);
 
     return (
         <nav className="mainNav">
@@ -41,14 +41,16 @@ const MainNav = () => {
                         </NavLink>
                     </li>
                 )}
-                <li className="mainNav__listItem">
-                    <NavLink className="mainNav__listItemLink" to="/drop-off-sites" activeClassName="mainNav__listItemLink--isActive">
-                        <div className="mainNav__listItemIcon">
-                            <DropBoxIcon />
-                        </div>
-                        <span className="mainNav__listItemText">Drop Off Sites</span>
-                    </NavLink>
-                </li>
+                {dropOffLocations.length > 0 && (
+                    <li className="mainNav__listItem">
+                        <NavLink className="mainNav__listItemLink" to="/drop-off-sites" activeClassName="mainNav__listItemLink--isActive">
+                            <div className="mainNav__listItemIcon">
+                                <DropBoxIcon />
+                            </div>
+                            <span className="mainNav__listItemText">Drop Off Sites</span>
+                        </NavLink>
+                    </li>
+                )}
             </ul>
         </nav>
     );
