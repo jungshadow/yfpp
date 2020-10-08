@@ -1,10 +1,26 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './pager.scss';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const PAGER_OFFSET = 5;
 const Pager = (props) => {
     const [pageIndex, setPageIndex] = useState(1);
+
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+            },
+        },
+    };
+
+    const item = {
+        hidden: (index) => ({ opacity: 0, x: `${index % 2 === 0 ? '10%' : '-10%'}` }),
+        show: { opacity: 1, x: 0 },
+    };
 
     const generatePageNav = () => {
         if (props.data.length <= props.numberPerPage) {
@@ -70,11 +86,13 @@ const Pager = (props) => {
         const nextResults = props.data.filter(nextResultsFilter);
 
         return (
-            <ul className="vList">
+            <motion.ul className="vList" variants={container} initial="hidden" animate="show" key={pageIndex}>
                 {nextResults.map((result, index) => (
-                    <li key={`result_${index}`}>{React.cloneElement(props.children, { data: result })}</li>
+                    <motion.li key={`result_${index}_${pageIndex}`} variants={item}>
+                        {React.cloneElement(props.children, { data: result })}
+                    </motion.li>
                 ))}
-            </ul>
+            </motion.ul>
         );
     };
 
