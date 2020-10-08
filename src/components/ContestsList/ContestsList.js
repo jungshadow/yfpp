@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ContestResults from './ContestResults';
+import ContestResults from 'components/ContestResults/ContestResults';
 
 class ContestsList extends Component {
     render() {

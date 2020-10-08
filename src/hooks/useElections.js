@@ -22,7 +22,7 @@ function useElections(dispatch) {
 
                 dispatch({ type: 'UPDATE_ELECTION_RESULTS', elections: response.elections });
             } catch (error) {
-                console.error('error in getLocations call:', error);
+                console.error('error in get Elections call:', error);
 
                 const errorMessage = error;
                 console.log(errorMessage.error.message);

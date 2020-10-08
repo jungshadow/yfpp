@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import ContestsList from 'components/ContestsList';
+import ContestsList from 'components/ContestsList/ContestsList';
 import PartySelect from 'components/PartySelect/PartySelect';
 
 import './ballotResults.scss';

@@ -45,6 +45,7 @@
     "dependencies": {
         "@mapbox/mapbox-sdk": "^0.11.0",
         "classnames": "^2.2.6",
+        "framer-motion": "^2.7.8",
         "hammerjs": "^2.0.8",
         "jquery": "^3.5.1",
         "lodash": "^4.17.20",

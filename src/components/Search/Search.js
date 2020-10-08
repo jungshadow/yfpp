@@ -71,14 +71,11 @@ function Search(props) {
             .filter((segment) => segment !== '')
             .slice(-2);
 
-        if (searchValueSegments.length !== 2) {
-            return;
-        }
         // grabbing the last 2 items in this array since some states can have 2 words in their names
         // first we'll check the last word to see if it matches anything
         // if the length is greater than 2 the input probably contains the full name of the state, not an abbreviation
         // so we need to look only at the values in our states map
-        if (searchValueSegments[1].length > 2) {
+        if (searchValueSegments[1] && searchValueSegments[1].length > 2) {
             usersState = Object.values(statesMap).filter((state) => state.toLowerCase().includes(searchValueSegments[1].toLowerCase()));
             if (usersState && usersState.length > 1) {
                 usersState = Object.values(statesMap).filter((state) => state.toLowerCase().includes(`${searchValueSegments[0].toLowerCase()} ${searchValueSegments[1].toLowerCase()}`));
@@ -86,20 +83,21 @@ function Search(props) {
             usersState = Object.keys(statesMap).find((state) => {
                 return statesMap[state] === usersState[0];
             });
-        } else {
+        } else if (searchValueSegments[1] && searchValueSegments[1].length === 2) {
             usersState = searchValueSegments[1].toUpperCase();
         }
 
         // once we have the user's state figured out, we need to check the current elections and see if there's anything specific to their state in there
 
-        if (elections.length === 1) {
-            return elections[0].id;
-        }
+        // if (elections.length === 1) {
+        //     return elections[0].id;
+        // }
 
-        // get rid of all elections that are not in this state
+        // get rid of all elections that are not in this state and not national
         const relevantElections = elections.filter((election) => {
             const stateSegment = election.ocdDivisionId.split('/').find((segment) => segment.includes('state:'));
 
+            // if there's no state segment, then this is a national election so return it
             if (!stateSegment) {
                 return true;
             }
