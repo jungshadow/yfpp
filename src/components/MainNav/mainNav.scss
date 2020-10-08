@@ -16,6 +16,8 @@
 
 .mainNav__listItemLink {
     position: relative;
+    display: flex;
+    align-items: center;
     font-family: $FONT_HEADLINE;
     font-weight: 700;
     color: $PLUM_LIGHT;
@@ -24,10 +26,24 @@
     white-space: nowrap;
 }
 
+.mainNav__listItemIcon {
+    width: 24px;
+    margin-right: 28px;
+
+    .icon {
+        fill: $PLUM_LIGHT;
+        width: 100%;
+    }
+}
+
+.mainNav__listItemText {
+    position: relative;
+}
+
 .mainNav__listItemLink--isActive {
     color: $WHITE;
 
-    &:after {
+    .mainNav__listItemText:after {
         content: '';
         position: absolute;
         display: block;
@@ -38,6 +54,12 @@
         height: 42%;
         z-index: -1;
         transform: translate3d(-50%, 0, 0);
+    }
+
+    .mainNav__listItemIcon {
+        .icon {
+            fill: $WHITE;
+        }
     }
 }
 
