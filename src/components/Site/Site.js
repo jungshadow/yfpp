@@ -9,6 +9,7 @@ import Results from 'components/Results';
 import Secondary from 'components/Secondary/Secondary';
 import useWindowSize from 'hooks/useWindowSize';
 import useElections from 'hooks/useElections';
+import sticker from 'images/iFuckingVotedSticker.png';
 
 const Site = () => {
     const dispatch = useContext(DispatchContext);
@@ -34,6 +35,9 @@ const Site = () => {
     return (
         <div className={getSiteClassName()}>
             <div className="site__hd">
+                <div className="site__graphic">
+                    <img src={sticker} alt="I fucking voted today sticker" />
+                </div>
                 <div className="site__logo">
                     <Logo isCompact={isActive} />
                 </div>

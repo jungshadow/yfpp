@@ -34,6 +34,12 @@
     margin: auto;
 }
 
+.site__graphic {
+    width: 50%;
+    max-width: 190px;
+    margin-bottom: 50px;
+}
+
 .site__logo {
     margin-bottom: 42px;
 }
@@ -63,6 +69,10 @@
     .site__logo {
         margin-bottom: 0;
         padding: 32px 15px;
+    }
+
+    .site__graphic {
+        display: none;
     }
 
     .site__search {
