@@ -9,6 +9,13 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+
+    &:hover,
+    &:focus {
+        .bio__img {
+            border-color: $WHITE;
+        }
+    }
 }
 
 .bio__img {
@@ -61,6 +68,17 @@
     background: $PLUM_DARK;
     border-radius: 12px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+
+    &:hover,
+    &:focus {
+        .bio__img {
+            border-color: $PLUM;
+        }
+    }
+
+    .bio__img {
+        border-color: $PLUM;
+    }
 }
 
 .bio__title {
