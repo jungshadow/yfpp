@@ -45,6 +45,7 @@ const Site = () => {
                     <Search />
                 </div>
             </div>
+
             {isActive && (
                 <div className="site__bd">
                     <div className="site__secondary">

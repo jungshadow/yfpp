@@ -1,0 +1,21 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+$BIOS_COUNT: 6;
+
+.bios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.bios__item {
+    margin-bottom: 20px;
+}
+
+@include breakpoint(md) {
+    .bios__item {
+        width: (100% / $BIOS_COUNT);
+    }
+}

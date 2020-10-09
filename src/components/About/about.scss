@@ -1,0 +1,37 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.about {
+    padding: 40px;
+}
+
+.about__hd {
+    margin-bottom: 80px;
+}
+
+.about__title {
+    margin-bottom: 5px;
+    color: $WHITE;
+    font-family: $FONT_HEADLINE;
+    font-weight: bold;
+    font-size: 48px;
+}
+
+.about__description {
+    margin-bottom: 120px;
+    font-size: 24px;
+}
+
+.about__bios {
+    flex: 1;
+}
+
+@include breakpoint(md) {
+    .about {
+        padding: 20px 80px 80px 80px;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
