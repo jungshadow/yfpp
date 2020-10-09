@@ -16,6 +16,6 @@ $BIOS_COUNT: 6;
 
 @include breakpoint(md) {
     .bios__item {
-        width: (100% / $BIOS_COUNT);
+        width: (100% / 3);
     }
 }

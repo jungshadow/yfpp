@@ -27,6 +27,26 @@
     text-align: center;
 }
 
+.bio__closeBtn {
+    @include BUTTON_RESET;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: $PLUM_DARK;
+    fill: $WHITE;
+
+    &:hover,
+    &:focus {
+        fill: $BLUE;
+    }
+}
+
+.bio__closeBtnIcon {
+    .icon {
+        width: 30px;
+    }
+}
+
 .bio--isActive {
     height: auto;
     width: 400px;

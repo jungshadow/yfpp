@@ -15,11 +15,13 @@
     font-family: $FONT_HEADLINE;
     font-weight: bold;
     font-size: 48px;
+    text-align: center;
 }
 
 .about__description {
     margin-bottom: 120px;
     font-size: 24px;
+    text-align: center;
 }
 
 .about__bios {
@@ -30,8 +32,5 @@
     .about {
         padding: 20px 80px 80px 80px;
         height: 100vh;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
     }
 }
