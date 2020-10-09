@@ -11,10 +11,10 @@ $BIOS_COUNT: 6;
 }
 
 .bios__item {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
-@include breakpoint(md) {
+@include breakpoint(sm) {
     .bios__item {
         width: (100% / 3);
     }
