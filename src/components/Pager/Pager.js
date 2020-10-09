@@ -59,7 +59,7 @@ const Pager = (props) => {
         }
 
         return (
-            <div className="pager">
+            <div className="pager__nav">
                 {pageIndex > 1 && (
                     <button className="pager__link pager__link--prev" onClick={() => setPageIndex(pageIndex - 1)}>
                         {'<'}
@@ -86,20 +86,22 @@ const Pager = (props) => {
         const nextResults = props.data.filter(nextResultsFilter);
 
         return (
-            <motion.ul className="vList" variants={container} initial="hidden" animate="show" key={pageIndex}>
+            <React.Fragment>
                 {nextResults.map((result, index) => (
                     <motion.li key={`result_${index}_${pageIndex}`} variants={item}>
                         {React.cloneElement(props.children, { data: result })}
                     </motion.li>
                 ))}
-            </motion.ul>
+            </React.Fragment>
         );
     };
 
     return (
-        <div>
-            {getNextResults()}
-            {generatePageNav()}
+        <div className="pager">
+            <motion.ul className="pager__list" variants={container} initial="hidden" animate="show" key={pageIndex}>
+                {getNextResults()}
+            </motion.ul>
+            <div className="pager__nav">{generatePageNav()}</div>
         </div>
     );
 };

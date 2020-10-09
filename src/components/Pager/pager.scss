@@ -1,7 +1,19 @@
 @import 'scss/helpers/_globalVars';
 @import 'scss/helpers/_mixins';
 
-.pager {
+.pager + .pager {
+    margin-top: 40px;
+}
+
+.pager__list {
+    margin-bottom: 20px;
+}
+
+.pager__list > * + * {
+    margin-top: 20px;
+}
+
+.pager__nav {
     display: flex;
     justify-content: center;
     margin-top: 20px;
