@@ -30,7 +30,7 @@ class PartySelect extends React.Component {
         const partyFullName = {
             REP: 'Republican',
             DEM: 'Democrat',
-            LIB: 'Libertarian',
+            LIB: 'Libertarian'
         };
 
         const primaryParties = partyList.map((party, index) => {
@@ -40,12 +40,22 @@ class PartySelect extends React.Component {
                 partyName = partyFullName[party];
             }
 
-            return <PartySelectOptions key={index} value={party} label={partyName} />;
+            return (
+                <PartySelectOptions
+                    key={index}
+                    value={party}
+                    label={partyName}
+                />
+            );
         });
 
         return (
             <form action="">
-                <select className="partySelect" name="partyFilter" onChange={this.props.onSelect}>
+                <select
+                    className="partySelect"
+                    name="partyFilter"
+                    onChange={this.props.onSelect}
+                >
                     <PartySelectOptions key="all" value="all" label="All" />
                     {primaryParties}
                 </select>

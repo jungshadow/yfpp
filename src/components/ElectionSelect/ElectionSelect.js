@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
-import { AppContext, DispatchContext } from 'appReducer';
+import {AppContext, DispatchContext} from 'appReducer';
 import getLocations from 'requests/getLocations';
 
 import analytics from 'analytics';
@@ -8,7 +8,9 @@ import ElectionSelectOptions from './ElectionSelectOptions';
 import './electionSelect.scss';
 
 const ElectionSelect = (props) => {
-    const { relevantElections, searchQuery, electionInfo } = useContext(AppContext);
+    const {relevantElections, searchQuery, electionInfo} = useContext(
+        AppContext
+    );
     const dispatch = useContext(DispatchContext);
 
     const handleOnChange = async (event) => {
@@ -20,10 +22,13 @@ const ElectionSelect = (props) => {
     const updateLocations = (locations) => {
         if (locations.error) {
             analytics.failure(locations.error);
-            dispatch({ type: 'SET_ERROR', error: { locations: locations.error } });
+            dispatch({type: 'SET_ERROR', error: {locations: locations.error}});
         } else {
             analytics.success(locations);
-            dispatch({ type: 'UPDATE_SEARCH_RESULTS', data: { ...locations, relevantElections, searchQuery } });
+            dispatch({
+                type: 'UPDATE_SEARCH_RESULTS',
+                data: {...locations, relevantElections, searchQuery}
+            });
         }
     };
 
@@ -33,9 +38,19 @@ const ElectionSelect = (props) => {
 
     return (
         <form action="">
-            <select className="electionSelect" name="electionSelect" onChange={handleOnChange} value={electionInfo.id}>
+            <select
+                className="electionSelect"
+                name="electionSelect"
+                onChange={handleOnChange}
+                value={electionInfo.id}
+            >
                 {relevantElections.map((election, index) => (
-                    <ElectionSelectOptions key={index} selected={election.id === electionInfo.id} value={election.id} label={election.name} />
+                    <ElectionSelectOptions
+                        key={index}
+                        selected={election.id === electionInfo.id}
+                        value={election.id}
+                        label={election.name}
+                    />
                 ))}
             </select>
         </form>

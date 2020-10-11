@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 
-import { AppContext } from 'appReducer';
+import {AppContext} from 'appReducer';
 import MainNav from 'components/MainNav/MainNav';
 import ElectionTitle from 'components/ElectionTitle/ElectionTitle';
 
 import './secondary.scss';
 
 const Secondary = (props) => {
-    const { electionInfo } = useContext(AppContext);
+    const {electionInfo} = useContext(AppContext);
 
     return (
         <div className="secondary">

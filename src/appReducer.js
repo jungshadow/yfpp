@@ -53,5 +53,5 @@ export const initialState = {
     searchToggleIsOpen: true,
     representatives: [],
     offices: [],
-    searchQuery: null,
+    searchQuery: null
 };

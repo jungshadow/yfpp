@@ -2,152 +2,152 @@
 @import 'scss/helpers/_mixins';
 
 .bio {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center  ;
-  width: 100%;
-  cursor: pointer;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
 
-  &:hover,
-  &:focus {
-    .bio__img {
-      border-color:    $WHITE;
+    &:hover,
+    &:focus {
+        .bio__img {
+            border-color: $WHITE;
+        }
     }
-  }
 }
 
 .bio__img {
-  height: 150px;
-  width: 150px;
-  border-radius: 150px;
-  overflow: hidden;
-  border: 6px solid $PLUM_DARK;
-  margin-bottom: 10px;
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+    overflow: hidden;
+    border: 6px solid $PLUM_DARK;
+    margin-bottom: 10px;
 }
 
 .bio__social {
-  display: none;
+    display: none;
 }
 
 .bio__name {
-  font-family: $FONT_DISPLAY;
-  color: $WHITE;
-  font-size: 22px;
+    font-family: $FONT_DISPLAY;
+    color: $WHITE;
+    font-size: 22px;
 }
 
 .bio__closeBtn {
-  @include BUTTON_RESET;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  background-color: $PLUM_DARK;
-  fill: $WHITE;
+    @include BUTTON_RESET;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: $PLUM_DARK;
+    fill: $WHITE;
 
-  &:hover,
-  &:focus {
-    fill: $BLUE;
-  }
+    &:hover,
+    &:focus {
+        fill: $BLUE;
+    }
 }
 
 .bio__closeBtnIcon {
-  .icon {
-    width: 30px;
-  }
+    .icon {
+        width: 30px;
+    }
 }
 
 .bio--isActive {
-  height: auto;
-  width: 400px;
-  top: 0;
-  left: calc(50% - 200px);
-  right: 0;
-  position: fixed;
-  z-index: 1;
-  overflow: hidden;
-  margin: 60px 0;
-  padding: 40px;
-  background: $PLUM_DARK;
-  border-radius: 12px;
-  align-items: flex-start;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
-  text-align: left;
+    height: auto;
+    width: 400px;
+    top: 0;
+    left: calc(50% - 200px);
+    right: 0;
+    position: fixed;
+    z-index: 1;
+    overflow: hidden;
+    margin: 60px 0;
+    padding: 40px;
+    background: $PLUM_DARK;
+    border-radius: 12px;
+    align-items: flex-start;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    text-align: left;
 
-  &:hover,
-  &:focus {
-    .bio__img {
-      border-color: $PLUM;
+    &:hover,
+    &:focus {
+        .bio__img {
+            border-color: $PLUM;
+        }
     }
-  }
 
-  & > * + * {
-    margin-top: 10px;
-  }
+    & > * + * {
+        margin-top: 10px;
+    }
 
-  .bio__img {
-    align-self: center;
-    border-color: $PLUM;
-  }
+    .bio__img {
+        align-self: center;
+        border-color: $PLUM;
+    }
 }
 
 .bio__title {
-  color: $GREY;
-  font-size: 18px;
-  font-weight: bold;
-  font-family: $FONT_DEFAULT;
+    color: $GREY;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: $FONT_DEFAULT;
 }
 
 .bio__nickName {
-  color: $BLUE;
+    color: $BLUE;
 }
 .bio__bd {
-  color: $GREY_LIGHT;
+    color: $GREY_LIGHT;
 }
 
 .bio--isSlug {
-  .bio__name {
-    color: $PLUM_DARK;
-  }
-  .bio__img {
-    position: relative;
-
-    &:before {
-      background: $PLUM_DARK;
-      opacity: 80%;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      content: '';
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+    .bio__name {
+        color: $PLUM_DARK;
     }
-  }
-
-  &:hover,
-  &:focus {
     .bio__img {
-      border-color: $PLUM_DARK;
+        position: relative;
+
+        &:before {
+            background: $PLUM_DARK;
+            opacity: 80%;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
     }
-  }
+
+    &:hover,
+    &:focus {
+        .bio__img {
+            border-color: $PLUM_DARK;
+        }
+    }
 }
 
 @include breakpoint(md) {
-  .bio__img {
-    height: 120px;
-    width: 120px;
-    border-radius: 120px;
-  }
+    .bio__img {
+        height: 120px;
+        width: 120px;
+        border-radius: 120px;
+    }
 }
 
 @include breakpoint(lg) {
-  .bio__img {
-    height: 180px;
-    width: 180px;
-    border-radius: 180px;
-  }
+    .bio__img {
+        height: 180px;
+        width: 180px;
+        border-radius: 180px;
+    }
 }

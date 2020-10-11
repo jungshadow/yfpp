@@ -6,33 +6,33 @@
     "author": {
         "name": "Jay Johnson",
         "email": "jay@polling.place",
-        "url": "polling.place"
+        "url": "http://polling.place"
     },
     "contributors": [
         {
             "name": "Josh Turner",
             "email": "josh@polling.place",
-            "url": "polling.place"
+            "url": "http://polling.place"
         },
         {
             "name": "Jared Marcotte",
             "email": "jared@polling.place",
-            "url": "polling.place"
+            "url": "http://polling.place"
         },
         {
             "name": "Nick Catalano",
             "email": "nick@polling.place",
-            "url": "polling.place"
+            "url": "http://polling.place"
         },
         {
             "name": "Anastasia Golovashkina",
             "email": "anastasia@polling.place",
-            "url": "polling.place"
+            "url": "http://polling.place"
         },
         {
             "name": "Mo Maraqa",
             "email": "mo@polling.place",
-            "url": "polling.place"
+            "url": "http://polling.place"
         }
     ],
     "repository": {
@@ -69,7 +69,7 @@
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
-        "extends": "react-app"
+        "extends": "react-app, prettier"
     },
     "browserslist": [
         ">0.2%",

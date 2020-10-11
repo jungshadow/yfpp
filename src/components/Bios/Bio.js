@@ -1,18 +1,18 @@
-import React, { useRef } from 'react';
+import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 import classnames from 'classnames';
 
 import './bio.scss';
-import { CloseIcon } from 'components/Icons';
+import {CloseIcon} from 'components/Icons';
 import useOutsideClick from 'hooks/useOutsideClick';
 
-const Bio = ({ data, isActive, onClick, index, slug }) => {
+const Bio = ({data, isActive, onClick, index, slug}) => {
     const bioRef = useRef();
     useOutsideClick(bioRef, handleClickBio);
 
-    const openSpring = { type: 'spring', stiffness: 200, damping: 30 };
-    const closeSpring = { type: 'spring', stiffness: 300, damping: 35 };
+    const openSpring = {type: 'spring', stiffness: 200, damping: 30};
+    const closeSpring = {type: 'spring', stiffness: 300, damping: 35};
 
     function handleClickBio(ref) {
         // we only want to call the callback if the handler that fired is attached to an element that is active
@@ -23,13 +23,28 @@ const Bio = ({ data, isActive, onClick, index, slug }) => {
     }
 
     function getBioClassName() {
-        return classnames({ bio: true, 'bio--isActive': isActive, 'bio--isSlug': slug });
+        return classnames({
+            bio: true,
+            'bio--isActive': isActive,
+            'bio--isSlug': slug
+        });
     }
 
     return (
-        <motion.div className={getBioClassName()} ref={bioRef} onClick={() => onClick(index)} key={data.firstname} layoutTransition={isActive ? openSpring : closeSpring} layout>
+        <motion.div
+            className={getBioClassName()}
+            ref={bioRef}
+            onClick={() => onClick(index)}
+            key={data.firstname}
+            layoutTransition={isActive ? openSpring : closeSpring}
+            layout
+        >
             {isActive && (
-                <button className="bio__closeBtn" type="button" onClick={() => onClick(index)}>
+                <button
+                    className="bio__closeBtn"
+                    type="button"
+                    onClick={() => onClick(index)}
+                >
                     <span className="isVisuallyHidden">close</span>
                     <span className="bio__closeBtnIcon">
                         <CloseIcon />
@@ -37,12 +52,21 @@ const Bio = ({ data, isActive, onClick, index, slug }) => {
                 </button>
             )}
             <motion.div className="bio__img" layout>
-                <img src={data.image} alt={data.firstname + ' ' + data.lastname + ' head shot'} />
+                <img
+                    src={data.image}
+                    alt={data.firstname + ' ' + data.lastname + ' head shot'}
+                />
             </motion.div>
 
             <motion.div className="bio__heading" layout>
                 <h4 className="bio__name">
-                    {data.firstname} {isActive && data.nickname && <span className="bio__nickName">{'"' + data.nickname + '"'}</span>} {data.lastname}
+                    {data.firstname}{' '}
+                    {isActive && data.nickname && (
+                        <span className="bio__nickName">
+                            {'"' + data.nickname + '"'}
+                        </span>
+                    )}{' '}
+                    {data.lastname}
                 </h4>
                 {isActive && <div className="bio__title">{data.title}</div>}
             </motion.div>
@@ -50,14 +74,25 @@ const Bio = ({ data, isActive, onClick, index, slug }) => {
                 <div className="bio__social">
                     <ul className="bio__socialLinks">
                         <li>
-                            <a className="bio__socialLink" target="_blank" rel="noopener noreferrer" href={data.twitter} data-show-count="false">
+                            <a
+                                className="bio__socialLink"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={data.twitter}
+                                data-show-count="false"
+                            >
                                 {data.twitter}
                             </a>
                         </li>
                         {isActive && (
                             <li>
-                                <a href={data.linkedIn} className="bio__socialLink">
-                                    <span className="iconLink-txt">connect</span>
+                                <a
+                                    href={data.linkedIn}
+                                    className="bio__socialLink"
+                                >
+                                    <span className="iconLink-txt">
+                                        connect
+                                    </span>
                                 </a>
                             </li>
                         )}
@@ -65,9 +100,15 @@ const Bio = ({ data, isActive, onClick, index, slug }) => {
                 </div>
             </motion.div>
             {isActive && (
-                <motion.div className="bio__bd" key={`bio_bd_${data.firstname}`} layout>
+                <motion.div
+                    className="bio__bd"
+                    key={`bio_bd_${data.firstname}`}
+                    layout
+                >
                     <div className="userContent userContent_reversedSoft">
-                        <p dangerouslySetInnerHTML={{ __html: data.description }} />
+                        <p
+                            dangerouslySetInnerHTML={{__html: data.description}}
+                        />
                     </div>
                 </motion.div>
             )}
