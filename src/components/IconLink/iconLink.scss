@@ -1,0 +1,33 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.iconLink {
+    padding: 28px;
+    display: inline-flex;
+    align-items: center;
+    font-family: $FONT_HEADLINE;
+    font-weight: 700;
+    font-size: 18px;
+    color: $GREY_LIGHT;
+    fill: $GREY_LIGHT;
+    line-height: 1;
+}
+
+.iconLink__icon {
+    width: 20px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.iconLink__left {
+    .iconLink__icon {
+        margin-right: 5px;
+        margin-left: 0;
+    }
+}
+
+.iconLink:hover,
+.iconLink:focus {
+    color: $BLUE;
+    fill: $BLUE;
+}

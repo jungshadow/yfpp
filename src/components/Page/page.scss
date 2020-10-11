@@ -1,15 +1,30 @@
 @import 'scss/helpers/_globalVars';
 @import 'scss/helpers/_mixins';
 
-.about {
+.page {
     padding: 40px;
 }
 
-.about__hd {
+.page__hd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 80px;
 }
 
-.about__title {
+.page__hdLeft {
+    width: 10%;
+}
+
+.page__hdCtr {
+    width: 80%;
+}
+
+.page__hdRight {
+    width: 10%;
+}
+
+.page__title {
     margin-bottom: 5px;
     color: $WHITE;
     font-family: $FONT_HEADLINE;
@@ -18,18 +33,18 @@
     text-align: center;
 }
 
-.about__description {
+.page__description {
     margin-bottom: 120px;
     font-size: 24px;
     text-align: center;
 }
 
-.about__bios {
+.page__content {
     flex: 1;
 }
 
 @include breakpoint(md) {
-    .about {
+    .page {
         padding: 20px 80px 80px 80px;
         height: 100vh;
     }

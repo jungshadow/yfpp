@@ -1,34 +1,37 @@
-import React, { useContext, useEffect } from 'react';
+import React, {useContext, useEffect} from 'react';
 import classnames from 'classnames';
 
 import Search from 'components/Search/Search';
 import Logo from 'components/Logo/Logo';
-import { AppContext, DispatchContext } from 'appReducer';
+import {AppContext, DispatchContext} from 'appReducer';
 import './site.scss';
 import Results from 'components/Results';
 import Secondary from 'components/Secondary/Secondary';
 import useWindowSize from 'hooks/useWindowSize';
 import useElections from 'hooks/useElections';
 import sticker from 'images/iFuckingVotedSticker.png';
+import {PointingIcon} from 'components/Icons';
+import IconLink from 'components/IconLink/IconLink';
 
 const Site = () => {
     const dispatch = useContext(DispatchContext);
     useElections(dispatch);
 
-    const { isActive } = useContext(AppContext);
+    const {isActive} = useContext(AppContext);
     const windowSize = useWindowSize();
-    // useEffect(() => {
-    //     dispatch({ type: 'UPDATE_ELECTION_RESULTS', elections });
-    // }, [dispatch, elections]);
+
     useEffect(() => {
-        dispatch({ type: 'SET_SEARCH_TOGGLE_STATUS', status: windowSize.width > 768 });
+        dispatch({
+            type: 'SET_SEARCH_TOGGLE_STATUS',
+            status: windowSize.width > 768
+        });
     }, [windowSize, dispatch]);
 
     const getSiteClassName = () => {
         return classnames({
             site: true,
             'site--hasSearchVal': isActive,
-            'site--isMobile': windowSize.width < 768,
+            'site--isMobile': windowSize.width < 768
         });
     };
 
@@ -58,7 +61,13 @@ const Site = () => {
                     </div>
                 </div>
             )}
-            <div className="site__ft"></div>
+            <div className="site__ft">
+                <IconLink
+                    to="/about"
+                    label="Who We Are"
+                    icon={<PointingIcon style={{transform: 'scaleX(-1)'}} />}
+                />
+            </div>
         </div>
     );
 };
