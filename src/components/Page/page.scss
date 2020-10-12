@@ -43,9 +43,15 @@
     flex: 1;
 }
 
+.page--isNarrow {
+    .page__bd {
+        max-width: 750px;
+        margin: 0 auto;
+    }
+}
+
 @include breakpoint(md) {
     .page {
         padding: 20px 80px 80px 80px;
-        height: 100vh;
     }
 }

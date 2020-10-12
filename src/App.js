@@ -13,6 +13,7 @@ import Page from 'components/Page/Page';
 import {AnimatePresence, motion} from 'framer-motion';
 import Bios from 'components/Bios/Bios';
 import useRedirectDestination from 'hooks/useRedirectDestination';
+import PrivacyPolicy from 'components/PrivacyPolicy/PrivacyPolicy';
 
 const App = () => {
     const [state, dispatch] = useReducer(appReducer, initialState);
@@ -50,6 +51,19 @@ const App = () => {
                             >
                                 <Page title="About">
                                     <Bios />
+                                </Page>
+                            </motion.div>
+                        </Route>
+                        <Route path="/privacy-policy">
+                            <motion.div
+                                initial="initial"
+                                animate="in"
+                                exit="out"
+                                variants={pageVariants}
+                                key="privacyPolicyRoute"
+                            >
+                                <Page title="Privacy Policy" isNarrow>
+                                    <PrivacyPolicy />
                                 </Page>
                             </motion.div>
                         </Route>
