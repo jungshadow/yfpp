@@ -14,34 +14,29 @@ const Secondary = ({setIsSticky, isSticky}) => {
     const {electionInfo} = useContext(AppContext);
     const secondaryRef = useRef(null);
     let initialHeaderScrollPosRef = useRef();
+    let isStickyRef = useRef();
 
     initialHeaderScrollPosRef.current = initialHeaderScrollPos;
+    isStickyRef.current = isSticky;
 
     useEffect(() => {
         setInitialHeaderScrollPos(secondaryRef.current.getBoundingClientRect());
     }, [secondaryRef]);
 
-    const handleOnScroll = ({currentScrollTop}) => {
-        // console.log({
-        //     window: currentScrollTop,
-        //     element: initialHeaderScrollPosRef.current.bottom,
-        //     measure: initialHeaderScrollPosRef.current.top - initialHeaderScrollPosRef.current.height
-        // });
-
+    const handleOnScroll = (currentScrollTop) => {
         if (currentScrollTop >= initialHeaderScrollPosRef.current.bottom) {
-            // if (isSticky) {
-            //     return;
-            // }
-
+            if (isStickyRef.current) {
+                return;
+            }
             setIsSticky(true);
         } else if (
             currentScrollTop < initialHeaderScrollPosRef.current.top - initialHeaderScrollPosRef.current.height < 0
                 ? 0
                 : initialHeaderScrollPosRef.current.top - initialHeaderScrollPosRef.current.height
         ) {
-            // if (!isSticky) {
-            //     return;
-            // }
+            if (!isStickyRef.current) {
+                return;
+            }
             setIsSticky(false);
         }
     };

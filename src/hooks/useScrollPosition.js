@@ -7,15 +7,9 @@ function useScrollPosition(callback) {
     const container = document.querySelector('.site');
 
     function handleDocumentScroll() {
-        const {scrollTop: currentScrollTop} = container;
+        const {scrollTop} = container;
 
-        setScrollPosition((previousPosition) => {
-            previousScrollTop = previousPosition;
-            return currentScrollTop;
-        });
-
-        console.log('hello');
-        callback({previousScrollTop, currentScrollTop});
+        callback(scrollTop);
     }
 
     const handleDocumentScrollThrottled = throttle(handleDocumentScroll, 250);
@@ -23,11 +17,7 @@ function useScrollPosition(callback) {
     useEffect(() => {
         container.addEventListener('scroll', handleDocumentScrollThrottled);
 
-        return () =>
-            container.removeEventListener(
-                'scroll',
-                handleDocumentScrollThrottled
-            );
+        return () => container.removeEventListener('scroll', handleDocumentScrollThrottled);
     }, []);
 }
 
