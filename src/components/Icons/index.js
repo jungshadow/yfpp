@@ -6,6 +6,7 @@ export {default as FacebookIcon} from './FacebookIcon';
 export {default as FlagIcon} from './FlagIcon';
 export {default as MapIcon} from './MapIcon';
 export {default as PointingIcon} from './PointingIcon';
+export {default as PointingIconRight} from './PointingIconRight';
 export {default as RepresentativesIcon} from './RepresentativesIcon';
 export {default as RepublicanIcon} from './RepublicanIcon';
 export {default as SearchIcon} from './SearchIcon';

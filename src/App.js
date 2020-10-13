@@ -27,7 +27,8 @@ const App = () => {
         },
         in: {
             opacity: 1,
-            x: 0
+            x: 0,
+            height: '100%'
         },
         out: {
             opacity: 0,
@@ -72,6 +73,7 @@ const App = () => {
                                 initial="initial"
                                 animate="in"
                                 exit="out"
+                                transitionEnd="transitionEnd"
                                 variants={pageVariants}
                                 key="homeRoute"
                             >

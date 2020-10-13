@@ -8,6 +8,7 @@ html,
 body {
     width: 100%;
     overflow-x: hidden;
+    position: relative;
 }
 
 * {
@@ -23,6 +24,10 @@ body {
     color: $COLOR_TEXT_DEFAULT;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+    height: 100%;
 }
 
 a {

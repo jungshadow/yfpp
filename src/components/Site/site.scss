@@ -6,6 +6,7 @@
     flex-direction: column;
     height: 100vh;
     background-color: $COLOR_PRIMARY;
+    overflow: scroll;
 }
 
 .site__hd {
@@ -55,7 +56,7 @@
 }
 
 .site--hasSearchVal {
-    height: auto;
+    height: 100vh;
 
     .site__hd {
         flex-direction: row;
@@ -63,6 +64,11 @@
         justify-content: flex-start;
         padding: 0;
         border-bottom: 1px solid $BLACK;
+        position: relative;
+    }
+
+    .site__bd {
+        overflow: auto;
     }
 
     .site__secondary {
@@ -82,6 +88,10 @@
 
     .site__search {
         max-width: none;
+    }
+
+    .site__ft {
+        position: relative;
     }
 
     @include breakpoint(md) {
@@ -121,10 +131,22 @@
 }
 
 .site--isMobile.site--hasSearchVal {
+    display: block;
+
     .site__search {
         position: absolute;
         top: 0;
         right: 0;
         z-index: 1;
+    }
+
+    .site__ft {
+        position: relative;
+    }
+}
+
+.site--isMobile.site--headerIsSticky {
+    .site__bd {
+        margin-top: 120px;
     }
 }

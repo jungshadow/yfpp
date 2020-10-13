@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import classnames from 'classnames';
 
 import Search from 'components/Search/Search';
@@ -10,10 +10,11 @@ import Secondary from 'components/Secondary/Secondary';
 import useWindowSize from 'hooks/useWindowSize';
 import useElections from 'hooks/useElections';
 import sticker from 'images/iFuckingVotedSticker.png';
-import {PointingIcon} from 'components/Icons';
+import {PointingIcon, PointingIconRight} from 'components/Icons';
 import IconLink from 'components/IconLink/IconLink';
 
 const Site = () => {
+    const [isSticky, setIsSticky] = useState(false);
     const dispatch = useContext(DispatchContext);
     useElections(dispatch);
 
@@ -31,7 +32,8 @@ const Site = () => {
         return classnames({
             site: true,
             'site--hasSearchVal': isActive,
-            'site--isMobile': windowSize.width < 768
+            'site--isMobile': windowSize.width < 768,
+            'site--headerIsSticky': isSticky
         });
     };
 
@@ -52,7 +54,7 @@ const Site = () => {
             {isActive && (
                 <div className="site__bd">
                     <div className="site__secondary">
-                        <Secondary />
+                        <Secondary setIsSticky={setIsSticky} isSticky={isSticky} />
                     </div>
                     <div className="site__content">
                         <div className="site__contentInner">
@@ -62,11 +64,7 @@ const Site = () => {
                 </div>
             )}
             <div className="site__ft">
-                <IconLink
-                    to="/about"
-                    label="Who We Are"
-                    icon={<PointingIcon style={{transform: 'scaleX(-1)'}} />}
-                />
+                <IconLink to="/about" label="Who We Are" icon={<PointingIconRight />} />
             </div>
         </div>
     );
