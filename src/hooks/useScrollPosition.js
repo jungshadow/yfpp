@@ -15,9 +15,15 @@ function useScrollPosition(callback) {
     const handleDocumentScrollThrottled = throttle(handleDocumentScroll, 250);
 
     useEffect(() => {
-        container.addEventListener('scroll', handleDocumentScrollThrottled);
+        if (container) {
+            container.addEventListener('scroll', handleDocumentScrollThrottled);
+        }
 
-        return () => container.removeEventListener('scroll', handleDocumentScrollThrottled);
+        return () => {
+            if (container) {
+                container.removeEventListener('scroll', handleDocumentScrollThrottled);
+            }
+        };
     }, []);
 }
 
