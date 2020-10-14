@@ -13,7 +13,7 @@ let helpers = {
      * @method concatStreetAddress
      * @return {string} concatenated address or empty string
      */
-    concatStreetAddress: function(obj) {
+    concatStreetAddress: function (obj) {
         var addr = [obj.line1 || '', obj.line2 || '', obj.line3 || ''],
             addr_str = '',
             city = obj.city || '',
@@ -34,7 +34,7 @@ let helpers = {
         return address;
     },
 
-    lowerCase: function(string) {
+    lowerCase: function (string) {
         if (string) {
             return string.toLowerCase();
         }
@@ -46,16 +46,13 @@ let helpers = {
      * @method fucktify
      * @return {string} unsanitized phrase
      */
-    fucktify: function(str) {
+    fucktify: function (str) {
         if (str === undefined) {
             str = 'Some fucking building';
         } else {
             // I need to standardize the character case because
             // the data is chaos and indexOf uses strict equality
-            var str_arr = String(str)
-                .toLowerCase()
-                .trim()
-                .split(' ');
+            var str_arr = String(str).toLowerCase().trim().split(' ');
             // assuming two or more words...
             if (str_arr.length >= 2) {
                 // ...check for the existence/index of "of"...
@@ -84,7 +81,7 @@ let helpers = {
      * @method cleanString
      * @return {string} cleaned string
      */
-    cleanString: function(str) {
+    cleanString: function (str) {
         // underscores in names and multiple spaces between words
         var charactersRegex = /_/g,
             multipleSpaces = /\s\s+/g;
@@ -98,7 +95,7 @@ let helpers = {
      * @method titlecase
      * @return {string} titlecased string
      */
-    titlecase: function(str) {
+    titlecase: function (str) {
         var words = '';
 
         // apparently there are situations where the array
@@ -107,10 +104,7 @@ let helpers = {
         str = this.cleanString(str);
 
         if (str) {
-            words = str
-                .toLowerCase()
-                .trim()
-                .split(' ');
+            words = str.toLowerCase().trim().split(' ');
             for (var i = 0; i < words.length; i++) {
                 var letters = words[i].split('');
                 letters[0] = letters[0].toUpperCase();
@@ -128,7 +122,7 @@ let helpers = {
      * @method shuffle
      * @return {array} randomized array
      */
-    shuffle: function(array) {
+    shuffle: function (array) {
         var currentIndex = array.length,
             temporaryValue,
             randomIndex;
@@ -144,7 +138,7 @@ let helpers = {
         }
         return array;
     },
-    buildQueryString: function(params) {
+    buildQueryString: function (params) {
         return Object.keys(params)
             .map((key) => {
                 return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
@@ -162,9 +156,9 @@ let helpers = {
             .replace(/^-+/, '')
             .replace(/-+$/, '');
     },
-    getRequestURL: function(route, requestParams) {
+    getRequestURL: function (route, requestParams) {
         const baseParams = {
-            key: process.env.REACT_APP_API_KEY,
+            key: process.env.REACT_APP_API_KEY
         };
 
         if (process.env.NODE_ENV === 'development' && isDevelopmentMode) {
@@ -176,8 +170,8 @@ let helpers = {
             }
         }
 
-        return `${API_URL}/${route}?${helpers.buildQueryString({ ...baseParams, ...requestParams })}`;
-    },
+        return `${API_URL}/${route}?${helpers.buildQueryString({...baseParams, ...requestParams})}`;
+    }
 };
 
 export default helpers;
