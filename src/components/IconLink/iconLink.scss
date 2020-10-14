@@ -19,15 +19,34 @@
     margin-left: 5px;
 }
 
-.iconLink__left {
+.iconLink:hover,
+.iconLink:focus {
+    color: $BLUE;
+    fill: $BLUE;
+}
+
+// variations
+.iconLink--before {
     .iconLink__icon {
         margin-right: 5px;
         margin-left: 0;
     }
 }
 
-.iconLink:hover,
-.iconLink:focus {
-    color: $BLUE;
-    fill: $BLUE;
+.iconLink--isStacked {
+    flex-direction: column;
+
+    .iconLink__icon {
+        display: block;
+        width: 140px;
+        margin: 15px auto 0;
+    }
+}
+
+.iconLink--small {
+    font-size: 12px;
+}
+
+.iconLink--medium {
+    color: $PLUM_LIGHT;
 }

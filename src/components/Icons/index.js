@@ -4,6 +4,7 @@ export {default as DemocratIcon} from './DemocratIcon';
 export {default as DropBoxIcon} from './DropBoxIcon';
 export {default as FacebookIcon} from './FacebookIcon';
 export {default as FlagIcon} from './FlagIcon';
+export {default as MapBoxIcon} from './MapBoxIcon';
 export {default as MapIcon} from './MapIcon';
 export {default as PointingIcon} from './PointingIcon';
 export {default as PointingIconRight} from './PointingIconRight';

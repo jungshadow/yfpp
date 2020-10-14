@@ -12,6 +12,7 @@ import useElections from 'hooks/useElections';
 import sticker from 'images/iFuckingVotedSticker.png';
 import {PointingIcon, PointingIconRight} from 'components/Icons';
 import IconLink from 'components/IconLink/IconLink';
+import SupplementalLinks from 'components/SupplementalLinks/SupplementalLinks';
 
 const Site = () => {
     const [isSticky, setIsSticky] = useState(false);
@@ -64,7 +65,7 @@ const Site = () => {
                 </div>
             )}
             <div className="site__ft">
-                <IconLink to="/about" label="Who We Are" icon={<PointingIconRight />} />
+                <SupplementalLinks searchIsActive={isActive} />
             </div>
         </div>
     );

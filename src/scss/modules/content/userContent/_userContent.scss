@@ -96,13 +96,13 @@ userContent - unclassed element styles
     color: $WHITE;
 
     a {
-        color: lighten($RED, 40);
+        color: lighten($BLUE, 40);
     }
 
     a:hover,
     a:focus,
     a:visited {
-        color: lighten($RED, 30);
+        color: lighten($BLUE, 30);
     }
 }
 
@@ -111,13 +111,13 @@ userContent - unclassed element styles
     color: $GREY;
 
     a {
-        color: $COLOR_PRIMARY;
+        color: $BLUE;
     }
 
     a:hover,
     a:focus,
     a:visited {
-        color: lighten($COLOR_PRIMARY, 10);
+        color: lighten($BLUE, 10);
     }
 }
 
@@ -127,13 +127,13 @@ userContent - unclassed element styles
 
     a,
     a:visited {
-        color: $COLOR_PRIMARY;
+        color: $BLUE;
     }
 
     a:hover,
     a:focus,
     a:visited {
-        color: lighten($COLOR_PRIMARY, 10);
+        color: lighten($BLUE, 10);
     }
 }
 

@@ -1,19 +1,15 @@
 import React, {useReducer} from 'react';
 import {Switch, Route} from 'react-router-dom';
 
-import {
-    appReducer,
-    initialState,
-    AppContext,
-    DispatchContext
-} from 'appReducer';
+import {appReducer, initialState, AppContext, DispatchContext} from 'appReducer';
 import Site from 'components/Site/Site';
 import {Redirect} from 'react-router-dom';
-import Page from 'components/Page/Page';
+import {Page, PageSection} from 'components/Page';
 import {AnimatePresence, motion} from 'framer-motion';
 import Bios from 'components/Bios/Bios';
 import useRedirectDestination from 'hooks/useRedirectDestination';
 import PrivacyPolicy from 'components/PrivacyPolicy/PrivacyPolicy';
+import SiteInfo from 'components/SiteInfo/SiteInfo';
 
 const App = () => {
     const [state, dispatch] = useReducer(appReducer, initialState);
@@ -51,7 +47,12 @@ const App = () => {
                                 key="aboutRoute"
                             >
                                 <Page title="About">
-                                    <Bios />
+                                    <PageSection>
+                                        <Bios />
+                                    </PageSection>
+                                    <PageSection>
+                                        <SiteInfo />
+                                    </PageSection>
                                 </Page>
                             </motion.div>
                         </Route>

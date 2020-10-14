@@ -51,8 +51,7 @@
 }
 
 .site__ft {
-    position: fixed;
-    bottom: 0;
+    width: 100%;
 }
 
 .site--hasSearchVal {
@@ -117,6 +116,9 @@
 
         .site__ft {
             position: fixed;
+            bottom: 0;
+            width: 45%;
+            max-width: 470px;
         }
 
         .site__contentInner {

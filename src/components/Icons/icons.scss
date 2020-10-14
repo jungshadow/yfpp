@@ -3,3 +3,7 @@
 .icon {
     @include ASPECT_RATIO_CONTAINER;
 }
+
+.mapBoxIcon {
+    @include ASPECT_RATIO_CONTAINER(40, 9);
+}

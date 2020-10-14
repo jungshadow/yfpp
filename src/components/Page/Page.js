@@ -9,19 +9,13 @@ import {PointingIcon} from 'components/Icons';
 import './page.scss';
 
 const Page = ({title, children, isNarrow}) => {
-    const getPageClassname = () =>
-        classnames({page: true, 'page--isNarrow': isNarrow});
+    const getPageClassname = () => classnames({page: true, 'page--isNarrow': isNarrow});
 
     return (
         <div className={getPageClassname()}>
             <div className="page__hd">
                 <div className="page__hdLeft">
-                    <IconLink
-                        to="/"
-                        label="Back"
-                        icon={<PointingIcon />}
-                        iconPosition="left"
-                    />
+                    <IconLink to="/" label="Back" icon={<PointingIcon />} iconPosition="before" />
                 </div>
                 <div className="page__hdCtr">
                     <Link to="/">
