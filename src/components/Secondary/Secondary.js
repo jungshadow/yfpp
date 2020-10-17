@@ -32,6 +32,7 @@ const Secondary = ({getRef}) => {
             if (siteRef) {
                 siteRef.current.classList.add('site--headerIsSticky');
                 siteRef.current.style.paddingTop = `${initialHeaderScrollPos.height}px`;
+                siteRef.current.style.height = `${window.innerHeight + initialHeaderScrollPos.height * 2}px`;
             }
         }
 
@@ -66,13 +67,13 @@ const Secondary = ({getRef}) => {
     const getSecondaryClassname = () => classnames({secondary: true, 'secondary--isSticky': isSticky});
 
     return (
-        <div className={getSecondaryClassname()} ref={secondaryRef}>
-            {!isSticky && (
+        <div className={getSecondaryClassname()}>
+            {true && (
                 <div className="secondary__heading">
                     <ElectionTitle electionInfo={electionInfo} />
                 </div>
             )}
-            <div className="secondary__nav">
+            <div className="secondary__nav" ref={secondaryRef}>
                 <MainNav />
             </div>
         </div>

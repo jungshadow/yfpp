@@ -6,7 +6,7 @@
 }
 
 @include breakpoint(smOnly) {
-    .secondary--isSticky {
+    .secondary--isSticky .secondary__nav {
         position: absolute;
         top: 0;
         left: 0;

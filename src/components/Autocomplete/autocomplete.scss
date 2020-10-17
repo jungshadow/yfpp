@@ -62,7 +62,7 @@
 }
 
 @include breakpoint(smOnly) {
-    .autoComplete__input {
+    .autocomplete__input {
         font-size: $FONT_SIZE_DEFAULT;
     }
 }
