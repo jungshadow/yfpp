@@ -32,7 +32,6 @@ const Secondary = ({getRef}) => {
             if (siteRef) {
                 siteRef.current.classList.add('site--headerIsSticky');
                 siteRef.current.style.paddingTop = `${initialHeaderScrollPos.height}px`;
-                siteRef.current.style.height = `${window.innerHeight + initialHeaderScrollPos.height * 2}px`;
             }
         }
 

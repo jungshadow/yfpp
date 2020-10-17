@@ -4,9 +4,10 @@
 .site {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: $COLOR_PRIMARY;
-    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .site__hd {
@@ -42,7 +43,7 @@
 }
 
 .site__graphic {
-    width: 35%;
+    width: 30%;
     max-width: 190px;
     margin-bottom: 30px;
 }
@@ -172,6 +173,5 @@
     }
 }
 
-.site--isMobile.site--headerIsSticky {
-    max-height: -webkit-fill-available;
+.site--isMobile {
 }

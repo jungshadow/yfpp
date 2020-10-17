@@ -19,16 +19,16 @@ const App = () => {
     const pageVariants = {
         initial: {
             opacity: 0,
-            x: '-50%'
+            height: '100%'
+            // x: '-50%'
         },
         in: {
-            opacity: 1,
-            x: 0,
-            height: '100%'
+            opacity: 1
+            // x: 0,
         },
         out: {
-            opacity: 0,
-            x: '-50%'
+            opacity: 0
+            // x: '-50%'
         }
     };
 
