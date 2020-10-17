@@ -25,16 +25,20 @@ const Secondary = ({getRef}) => {
         setInitialHeaderScrollPos(secondaryRef.current.getBoundingClientRect());
     }, [secondaryRef]);
 
+    // had to go with an effect here to set these properties for the sticky header
+    // because the list items were rerendering when the header stickyness changed
     useEffect(() => {
         if (isSticky) {
             if (siteRef) {
                 siteRef.current.classList.add('site--headerIsSticky');
+                siteRef.current.style.paddingTop = `${initialHeaderScrollPos.height}px`;
             }
         }
 
         if (!isSticky) {
             if (siteRef) {
                 siteRef.current.classList.remove('site--headerIsSticky');
+                siteRef.current.style = null;
             }
         }
     }, [isSticky]);
