@@ -10,6 +10,7 @@ import Representatives from 'components/Representatives/Representatives';
 import BallotResults from 'components/BallotResults/BallotResults';
 import ResultsErrorBoundry from 'components/ResultsErrorBoundry/ResultsErrorBoundry';
 import ElectionSelect from 'components/ElectionSelect/ElectionSelect';
+import ResultMessage from 'components/ResultMessage/ResultMessage';
 
 function Results() {
     const {
@@ -45,6 +46,13 @@ function Results() {
                 <Route path="/polling-place">
                     <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} key="polling-places">
                         <ResultsErrorBoundry errorType="locations" errors={errors}>
+                            <ResultMessage>
+                                <p>
+                                    <strong>You have the right to vote.</strong> If anyone tries to stop you, call or
+                                    text the National Election Protection Hotline. Their number is 866-OUR-VOTE
+                                    <a href="tel:866-687-8683"> (866-687-8683)</a>.
+                                </p>
+                            </ResultMessage>
                             <ElectionSelect />
                             <EarlyVoteResults locations={earlyVoteSites} />
                             <PollingPlaceResults locations={pollingLocations} />
@@ -61,6 +69,11 @@ function Results() {
                 </Route>
                 <Route path="/representatives">
                     <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} key="representatives">
+                        <ResultMessage>
+                            <p>
+                                <strong>These are the assholes that currently represent you.</strong>
+                            </p>
+                        </ResultMessage>
                         <ResultsErrorBoundry errorType="representatives" errors={errors}>
                             <Representatives representatives={representatives} offices={offices} />
                         </ResultsErrorBoundry>
@@ -69,6 +82,13 @@ function Results() {
                 <Route path="/drop-off-sites">
                     <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} key="drop-off-sites">
                         <ResultsErrorBoundry errorType="locations" errors={errors}>
+                            <ResultMessage>
+                                <p>
+                                    <strong>You have the right to vote.</strong> If anyone tries to stop you, call or
+                                    text the National Election Protection Hotline. Their number is 866-OUR-VOTE
+                                    <a href="tel:866-687-8683"> (866-687-8683)</a>.
+                                </p>
+                            </ResultMessage>
                             <ElectionSelect />
                             <DropOffLocationResults locations={dropOffLocations} />
                         </ResultsErrorBoundry>
