@@ -52,6 +52,24 @@
     }
 }
 
+@include breakpoint(smOnly) {
+    .page__hdLeft {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: auto;
+    }
+
+    .page__hdCtr {
+        margin-top: 30px;
+    }
+
+    .page__hdRight {
+        position: absolute;
+        width: auto;
+    }
+}
+
 @include breakpoint(md) {
     .page {
         padding: 20px 80px 80px 80px;
