@@ -11,6 +11,7 @@ import useWindowSize from 'hooks/useWindowSize';
 import useElections from 'hooks/useElections';
 import sticker from 'images/iFuckingVotedSticker.png';
 import SupplementalLinks from 'components/SupplementalLinks/SupplementalLinks';
+import SocialLinks from 'components/SocialLinks/SocialLinks';
 
 const Site = () => {
     const dispatch = useContext(DispatchContext);
@@ -39,6 +40,9 @@ const Site = () => {
     return (
         <div className={getSiteClassName()} ref={ref}>
             <div className="site__hd">
+                <div className="site__social">
+                    <SocialLinks />
+                </div>
                 <div className="site__graphic">
                     <img src={sticker} alt="I fucking voted today sticker" />
                 </div>

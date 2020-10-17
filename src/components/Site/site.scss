@@ -35,8 +35,14 @@
     margin: auto;
 }
 
+.site__social {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
 .site__graphic {
-    width: 40%;
+    width: 35%;
     max-width: 190px;
     margin-bottom: 30px;
 }
@@ -55,6 +61,10 @@
 }
 
 @include breakpoint(md) {
+    .site__social {
+        justify-self: flex-start;
+    }
+
     .site__graphic {
         width: 50%;
         margin-bottom: 50px;
@@ -81,6 +91,10 @@
         padding: 26px 22px;
         background-color: $COLOR_PRIMARY;
         border-top: 1px solid transparentize($WHITE, 0.89);
+    }
+
+    .site__social {
+        display: none;
     }
 
     .site__logo {

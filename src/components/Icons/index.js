@@ -11,3 +11,4 @@ export {default as PointingIconRight} from './PointingIconRight';
 export {default as RepresentativesIcon} from './RepresentativesIcon';
 export {default as RepublicanIcon} from './RepublicanIcon';
 export {default as SearchIcon} from './SearchIcon';
+export {default as TwitterIcon} from './TwitterIcon';
