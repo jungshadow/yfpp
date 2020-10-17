@@ -36,9 +36,9 @@
 }
 
 .site__graphic {
-    width: 50%;
+    width: 40%;
     max-width: 190px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .site__logo {
@@ -52,6 +52,13 @@
 
 .site__ft {
     width: 100%;
+}
+
+@include breakpoint(md) {
+    .site__graphic {
+        width: 50%;
+        margin-bottom: 50px;
+    }
 }
 
 .site--hasSearchVal {
@@ -152,7 +159,5 @@
 }
 
 .site--isMobile.site--headerIsSticky {
-    .site__bd {
-        margin-top: 198px;
-    }
+    padding-top: 198px; // this moves the main content below the sticky header
 }
