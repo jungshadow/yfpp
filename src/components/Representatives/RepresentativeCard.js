@@ -6,6 +6,7 @@ import './representativeCard.scss';
 import {DemocratIcon, RepublicanIcon} from 'components/Icons';
 
 const Representative = ({data}) => {
+    // eslint-disable-next-line
     const {name, party, office, urls, photoUrl, channels} = data;
 
     const getRepClass = (party) => {
