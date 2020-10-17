@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import './pager.scss';
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 
 const PAGER_OFFSET = 5;
 const Pager = (props) => {
     const [pageIndex, setPageIndex] = useState(1);
 
     const container = {
-        hidden: { opacity: 0 },
+        hidden: {opacity: 0},
         show: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.075,
-            },
-        },
+                staggerChildren: 0.075
+            }
+        }
     };
 
     const item = {
-        hidden: (index) => ({ opacity: 0, x: `${index % 2 === 0 ? '10%' : '-10%'}` }),
-        show: { opacity: 1, x: 0 },
+        hidden: (index) => ({opacity: 0, x: `${index % 2 === 0 ? '10%' : '-10%'}`}),
+        show: {opacity: 1, x: 0}
     };
 
     const generatePageNav = () => {
@@ -55,7 +55,9 @@ const Pager = (props) => {
                 beginningPageOffset = pageIndex - (PAGER_OFFSET * 2 - (pagesCount - pageIndex));
             }
 
-            pagingLinks = pagingLinks.filter((link, index) => index + 1 > beginningPageOffset && index + 1 <= endingPageOffset);
+            pagingLinks = pagingLinks.filter(
+                (link, index) => index + 1 > beginningPageOffset && index + 1 <= endingPageOffset
+            );
         }
 
         return (
@@ -89,7 +91,7 @@ const Pager = (props) => {
             <React.Fragment>
                 {nextResults.map((result, index) => (
                     <motion.li key={`result_${index}_${pageIndex}`} variants={item}>
-                        {React.cloneElement(props.children, { data: result })}
+                        {React.cloneElement(props.children, {data: result})}
                     </motion.li>
                 ))}
             </React.Fragment>
@@ -107,11 +109,11 @@ const Pager = (props) => {
 };
 
 Pager.propTypes = {
-    numberPerPage: PropTypes.number,
+    numberPerPage: PropTypes.number
 };
 
 Pager.defaultProps = {
-    numberPerPage: 5,
+    numberPerPage: 5
 };
 
 export default Pager;

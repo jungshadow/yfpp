@@ -24,11 +24,10 @@ const Representatives = (props) => {
     }
 
     if (!representatives.length) {
-        return (
-            <FallbackMessage message="No fucking representatives results for that address" />
-        );
+        return <FallbackMessage message="No fucking representatives results for that address" />;
     }
     const reps = buildRepresentativesList(offices, representatives);
+
     return (
         <Pager data={reps}>
             <RepresentativeCard />

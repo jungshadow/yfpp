@@ -9,12 +9,14 @@ import ElectionTitle from 'components/ElectionTitle/ElectionTitle';
 import './secondary.scss';
 import useScrollPosition from 'hooks/useScrollPosition';
 
-const Secondary = ({setIsSticky, isSticky}) => {
+const Secondary = ({getRef}) => {
+    const [isSticky, setIsSticky] = useState(false);
     const [initialHeaderScrollPos, setInitialHeaderScrollPos] = useState(0);
     const {electionInfo} = useContext(AppContext);
     const secondaryRef = useRef(null);
     let initialHeaderScrollPosRef = useRef();
     let isStickyRef = useRef();
+    const siteRef = getRef();
 
     initialHeaderScrollPosRef.current = initialHeaderScrollPos;
     isStickyRef.current = isSticky;
@@ -22,6 +24,20 @@ const Secondary = ({setIsSticky, isSticky}) => {
     useEffect(() => {
         setInitialHeaderScrollPos(secondaryRef.current.getBoundingClientRect());
     }, [secondaryRef]);
+
+    useEffect(() => {
+        if (isSticky) {
+            if (siteRef) {
+                siteRef.current.classList.add('site--headerIsSticky');
+            }
+        }
+
+        if (!isSticky) {
+            if (siteRef) {
+                siteRef.current.classList.remove('site--headerIsSticky');
+            }
+        }
+    }, [isSticky]);
 
     const handleOnScroll = (currentScrollTop) => {
         if (currentScrollTop >= initialHeaderScrollPosRef.current.bottom) {

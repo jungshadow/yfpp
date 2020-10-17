@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {forwardRef, useContext, useEffect, useRef, useState} from 'react';
 import classnames from 'classnames';
 
 import Search from 'components/Search/Search';
@@ -14,8 +14,7 @@ import {PointingIcon, PointingIconRight} from 'components/Icons';
 import IconLink from 'components/IconLink/IconLink';
 import SupplementalLinks from 'components/SupplementalLinks/SupplementalLinks';
 
-const Site = () => {
-    const [isSticky, setIsSticky] = useState(false);
+const Site = (props) => {
     const dispatch = useContext(DispatchContext);
     useElections(dispatch);
 
@@ -33,13 +32,18 @@ const Site = () => {
         return classnames({
             site: true,
             'site--hasSearchVal': isActive,
-            'site--isMobile': windowSize.width < 768,
-            'site--headerIsSticky': isSticky
+            'site--isMobile': windowSize.width < 768
         });
     };
 
+    const ref = React.createRef();
+
+    function getRef() {
+        return ref;
+    }
+
     return (
-        <div className={getSiteClassName()}>
+        <div className={getSiteClassName()} ref={ref}>
             <div className="site__hd">
                 <div className="site__graphic">
                     <img src={sticker} alt="I fucking voted today sticker" />
@@ -55,7 +59,7 @@ const Site = () => {
             {isActive && (
                 <div className="site__bd">
                     <div className="site__secondary">
-                        <Secondary setIsSticky={setIsSticky} isSticky={isSticky} />
+                        <Secondary getRef={() => ref} />
                     </div>
                     <div className="site__content">
                         <div className="site__contentInner">
