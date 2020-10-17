@@ -5,7 +5,7 @@ import Search from 'components/Search/Search';
 import Logo from 'components/Logo/Logo';
 import {AppContext, DispatchContext} from 'appReducer';
 import './site.scss';
-import Results from 'components/Results';
+import Results from 'components/Results/Results';
 import Secondary from 'components/Secondary/Secondary';
 import useWindowSize from 'hooks/useWindowSize';
 import useElections from 'hooks/useElections';
