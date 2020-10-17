@@ -16,26 +16,19 @@ const BallotResults = ({contests, primaryParties}) => {
 
     const getFilteredContests = (contests) => {
         if (currentPartyFilter !== 'all') {
-            return contests.filter(
-                (contest) => contest.primaryParty === currentPartyFilter
-            );
+            return contests.filter((contest) => contest.primaryParty === currentPartyFilter);
         }
         return contests;
     };
 
     if (!contests.length) {
-        return (
-            <FallbackMessage message="No fucking ballot results for that address" />
-        );
+        return <FallbackMessage message="No fucking ballot results for that address" />;
     }
 
     return (
         <div className="ballotResults">
             <div className="ballotResults__hd">
-                <PartySelect
-                    onSelect={handleOnFilterChange}
-                    primaryParties={primaryParties}
-                />
+                <PartySelect onSelect={handleOnFilterChange} primaryParties={primaryParties} />
             </div>
             <div className="ballotResults__bd">
                 <ContestsList contests={getFilteredContests(contests)} />
@@ -44,6 +37,9 @@ const BallotResults = ({contests, primaryParties}) => {
     );
 };
 
-BallotResults.propTypes = {};
+BallotResults.propTypes = {
+    contests: PropTypes.array,
+    primaryParties: PropTypes.array
+};
 
 export default BallotResults;

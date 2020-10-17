@@ -3,10 +3,10 @@ import helpers from 'helpers';
 
 import avatar from 'images/avatar.jpg';
 import './representativeCard.scss';
-import { DemocratIcon, RepublicanIcon } from 'components/Icons';
+import {DemocratIcon, RepublicanIcon} from 'components/Icons';
 
-const Representative = ({ data }) => {
-    const { name, party, office, urls, photoUrl, channels } = data;
+const Representative = ({data}) => {
+    const {name, party, office, urls, photoUrl, channels} = data;
 
     const getRepClass = (party) => {
         let partySlug = party;
@@ -43,7 +43,7 @@ const Representative = ({ data }) => {
     }
     return (
         <div className={getRepClass(party)}>
-            <div className="representativeCard__img" style={{ backgroundImage: `url(${getImgUrl(photoUrl)})` }}></div>
+            <div className="representativeCard__img" style={{backgroundImage: `url(${getImgUrl(photoUrl)})`}}></div>
             <div className="representativeCard__details">
                 <div className="representativeCard__detailsParty">
                     {renderPartyIcon(party)}

@@ -40,11 +40,7 @@ const Bio = ({data, isActive, onClick, index, slug}) => {
             layout
         >
             {isActive && (
-                <button
-                    className="bio__closeBtn"
-                    type="button"
-                    onClick={() => onClick(index)}
-                >
+                <button className="bio__closeBtn" type="button" onClick={() => onClick(index)}>
                     <span className="isVisuallyHidden">close</span>
                     <span className="bio__closeBtnIcon">
                         <CloseIcon />
@@ -52,20 +48,13 @@ const Bio = ({data, isActive, onClick, index, slug}) => {
                 </button>
             )}
             <motion.div className="bio__img" layout>
-                <img
-                    src={data.image}
-                    alt={data.firstname + ' ' + data.lastname + ' head shot'}
-                />
+                <img src={data.image} alt={data.firstname + ' ' + data.lastname + ' head shot'} />
             </motion.div>
 
             <motion.div className="bio__heading" layout>
                 <h4 className="bio__name">
                     {data.firstname}{' '}
-                    {isActive && data.nickname && (
-                        <span className="bio__nickName">
-                            {'"' + data.nickname + '"'}
-                        </span>
-                    )}{' '}
+                    {isActive && data.nickname && <span className="bio__nickName">{'"' + data.nickname + '"'}</span>}{' '}
                     {data.lastname}
                 </h4>
                 {isActive && <div className="bio__title">{data.title}</div>}
@@ -86,13 +75,8 @@ const Bio = ({data, isActive, onClick, index, slug}) => {
                         </li>
                         {isActive && (
                             <li>
-                                <a
-                                    href={data.linkedIn}
-                                    className="bio__socialLink"
-                                >
-                                    <span className="iconLink-txt">
-                                        connect
-                                    </span>
+                                <a href={data.linkedIn} className="bio__socialLink">
+                                    <span className="iconLink-txt">connect</span>
                                 </a>
                             </li>
                         )}
@@ -100,15 +84,9 @@ const Bio = ({data, isActive, onClick, index, slug}) => {
                 </div>
             </motion.div>
             {isActive && (
-                <motion.div
-                    className="bio__bd"
-                    key={`bio_bd_${data.firstname}`}
-                    layout
-                >
+                <motion.div className="bio__bd" key={`bio_bd_${data.firstname}`} layout>
                     <div className="userContent userContent_reversedSoft">
-                        <p
-                            dangerouslySetInnerHTML={{__html: data.description}}
-                        />
+                        <p dangerouslySetInnerHTML={{__html: data.description}} />
                     </div>
                 </motion.div>
             )}
@@ -116,6 +94,12 @@ const Bio = ({data, isActive, onClick, index, slug}) => {
     );
 };
 
-Bio.propTypes = {};
+Bio.propTypes = {
+    data: PropTypes.object,
+    isActive: PropTypes.bool,
+    onClick: PropTypes.func,
+    index: PropTypes.number,
+    slug: PropTypes.bool
+};
 
 export default Bio;

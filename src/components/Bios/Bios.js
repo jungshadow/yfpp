@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
 import Bio from 'components/Bios/Bio';
 
 import bios from './bios.json';
 import './bios.scss';
 
-const Bios = (props) => {
+const Bios = () => {
     const [isActive, setIsActive] = useState(null);
     const handleOnClick = (index) => {
         index === isActive ? setIsActive(null) : setIsActive(index);
@@ -21,7 +20,5 @@ const Bios = (props) => {
         </ul>
     );
 };
-
-Bios.propTypes = {};
 
 export default Bios;

@@ -14,12 +14,9 @@ const LocationCard = ({data, locationType}) => {
         if (locationType === 'early-vote') {
             return (
                 <div className="locationCard__badge">
-                    <span className="locationCard__badgeTitle">
-                        Early Polling Location
-                    </span>
+                    <span className="locationCard__badgeTitle">Early Polling Location</span>
                     <span className="locationCard__badgeDate">
-                        {moment(startDate).format('MMMM Do')} -{' '}
-                        {moment(endDate).format('MMMM Do')}
+                        {moment(startDate).format('MMMM Do')} - {moment(endDate).format('MMMM Do')}
                     </span>
                 </div>
             );
@@ -30,9 +27,7 @@ const LocationCard = ({data, locationType}) => {
             <div className="locationCard__hd">
                 {renderEarlyVoteSiteBadge()}
                 <h3 className="locationCard__name">
-                    {helpers.cleanString(
-                        helpers.fucktify(address.locationName || name)
-                    )}
+                    {helpers.cleanString(helpers.fucktify(address.locationName || name))}
                 </h3>
             </div>
             <div className="locationCard__bd">
@@ -44,8 +39,7 @@ const LocationCard = ({data, locationType}) => {
                         {helpers.lowerCase(address.line2)}
                     </div>
                     <div className="locationCard__address locationCard__address--cityStateZip">
-                        {helpers.lowerCase(address.city)}, {address.state}{' '}
-                        {address.zip}
+                        {helpers.lowerCase(address.city)}, {address.state} {address.zip}
                     </div>
                 </div>
 
@@ -60,6 +54,9 @@ const LocationCard = ({data, locationType}) => {
     );
 };
 
-LocationCard.propTypes = {};
+LocationCard.propTypes = {
+    data: PropTypes.object,
+    locationType: PropTypes.string
+};
 
 export default LocationCard;

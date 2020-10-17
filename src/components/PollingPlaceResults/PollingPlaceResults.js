@@ -4,7 +4,7 @@ import Pager from 'components/Pager/Pager';
 import LocationCard from 'components/LocationCard/LocationCard';
 import FallbackMessage from 'components/FallbackMessage/FallbackMessage';
 
-const PollingPlaceResults = ({ locations }) => {
+const PollingPlaceResults = ({locations}) => {
     if (!locations.length) {
         return <FallbackMessage message="No fucking polling place results for that address" />;
     }
@@ -15,6 +15,8 @@ const PollingPlaceResults = ({ locations }) => {
     );
 };
 
-PollingPlaceResults.propTypes = {};
+PollingPlaceResults.propTypes = {
+    locations: PropTypes.array.isRequired
+};
 
 export default PollingPlaceResults;

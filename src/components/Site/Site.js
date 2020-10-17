@@ -1,4 +1,4 @@
-import React, {forwardRef, useContext, useEffect, useRef, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import classnames from 'classnames';
 
 import Search from 'components/Search/Search';
@@ -10,11 +10,9 @@ import Secondary from 'components/Secondary/Secondary';
 import useWindowSize from 'hooks/useWindowSize';
 import useElections from 'hooks/useElections';
 import sticker from 'images/iFuckingVotedSticker.png';
-import {PointingIcon, PointingIconRight} from 'components/Icons';
-import IconLink from 'components/IconLink/IconLink';
 import SupplementalLinks from 'components/SupplementalLinks/SupplementalLinks';
 
-const Site = (props) => {
+const Site = () => {
     const dispatch = useContext(DispatchContext);
     useElections(dispatch);
 
@@ -37,10 +35,6 @@ const Site = (props) => {
     };
 
     const ref = React.createRef();
-
-    function getRef() {
-        return ref;
-    }
 
     return (
         <div className={getSiteClassName()} ref={ref}>

@@ -41,7 +41,7 @@ const Secondary = ({getRef}) => {
                 siteRef.current.style = null;
             }
         }
-    }, [isSticky]);
+    }, [isSticky, siteRef, initialHeaderScrollPos.height]);
 
     const handleOnScroll = (currentScrollTop) => {
         if (currentScrollTop >= initialHeaderScrollPosRef.current.bottom) {
@@ -79,6 +79,6 @@ const Secondary = ({getRef}) => {
     );
 };
 
-Secondary.propTypes = {};
+Secondary.propTypes = {getRef: PropTypes.func};
 
 export default Secondary;

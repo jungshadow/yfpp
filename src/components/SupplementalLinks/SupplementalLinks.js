@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import IconLink from 'components/IconLink/IconLink';
 import {MapBoxIcon, PointingIconRight} from 'components/Icons';
-import {Link} from 'react-router-dom';
 import './supplementalLinks.scss';
 
 const SupplementalLinks = ({searchIsActive}) => {
@@ -36,6 +35,6 @@ const SupplementalLinks = ({searchIsActive}) => {
     );
 };
 
-SupplementalLinks.propTypes = {};
+SupplementalLinks.propTypes = {searchIsActive: PropTypes.bool};
 
 export default SupplementalLinks;

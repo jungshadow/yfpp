@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import PropTypes from 'prop-types';
+
 import {AppContext, DispatchContext} from 'appReducer';
 import getLocations from 'requests/getLocations';
 
@@ -7,10 +7,8 @@ import analytics from 'analytics';
 import ElectionSelectOptions from './ElectionSelectOptions';
 import './electionSelect.scss';
 
-const ElectionSelect = (props) => {
-    const {relevantElections, searchQuery, electionInfo} = useContext(
-        AppContext
-    );
+const ElectionSelect = () => {
+    const {relevantElections, searchQuery, electionInfo} = useContext(AppContext);
     const dispatch = useContext(DispatchContext);
 
     const handleOnChange = async (event) => {
@@ -38,12 +36,7 @@ const ElectionSelect = (props) => {
 
     return (
         <form action="">
-            <select
-                className="electionSelect"
-                name="electionSelect"
-                onChange={handleOnChange}
-                value={electionInfo.id}
-            >
+            <select className="electionSelect" name="electionSelect" onChange={handleOnChange} value={electionInfo.id}>
                 {relevantElections.map((election, index) => (
                     <ElectionSelectOptions
                         key={index}

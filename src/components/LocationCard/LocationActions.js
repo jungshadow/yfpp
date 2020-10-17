@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import './locationActions.scss';
@@ -6,11 +6,9 @@ import {FacebookIcon, MapIcon} from 'components/Icons';
 import TwitterIcon from 'components/Icons/TwitterIcon';
 import analytics from 'analytics';
 import helpers from 'helpers';
-import {useLocation} from 'react-router-dom';
 
 const LocationActions = ({location}) => {
     const {state, locationName, city, zip, line1, line2} = location;
-    const currentUrl = useLocation();
 
     const handleFacebookShare = (e) => {
         e.preventDefault();
@@ -122,6 +120,8 @@ const LocationActions = ({location}) => {
     );
 };
 
-LocationActions.propTypes = {};
+LocationActions.propTypes = {
+    locations: PropTypes.array
+};
 
 export default LocationActions;

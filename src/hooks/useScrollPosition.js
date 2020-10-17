@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect} from 'react';
 import {throttle} from 'lodash';
 
 function useScrollPosition(callback) {
@@ -22,7 +22,7 @@ function useScrollPosition(callback) {
                 container.removeEventListener('scroll', handleDocumentScrollThrottled);
             }
         };
-    }, []);
+    }, [handleDocumentScrollThrottled, container]);
 }
 
 export default useScrollPosition;

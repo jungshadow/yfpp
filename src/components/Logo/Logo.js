@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './logo.scss';
 
-const Logo = (props) => {
+const Logo = ({isCompact}) => {
     const getLogoClassName = () => {
-        return classnames({ logo: true, 'logo--isCompact': props.isCompact });
+        return classnames({logo: true, 'logo--isCompact': isCompact});
     };
 
     return (
@@ -20,6 +20,6 @@ const Logo = (props) => {
     );
 };
 
-Logo.propTypes = {};
+Logo.propTypes = {isCompact: PropTypes.bool};
 
 export default Logo;
