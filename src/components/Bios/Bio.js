@@ -4,8 +4,9 @@ import {motion} from 'framer-motion';
 import classnames from 'classnames';
 
 import './bio.scss';
-import {CloseIcon} from 'components/Icons';
+import {CloseIcon, LinkedInIcon} from 'components/Icons';
 import useOutsideClick from 'hooks/useOutsideClick';
+import IconLink from 'components/IconLink/IconLink';
 
 const Bio = ({data, isActive, onClick, index, slug}) => {
     const bioRef = useRef();
@@ -59,12 +60,12 @@ const Bio = ({data, isActive, onClick, index, slug}) => {
                 </h4>
                 {isActive && <div className="bio__title">{data.title}</div>}
             </motion.div>
-            <motion.div layout>
+            <motion.div layout style={{width: '100%'}}>
                 <div className="bio__social">
                     <ul className="bio__socialLinks">
-                        <li>
+                        <li className="bio__socialLink">
                             <a
-                                className="bio__socialLink"
+                                className="twitter-follow-button"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 href={data.twitter}
@@ -74,10 +75,14 @@ const Bio = ({data, isActive, onClick, index, slug}) => {
                             </a>
                         </li>
                         {isActive && (
-                            <li>
-                                <a href={data.linkedIn} className="bio__socialLink">
-                                    <span className="iconLink-txt">connect</span>
-                                </a>
+                            <li className="bio__socialLink">
+                                <IconLink
+                                    href={data.linkedIn}
+                                    icon={<LinkedInIcon />}
+                                    iconPosition="before"
+                                    label="Connect"
+                                    size="small"
+                                />
                             </li>
                         )}
                     </ul>

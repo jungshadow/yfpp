@@ -71,7 +71,7 @@ function Results() {
                     <motion.div initial="initial" animate="in" exit="out" variants={pageVariants} key="representatives">
                         <ResultMessage>
                             <p>
-                                <strong>These are the assholes that currently represent you.</strong>
+                                <strong>These are the fuckers that currently represent you.</strong>
                             </p>
                         </ResultMessage>
                         <ResultsErrorBoundry errorType="representatives" errors={errors}>
