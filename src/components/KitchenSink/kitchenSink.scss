@@ -99,50 +99,14 @@ kitchenSink - unclassed element styles
     color: $WHITE;
 
     a {
-        color: lighten($BLUE, 40);
-    }
-
-    a:hover,
-    a:focus,
-    a:visited {
-        color: lighten($BLUE, 30);
-    }
-}
-
-/* grey text on dark background */
-.kitchenSink_reversedSoft {
-    color: $GREY;
-
-    a {
         color: $BLUE;
     }
 
     a:hover,
     a:focus,
     a:visited {
-        color: lighten($BLUE, 10);
+        color: lighten($BLUE, 20);
     }
-}
-
-/* light grey text on dark background */
-.kitchenSink_reversedSofter {
-    color: $GREY_LIGHT;
-
-    a,
-    a:visited {
-        color: $BLUE;
-    }
-
-    a:hover,
-    a:focus,
-    a:visited {
-        color: lighten($BLUE, 10);
-    }
-}
-
-.mix-kitchenSink_md {
-    font-size: 0.875em;
-    line-height: 1.3;
 }
 
 .kitchenSink--centered {
