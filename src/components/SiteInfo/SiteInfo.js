@@ -1,3 +1,4 @@
+import KitchenSink from 'components/KitchenSink/KitchenSink';
 import React from 'react';
 import {Link} from 'react-router-dom';
 
@@ -20,7 +21,7 @@ const SiteInfo = () => {
                 </div>
             </div>
             <div className="siteInfo__bd">
-                <div className="userContent userContent_reversedSofter mix-userContent_md mix-userContent_ctr">
+                <KitchenSink isReversed isCentered>
                     <p>
                         Hey fuckface, read the fucking
                         <Link to="/privacy-policy"> privacy policy</Link>.
@@ -51,7 +52,7 @@ const SiteInfo = () => {
                         Election officials sometimes revise data in the last few days before an election. Check back on
                         Election Day for the latest information.
                     </p>
-                </div>
+                </KitchenSink>
             </div>
         </div>
     );

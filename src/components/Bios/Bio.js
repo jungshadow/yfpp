@@ -7,6 +7,7 @@ import './bio.scss';
 import {CloseIcon, LinkedInIcon} from 'components/Icons';
 import useOutsideClick from 'hooks/useOutsideClick';
 import IconLink from 'components/IconLink/IconLink';
+import KitchenSink from 'components/KitchenSink/KitchenSink';
 
 const Bio = ({data, isActive, onClick, index, slug}) => {
     const bioRef = useRef();
@@ -49,7 +50,9 @@ const Bio = ({data, isActive, onClick, index, slug}) => {
                 </button>
             )}
             <motion.div className="bio__img" layout>
-                <img src={data.image} alt={data.firstname + ' ' + data.lastname + ' head shot'} />
+                <div className="inner">
+                    <img src={data.image} alt={data.firstname + ' ' + data.lastname + ' head shot'} />
+                </div>
             </motion.div>
 
             <motion.div className="bio__heading" layout>
@@ -71,7 +74,7 @@ const Bio = ({data, isActive, onClick, index, slug}) => {
                                 href={data.twitter}
                                 data-show-count="false"
                             >
-                                {data.twitter}
+                                <span className="isVisuallyHidden">{data.twitter}</span>
                             </a>
                         </li>
                         {isActive && (
@@ -90,9 +93,9 @@ const Bio = ({data, isActive, onClick, index, slug}) => {
             </motion.div>
             {isActive && (
                 <motion.div className="bio__bd" key={`bio_bd_${data.firstname}`} layout>
-                    <div className="userContent userContent_reversedSoft">
+                    <KitchenSink isReversed>
                         <p dangerouslySetInnerHTML={{__html: data.description}} />
-                    </div>
+                    </KitchenSink>
                 </motion.div>
             )}
         </motion.div>

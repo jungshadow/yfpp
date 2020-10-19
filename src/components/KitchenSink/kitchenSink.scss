@@ -95,7 +95,7 @@ kitchenSink - unclassed element styles
 }
 
 /* white text on dark background */
-.kitchenSink_reversed {
+.kitchenSink--reversed {
     color: $WHITE;
 
     a {
@@ -145,6 +145,6 @@ kitchenSink - unclassed element styles
     line-height: 1.3;
 }
 
-.mix-kitchenSink_ctr {
+.kitchenSink--centered {
     text-align: center;
 }
