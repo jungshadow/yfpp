@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import classnames from 'classnames';
 
+import Errorator from 'components/Errorator/Errorator';
 import Search from 'components/Search/Search';
 import Logo from 'components/Logo/Logo';
 import {AppContext, DispatchContext} from 'appReducer';
@@ -17,7 +18,7 @@ const Site = () => {
     const dispatch = useContext(DispatchContext);
     useElections(dispatch);
 
-    const {isActive} = useContext(AppContext);
+    const {isActive, errors} = useContext(AppContext);
     const windowSize = useWindowSize();
 
     useEffect(() => {
@@ -39,6 +40,9 @@ const Site = () => {
 
     return (
         <div className={getSiteClassName()} ref={ref}>
+            {errors && (
+                <div className="site__error"><Errorator errors={errors} dispatch={dispatch} /></div>
+            )}
             <div className="site__hd">
                 <div className="site__social">
                     <SocialLinks />
