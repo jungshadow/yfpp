@@ -6,9 +6,13 @@ import { FacebookIcon, MapIcon } from 'components/Icons';
 import TwitterIcon from 'components/Icons/TwitterIcon';
 import analytics from 'analytics';
 import helpers from 'helpers';
+import useWindowSize from 'hooks/useWindowSize';
 
 const LocationActions = ({ location, onMapItClick, isActive }) => {
     const { state, locationName, city, zip, line1, line2 } = location;
+    const windowSize = useWindowSize();
+
+    const isMobile = windowSize.width < 768;
 
     const handleFacebookShare = e => {
         e.preventDefault();
@@ -102,18 +106,30 @@ const LocationActions = ({ location, onMapItClick, isActive }) => {
                 isActive ? 'locationActions--isActive' : ''
             }`}
         >
-            <a
-                className="locationActions__btn locationActions__btn--mapBtn"
-                // href={buildMap()}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={onMapItClick}
-            >
-                Map It
-                <i className="locationActions__btnIcon">
-                    <MapIcon />
-                </i>
-            </a>
+            {isMobile && (
+                <a
+                    className="locationActions__btn locationActions__btn--mapBtn"
+                    href={buildMap()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Map It
+                    <i className="locationActions__btnIcon">
+                        <MapIcon />
+                    </i>
+                </a>
+            )}
+            {!isMobile && (
+                <button
+                    className="locationActions__btn locationActions__btn--mapBtn"
+                    onClick={onMapItClick}
+                >
+                    Map It
+                    <i className="locationActions__btnIcon">
+                        <MapIcon />
+                    </i>
+                </button>
+            )}
             <button
                 className="locationActions__btn locationActions__btn--facebookBtn"
                 type="button"
