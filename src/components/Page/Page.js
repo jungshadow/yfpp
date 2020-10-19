@@ -7,6 +7,7 @@ import IconLink from 'components/IconLink/IconLink';
 import {PointingIcon} from 'components/Icons';
 
 import './page.scss';
+import KitchenSink from 'components/KitchenSink/KitchenSink';
 
 const Page = ({title, children, isNarrow}) => {
     const getPageClassname = () => classnames({page: true, 'page--isNarrow': isNarrow});
@@ -27,9 +28,7 @@ const Page = ({title, children, isNarrow}) => {
             <div className="page__bd">
                 <h1 className="page__title">{title}</h1>
                 <div className="page__description">
-                    <div className="userContent userContent_reversedSoft">
-                        This shit was made by these motherfuckers.
-                    </div>
+                    <KitchenSink isReversed>This shit was made by these motherfuckers.</KitchenSink>
                 </div>
                 <div className="page__content">{children}</div>
             </div>
