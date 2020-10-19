@@ -1,5 +1,8 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b12184a9b9ddd8f42e9365c15179e0badad9a7a1
 import React, {useContext, useState, useEffect, useRef} from 'react';
 import {AppContext, DispatchContext} from 'appReducer';
 import {motion} from 'framer-motion';
@@ -8,6 +11,7 @@ import './errorator.scss';
 import {CloseIcon} from 'components/Icons';
 import KitchenSink from 'components/KitchenSink/KitchenSink';
 import useOutsideClick from 'hooks/useOutsideClick';
+<<<<<<< HEAD
 =======
 import React, {useContext, useState, useEffect} from 'react';
 import {AppContext, DispatchContext} from 'appReducer';
@@ -22,11 +26,14 @@ import {CloseIcon} from 'components/Icons';
 import KitchenSink from 'components/KitchenSink/KitchenSink';
 import useOutsideClick from 'hooks/useOutsideClick';
 >>>>>>> 657537d... adds styling for errorator
+=======
+>>>>>>> b12184a9b9ddd8f42e9365c15179e0badad9a7a1
 
 const Errorator = (props) => {
     const dispatch = useContext(DispatchContext);
     const {errors, leoInfo} = useContext(AppContext);
     const [errorMessage, setErrorMessage] = useState(null);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     const erroratorRef = useRef();
@@ -37,10 +44,15 @@ const Errorator = (props) => {
     const erroratorRef = useRef();
     useOutsideClick(erroratorRef, handleRemoveError);
 >>>>>>> 657537d... adds styling for errorator
+=======
+    const erroratorRef = useRef();
+    useOutsideClick(erroratorRef, handleRemoveError);
+>>>>>>> b12184a9b9ddd8f42e9365c15179e0badad9a7a1
 
     useEffect(() => {
         let errorMessage = '';
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         if (errors) {
@@ -68,6 +80,8 @@ const Errorator = (props) => {
                     break;
 >>>>>>> 1e9ae6f... First stab at the errorator
 =======
+=======
+>>>>>>> b12184a9b9ddd8f42e9365c15179e0badad9a7a1
         if (errors) {
             Object.keys(errors).forEach((key) => {
                 switch (key) {
@@ -82,7 +96,10 @@ const Errorator = (props) => {
                             errorMessage = `${errors[key]['message']} fucker`;
                         }
                         break;
+<<<<<<< HEAD
 >>>>>>> cdccfde... adds logic to correctly setError to false
+=======
+>>>>>>> b12184a9b9ddd8f42e9365c15179e0badad9a7a1
                     default:
                         console.log('In default');
                         console.log(errors);
@@ -94,6 +111,7 @@ const Errorator = (props) => {
         }
     }, [errors, leoInfo]);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -130,13 +148,19 @@ const Errorator = (props) => {
 =======
     function handleRemoveError() {
 >>>>>>> 657537d... adds styling for errorator
+=======
+    function handleRemoveError() {
+>>>>>>> b12184a9b9ddd8f42e9365c15179e0badad9a7a1
         dispatch({
             type: 'SET_ERROR',
             errors: false
         });
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> cdccfde... adds logic to correctly setError to false
 =======
+=======
+>>>>>>> b12184a9b9ddd8f42e9365c15179e0badad9a7a1
     }
 
     const pageVariants = {
@@ -152,11 +176,15 @@ const Errorator = (props) => {
             opacity: 0,
             y: '200%'
         }
+<<<<<<< HEAD
 >>>>>>> 657537d... adds styling for errorator
+=======
+>>>>>>> b12184a9b9ddd8f42e9365c15179e0badad9a7a1
     };
 
     return (
         <>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             {errorMessage && (
@@ -192,6 +220,8 @@ const Errorator = (props) => {
 }
 >>>>>>> 1e9ae6f... First stab at the errorator
 =======
+=======
+>>>>>>> b12184a9b9ddd8f42e9365c15179e0badad9a7a1
             {errorMessage && (
                 <motion.div
                     className="errorator"
@@ -215,6 +245,9 @@ const Errorator = (props) => {
         </>
     );
 };
+<<<<<<< HEAD
 >>>>>>> cdccfde... adds logic to correctly setError to false
+=======
+>>>>>>> b12184a9b9ddd8f42e9365c15179e0badad9a7a1
 
 export default Errorator;
