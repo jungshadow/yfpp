@@ -1,10 +1,18 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useContext, useState, useEffect, useRef} from 'react';
 import {AppContext, DispatchContext} from 'appReducer';
+import {motion} from 'framer-motion';
+
+import './errorator.scss';
+import {CloseIcon} from 'components/Icons';
+import KitchenSink from 'components/KitchenSink/KitchenSink';
+import useOutsideClick from 'hooks/useOutsideClick';
 
 const Errorator = (props) => {
     const dispatch = useContext(DispatchContext);
     const {errors, leoInfo} = useContext(AppContext);
     const [errorMessage, setErrorMessage] = useState(null);
+    const erroratorRef = useRef();
+    useOutsideClick(erroratorRef, handleRemoveError);
 
     useEffect(() => {
         let errorMessage = '';
@@ -34,23 +42,47 @@ const Errorator = (props) => {
         }
     }, [errors, leoInfo]);
 
-    const handleRemoveError = (e) => {
-        e.preventDefault();
+    function handleRemoveError() {
         dispatch({
             type: 'SET_ERROR',
             errors: false
         });
+    }
+
+    const pageVariants = {
+        initial: {
+            opacity: 0,
+            y: '200%'
+        },
+        in: {
+            opacity: 1,
+            y: '0'
+        },
+        out: {
+            opacity: 0,
+            y: '200%'
+        }
     };
 
     return (
         <>
             {errorMessage && (
-                <div>
-                    <button type="button" onClick={handleRemoveError}>
-                        Remove
+                <motion.div
+                    className="errorator"
+                    initial="initial"
+                    animate="in"
+                    exit="out"
+                    variants={pageVariants}
+                    ref={erroratorRef}
+                >
+                    <button className="errorator__closeBtn" type="button" onClick={handleRemoveError}>
+                        <span className="isVisuallyHidden">close</span>
+                        <span className="errorator__closeBtnIcon">
+                            <CloseIcon />
+                        </span>
                     </button>
-                    {errorMessage}
-                </div>
+                    <KitchenSink isReversed>{errorMessage}</KitchenSink>
+                </motion.div>
             )}
         </>
     );
