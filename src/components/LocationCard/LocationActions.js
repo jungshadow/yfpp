@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './locationActions.scss';
-import {FacebookIcon, MapIcon} from 'components/Icons';
+import { FacebookIcon, MapIcon } from 'components/Icons';
 import TwitterIcon from 'components/Icons/TwitterIcon';
 import analytics from 'analytics';
 import helpers from 'helpers';
 
-const LocationActions = ({location}) => {
-    const {state, locationName, city, zip, line1, line2} = location;
+const LocationActions = ({ location, onMapItClick }) => {
+    const { state, locationName, city, zip, line1, line2 } = location;
 
-    const handleFacebookShare = (e) => {
+    const handleFacebookShare = e => {
         e.preventDefault();
 
         function facebook_callback(response) {
@@ -22,12 +22,15 @@ const LocationActions = ({location}) => {
             link:
                 'http://yourfuckingpollingplace.com/?utm_source=facebook&utm_medium=social&utm_campaign=YFPP_2016_USER_' +
                 state,
-            picture: 'http://yourfuckingpollingplace.com/web/images/social/social_2x.png',
+            picture:
+                'http://yourfuckingpollingplace.com/web/images/social/social_2x.png',
             name: 'I Vote At ' + locationName,
             caption: 'YourFuckingPollingPlace.com',
-            description: `I vote at ${helpers.titlecase(helpers.fucktify(locationName))} in ${helpers.titlecase(
+            description: `I vote at ${helpers.titlecase(
+                helpers.fucktify(locationName)
+            )} in ${helpers.titlecase(
                 location.city
-            )} ${state}, where the fuck do you vote? Visit YourFuckingPollingPlace.com to find out.`
+            )} ${state}, where the fuck do you vote? Visit YourFuckingPollingPlace.com to find out.`,
         };
 
         window.FB.ui(shareObj, facebook_callback);
@@ -41,7 +44,7 @@ const LocationActions = ({location}) => {
             'jungshadow',
             'momaraqa',
             'nickcatal',
-            'sixBcreative'
+            'sixBcreative',
         ]);
 
         // setup empty variable to store tweet text
@@ -54,13 +57,14 @@ const LocationActions = ({location}) => {
                 helpers.fucktify(locationName)
             )}. Where the fuck do you vote? Find out at`;
         } else {
-            text = 'I found my fucking polling location. Where the fuck do you vote? Find out at';
+            text =
+                'I found my fucking polling location. Where the fuck do you vote? Find out at';
         }
 
         const related = authorTwitter.join(',');
         const url = encodeURI('http://yourfuckingpollingplace.com');
 
-        const params = {text, url, related, via: 'fnpollingplace'};
+        const params = { text, url, related, via: 'fnpollingplace' };
         const tweetParams = helpers.buildQueryString(params);
 
         return `https://twitter.com/intent/tweet?${tweetParams}`;
@@ -76,10 +80,18 @@ const LocationActions = ({location}) => {
         }
 
         // set up url components to build google maps url
-        const components = [casedLocationName, line1, line2 || '', city, state, zip];
+        const components = [
+            casedLocationName,
+            line1,
+            line2 || '',
+            city,
+            state,
+            zip,
+        ];
 
         // build google maps url from components array
-        const url = 'https://maps.google.com/maps?q=' + encodeURI(components.join(' '));
+        const url =
+            'https://maps.google.com/maps?q=' + encodeURI(components.join(' '));
 
         return url;
     };
@@ -88,9 +100,10 @@ const LocationActions = ({location}) => {
         <div className="locationActions">
             <a
                 className="locationActions__btn locationActions__btn--mapBtn"
-                href={buildMap()}
+                // href={buildMap()}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={onMapItClick}
             >
                 Map It
                 <i className="locationActions__btnIcon">
@@ -121,7 +134,7 @@ const LocationActions = ({location}) => {
 };
 
 LocationActions.propTypes = {
-    locations: PropTypes.array
+    locations: PropTypes.array,
 };
 
 export default LocationActions;

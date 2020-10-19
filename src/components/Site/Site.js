@@ -1,9 +1,9 @@
-import React, {useContext, useEffect} from 'react';
+import React, { useContext, useEffect } from 'react';
 import classnames from 'classnames';
 
 import Search from 'components/Search/Search';
 import Logo from 'components/Logo/Logo';
-import {AppContext, DispatchContext} from 'appReducer';
+import { AppContext, DispatchContext } from 'appReducer';
 import './site.scss';
 import Results from 'components/Results/Results';
 import Secondary from 'components/Secondary/Secondary';
@@ -17,13 +17,13 @@ const Site = () => {
     const dispatch = useContext(DispatchContext);
     useElections(dispatch);
 
-    const {isActive} = useContext(AppContext);
+    const { isActive } = useContext(AppContext);
     const windowSize = useWindowSize();
 
     useEffect(() => {
         dispatch({
             type: 'SET_SEARCH_TOGGLE_STATUS',
-            status: windowSize.width > 768
+            status: windowSize.width > 768,
         });
     }, [windowSize, dispatch]);
 
@@ -31,7 +31,7 @@ const Site = () => {
         return classnames({
             site: true,
             'site--hasSearchVal': isActive,
-            'site--isMobile': windowSize.width < 768
+            'site--isMobile': windowSize.width < 768,
         });
     };
 
