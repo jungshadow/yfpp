@@ -47,15 +47,11 @@ const Errorator = (props) => {
             Object.keys(errors).forEach((key) => {
                 switch (key) {
                     case 'locations':
-                        {
                             errorMessage = `${errors[key]['message']}`;
-                        }
                         break;
                     case 'representatives':
-                        {
                             console.log(errors[key]);
                             errorMessage = `${errors[key]['message']} fucker`;
-                        }
                         break;
 =======
         if(errors) {
