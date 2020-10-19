@@ -26,6 +26,7 @@ const Errorator = (props) => {
         let errorMessage = '';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (errors) {
             Object.keys(errors).forEach((key) => {
                 switch (key) {
@@ -54,6 +55,22 @@ const Errorator = (props) => {
                     }
                     break;
 >>>>>>> 1e9ae6f... First stab at the errorator
+=======
+        if (errors) {
+            Object.keys(errors).forEach((key) => {
+                switch (key) {
+                    case 'locations':
+                        {
+                            errorMessage = `${errors[key]['message']}`;
+                        }
+                        break;
+                    case 'representatives':
+                        {
+                            console.log(errors[key]);
+                            errorMessage = `${errors[key]['message']} fucker`;
+                        }
+                        break;
+>>>>>>> cdccfde... adds logic to correctly setError to false
                     default:
                         console.log('In default');
                         console.log(errors);
@@ -65,6 +82,7 @@ const Errorator = (props) => {
         }
     }, [errors, leoInfo]);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     function handleRemoveError() {
         dispatch({
@@ -93,10 +111,19 @@ const Errorator = (props) => {
             errors: false
         })
 >>>>>>> 1e9ae6f... First stab at the errorator
+=======
+    const handleRemoveError = (e) => {
+        e.preventDefault();
+        dispatch({
+            type: 'SET_ERROR',
+            errors: false
+        });
+>>>>>>> cdccfde... adds logic to correctly setError to false
     };
 
     return (
         <>
+<<<<<<< HEAD
 <<<<<<< HEAD
             {errorMessage && (
                 <motion.div
@@ -130,5 +157,18 @@ const Errorator = (props) => {
     );
 }
 >>>>>>> 1e9ae6f... First stab at the errorator
+=======
+            {errorMessage && (
+                <div>
+                    <button type="button" onClick={handleRemoveError}>
+                        Remove
+                    </button>
+                    {errorMessage}
+                </div>
+            )}
+        </>
+    );
+};
+>>>>>>> cdccfde... adds logic to correctly setError to false
 
 export default Errorator;
