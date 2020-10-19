@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import classnames from 'classnames';
 
 import helpers from 'helpers';
 
@@ -8,8 +9,11 @@ import './locationCard.scss';
 import LocationActions from './LocationActions';
 
 import Map from 'components/Map/Map';
+import { CloseIcon } from 'components/Icons';
+import { motion } from 'framer-motion';
+import useOutsideClick from 'hooks/useOutsideClick';
 
-const LocationCard = ({ data, locationType }) => {
+const LocationCard = ({ data, locationType, slug }) => {
     const {
         startDate,
         endDate,
@@ -20,11 +24,16 @@ const LocationCard = ({ data, locationType }) => {
         longitude,
     } = data;
     const [isActive, setIsActive] = useState(false);
+    const locationCardRef = useRef();
+
+    useOutsideClick(locationCardRef, handleCloseMap);
+    const openSpring = { type: 'spring', stiffness: 200, damping: 30 };
+    const closeSpring = { type: 'spring', stiffness: 300, damping: 35 };
 
     const renderEarlyVoteSiteBadge = () => {
         if (locationType === 'early-vote') {
             return (
-                <div className="locationCard__badge">
+                <motion.div className="locationCard__badge" layout>
                     <span className="locationCard__badgeTitle">
                         Early Polling Location
                     </span>
@@ -32,28 +41,56 @@ const LocationCard = ({ data, locationType }) => {
                         {moment(startDate).format('MMMM Do')} -{' '}
                         {moment(endDate).format('MMMM Do')}
                     </span>
-                </div>
+                </motion.div>
             );
         }
     };
 
     const handleMapItClick = async e => {
-        console.log(data);
         setIsActive(true);
-        console.log('click coord', latitude, longitude);
     };
 
+    function handleCloseMap(e) {
+        setIsActive(false);
+    }
+
+    function getCardClassName() {
+        return classnames({
+            locationCard: true,
+            'locationCard--isActive': isActive,
+            'locationCard--isSlug': slug,
+        });
+    }
+
     return (
-        <div className="locationCard">
-            <div className="locationCard__hd">
+        <motion.div
+            className={getCardClassName()}
+            key={name}
+            ref={locationCardRef}
+            layoutTransition={isActive ? openSpring : closeSpring}
+            layout
+        >
+            {isActive && (
+                <button
+                    className="locationCard__closeBtn"
+                    type="button"
+                    onClick={handleCloseMap}
+                >
+                    <span className="isVisuallyHidden">close</span>
+                    <span className="locationCard__closeBtnIcon">
+                        <CloseIcon />
+                    </span>
+                </button>
+            )}
+            <motion.div className="locationCard__hd" layout>
                 {renderEarlyVoteSiteBadge()}
                 <h3 className="locationCard__name">
                     {helpers.cleanString(
                         helpers.fucktify(address.locationName || name)
                     )}
                 </h3>
-            </div>
-            <div className="locationCard__bd">
+            </motion.div>
+            <motion.div className="locationCard__bd" layout>
                 <div className="locationCard__addressBlock">
                     <div className="locationCard__address locationCard__address--line1">
                         {helpers.lowerCase(address.line1)}
@@ -70,19 +107,20 @@ const LocationCard = ({ data, locationType }) => {
                 <div className="locationCard__hours">
                     <strong>Polling Hours:</strong> {pollingHours}
                 </div>
-            </div>
+            </motion.div>
             {isActive && (
-                <div className="locationCard__map">
+                <motion.div className="locationCard__map" layout>
                     <Map latitude={latitude} longitude={longitude} />
-                </div>
+                </motion.div>
             )}
             <div className="locationCard__ft">
                 <LocationActions
                     location={address}
                     onMapItClick={handleMapItClick}
+                    isActive={isActive}
                 />
             </div>
-        </div>
+        </motion.div>
     );
 };
 

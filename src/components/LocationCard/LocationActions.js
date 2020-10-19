@@ -7,7 +7,7 @@ import TwitterIcon from 'components/Icons/TwitterIcon';
 import analytics from 'analytics';
 import helpers from 'helpers';
 
-const LocationActions = ({ location, onMapItClick }) => {
+const LocationActions = ({ location, onMapItClick, isActive }) => {
     const { state, locationName, city, zip, line1, line2 } = location;
 
     const handleFacebookShare = e => {
@@ -97,7 +97,11 @@ const LocationActions = ({ location, onMapItClick }) => {
     };
 
     return (
-        <div className="locationActions">
+        <div
+            className={`locationActions ${
+                isActive ? 'locationActions--isActive' : ''
+            }`}
+        >
             <a
                 className="locationActions__btn locationActions__btn--mapBtn"
                 // href={buildMap()}

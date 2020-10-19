@@ -84,3 +84,9 @@
         font-size: 14px;
     }
 }
+
+.locationActions--isActive {
+    .locationActions__btn--mapBtn {
+        display: none;
+    }
+}

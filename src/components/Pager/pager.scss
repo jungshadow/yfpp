@@ -7,6 +7,10 @@
 
 .pager__list {
     margin-bottom: 20px;
+
+    li {
+        position: relative;
+    }
 }
 
 .pager__list > * + * {

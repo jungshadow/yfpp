@@ -19,7 +19,7 @@ const Map = ({ latitude, longitude }) => {
             center: [lng, lat],
             zoom: zoom,
         });
-        console.log(map);
+
         // Add navigation control (the +/- zoom buttons)
         map.addControl(new mapboxgl.NavigationControl(), 'top-right');
         new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
@@ -34,16 +34,7 @@ const Map = ({ latitude, longitude }) => {
         return () => map.remove();
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    return (
-        <div>
-            <div className="sidebarStyle">
-                <div>
-                    Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
-                </div>
-            </div>
-            <div className="map-container" ref={mapContainerRef} />
-        </div>
-    );
+    return <div className="map" ref={mapContainerRef} />;
 };
 
 export default Map;
