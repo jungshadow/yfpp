@@ -1,0 +1,58 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.errorator {
+    position: fixed;
+    padding: 60px 40px 90px;
+    min-height: 300px;
+    background-color: $RED;
+    border-radius: 8px 8px 0 0;
+    left: calc(50% - 180px);
+    width: 360px;
+    bottom: 0;
+    z-index: 2;
+    overflow: hidden;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+
+    &:after {
+        position: absolute;
+        content: 'OH FUCK';
+        display: block;
+        font-family: $FONT_DISPLAY;
+        font-size: 140px;
+        color: darken($RED, 10);
+        font-weight: 700;
+        letter-spacing: 4px;
+        bottom: 0;
+        left: 50%;
+        transform: translate3d(-50%, 32%, 0);
+        white-space: nowrap;
+    }
+}
+
+.errorator__closeBtn {
+    @include BUTTON_RESET;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: transparent;
+    fill: $WHITE;
+}
+
+.errorator__closeBtnIcon {
+    .icon {
+        width: 30px;
+    }
+}
+
+@include breakpoint(sm) {
+    .errorator {
+        left: calc(50% - 280px);
+        width: 560px;
+        padding-bottom: 142px;
+
+        &:after {
+            font-size: 220px;
+        }
+    }
+}

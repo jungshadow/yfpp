@@ -13,6 +13,7 @@ import useElections from 'hooks/useElections';
 import sticker from 'images/iFuckingVotedSticker.png';
 import SupplementalLinks from 'components/SupplementalLinks/SupplementalLinks';
 import SocialLinks from 'components/SocialLinks/SocialLinks';
+import {AnimatePresence} from 'framer-motion';
 
 const Site = () => {
     const dispatch = useContext(DispatchContext);
@@ -40,9 +41,13 @@ const Site = () => {
 
     return (
         <div className={getSiteClassName()} ref={ref}>
-            {errors && (
-                <div className="site__error"><Errorator errors={errors} dispatch={dispatch} /></div>
-            )}
+            <AnimatePresence>
+                {errors && (
+                    <div className="site__error">
+                        <Errorator errors={errors} dispatch={dispatch} />
+                    </div>
+                )}
+            </AnimatePresence>
             <div className="site__hd">
                 <div className="site__social">
                     <SocialLinks />
