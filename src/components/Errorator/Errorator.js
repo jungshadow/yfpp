@@ -211,7 +211,9 @@ const Errorator = (props) => {
                             <CloseIcon />
                         </span>
                     </button>
-                    <KitchenSink isReversed>{errorMessage}</KitchenSink>
+                    <KitchenSink isReversed>
+                        <p dangerouslySetInnerHTML={{__html: errorMessage}} />
+                    </KitchenSink>
                 </motion.div>
             )}
         </>
