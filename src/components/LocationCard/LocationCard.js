@@ -63,64 +63,77 @@ const LocationCard = ({ data, locationType, slug }) => {
     }
 
     return (
-        <motion.div
-            className={getCardClassName()}
-            key={name}
-            ref={locationCardRef}
-            layoutTransition={isActive ? openSpring : closeSpring}
-            layout
-        >
-            {isActive && (
-                <button
-                    className="locationCard__closeBtn"
-                    type="button"
-                    onClick={handleCloseMap}
-                >
-                    <span className="isVisuallyHidden">close</span>
-                    <span className="locationCard__closeBtnIcon">
-                        <CloseIcon />
-                    </span>
-                </button>
-            )}
-            <motion.div className="locationCard__hd" layout>
-                {renderEarlyVoteSiteBadge()}
-                <h3 className="locationCard__name">
-                    {helpers.cleanString(
-                        helpers.fucktify(address.locationName || name)
-                    )}
-                </h3>
-            </motion.div>
-            <motion.div className="locationCard__bd" layout>
-                <div className="locationCard__addressBlock">
-                    <div className="locationCard__address locationCard__address--line1">
-                        {helpers.lowerCase(address.line1)}
-                    </div>
-                    <div className="locationCard__address locationCard__address--line2">
-                        {helpers.lowerCase(address.line2)}
-                    </div>
-                    <div className="locationCard__address locationCard__address--cityStateZip">
-                        {helpers.lowerCase(address.city)}, {address.state}{' '}
-                        {address.zip}
-                    </div>
-                </div>
-
-                <div className="locationCard__hours">
-                    <strong>Polling Hours:</strong> {pollingHours}
-                </div>
-            </motion.div>
-            {isActive && (
-                <motion.div className="locationCard__map" layout>
-                    <Map latitude={latitude} longitude={longitude} />
+        <>
+            <motion.div
+                className={getCardClassName()}
+                key={name}
+                ref={locationCardRef}
+                layoutTransition={isActive ? openSpring : closeSpring}
+                layout
+            >
+                {isActive && (
+                    <button
+                        className="locationCard__closeBtn"
+                        type="button"
+                        onClick={handleCloseMap}
+                    >
+                        <span className="isVisuallyHidden">close</span>
+                        <span className="locationCard__closeBtnIcon">
+                            <CloseIcon />
+                        </span>
+                    </button>
+                )}
+                <motion.div className="locationCard__hd" layout>
+                    {renderEarlyVoteSiteBadge()}
+                    <h3 className="locationCard__name">
+                        {helpers.cleanString(
+                            helpers.fucktify(address.locationName || name)
+                        )}
+                    </h3>
                 </motion.div>
+                <motion.div className="locationCard__bd" layout>
+                    <div className="locationCard__addressBlock">
+                        <div className="locationCard__address locationCard__address--line1">
+                            {helpers.lowerCase(address.line1)}
+                        </div>
+                        <div className="locationCard__address locationCard__address--line2">
+                            {helpers.lowerCase(address.line2)}
+                        </div>
+                        <div className="locationCard__address locationCard__address--cityStateZip">
+                            {helpers.lowerCase(address.city)}, {address.state}{' '}
+                            {address.zip}
+                        </div>
+                    </div>
+
+                    <div className="locationCard__hours">
+                        <strong>Polling Hours:</strong> {pollingHours}
+                    </div>
+                </motion.div>
+                {isActive && (
+                    <motion.div className="locationCard__map" layout>
+                        <Map latitude={latitude} longitude={longitude} />
+                    </motion.div>
+                )}
+                <div className="locationCard__ft">
+                    <LocationActions
+                        location={address}
+                        onMapItClick={handleMapItClick}
+                        isActive={isActive}
+                    />
+                </div>
+            </motion.div>
+            {isActive && (
+                <div
+                    className="locationCard locationCard__isSlug"
+                    style={{
+                        height: `${
+                            locationCardRef.current.getBoundingClientRect()
+                                .height
+                        }px`,
+                    }}
+                ></div>
             )}
-            <div className="locationCard__ft">
-                <LocationActions
-                    location={address}
-                    onMapItClick={handleMapItClick}
-                    isActive={isActive}
-                />
-            </div>
-        </motion.div>
+        </>
     );
 };
 

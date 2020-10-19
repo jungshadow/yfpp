@@ -84,8 +84,12 @@
 
 .locationCard__map {
     position: relative;
-    // height: 50%;
     width: 100%;
+
+    > * {
+        border-top: 2px solid $GREY_LIGHT;
+        border-bottom: 2px solid $GREY_LIGHT;
+    }
 }
 
 @include breakpoint(md) {
