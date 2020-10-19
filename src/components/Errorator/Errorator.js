@@ -9,18 +9,20 @@ const Errorator = (props) => {
     useEffect(() => {
         let errorMessage = '';
 
-        if(errors) {
+        if (errors) {
             Object.keys(errors).forEach((key) => {
-                switch(key) {
-                    case 'locations': {
-                        errorMessage = `${errors[key]['message']}`;
-                    }
-                    break;
-                    case 'representatives': {
-                        console.log(errors[key]);
-                        errorMessage = `${errors[key]['message']} fucker`;
-                    }
-                    break;
+                switch (key) {
+                    case 'locations':
+                        {
+                            errorMessage = `${errors[key]['message']}`;
+                        }
+                        break;
+                    case 'representatives':
+                        {
+                            console.log(errors[key]);
+                            errorMessage = `${errors[key]['message']} fucker`;
+                        }
+                        break;
                     default:
                         console.log('In default');
                         console.log(errors);
@@ -32,21 +34,26 @@ const Errorator = (props) => {
         }
     }, [errors, leoInfo]);
 
-    const handleRemoveError = e => {
+    const handleRemoveError = (e) => {
+        e.preventDefault();
         dispatch({
             type: 'SET_ERROR',
             errors: false
-        })
+        });
     };
 
     return (
         <>
-        {errorMessage && <div>
-            <button onClick={handleRemoveError}>Remove</button>
-                {errorMessage}
-        </div>}
+            {errorMessage && (
+                <div>
+                    <button type="button" onClick={handleRemoveError}>
+                        Remove
+                    </button>
+                    {errorMessage}
+                </div>
+            )}
         </>
     );
-}
+};
 
 export default Errorator;
