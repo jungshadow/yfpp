@@ -39,6 +39,7 @@
     font-family: $FONT_DISPLAY;
     color: $WHITE;
     font-size: 22px;
+    text-align: center;
 }
 
 .bio__closeBtn {
@@ -62,8 +63,9 @@
 }
 
 .bio--isActive {
-    height: 95%;
     width: 350px;
+    height: auto;
+    max-height: 95%;
     top: 0;
     padding: 40px 0;
     left: calc(50% - 175px);
@@ -115,6 +117,8 @@
 
 .bio__heading {
     padding: 0 40px;
+    text-align: center;
+    width: 100%;
 }
 
 .bio__title {
@@ -122,11 +126,13 @@
     font-size: 18px;
     font-weight: bold;
     font-family: $FONT_DEFAULT;
+    text-align: center;
 }
 
 .bio__nickName {
     color: $BLUE;
 }
+
 .bio__bd {
     color: $GREY_LIGHT;
     flex: 1;
@@ -134,6 +140,9 @@
     padding: 0 40px;
 }
 
+// when a bio is in its active state, we need a placholder
+// to prevent the list from overflowing so we dupe the element
+// and use it as a placeholder slug
 .bio--isSlug {
     .bio__name {
         color: $PLUM_DARK;
@@ -171,10 +180,10 @@
     }
 
     .bio--isActive {
-        width: 400px;
+        width: 450px;
         height: auto;
         margin: 60px 0;
-        left: calc(50% - 200px);
+        left: calc(50% - 225px);
     }
 }
 
