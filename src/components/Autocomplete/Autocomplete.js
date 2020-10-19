@@ -40,11 +40,11 @@ class Autocomplete extends React.Component {
     }
 
     debouncedGetAutoCompleteAddresses = debounce(
-        async (val) => this.getAutoCompleteAddresses(val),
+        async val => this.getAutoCompleteAddresses(val),
         200
     );
 
-    getAutoCompleteAddresses = async (value) => {
+    getAutoCompleteAddresses = async value => {
         const searchQuery = value;
         if (!searchQuery) {
             return;
@@ -60,7 +60,7 @@ class Autocomplete extends React.Component {
             .send();
 
         const query = response.body.query;
-        const matches = response.body.features.map((address) => {
+        const matches = response.body.features.map(address => {
             return {
                 location: address.place_name,
                 query,
@@ -70,20 +70,20 @@ class Autocomplete extends React.Component {
         this.setState({ dataSource: matches });
     };
 
-    handleOnChange = (e) => {
+    handleOnChange = e => {
         const val = e.target.value;
         this.debouncedGetAutoCompleteAddresses(val);
         this.props.onSearch(val);
     };
 
-    handleSelectItem = (index) => {
+    handleSelectItem = index => {
         this.props.onSearch(this.state.dataSource[index].location);
         this.setState({ dataSource: [] }, () => {
             this.logValue();
         });
     };
 
-    handleInputKeyDown = (event) => {
+    handleInputKeyDown = event => {
         if (!this.state.dataSource.length) {
             return;
         }
@@ -145,12 +145,12 @@ class Autocomplete extends React.Component {
         }
     };
 
-    getHighlightedMatches = (locationData) => {
+    getHighlightedMatches = locationData => {
         const { location, query } = locationData;
         const term = new RegExp(query.join('|'), 'gi');
         const newStr = location.replace(
             new RegExp(term, 'gi'),
-            (match) => `<b>${match}</b>`
+            match => `<b>${match}</b>`
         );
 
         return { __html: newStr };
@@ -166,7 +166,7 @@ class Autocomplete extends React.Component {
                     id="searchFormInput"
                     name="searchFormInput"
                     onChange={this.handleOnChange}
-                    onBlur={this.handleCloseAutoComplete}
+                    // onBlur={this.handleCloseAutoComplete}
                     onKeyDown={this.handleInputKeyDown}
                     placeholder={this.props.placeholder}
                     ref={this.searchInputRef}
@@ -188,14 +188,14 @@ class Autocomplete extends React.Component {
                                     )}
                                     id={`autocomplete${index}`}
                                     onClick={() => this.handleSelectItem(index)}
-                                    onKeyDown={(e) =>
+                                    onKeyDown={e =>
                                         this.handleActionKeyDown(
                                             e,
                                             index,
                                             results
                                         )
                                     }
-                                    ref={(ref) => (this.refsArray[index] = ref)}
+                                    ref={ref => (this.refsArray[index] = ref)}
                                     type="button"
                                 ></button>
                             </li>
