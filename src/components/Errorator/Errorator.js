@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useContext, useState, useEffect, useRef} from 'react';
 import {AppContext, DispatchContext} from 'appReducer';
 import {motion} from 'framer-motion';
@@ -6,17 +7,25 @@ import './errorator.scss';
 import {CloseIcon} from 'components/Icons';
 import KitchenSink from 'components/KitchenSink/KitchenSink';
 import useOutsideClick from 'hooks/useOutsideClick';
+=======
+import React, {useContext, useState, useEffect} from 'react';
+import {AppContext, DispatchContext} from 'appReducer';
+>>>>>>> 1e9ae6f... First stab at the errorator
 
 const Errorator = (props) => {
     const dispatch = useContext(DispatchContext);
     const {errors, leoInfo} = useContext(AppContext);
     const [errorMessage, setErrorMessage] = useState(null);
+<<<<<<< HEAD
     const erroratorRef = useRef();
     useOutsideClick(erroratorRef, handleRemoveError);
+=======
+>>>>>>> 1e9ae6f... First stab at the errorator
 
     useEffect(() => {
         let errorMessage = '';
 
+<<<<<<< HEAD
         if (errors) {
             Object.keys(errors).forEach((key) => {
                 switch (key) {
@@ -31,6 +40,20 @@ const Errorator = (props) => {
                             errorMessage = `${errors[key]['message']} fucker`;
                         }
                         break;
+=======
+        if(errors) {
+            Object.keys(errors).forEach((key) => {
+                switch(key) {
+                    case 'locations': {
+                        errorMessage = `${errors[key]['message']}`;
+                    }
+                    break;
+                    case 'representatives': {
+                        console.log(errors[key]);
+                        errorMessage = `${errors[key]['message']} fucker`;
+                    }
+                    break;
+>>>>>>> 1e9ae6f... First stab at the errorator
                     default:
                         console.log('In default');
                         console.log(errors);
@@ -42,6 +65,7 @@ const Errorator = (props) => {
         }
     }, [errors, leoInfo]);
 
+<<<<<<< HEAD
     function handleRemoveError() {
         dispatch({
             type: 'SET_ERROR',
@@ -62,10 +86,18 @@ const Errorator = (props) => {
             opacity: 0,
             y: '200%'
         }
+=======
+    const handleRemoveError = e => {
+        dispatch({
+            type: 'SET_ERROR',
+            errors: false
+        })
+>>>>>>> 1e9ae6f... First stab at the errorator
     };
 
     return (
         <>
+<<<<<<< HEAD
             {errorMessage && (
                 <motion.div
                     className="errorator"
@@ -89,5 +121,14 @@ const Errorator = (props) => {
         </>
     );
 };
+=======
+        {errorMessage && <div>
+            <button onClick={handleRemoveError}>Remove</button>
+                {errorMessage}
+        </div>}
+        </>
+    );
+}
+>>>>>>> 1e9ae6f... First stab at the errorator
 
 export default Errorator;
