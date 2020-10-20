@@ -1,12 +1,11 @@
-import React, {useContext, useState, useEffect, useRef} from 'react';
-import {AppContext, DispatchContext} from 'appReducer';
-import {motion} from 'framer-motion';
+import React, { useContext, useState, useEffect, useRef } from 'react';
+import { AppContext, DispatchContext } from 'appReducer';
+import { motion } from 'framer-motion';
 
 import './errorator.scss';
-import {CloseIcon} from 'components/Icons';
+import { CloseIcon } from 'components/Icons';
 import KitchenSink from 'components/KitchenSink/KitchenSink';
 import useOutsideClick from 'hooks/useOutsideClick';
-
 
 const Errorator = (props) => {
     const dispatch = useContext(DispatchContext);
@@ -21,15 +20,10 @@ const Errorator = (props) => {
             Object.keys(errors).forEach((key) => {
                 switch (key) {
                     case 'locations':
-                        {
-                            errorMessage = `${errors[key]['message']}`;
-                        }
+                        errorMessage = `${errors[key]['message']}`;
                         break;
                     case 'representatives':
-                        {
-                            console.log(errors[key]);
-                            errorMessage = `${errors[key]['message']} fucker`;
-                        }
+                        errorMessage = `${errors[key]['message']} fucker`;
                         break;
                     default:
                         console.log('In default');
