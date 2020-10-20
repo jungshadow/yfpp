@@ -1,0 +1,70 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.representativeCard {
+    display: flex;
+    background-color: $WHITE;
+    color: $BLACK;
+    border: 1px solid $COLOR_PRIMARY;
+    border-radius: 11px;
+    overflow: hidden;
+    font-family: $FONT_DEFAULT;
+}
+
+.representativeCard__detailsParty {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 2.2;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    display: flex;
+}
+
+.representativeCard__partyIcon {
+    width: 25px;
+    margin-right: 8px;
+}
+
+.representativeCard--democrat {
+    .representativeCard__detailsParty {
+        color: $BLUE;
+    }
+
+    .representativeCard__partyIcon {
+        fill: $BLUE;
+    }
+}
+
+.representativeCard--republican {
+    .representativeCard__detailsParty {
+        color: $RED;
+    }
+
+    .representativeCard__partyIcon {
+        fill: $RED;
+    }
+}
+
+.representativeCard__img {
+    width: 125px;
+    background-size: cover;
+    background-position: center;
+    height: auto;
+}
+
+.representativeCard__details {
+    padding: 30px;
+}
+
+.representativeCard__detailsName {
+    margin-bottom: 5px;
+    font-family: $FONT_HEADLINE;
+    font-weight: 700;
+    line-height: 1;
+    font-size: 22px;
+}
+
+.representativeCard__detailsOffice {
+    font-weight: 400;
+    font-size: 16px;
+}

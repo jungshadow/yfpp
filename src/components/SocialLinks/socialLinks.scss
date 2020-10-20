@@ -1,0 +1,37 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.socialLinks {
+    display: flex;
+}
+
+.socialLinks > * + * {
+    margin-left: 15px;
+}
+
+.socialLinks__link {
+    fill: $GREY_LIGHT;
+    transition: fill 0.35s ease-in-out;
+
+    .icon {
+        width: 32px;
+    }
+}
+
+.socialLinks__link--twitter {
+    .icon {
+        width: 34px;
+    }
+
+    &:hover,
+    &:focus {
+        fill: $TWITTER_BLUE;
+    }
+}
+
+.socialLinks__link--facebook {
+    &:hover,
+    &:focus {
+        fill: $FACEBOOK_BLUE;
+    }
+}

@@ -1,0 +1,81 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.mainNav__list {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.mainNav__listItem {
+    display: block;
+}
+
+.mainNav__listItem + .mainNav__listItem {
+    margin: 0 0 0 20px;
+}
+
+.mainNav__listItemLink {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-family: $FONT_HEADLINE;
+    font-weight: 700;
+    color: $PLUM_LIGHT;
+    font-size: 14px;
+    z-index: 1;
+    white-space: nowrap;
+}
+
+.mainNav__listItemIcon {
+    width: 24px;
+    margin-right: 28px;
+
+    .icon {
+        fill: $PLUM_LIGHT;
+        width: 100%;
+    }
+}
+
+.mainNav__listItemText {
+    position: relative;
+}
+
+.mainNav__listItemLink--isActive {
+    color: $WHITE;
+
+    .mainNav__listItemText:after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 60%;
+        left: 50%;
+        background: $RED;
+        width: 110%;
+        height: 42%;
+        z-index: -1;
+        transform: translate3d(-50%, 0, 0);
+    }
+
+    .mainNav__listItemIcon {
+        .icon {
+            fill: $WHITE;
+        }
+    }
+}
+
+@include breakpoint(md) {
+    .mainNav__list {
+        display: block;
+        overflow: auto;
+    }
+
+    .mainNav__listItem + .mainNav__listItem {
+        margin: 25px 0 0;
+    }
+
+    .mainNav__listItemLink {
+        font-size: 26px;
+    }
+}

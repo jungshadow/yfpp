@@ -1,0 +1,64 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.candidateCard {
+    background: $WHITE;
+    padding: 20px;
+    border-radius: 11px;
+    border: 1px solid $COLOR_PRIMARY;
+}
+
+.candidateCard__type {
+    font-family: $FONT_DEFAULT;
+    font-size: 14px;
+    color: $BLACK;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.candidateCard__office {
+    font-family: $FONT_HEADLINE;
+    font-size: 24px;
+    color: $BLACK;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.candidateCard__hd {
+    margin-bottom: 22px;
+}
+
+.candidateCard__bd {
+    margin-bottom: 22px;
+}
+
+.candidateCard__candidate {
+    font-family: $FONT_DEFAULT;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 12px 0;
+    display: flex;
+}
+
+.candidateCard__candidateParty {
+    margin-left: 5px;
+    font-family: $FONT_DEFAULT;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $GREY_MEDIUM;
+}
+
+.candidateCard__candidate + .candidateCard__candidate {
+    border-top: 1px solid $GREY_LIGHT;
+}
+
+.candidateCard__social {
+    margin-left: auto;
+    display: flex;
+}
+
+@include breakpoint(md) {
+    .candidateCard {
+        padding: 26px 48px 48px;
+    }
+}

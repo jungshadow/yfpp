@@ -1,0 +1,4261 @@
+{
+    "kind": "civicinfo#voterInfoResponse",
+    "election": {
+        "id": "2000",
+        "name": "VIP Test Election",
+        "electionDay": "2017-06-06",
+        "ocdDivisionId": "ocd-division/country:us"
+    },
+    "normalizedInput": {
+        "line1": "1305 cotanche st",
+        "city": "greenville",
+        "state": "NC",
+        "zip": "27858"
+    },
+    "dropOffLocations": [
+        {
+            "address": {
+                "locationName": "Capitol Hill Branch Library",
+                "line1": "10723 Southwest Capitol Highway",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97219"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "A-Boy Supply",
+                "line1": "7365 Southwest Barbur Boulevard",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97219"
+            },
+            "notes": "Outside 24 hour drop box at southwest corner of parking lot, enter off SW Terwilliger Blvd",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Hillsdale Branch Library",
+                "line1": "1525 Southwest Sunset Boulevard",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97239"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Sellwood-Moreland Library",
+                "line1": "7860 Southeast 13th Avenue",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97202"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Ledding Library of Milwaukie",
+                "line1": "10660 Southeast 21st Avenue",
+                "city": "Milwaukie",
+                "state": "OR",
+                "zip": "97222"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Lake Oswego City Hall",
+                "line1": "830 A Avenue",
+                "city": "Lake Oswego",
+                "state": "OR",
+                "zip": "97034"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Lake Oswego Library",
+                "line1": "706 4th Street",
+                "city": "Lake Oswego",
+                "state": "OR",
+                "zip": "97034"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Milwaukie Public Safety Building",
+                "line1": "3200 Southeast Harrison Street",
+                "city": "Milwaukie",
+                "state": "OR",
+                "zip": "97222"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Tigard City Hall",
+                "line1": "13125 Southwest Hall Boulevard",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97223"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Central Library",
+                "line1": "801 Southwest 10th Avenue",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97205"
+            },
+            "notes": "Drop boxes: outside 24 hour drive-up located on the east side of SW 11th between Yamhill and Taylor; inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Pioneer Courthouse Square",
+                "line1": "700 Southwest Broadway",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97205"
+            },
+            "notes": "Outside 24 hour drop box on 700 block of SW Broadway next to Starbucks and across from Nordstrom",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "West Slope Community Library",
+                "line1": "3678 Southwest 78th Avenue",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97225"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Northwest Branch Library",
+                "line1": "2300 Northwest Thurman Street",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97210"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Woodstock Branch Library",
+                "line1": "6008 Southeast 49th Avenue",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97206"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Multnomah County Elections",
+                "line1": "1040 Southeast Morrison Street",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97214"
+            },
+            "notes": "Outside 24 hour drop box on the East side of SE 11th between SE Morrison and SE Belmont and drop box located on the North side of SE Belmont between SE 10th and SE 11th) Walk/bike-up drop slot also located at the corner of SE 11th and Morrison on SE Morrison; inside office ballot drop box and voting booths",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Oak Lodge Library",
+                "line1": "16201 Southeast McLoughlin Boulevard",
+                "city": "Milwaukie",
+                "state": "OR",
+                "zip": "97267"
+            },
+            "notes": "Drop boxes: outside 24 hour drop box; inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Beaverton Library",
+                "line1": "12375 Southwest 5th Street",
+                "city": "Beaverton",
+                "state": "OR",
+                "zip": "97005"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Tualatin City Offices - Council Building",
+                "line1": "18880 Southwest Martinazzi Avenue",
+                "city": "Tualatin",
+                "state": "OR",
+                "zip": "97062"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "King City - City Hall",
+                "line1": "15300 Southwest 116th Avenue",
+                "city": "King City",
+                "state": "OR",
+                "zip": "97224"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Belmont Branch Library",
+                "line1": "1038 Southeast Cesar Estrada Chavez Boulevard",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97214"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Holgate Branch Library",
+                "line1": "7905 Southeast Holgate Boulevard",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97206"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Goodwill Store",
+                "line1": "3134 North Lombard Street",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97217"
+            },
+            "notes": "Outside 24 hour drop box at north end of one-way lane for Goodwill donations, enter off North Knowles Avenue",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "West Linn City Hall",
+                "line1": "22500 Salamo Road",
+                "city": "West Linn",
+                "state": "OR",
+                "zip": "97068"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "North Portland Branch Library",
+                "line1": "512 North Killingsworth Street",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97217"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Washington County East Precinct",
+                "line1": "3700 Southwest Murray Boulevard",
+                "city": "Beaverton",
+                "state": "OR",
+                "zip": "97005"
+            },
+            "notes": "Drop boxes: outside 24 hour drop box; inside front lobby",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Washington County Elections Office - 24 hour Drop Site",
+                "line1": "3700 Southwest Murray Boulevard",
+                "city": "Beaverton",
+                "state": "OR",
+                "zip": "97005"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Washington County Elections Office - Inside",
+                "line1": "3700 Southwest Murray Boulevard",
+                "city": "Beaverton",
+                "state": "OR",
+                "zip": "97005"
+            },
+            "notes": "Inside front lobby",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Albina Branch Library",
+                "line1": "3605 Northeast 15th Avenue",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97212"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "McDonald's Restaurant",
+                "line1": "2010 Northeast Cesar E Chavez Boulevard",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97212"
+            },
+            "notes": "Outside 24 hour drop box located on west side of NE 40th Avenue between NE Tillamook and NE Hancock and near the Hollywood Library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Kenton Branch Library",
+                "line1": "8226 North Denver Avenue",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97217"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Hollywood Branch Library",
+                "line1": "4040 Northeast Tillamook Street",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97212"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "West Linn Library",
+                "line1": "1595 Burns Street",
+                "city": "West Linn",
+                "state": "OR",
+                "zip": "97068"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Gladstone Library",
+                "line1": "135 East Dartmouth Street",
+                "city": "Gladstone",
+                "state": "OR",
+                "zip": "97027"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Cedar Mill Community Library",
+                "line1": "12505 Northwest Cornell Road",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97229"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Oregon City - City Hall",
+                "line1": "625 Center Street",
+                "city": "Oregon City",
+                "state": "OR",
+                "zip": "97045"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Happy Valley Library",
+                "line1": "13793 Southeast Sieben Park Way",
+                "city": "Clackamas",
+                "state": "OR",
+                "zip": "97015"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Sunnyside Library",
+                "line1": "13793 Southeast Sieben Park Way",
+                "city": "Clackamas",
+                "state": "OR",
+                "zip": "97015"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Happy Valley City Hall",
+                "line1": "16000 Southeast Misty Drive",
+                "city": "Happy Valley",
+                "state": "OR",
+                "zip": "97086"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "St. Johns Branch Library",
+                "line1": "7510 North Charleston Avenue",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97203"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Midland Branch Library",
+                "line1": "805 Southeast 122nd Avenue",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97233"
+            },
+            "notes": "Drop boxes: outside 24 hour drop box; inside Library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Gregory Heights Branch Library",
+                "line1": "7921 Northeast Sandy Boulevard",
+                "city": "Portland",
+                "state": "OR",
+                "zip": "97213"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Clackamas County Elections",
+                "line1": "1710 South Red Soils Court",
+                "city": "Oregon City",
+                "state": "OR",
+                "zip": "97045"
+            },
+            "notes": "Drop boxes: outside 24 hour drop box; inside County Elections office",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Canby City Hall",
+                "line1": "182 North Holly Street",
+                "city": "Canby",
+                "state": "OR",
+                "zip": "97013"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Wilsonville Library",
+                "line1": "8200 Southwest Wilsonville Road",
+                "city": "Wilsonville",
+                "state": "OR",
+                "zip": "97070"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Canby McDonalds",
+                "line1": "709 Southwest 1st Avenue",
+                "city": "Canby",
+                "state": "OR",
+                "zip": "97013"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Sherwood City Hall",
+                "line1": "22560 Southwest Pine Street",
+                "city": "Sherwood",
+                "state": "OR",
+                "zip": "97140"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Damascus City Hall",
+                "line1": "19920 Southeast Highway 212",
+                "city": "Damascus",
+                "state": "OR",
+                "zip": "97089"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Clackamas Community College Community Center Building",
+                "line1": "19600 Molalla Avenue",
+                "city": "Oregon City",
+                "state": "OR",
+                "zip": "97045"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Hillsboro Shute Park Branch Library",
+                "line1": "775 Southeast 10th Avenue",
+                "city": "Hillsboro",
+                "state": "OR",
+                "zip": "97123"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Hillsboro Main Library",
+                "line1": "2850 Northeast Brookwood Parkway",
+                "city": "Hillsboro",
+                "state": "OR",
+                "zip": "97124"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Cornelius City Hall",
+                "line1": "1355 North Barlow Street",
+                "city": "Cornelius",
+                "state": "OR",
+                "zip": "97113"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Donald City Hall",
+                "line1": "10710 Main Street Northeast",
+                "city": "Donald",
+                "state": "OR",
+                "zip": "97020"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Hubbard City Hall",
+                "line1": "3720 2nd Street",
+                "city": "Hubbard",
+                "state": "OR",
+                "zip": "97032"
+            },
+            "notes": "Inside lobby",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Newberg Public Safety",
+                "line1": "414 East 3rd Street",
+                "city": "Newberg",
+                "state": "OR",
+                "zip": "97132"
+            },
+            "notes": "Outside 24 hour drop box in lot by Thrift Store, enter from Howard Street",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "North Plains City Hall",
+                "line1": "31360 Northwest Commercial Street",
+                "city": "North Plains",
+                "state": "OR",
+                "zip": "97133"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Sandy Library",
+                "line1": "38980 Proctor Boulevard",
+                "city": "Sandy",
+                "state": "OR",
+                "zip": "97055"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Sandy City Hall",
+                "line1": "39250 Pioneer Boulevard",
+                "city": "Sandy",
+                "state": "OR",
+                "zip": "97055"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Dundee City Hall",
+                "line1": "620 Southwest 5th Street",
+                "city": "Dundee",
+                "state": "OR",
+                "zip": "97115"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Molalla Library",
+                "line1": "201 East 5th Street",
+                "city": "Molalla",
+                "state": "OR",
+                "zip": "97038"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Estacada Library",
+                "line1": "825 Northwest Wade Street",
+                "city": "Estacada",
+                "state": "OR",
+                "zip": "97023"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Estacada City Hall",
+                "line1": "475 Southeast Main Street",
+                "city": "Estacada",
+                "state": "OR",
+                "zip": "97023"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Scappoose City Hall",
+                "line1": "33568 East Columbia Avenue",
+                "city": "Scappoose",
+                "state": "OR",
+                "zip": "97056"
+            },
+            "notes": "Outside 24 hour drop box in front of E Columbia Ave entrance",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "St Paul US Bank",
+                "line1": "20259 Main Street Northeast",
+                "city": "Saint Paul",
+                "state": "OR",
+                "zip": "97137"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Yamhill City Hall",
+                "line1": "205 South Maple Street",
+                "city": "Yamhill",
+                "state": "OR",
+                "zip": "97148"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Banks Library",
+                "line1": "42461 Market Street",
+                "city": "Banks",
+                "state": "OR",
+                "zip": "97106"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Colton Telephone",
+                "line1": "20983 Oregon 211",
+                "city": "Colton",
+                "state": "OR",
+                "zip": "97017"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Columbia County Courthouse",
+                "line1": "230 The Strand",
+                "city": "Saint Helens",
+                "state": "OR",
+                "zip": "97051"
+            },
+            "notes": "Drop boxes: outside 24 hour drop box; inside County Elections office",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Carlton City Hall",
+                "line1": "191 East Main Street",
+                "city": "Carlton",
+                "state": "OR",
+                "zip": "97111"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Dayton City Hall",
+                "line1": "416 Ferry Street",
+                "city": "Dayton",
+                "state": "OR",
+                "zip": "97114"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Lafayette City Hall",
+                "line1": "486 3rd Street",
+                "city": "Lafayette",
+                "state": "OR",
+                "zip": "97127"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Yamhill County Courthouse",
+                "line1": "535 Northeast 5th Street",
+                "city": "McMinnville",
+                "state": "OR",
+                "zip": "97128"
+            },
+            "notes": "Drop boxes: outside 24 hour drop box at East end of courthouse parking lot; inside Courthouse lobby off 5th Street",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Yamhill County Clerk's Office",
+                "line1": "414 Northeast Evans Street",
+                "city": "McMinnville",
+                "state": "OR",
+                "zip": "97128"
+            },
+            "notes": "Inside Stern Building, one block south of the courthouse",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Hoodland Library",
+                "line1": "68256 U.S. 26",
+                "city": "Welches",
+                "state": "OR",
+                "zip": "97067"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Marion County Public Works",
+                "line1": "5155 Silverton Road Northeast",
+                "city": "Salem",
+                "state": "OR",
+                "zip": "97305"
+            },
+            "notes": "Outside drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Roth's Fresh Hayesville",
+                "line1": "4746 Portland Road Northeast",
+                "city": "Salem",
+                "state": "OR",
+                "zip": "97305"
+            },
+            "notes": "Inside near registers",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Amity City Library",
+                "line1": "307 South Trade Street",
+                "city": "Amity",
+                "state": "OR",
+                "zip": "97101"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Stayton Public Library",
+                "line1": "515 North First Avenue",
+                "city": "Stayton",
+                "state": "OR",
+                "zip": "97383"
+            },
+            "notes": "Inside lobby",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Marion County Health Department",
+                "line1": "3180 Center Street Northeast",
+                "city": "Salem",
+                "state": "OR",
+                "zip": "97301"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Roth's Fresh Market #12",
+                "line1": "1130 Wallace Road Northwest",
+                "city": "Salem",
+                "state": "OR",
+                "zip": "97304"
+            },
+            "notes": "Inside store",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Marion County Clerk",
+                "line1": "555 Court Street Northeast",
+                "city": "Salem",
+                "state": "OR",
+                "zip": "97301"
+            },
+            "notes": "Inside office service only privacy/handicap booths available",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Court Street drive-thru",
+                "line1": "500 Court Street Northeast",
+                "city": "Salem",
+                "state": "OR",
+                "zip": "97301"
+            },
+            "notes": "Outside drive-thru on North side of Marion County Circuit Court",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Vernonia Library",
+                "line1": "701 Weed Avenue",
+                "city": "Vernonia",
+                "state": "OR",
+                "zip": "97064"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Roth's Fresh Market-Vista",
+                "line1": "3045 Commercial Street Southeast",
+                "city": "Salem",
+                "state": "OR",
+                "zip": "97302"
+            },
+            "notes": "Inside near registers",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Walmart Parking Lot",
+                "line1": "5250 Commercial Street Southeast",
+                "city": "Salem",
+                "state": "OR",
+                "zip": "97306"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Tillamook County Clerk's Office",
+                "line1": "201 Laurel Avenue",
+                "city": "Tillamook",
+                "state": "OR",
+                "zip": "97141"
+            },
+            "notes": "Inside County Clerk's office",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Tillamook City - Library Main Branch",
+                "line1": "1716 3rd Street",
+                "city": "Tillamook",
+                "state": "OR",
+                "zip": "97141"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Sunnyslope DMV",
+                "line1": "4555 Liberty Road South",
+                "city": "Salem",
+                "state": "OR",
+                "zip": "97302"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Sheridan City Hall",
+                "line1": "120 Southwest Mill Street",
+                "city": "Sheridan",
+                "state": "OR",
+                "zip": "97378"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Bay City - City Hall",
+                "line1": "5525 B Street",
+                "city": "Bay City",
+                "state": "OR",
+                "zip": "97107"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Willamina City Hall",
+                "line1": "411 Northeast C Street",
+                "city": "Willamina",
+                "state": "OR",
+                "zip": "97396"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Independence City Hall",
+                "line1": "555 South Main Street",
+                "city": "Independence",
+                "state": "OR",
+                "zip": "97351"
+            },
+            "notes": "Inside front lobby of City Hall",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Garibaldi City Hall",
+                "line1": "107 6th Street",
+                "city": "Garibaldi",
+                "state": "OR",
+                "zip": "97118"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Polk County Clerk's Office",
+                "line1": "850 Main Street",
+                "city": "Dallas",
+                "state": "OR",
+                "zip": "97338"
+            },
+            "notes": "Drop boxes: outside 24 hour drop box; inside Clerk's office on 2nd Floor",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Mist-Birkenfeld Fire Hall",
+                "line1": "12525 Oregon 202",
+                "city": "Clatskanie",
+                "state": "OR",
+                "zip": "97016"
+            },
+            "notes": "Inside; official Clatsop County drop site",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Monmouth Public Library",
+                "line1": "168 Ecols Street South",
+                "city": "Monmouth",
+                "state": "OR",
+                "zip": "97361"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Western Oregon University",
+                "line1": "345 Monmouth Avenue North",
+                "city": "Monmouth",
+                "state": "OR",
+                "zip": "97361"
+            },
+            "notes": "Inside Werner University Center",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Clatskanie Library",
+                "line1": "11 Lillich Street",
+                "city": "Clatskanie",
+                "state": "OR",
+                "zip": "97016"
+            },
+            "notes": "Inside; official Clatsop County drop site",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Grand Ronde Governance Center",
+                "line1": "9615 Grand Ronde Road",
+                "city": "Grand Ronde",
+                "state": "OR",
+                "zip": "97347"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Rockaway Beach City Hall",
+                "line1": "276 U.S. 101",
+                "city": "Rockaway Beach",
+                "state": "OR",
+                "zip": "97136"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Cloverdale Chamber of Commerce",
+                "line1": "34370 U.S. 101 South",
+                "city": "Cloverdale",
+                "state": "OR",
+                "zip": "97112"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "North Albany Shopping Center",
+                "line1": "621 Northwest Hickory Avenue",
+                "city": "Albany",
+                "state": "OR",
+                "zip": "97321"
+            },
+            "notes": "Outside 24 hour box in front of former Rays location",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Wagner Community Library",
+                "line1": "111 North Main Street",
+                "city": "Falls City",
+                "state": "OR",
+                "zip": "97344"
+            },
+            "notes": "Inside library",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Linn County Courthouse",
+                "line1": "300 Southwest 4th Avenue",
+                "city": "Albany",
+                "state": "OR",
+                "zip": "97321"
+            },
+            "notes": "Drop boxes: drive-up 24 hour drop box on 5th Ave; inside Clerk's Office",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Manzanita City Hall",
+                "line1": "543 Laneda Avenue",
+                "city": "Manzanita",
+                "state": "OR",
+                "zip": "97130"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Kiawanda Community Center",
+                "line1": "34600 Cape Kiwanda Drive",
+                "city": "Cloverdale",
+                "state": "OR",
+                "zip": "97112"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "City Limits Market",
+                "line1": "5800 Oregon 99W",
+                "city": "Corvallis",
+                "state": "OR",
+                "zip": "97330"
+            },
+            "notes": "Inside by the check out counter",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Brownsville City Hall",
+                "line1": "255 North Main Street",
+                "city": "Brownsville",
+                "state": "OR",
+                "zip": "97327"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Wells Fargo Bank",
+                "line1": "2543 Northwest Kings Boulevard",
+                "city": "Corvallis",
+                "state": "OR",
+                "zip": "97330"
+            },
+            "notes": "Outside 24 hour drop box in parking lot",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Linn-Benton Community College - Benton Center",
+                "line1": "757 Northwest Polk Avenue",
+                "city": "Corvallis",
+                "state": "OR",
+                "zip": "97330"
+            },
+            "notes": "Inside reception lounge",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Benton County Courthouse",
+                "line1": "120 Northwest 4th Street",
+                "city": "Corvallis",
+                "state": "OR",
+                "zip": "97330"
+            },
+            "notes": "Outside 24 hour drop boxes: Courthouse lawn on Fourth Street; accessible entrance to the building on 5th St; curbside at the base of Law Enforcement building",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Corvallis Public Library",
+                "line1": "645 Northwest Monroe Avenue",
+                "city": "Corvallis",
+                "state": "OR",
+                "zip": "97330"
+            },
+            "notes": "Inside main entrance next to main desk",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Senior Citizens Center of Corvallis",
+                "line1": "2601 Northwest Tyler Avenue",
+                "city": "Corvallis",
+                "state": "OR",
+                "zip": "97330"
+            },
+            "notes": "Inside main entrance near main desk",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Oregon State University - Valley Library",
+                "line1": "121 The valley library",
+                "city": "Corvallis",
+                "state": "OR",
+                "zip": "97331"
+            },
+            "notes": "Inside main entrance next to reception area",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Lincoln Health Center",
+                "line1": "121 Southeast Viewmont Avenue",
+                "city": "Corvallis",
+                "state": "OR",
+                "zip": "97333"
+            },
+            "notes": "Outside 24 hour drop box in parking lot",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Benton County Sunset Building",
+                "line1": "4077 Southwest Research Way",
+                "city": "Corvallis",
+                "state": "OR",
+                "zip": "97333"
+            },
+            "notes": "Outside 24 hour drop box in parking lot",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Philomath Public Library",
+                "line1": "1050 Applegate Street",
+                "city": "Philomath",
+                "state": "OR",
+                "zip": "97370"
+            },
+            "notes": "Outside 24 hour drop box near main entrance",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Lincoln City - City Hall",
+                "line1": "801 Southwest Highway 101",
+                "city": "Lincoln City",
+                "state": "OR",
+                "zip": "97367"
+            },
+            "notes": "Drop boxes: drive-up Ballot Drop Box In lower parking lot of City Hall; inside City Hall lobby, 3rd floor",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Gearhart City Hall",
+                "line1": "698 Pacific Way",
+                "city": "Gearhart",
+                "state": "OR",
+                "zip": "97138"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Harrisburg City Hall",
+                "line1": "120 Smith Street",
+                "city": "Harrisburg",
+                "state": "OR",
+                "zip": "97446"
+            },
+            "notes": "Inside lobby",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Clatsop County Clerk's Office",
+                "line1": "820 Exchange Street",
+                "city": "Astoria",
+                "state": "OR",
+                "zip": "97103"
+            },
+            "notes": "Drop boxes: outside 24 hour drop box; inside County Clerk's office",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Splash! at Lively Park",
+                "line1": "6100 Thurston Road",
+                "city": "Springfield",
+                "state": "OR",
+                "zip": "97478"
+            },
+            "notes": "Outside 24 hour drop box at Splash! At Lively Park just past front of building on left of driveway",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Monroe Community Library",
+                "line1": "380 North 5th Street",
+                "city": "Monroe",
+                "state": "OR",
+                "zip": "97456"
+            },
+            "notes": "Outside 24 hour drop box in parking lot",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Warrenton City Hall",
+                "line1": "225 South Main Avenue",
+                "city": "Warrenton",
+                "state": "OR",
+                "zip": "97146"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Eddyville Community Church",
+                "line1": "20742 U.S. 20",
+                "city": "Eddyville",
+                "state": "OR",
+                "zip": "97343"
+            },
+            "notes": "Multi-Purpose Room",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Siletz City Hall",
+                "line1": "215 West Buford Avenue",
+                "city": "Siletz",
+                "state": "OR",
+                "zip": "97380"
+            },
+            "notes": "Inside City Hall lobby",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Lowell City Hall",
+                "line1": "107 East 3rd Street",
+                "city": "Lowell",
+                "state": "OR",
+                "zip": "97452"
+            },
+            "notes": "Outside 24 hour drop box, handicap accessible.",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Depoe Bay City Hall",
+                "line1": "570 Shell Avenue",
+                "city": "Depoe Bay",
+                "state": "OR",
+                "zip": "97341"
+            },
+            "notes": "Inside City Hall lobby",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Springfield City Hall",
+                "line1": "225 5th Street",
+                "city": "Springfield",
+                "state": "OR",
+                "zip": "97477"
+            },
+            "notes": "Outside 24 hour drop box enter off A St - box located at north end of covered parking lot",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Lane County Public Works",
+                "line1": "3050 North Delta Highway",
+                "city": "Eugene",
+                "state": "OR",
+                "zip": "97408"
+            },
+            "notes": "Outside 24 hour drop box at parking lot in front of the Customer Service Center",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Sheldon Library",
+                "line1": "1566 Coburg Road",
+                "city": "Eugene",
+                "state": "OR",
+                "zip": "97401"
+            },
+            "notes": "Outside 24 hour drop box in front of Sheldon Library, City of Eugene in Sheldon Plaza next to Rite Aid",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Juvenile Justice Center",
+                "line1": "2727 Martin Luther King Junior Boulevard",
+                "city": "Eugene",
+                "state": "OR",
+                "zip": "97401"
+            },
+            "notes": "Outside 24 hour drop box at Juvenile Justice Center in front of the center's entrance - west side",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "University of Oregon EMU",
+                "line1": "1222 East 13th Avenue",
+                "city": "Eugene",
+                "state": "OR",
+                "zip": "97403"
+            },
+            "notes": "Outside 24 hour drop box, on south side of circular plaza",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Pearl Street",
+                "line1": "777 Pearl Street",
+                "city": "Eugene",
+                "state": "OR",
+                "zip": "97401"
+            },
+            "notes": "Outside 24 hour drop box on Pearl St between 7th and 8th Ave",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "River Road Park and Recreation Center",
+                "line1": "1400 Lake Drive",
+                "city": "Eugene",
+                "state": "OR",
+                "zip": "97404"
+            },
+            "notes": "Outside 24 hour drop box on south island off Lake Dr, turning into River Road Park and Recreation Center parking lot",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Lane County Elections",
+                "line1": "275 West 10th Avenue",
+                "city": "Eugene",
+                "state": "OR",
+                "zip": "97401"
+            },
+            "notes": "Outside 24 hour drop box - enter from Lincoln St - West side of Elections Building",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Warm Springs",
+                "line1": "2112 Wasco Street",
+                "city": "Madras",
+                "state": "OR",
+                "zip": "97741"
+            },
+            "notes": "Outside 24 hour drop box across from Post Office",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Amazon Pool",
+                "line1": "2600 Hilyard Street",
+                "city": "Eugene",
+                "state": "OR",
+                "zip": "97405"
+            },
+            "notes": "Outside 24 hour drop box located at Amazon Pool on island off Hilyard turning into pool parking",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Bethel Library",
+                "line1": "1990 Echo Hollow Road",
+                "city": "Eugene",
+                "state": "OR",
+                "zip": "97402"
+            },
+            "notes": "Outside 24 hour drop box at Bethel Library - City of Eugene, Echo Hollow Plaza, far right drive-through",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Toledo City Hall",
+                "line1": "206 North Main Street",
+                "city": "Toledo",
+                "state": "OR",
+                "zip": "97391"
+            },
+            "notes": "Inside City Hall lobby",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "John Boy's Alsea Mercantile Store",
+                "line1": "186 East Main Street",
+                "city": "Alsea",
+                "state": "OR",
+                "zip": "97324"
+            },
+            "notes": "Inside main entrance on main counter",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Wal-Mart",
+                "line1": "4550 West 11th Avenue",
+                "city": "Eugene",
+                "state": "OR",
+                "zip": "97402"
+            },
+            "notes": "Outside 24 hour drop box (North end of Wal-Mart parking lot)",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "City of Creswell",
+                "line1": "64 West Oregon Avenue",
+                "city": "Creswell",
+                "state": "OR",
+                "zip": "97426"
+            },
+            "notes": "Outside 24 hour drop box at North end of parking lot at South 1st and C St.",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Lincoln County Courthouse",
+                "line1": "225 West Olive Street",
+                "city": "Newport",
+                "state": "OR",
+                "zip": "97365"
+            },
+            "notes": "Drop boxes: drive-up Ballot Drop Box in rear parking lot of Courthouse; inside Clerk's Office lobby, room 201",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Newport City Hall",
+                "line1": "169 Southwest Coast Highway",
+                "city": "Newport",
+                "state": "OR",
+                "zip": "97365"
+            },
+            "notes": "Inside City Hall lobby",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Oakridge Police Department",
+                "line1": "76435 Ash Street",
+                "city": "Oakridge",
+                "state": "OR",
+                "zip": "97463"
+            },
+            "notes": "Outside 24 hour drop box close to entrance",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Cottage Grove Community Center",
+                "line1": "700 East Gibbs Avenue",
+                "city": "Cottage Grove",
+                "state": "OR",
+                "zip": "97424"
+            },
+            "notes": "Outside 24 hour drop box in front of the Community Center",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Jefferson County Clerk's Office",
+                "line1": "66 Southeast D Street",
+                "city": "Madras",
+                "state": "OR",
+                "zip": "97741"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Metolius City Hall",
+                "line1": "636 Jefferson Avenue",
+                "city": "Metolius",
+                "state": "OR",
+                "zip": "97741"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Waldport City Hall",
+                "line1": "125 Alsea Highway",
+                "city": "Waldport",
+                "state": "OR",
+                "zip": "97394"
+            },
+            "notes": "Drop boxes: 24 hour drop box at Waldport City Hall, located in the City Hall parking lot at the east exit.; inside City Hall lobby",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Crooked River Ranch Administration Area",
+                "line1": "5195 Southwest Club House Road",
+                "city": "Terrebonne",
+                "state": "OR",
+                "zip": "97760"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Yachats City Hall",
+                "line1": "441 Highway 101 North",
+                "city": "Yachats",
+                "state": "OR",
+                "zip": "97498"
+            },
+            "notes": "Inside City Hall lobby",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Yoncalla City Hall",
+                "line1": "2640 Eagle Valley Road",
+                "city": "Yoncalla",
+                "state": "OR",
+                "zip": "97499"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "City of Florence Police Department",
+                "line1": "900 Greenwood Street",
+                "city": "Florence",
+                "state": "OR",
+                "zip": "97439"
+            },
+            "notes": "Outside 24 hour drop box in front of City of Florence Police Department",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Sutherlin City Hall",
+                "line1": "126 East Central Avenue",
+                "city": "Sutherlin",
+                "state": "OR",
+                "zip": "97479"
+            },
+            "notes": "Drive-up 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Umpqua Community College Library",
+                "line1": "1140 Umpqua College Road",
+                "city": "Roseburg",
+                "state": "OR",
+                "zip": "97470"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "La Pine Library",
+                "line1": "16425 1st Street",
+                "city": "La Pine",
+                "state": "OR",
+                "zip": "97739"
+            },
+            "notes": "Drive-up 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Douglas County Clerk's Office",
+                "line1": "1036 Southeast Douglas Avenue",
+                "city": "Roseburg",
+                "state": "OR",
+                "zip": "97470"
+            },
+            "notes": "Drop boxes: walk-up 24 hour drop box in front lawn; inside drop box in hall near Rm 124 and in County Clerk's Office",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Walker Range FPA",
+                "line1": "135393 U.S. 97",
+                "city": "Crescent",
+                "state": "OR",
+                "zip": "97733"
+            },
+            "notes": "Drive-up 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Douglas County Annex",
+                "line1": "680 Fir Avenue",
+                "city": "Reedsport",
+                "state": "OR",
+                "zip": "97467"
+            },
+            "notes": "Drive-up 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Winston City Hall",
+                "line1": "201 Northwest Douglas Boulevard",
+                "city": "Winston",
+                "state": "OR",
+                "zip": "97496"
+            },
+            "notes": "Drive-up 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Myrtle Creek City Hall",
+                "line1": "207 Northwest Pleasant Street",
+                "city": "Myrtle Creek",
+                "state": "OR",
+                "zip": "97457"
+            },
+            "notes": "Drive-up 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Lakeside City Hall",
+                "line1": "915 North Lake Road",
+                "city": "Lakeside",
+                "state": "OR",
+                "zip": "97449"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Canyonville City Hall",
+                "line1": "250 North Main Street",
+                "city": "Canyonville",
+                "state": "OR",
+                "zip": "97417"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "North Bend City Library",
+                "line1": "1800 Sherman Avenue",
+                "city": "North Bend",
+                "state": "OR",
+                "zip": "97459"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Coos Bay City Library",
+                "line1": "525 Anderson Avenue",
+                "city": "Coos Bay",
+                "state": "OR",
+                "zip": "97420"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Glendale City Hall",
+                "line1": "124 3rd Street",
+                "city": "Glendale",
+                "state": "OR",
+                "zip": "97442"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Jackson County Elections Office",
+                "line1": "1101 West Main Street",
+                "city": "Medford",
+                "state": "OR",
+                "zip": "97501"
+            },
+            "notes": "Drop boxes: Outside 24 hour drop box on curbside of Main; inside elections office",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Coquille Courthouse",
+                "line1": "250 North Baxter Street",
+                "city": "Coquille",
+                "state": "OR",
+                "zip": "97423"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Imbler City Hall",
+                "line1": "180 Ruckman Avenue",
+                "city": "Imbler",
+                "state": "OR",
+                "zip": "97841"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "La Grande City Hall",
+                "line1": "1000 Adams Avenue",
+                "city": "La Grande",
+                "state": "OR",
+                "zip": "97850"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Union County Clerk",
+                "line1": "1001 Fourth Street",
+                "city": "La Grande",
+                "state": "OR",
+                "zip": "97850"
+            },
+            "notes": "Drop boxes: outside 24 hour drop box; inside County Clerk's office",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Island City - City Hall",
+                "line1": "10605 Island Avenue",
+                "city": "Island City",
+                "state": "OR",
+                "zip": "97850"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Umpqua Bank",
+                "line1": "3600 Merlin Road",
+                "city": "Grants Pass",
+                "state": "OR",
+                "zip": "97526"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Josephine County Clerk's Office",
+                "line1": "500 Northwest 6th Street",
+                "city": "Grants Pass",
+                "state": "OR",
+                "zip": "97526"
+            },
+            "notes": "Inside County Clerk's Office",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Josephine County Courthouse",
+                "line1": "500 Northwest 6th Street",
+                "city": "Grants Pass",
+                "state": "OR",
+                "zip": "97526"
+            },
+            "notes": "Drop boxes: outside 24 hour drop box on south side Justice Building entrance; inside County Clerk's Office",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Josephine Community Library",
+                "line1": "200 Northwest C Street",
+                "city": "Grants Pass",
+                "state": "OR",
+                "zip": "97526"
+            },
+            "notes": "Outside 24 hour drop box in rear parking lot, enter from C street",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Elgin City Hall",
+                "line1": "180 North 8th Avenue",
+                "city": "Elgin",
+                "state": "OR",
+                "zip": "97827"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Chiloquin Community Center",
+                "line1": "140 South 1st Avenue",
+                "city": "Chiloquin",
+                "state": "OR",
+                "zip": "97624"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Washington Federal Bank",
+                "line1": "290 Union Avenue",
+                "city": "Grants Pass",
+                "state": "OR",
+                "zip": "97527"
+            },
+            "notes": "Outside 24 hour drop box in front parking lot",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Mt Vernon City Hall",
+                "line1": "199 West Main Street",
+                "city": "Mount Vernon",
+                "state": "OR",
+                "zip": "97865"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Hidden Valley Market",
+                "line1": "7200 Williams Highway",
+                "city": "Grants Pass",
+                "state": "OR",
+                "zip": "97527"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Cove City Hall",
+                "line1": "504 Alder Street",
+                "city": "Cove",
+                "state": "OR",
+                "zip": "97824"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Union City Hall",
+                "line1": "342 South Main Street",
+                "city": "Union",
+                "state": "OR",
+                "zip": "97883"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Grant County Senior Center",
+                "line1": "142 Northeast Dayton Street",
+                "city": "John Day",
+                "state": "OR",
+                "zip": "97845"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Grant County Public Library",
+                "line1": "507 South Canyon Boulevard",
+                "city": "John Day",
+                "state": "OR",
+                "zip": "97845"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Grant County Courthouse",
+                "line1": "201 South Humbolt Street",
+                "city": "Canyon City",
+                "state": "OR",
+                "zip": "97820"
+            },
+            "notes": "Inside County Clerk's Office",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Grant County 24 hour drive-up",
+                "line1": "205 South Humbolt Street",
+                "city": "Canyon City",
+                "state": "OR",
+                "zip": "97820"
+            },
+            "notes": "Drive-up 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "North Powder City Hall",
+                "line1": "635 3rd Street",
+                "city": "North Powder",
+                "state": "OR",
+                "zip": "97867"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Prairie City Hall",
+                "line1": "133 Southwest Bridge Street",
+                "city": "Prairie City",
+                "state": "OR",
+                "zip": "97869"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Oregon Institute of Technology - College Union",
+                "line1": "3201 Campus Drive",
+                "city": "Klamath Falls",
+                "state": "OR",
+                "zip": "97601"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Klamath County Clerk's Office",
+                "line1": "305 Main Street",
+                "city": "Klamath Falls",
+                "state": "OR",
+                "zip": "97601"
+            },
+            "notes": "Inside County Government Center near Clerk's Office",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Klamath County Government Center",
+                "line1": "305 Main Street",
+                "city": "Klamath Falls",
+                "state": "OR",
+                "zip": "97601"
+            },
+            "notes": "Drop boxes: drive-up 24 hour drop box in parking lot behind building; inside County Clerk's Office in Government Center",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Klamath Basin Senior Center",
+                "line1": "2045 Arthur Street",
+                "city": "Klamath Falls",
+                "state": "OR",
+                "zip": "97603"
+            },
+            "notes": "Drive-up 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Klamath Community College",
+                "line1": "7390 South 6th Street",
+                "city": "Klamath Falls",
+                "state": "OR",
+                "zip": "97603"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Bonanza Town Hall",
+                "line1": "2900 4th Avenue",
+                "city": "Bonanza",
+                "state": "OR",
+                "zip": "97623"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Merrill City Hall",
+                "line1": "300 East 1st Street",
+                "city": "Merrill",
+                "state": "OR",
+                "zip": "97633"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Malin City Hall",
+                "line1": "2432 4th Street",
+                "city": "Malin",
+                "state": "OR",
+                "zip": "97632"
+            },
+            "notes": "Inside",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Douglas County Library",
+                "line1": "Northeast Diamond Lake Boulevard & Northeast Fowler Street",
+                "city": "Roseburg",
+                "state": "OR",
+                "zip": "97470"
+            },
+            "notes": "Drive-up 24 hour drop box in East parking lot",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Silverton Lewis St Parking Lot",
+                "line1": "Lewis Street & South 1st Street",
+                "city": "Silverton",
+                "state": "OR",
+                "zip": "97381"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Tillamook City Drive-Up",
+                "line1": "3rd Street & Laurel Avenue",
+                "city": "Tillamook",
+                "state": "OR",
+                "zip": "97141"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Forest Grove City",
+                "line1": "Pacific Avenue & Birch Street",
+                "city": "Forest Grove",
+                "state": "OR",
+                "zip": "97116"
+            },
+            "notes": "Outside 24 hour drop box",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        }
+    ],
+    "earlyVoteSites": [
+        {
+            "id": "2000",
+            "address": {
+                "locationName": "Bob's Big Red Barn",
+                "line1": "123 American Blvd.",
+                "line2": "string",
+                "line3": "string",
+                "city": "Anytown",
+                "state": "USA",
+                "zip": "12345"
+            },
+            "notes": "string",
+            "pollingHours": "8:00am to 6:00pm",
+            "name": "string",
+            "voterServices": "string",
+            "startDate": "03/01/2021",
+            "endDate": "04/01/2021",
+            "sources": [
+                {
+                    "name": "string",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "id": "2001",
+            "address": {
+                "locationName": "Bob's Bigger Red Barn",
+                "line1": "123 American Blvd.",
+                "line2": "string",
+                "line3": "string",
+                "city": "Anytown",
+                "state": "USA",
+                "zip": "12345"
+            },
+            "notes": "string",
+            "pollingHours": "8:00am to 6:00pm",
+            "name": "string",
+            "voterServices": "string",
+            "startDate": "03/01/2021",
+            "endDate": "04/01/2021",
+            "sources": [
+                {
+                    "name": "string",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "id": "2002",
+            "address": {
+                "locationName": "Bob's Even Bigger Red Barn",
+                "line1": "123 American Blvd.",
+                "line2": "string",
+                "line3": "string",
+                "city": "Anytown",
+                "state": "USA",
+                "zip": "12345"
+            },
+            "notes": "string",
+            "pollingHours": "8:00am to 6:00pm",
+            "name": "string",
+            "voterServices": "string",
+            "startDate": "03/01/2021",
+            "endDate": "04/01/2021",
+            "sources": [
+                {
+                    "name": "string",
+                    "official": true
+                }
+            ]
+        }
+    ],
+    "pollingLocations": [
+        {
+            "address": {
+                "locationName": "FIRST PENTECOSTAL HOLINESS CHURCH SOUTH ANNEX",
+                "line1": "190 PLAZA DR",
+                "city": "GREENVILLE",
+                "state": "NC",
+                "zip": "27858"
+            },
+            "notes": "",
+            "pollingHours": "06:30 to 19:30",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "address": {
+                "locationName": "Another address",
+                "line1": "190 PLAZA DR",
+                "city": "GREENVILLE",
+                "state": "NC",
+                "zip": "27858"
+            },
+            "notes": "",
+            "pollingHours": "06:30 to 19:30",
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        }
+    ],
+    "contests": [
+        {
+            "type": "General",
+            "office": "US  Senate",
+            "level": ["country"],
+            "roles": ["legislatorUpperBody"],
+            "district": {
+                "name": "North Carolina",
+                "scope": "statewide",
+                "id": "ocd-division/country:us/state:nc"
+            },
+            "candidates": [
+                {
+                    "name": "Thom Tillis",
+                    "party": "Republican",
+                    "candidateUrl": "http://thomtillis.com/home/",
+                    "channels": [
+                        {
+                            "type": "Facebook",
+                            "id": "https://www.facebook.com/ThomTillisNC"
+                        },
+                        {
+                            "type": "Twitter",
+                            "id": "https://twitter.com/thomtillis"
+                        },
+                        {
+                            "type": "YouTube",
+                            "id": "https://www.youtube.com/channel/UCzvWXdBr7NauC0N5erjTNzQ"
+                        }
+                    ]
+                },
+                {
+                    "name": "Kay Hagan",
+                    "party": "Democratic",
+                    "candidateUrl": "http://www.kayhagan.com/",
+                    "channels": [
+                        {
+                            "type": "Facebook",
+                            "id": "https://www.facebook.com/KayHaganforSenate"
+                        },
+                        {
+                            "type": "Twitter",
+                            "id": "https://twitter.com/kayhagan"
+                        },
+                        {
+                            "type": "YouTube",
+                            "id": "https://www.youtube.com/channel/UC96r-c0XxBNJqpH0cGYur7w"
+                        }
+                    ]
+                },
+                {
+                    "name": "Sean Haugh",
+                    "party": "Libertarian",
+                    "candidateUrl": "https://seanhaugh.nationbuilder.com/",
+                    "channels": [
+                        {
+                            "type": "Facebook",
+                            "id": "https://www.facebook.com/HaughForSenate"
+                        },
+                        {
+                            "type": "Twitter",
+                            "id": "https://twitter.com/EmperorSean"
+                        },
+                        {
+                            "type": "YouTube",
+                            "id": "https://www.youtube.com/channel/UCHFge7uP_08X1Ki0syATqTA"
+                        }
+                    ]
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Ballot Information Project",
+                    "official": false
+                }
+            ]
+        },
+        {
+            "type": "General",
+            "office": "Supreme Court Associate Justice (Beasley Seat)",
+            "level": ["administrativeArea1"],
+            "roles": ["highestCourtJudge"],
+            "district": {
+                "name": "North Carolina",
+                "scope": "statewide",
+                "id": "ocd-division/country:us/state:nc"
+            },
+            "candidates": [
+                {
+                    "name": "Cheri Beasley",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Mike Robinson",
+                    "party": "Nonpartisan"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Ballot Information Project",
+                    "official": false
+                }
+            ]
+        },
+        {
+            "type": "General",
+            "office": "Supreme Court Associate Justice (Martin Seat)",
+            "level": ["administrativeArea1"],
+            "roles": ["highestCourtJudge"],
+            "district": {
+                "name": "North Carolina",
+                "scope": "statewide",
+                "id": "ocd-division/country:us/state:nc"
+            },
+            "candidates": [
+                {
+                    "name": "Sam J. Ervin IV",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Bob Hunter",
+                    "party": "Nonpartisan"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Ballot Information Project",
+                    "official": false
+                }
+            ]
+        },
+        {
+            "type": "General",
+            "office": "Supreme Court Associate Justice (Hudson Seat)",
+            "level": ["administrativeArea1"],
+            "roles": ["highestCourtJudge"],
+            "district": {
+                "name": "North Carolina",
+                "scope": "statewide",
+                "id": "ocd-division/country:us/state:nc"
+            },
+            "candidates": [
+                {
+                    "name": "Robin Hudson",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Eric Levinson",
+                    "party": "Nonpartisan"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Ballot Information Project",
+                    "official": false
+                }
+            ]
+        },
+        {
+            "type": "General",
+            "office": "Supreme Court Chief Justice (Parker Seat)",
+            "level": ["administrativeArea1"],
+            "roles": ["highestCourtJudge"],
+            "district": {
+                "name": "North Carolina",
+                "scope": "statewide",
+                "id": "ocd-division/country:us/state:nc"
+            },
+            "candidates": [
+                {
+                    "name": "Ola M. Lewis",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Mark Martin",
+                    "party": "Nonpartisan"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Ballot Information Project",
+                    "official": false
+                }
+            ]
+        },
+        {
+            "type": "General",
+            "office": "Court Of Appeals Judge (Davis Seat)",
+            "level": ["administrativeArea1"],
+            "roles": ["judge"],
+            "district": {
+                "name": "North Carolina",
+                "scope": "statewide",
+                "id": "ocd-division/country:us/state:nc"
+            },
+            "candidates": [
+                {
+                    "name": "Mark Davis",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Paul Holcombe",
+                    "party": "Nonpartisan"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Ballot Information Project",
+                    "official": false
+                }
+            ]
+        },
+        {
+            "type": "General",
+            "office": "Court Of Appeals Judge (Hunter Seat)",
+            "level": ["administrativeArea1"],
+            "roles": ["judge"],
+            "district": {
+                "name": "North Carolina",
+                "scope": "statewide",
+                "id": "ocd-division/country:us/state:nc"
+            },
+            "candidates": [
+                {
+                    "name": "Lucy Inman",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Bill Southern",
+                    "party": "Nonpartisan"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Ballot Information Project",
+                    "official": false
+                }
+            ]
+        },
+        {
+            "type": "General",
+            "office": "Court Of Appeals Judge (Stroud Seat)",
+            "level": ["administrativeArea1"],
+            "roles": ["judge"],
+            "district": {
+                "name": "North Carolina",
+                "scope": "statewide",
+                "id": "ocd-division/country:us/state:nc"
+            },
+            "candidates": [
+                {
+                    "name": "Donna Stroud",
+                    "party": "Nonpartisan"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Ballot Information Project",
+                    "official": false
+                }
+            ]
+        },
+        {
+            "type": "General",
+            "office": "Court of Appeals Judge (Martin Seat)",
+            "level": ["regional"],
+            "roles": ["judge"],
+            "district": {
+                "name": "North Carolina",
+                "scope": "statewide",
+                "id": "ocd-division/country:us/state:nc"
+            },
+            "candidates": [
+                {
+                    "name": "Marion Warren",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Chuck Winfree",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "John M. Tyson",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Elizabeth Davenport Scott",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Tricia Shields",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Jody Newsome",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Marty Martin",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Hunter Murphy",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Keischa Lovelace",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Ann Kirby",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Abe Jones",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Sabra Jean Faires",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Daniel Patrick Donahue",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "J. Brad Donovan",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Lori G. Christian",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Jeffrey M. Cook",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Betsy Bunting",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "John S. Arrowood",
+                    "party": "Nonpartisan"
+                },
+                {
+                    "name": "Valerie Johnson Zachary",
+                    "party": "Nonpartisan"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Ballot Information Project",
+                    "official": false
+                }
+            ]
+        },
+        {
+            "type": "GENERAL",
+            "primaryParty": "",
+            "office": "NC STATE SENATE DISTRICT 07",
+            "district": {
+                "name": "NC STATE SENATE DISTRICT 07",
+                "scope": "stateUpper"
+            },
+            "ballotPlacement": "13",
+            "candidates": [
+                {
+                    "name": "Louis M. Pate, Jr.",
+                    "party": "REP",
+                    "phone": "9196586170"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "GENERAL",
+            "primaryParty": "",
+            "office": "NC HOUSE OF REPRESENTATIVES DISTRICT 024",
+            "district": {
+                "name": "NC HOUSE OF REPRESENTATIVES DISTRICT 024",
+                "scope": "stateLower"
+            },
+            "ballotPlacement": "14",
+            "candidates": [
+                {
+                    "name": "Jean Farmer Butterfield",
+                    "party": "DEM",
+                    "phone": "2522910828"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "PRIMARY",
+            "primaryParty": "REP",
+            "office": "US SENATE",
+            "district": {
+                "name": "US SENATE",
+                "scope": "countywide"
+            },
+            "ballotPlacement": "1",
+            "candidates": [
+                {
+                    "name": "Mark Harris",
+                    "party": "REP"
+                },
+                {
+                    "name": "Heather Grant",
+                    "party": "REP",
+                    "phone": "3368181024"
+                },
+                {
+                    "name": "Thom Tillis",
+                    "party": "REP"
+                },
+                {
+                    "name": "Greg Brannon",
+                    "party": "REP"
+                },
+                {
+                    "name": "Edward Kryn",
+                    "party": "REP",
+                    "phone": "9195534172"
+                },
+                {
+                    "name": "Jim Snyder",
+                    "party": "REP",
+                    "phone": "3362490303"
+                },
+                {
+                    "name": "Alex Lee Bradshaw",
+                    "party": "REP"
+                },
+                {
+                    "name": "Ted Alexander",
+                    "party": "REP"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "PRIMARY",
+            "primaryParty": "DEM",
+            "office": "US SENATE",
+            "district": {
+                "name": "US SENATE",
+                "scope": "countywide"
+            },
+            "ballotPlacement": "1",
+            "candidates": [
+                {
+                    "name": "Ernest T. Reeves",
+                    "party": "DEM",
+                    "phone": "2523642481"
+                },
+                {
+                    "name": "Will Stewart",
+                    "party": "DEM"
+                },
+                {
+                    "name": "Kay Hagan",
+                    "party": "DEM"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "PRIMARY",
+            "primaryParty": "LIB",
+            "office": "US SENATE",
+            "district": {
+                "name": "US SENATE",
+                "scope": "countywide"
+            },
+            "ballotPlacement": "1",
+            "candidates": [
+                {
+                    "name": "Tim D'Annunzio",
+                    "party": "LIB"
+                },
+                {
+                    "name": "Sean Haugh",
+                    "party": "LIB"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "PRIMARY",
+            "primaryParty": "REP",
+            "office": "US HOUSE OF REPRESENTATIVES DISTRICT 03",
+            "district": {
+                "name": "US HOUSE OF REPRESENTATIVES DISTRICT 03",
+                "scope": "countywide"
+            },
+            "ballotPlacement": "2",
+            "candidates": [
+                {
+                    "name": "Al (Big Al) Novinec",
+                    "party": "REP",
+                    "phone": "9103307222"
+                },
+                {
+                    "name": "Taylor Griffin",
+                    "party": "REP"
+                },
+                {
+                    "name": "Walter Jones",
+                    "party": "REP",
+                    "phone": "2527538587"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "PRIMARY",
+            "primaryParty": "DEM",
+            "office": "NC HOUSE OF REPRESENTATIVES DISTRICT 024",
+            "district": {
+                "name": "NC HOUSE OF REPRESENTATIVES DISTRICT 024",
+                "scope": "countywide"
+            },
+            "ballotPlacement": "14",
+            "candidates": [
+                {
+                    "name": "Mark Bibbs",
+                    "party": "DEM",
+                    "phone": "2522051982"
+                },
+                {
+                    "name": "Jean Farmer-Butterfield",
+                    "party": "DEM",
+                    "phone": "2523738868"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "PRIMARY",
+            "primaryParty": "DEM",
+            "office": "BOARD OF COUNTY COMMISSIONERS DISTRICT 1",
+            "district": {
+                "name": "PITT BOARD OF COUNTY COMMISSIONERS DISTRICT 1",
+                "scope": "countywide"
+            },
+            "ballotPlacement": "15",
+            "candidates": [
+                {
+                    "name": "David Hammond",
+                    "party": "DEM",
+                    "phone": "2523297749"
+                },
+                {
+                    "name": "George Davis",
+                    "party": "DEM",
+                    "phone": "2524136320"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "PRIMARY",
+            "office": "Supreme Court Associate Justice (Hudson)",
+            "district": {
+                "name": "SUPREME COURT ASSOCIATE JUSTICE (HUDSON)",
+                "scope": "countywide"
+            },
+            "ballotPlacement": "20",
+            "candidates": [
+                {
+                    "name": "Robin Hudson"
+                },
+                {
+                    "name": "Eric Levinson"
+                },
+                {
+                    "name": "Jeanette Doran"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "PRIMARY",
+            "office": "District Court Judge District 03A (Teague)",
+            "district": {
+                "name": "DISTRICT COURT JUDGE DISTRICT 03A (TEAGUE)",
+                "scope": "countywide"
+            },
+            "ballotPlacement": "23",
+            "candidates": [
+                {
+                    "name": "Lee F. Teague"
+                },
+                {
+                    "name": "Faris Dixon",
+                    "phone": "2527570403"
+                },
+                {
+                    "name": "Daniel Hines Entzminger"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "PRIMARY",
+            "primaryParty": "REP",
+            "office": "CLERK OF SUPERIOR COURT",
+            "district": {
+                "name": "PITT CLERK OF SUPERIOR COURT",
+                "scope": "countywide"
+            },
+            "ballotPlacement": "29",
+            "candidates": [
+                {
+                    "name": "Chris Johnson",
+                    "party": "REP",
+                    "phone": "2529178972"
+                },
+                {
+                    "name": "Wallace (BumBee) Gibbs",
+                    "party": "REP",
+                    "phone": "2523414610"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "PRIMARY",
+            "primaryParty": "DEM",
+            "office": "CLERK OF SUPERIOR COURT",
+            "district": {
+                "name": "PITT CLERK OF SUPERIOR COURT",
+                "scope": "countywide"
+            },
+            "ballotPlacement": "30",
+            "candidates": [
+                {
+                    "name": "Sara Beth Fulford Rhodes",
+                    "party": "DEM",
+                    "phone": "2527534609"
+                },
+                {
+                    "name": "Charlene Spain Corbett",
+                    "party": "DEM",
+                    "phone": "2524130335"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "PRIMARY",
+            "primaryParty": "DEM",
+            "office": "SHERIFF",
+            "district": {
+                "name": "PITT SHERIFF",
+                "scope": "countywide"
+            },
+            "ballotPlacement": "33",
+            "candidates": [
+                {
+                    "name": "Neil Elks",
+                    "party": "DEM",
+                    "phone": "2527529467"
+                },
+                {
+                    "name": "Paul D. McLawhorn",
+                    "party": "DEM",
+                    "phone": "2523556526"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "GENERAL",
+            "primaryParty": "",
+            "office": "DISTRICT COURT JUDGE DISTRICT 03A (BRADDY)",
+            "district": {
+                "name": "DISTRICT COURT JUDGE DISTRICT 03A (BRADDY)",
+                "scope": "judicial"
+            },
+            "ballotPlacement": "23",
+            "candidates": [
+                {
+                    "name": "G. Galen Braddy",
+                    "party": "",
+                    "phone": "2522588399"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "GENERAL",
+            "primaryParty": "",
+            "office": "DISTRICT COURT JUDGE DISTRICT 03A (VINCENT)",
+            "district": {
+                "name": "DISTRICT COURT JUDGE DISTRICT 03A (VINCENT)",
+                "scope": "judicial"
+            },
+            "ballotPlacement": "23",
+            "candidates": [
+                {
+                    "name": "Brian DeSoto",
+                    "party": "",
+                    "phone": "2528646297"
+                },
+                {
+                    "name": "Faris Dixon",
+                    "party": "",
+                    "phone": "2527570403"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "GENERAL",
+            "primaryParty": "",
+            "office": "DISTRICT COURT JUDGE DISTRICT 03A (LEECH)",
+            "district": {
+                "name": "DISTRICT COURT JUDGE DISTRICT 03A (LEECH)",
+                "scope": "judicial"
+            },
+            "ballotPlacement": "23",
+            "candidates": [
+                {
+                    "name": "David A. Leech",
+                    "party": "",
+                    "phone": "2527569947"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "GENERAL",
+            "primaryParty": "",
+            "office": "BOARD OF COMMISSIONERS DISTRICT A",
+            "district": {
+                "name": "PITT BOARD OF COMMISSIONERS DISTRICT A",
+                "scope": "countyCouncil"
+            },
+            "ballotPlacement": "15",
+            "candidates": [
+                {
+                    "name": "Melvin C. McLawhorn",
+                    "party": "DEM",
+                    "phone": "2523557290"
+                }
+            ],
+            "sources": [
+                {
+                    "name": "Voting Information Project",
+                    "official": true
+                }
+            ]
+        },
+        {
+            "type": "Referendum",
+            "district": {
+                "name": "North Carolina",
+                "scope": "statewide",
+                "id": "ocd-division/country:us/state:nc"
+            },
+            "referendumTitle": "NC Constitutional Amendment",
+            "referendumUrl": "http://www.ncsbe.gov/ncsbe/Portals/0/FilesP/constitutional-amendment.pdf",
+            "sources": [
+                {
+                    "name": "Ballot Information Project",
+                    "official": false
+                }
+            ]
+        }
+    ],
+    "state": [
+        {
+            "name": "North Carolina",
+            "electionAdministrationBody": {
+                "name": "North Carolina State Board of Elections",
+                "electionInfoUrl": "http://www.ncsbe.gov/ncsbe/",
+                "electionRegistrationUrl": "http://www.eac.gov/assets/1/Documents/Federal%20Voter%20Registration_6-25-14_ENG.pdf",
+                "electionRegistrationConfirmationUrl": "https://www.ncsbe.gov/webapps/voter_search/",
+                "absenteeVotingInfoUrl": "http://ncelectionconnection.com/voting-in-nc/absentee-ballot/",
+                "votingLocationFinderUrl": "http://www.ncsbe.gov/webapps/pollingplace_search/",
+                "ballotInfoUrl": "http://na",
+                "electionRulesUrl": "http://www.ncsbe.gov/ncsbe/elections",
+                "correspondenceAddress": {
+                    "line1": "P.o. Box 27255",
+                    "city": "Raleigh",
+                    "state": "North Carolina",
+                    "zip": "27611-2767"
+                }
+            },
+            "local_jurisdiction": {
+                "name": "PITT",
+                "electionAdministrationBody": {
+                    "name": "Pitt County Board of Elections",
+                    "electionInfoUrl": "http://www.ncsbe.gov/",
+                    "electionRegistrationUrl": "http://www.ncsbe.gov/",
+                    "electionRegistrationConfirmationUrl": "http://www.ncsbe.gov/",
+                    "absenteeVotingInfoUrl": "http://www.ncsbe.gov/",
+                    "votingLocationFinderUrl": "http://www.ncsbe.gov/",
+                    "electionRulesUrl": "http://www.ncsbe.gov/",
+                    "correspondenceAddress": {
+                        "line1": "PO Box 56",
+                        "city": "Greenville",
+                        "state": "NC",
+                        "zip": "27835-0056"
+                    },
+                    "physicalAddress": {
+                        "line1": "201 E Second St",
+                        "city": "Greenville",
+                        "state": "NC",
+                        "zip": "27858"
+                    },
+                    "electionOfficials": [
+                        {
+                            "name": "DAVID P. DAVIS",
+                            "title": "DIRECTOR PITT COUNTY BOARD OF ELECTIONS",
+                            "officePhoneNumber": "252-902-3300",
+                            "faxNumber": "252-830-1157",
+                            "emailAddress": "pitt.boe@ncsbe.gov"
+                        }
+                    ]
+                },
+                "sources": [
+                    {
+                        "name": "Voting Information Project",
+                        "official": true
+                    }
+                ]
+            },
+            "sources": [
+                {
+                    "name": "",
+                    "official": false
+                }
+            ]
+        }
+    ]
+}

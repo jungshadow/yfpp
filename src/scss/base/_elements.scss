@@ -7,7 +7,9 @@ into other modules.
 html,
 body {
     width: 100%;
+    height: 100%;
     overflow-x: hidden;
+    position: relative;
 }
 
 * {
@@ -15,7 +17,7 @@ body {
 }
 
 body {
-    background-color: $GREY_LIGHT;
+    background-color: $COLOR_PRIMARY;
     width: 100%;
     font-family: $FONT_DEFAULT;
     font-size: $FONT_SIZE_MOBILE;
@@ -25,19 +27,14 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+    height: 100%;
+}
+
 a {
     color: $COLOR_LINK_DEFAULT;
     text-decoration: none;
     cursor: pointer;
-}
-
-a:hover,
-a:focus {
-
-}
-
-a:visited {
-
 }
 
 strong {
@@ -54,7 +51,6 @@ img {
 }
 
 @media screen and (min-width: 768px) {
-    
     body {
         font-size: $FONT_SIZE_DEFAULT;
     }

@@ -1,0 +1,14 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.resultMessage {
+    padding: 20px;
+    color: $GREY_LIGHT;
+    margin-bottom: 20px;
+}
+
+@include breakpoint(md) {
+    .resultMessage {
+        color: $BLACK;
+    }
+}

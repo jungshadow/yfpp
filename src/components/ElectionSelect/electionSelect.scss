@@ -1,0 +1,21 @@
+@import 'scss/helpers/_globalVars';
+
+.electionSelect {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: $WHITE url(/images/chevron-down.svg) no-repeat right center;
+    border: 1px solid $GREY;
+    font-size: 16px;
+    font-family: $FONT_HEADLINE;
+    font-weight: lighter;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 11px;
+}
+
+@media screen and (min-width: 768px) {
+    .electionSelect {
+        font-size: 13px;
+    }
+}

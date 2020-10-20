@@ -1,0 +1,81 @@
+/**
+ * Visually Hidden
+ *
+ * Use to hide content in an accessible manner to provide instructions and content to a screenreader.
+ */
+@mixin VISUALLY_HIDDEN() {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.isVisuallyHidden {
+    @include VISUALLY_HIDDEN;
+}
+
+@mixin BUTTON_RESET() {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $FONT_DEFAULT;
+    margin: 0;
+    padding: 0;
+}
+
+/* Aspect ratio container for things like SVG that need them forced to be flexible */
+@mixin ASPECT_RATIO_CONTAINER($width: 1, $height: 1) {
+    display: block;
+    line-height: 0;
+    padding-bottom: ($height / $width) * 100%;
+    position: relative;
+
+    .inner {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+
+        > svg {
+            display: block;
+        }
+    }
+}
+
+@function aspect-ratio-func($height, $width) {
+    @return ($height / $width) * 100%;
+}
+
+// Breakpoints
+@mixin breakpoint($size) {
+    @if $size == smOnly {
+        @media (max-width: 768px) {
+            @content;
+        }
+    } @else if $size == xs {
+        @media (min-width: 500px) {
+            @content;
+        }
+    } @else if $size == sm {
+        @media (min-width: 768px) {
+            @content;
+        }
+    } @else if $size == md {
+        @media (min-width: 992px) {
+            @content;
+        }
+    } @else if $size == lg {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    } @else {
+        @warn "Breakpoint mixin supports: xs, sm, md, lg";
+    }
+}

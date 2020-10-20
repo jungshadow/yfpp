@@ -1,0 +1,77 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.pager + .pager {
+    margin-top: 40px;
+}
+
+.pager__list {
+    margin-bottom: 20px;
+
+    li {
+        position: relative;
+    }
+}
+
+.pager__list > * + * {
+    margin-top: 20px;
+}
+
+.pager__nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative;
+}
+
+.pager__links {
+    display: flex;
+    padding: 0 35px; // allows room for absolutely positioned prev/next nav
+
+    & > * + * {
+        margin-left: 8px;
+    }
+}
+
+.pager__link--prev {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.pager__link--next {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.pager__link {
+    @include BUTTON_RESET;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: 2px solid $WHITE;
+    color: $WHITE;
+
+    &.pager__link--isActive {
+        background-color: $WHITE;
+        color: $COLOR_PRIMARY;
+        transform: scale(1.2);
+    }
+}
+
+@include breakpoint(md) {
+    .pager__link {
+        border: 2px solid $COLOR_PRIMARY;
+        color: $COLOR_PRIMARY;
+
+        &.pager__link--isActive {
+            background-color: $COLOR_PRIMARY;
+            color: $WHITE;
+        }
+    }
+}

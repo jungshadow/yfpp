@@ -1,0 +1,131 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.locationCard {
+    background: $WHITE;
+    padding: 20px;
+    border-radius: 11px;
+    border: 1px solid $COLOR_PRIMARY;
+    z-index: 1;
+}
+
+.locationCard__closeBtn {
+    @include BUTTON_RESET;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: transparent;
+    fill: $GREY;
+
+    &:hover,
+    &:focus {
+        fill: $BLUE;
+    }
+}
+
+.locationCard__closeBtnIcon {
+    .icon {
+        width: 30px;
+    }
+}
+
+.locationCard__badge {
+    font-family: $FONT_DEFAULT;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.locationCard__badgeTitle {
+    color: $RED;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.locationCard__badgeDate {
+    color: $GREY_MEDIUM;
+    display: inline-block;
+}
+
+.locationCard__name {
+    font-family: $FONT_HEADLINE;
+    font-size: 18px;
+    color: $BLACK;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.locationCard__hd {
+    margin-bottom: 22px;
+}
+
+.locationCard__bd {
+    margin-bottom: 22px;
+}
+
+.locationCard__addressBlock {
+    font-family: $FONT_DEFAULT;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.625;
+    color: $BLACK;
+    margin-bottom: 22px;
+}
+
+.locationCard__hours {
+    font-family: $FONT_DEFAULT;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.625;
+    color: $BLACK;
+}
+
+.locationCard__map {
+    position: relative;
+    width: 100%;
+
+    > * {
+        border-top: 2px solid $GREY_LIGHT;
+        border-bottom: 2px solid $GREY_LIGHT;
+    }
+}
+
+@include breakpoint(md) {
+    .locationCard {
+        padding: 26px 48px 48px;
+    }
+}
+
+.locationCard--isActive {
+    width: 80%;
+    height: auto;
+    max-height: 90%;
+    top: 0;
+    padding: 40px 0;
+    left: 10%;
+    right: 0;
+    position: fixed;
+    z-index: 1;
+    overflow: hidden;
+    margin: 5% 0;
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+    text-align: left;
+
+    .locationCard__hd,
+    .locationCard__bd {
+        padding: 0 40px;
+    }
+
+    .locationCard__ft {
+        padding: 20px 40px;
+    }
+
+    .locationCard__map {
+        flex: 1 1 1000px;
+    }
+}

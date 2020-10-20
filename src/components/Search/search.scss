@@ -1,0 +1,80 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.searchForm {
+    display: flex;
+    align-items: stretch;
+    position: relative; // provides positioning context for absolutely positioned submit button
+    width: 100%;
+    margin-bottom: 10px;
+    transition: all 0.75s ease-in-out;
+}
+
+.searchForm__input {
+    display: flex;
+    margin: 0;
+    width: 100%;
+    opacity: 1;
+    transition: width 0.35s ease-in-out, opacity 0.25s ease-in-out;
+}
+
+.searchForm__submit {
+    @include BUTTON_RESET;
+    background: $WHITE;
+    border: 1px solid $GREY_MEDIUM;
+    border-left: 0px;
+    border-radius: 0 11px 11px 0;
+    padding: 0 22px 0 0;
+    overflow: hidden;
+    text-indent: -999em;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover,
+    &:focus {
+        svg {
+            fill: $GREY_DARK;
+        }
+    }
+}
+
+.searchForm__text {
+    @include VISUALLY_HIDDEN;
+}
+
+.searchForm__icon {
+    display: block;
+    width: 28px;
+    margin: 0;
+
+    svg {
+        fill: $GREY_LIGHT;
+    }
+}
+
+.searchForm__searchToggle {
+    @include BUTTON_RESET;
+    padding: 0 20px;
+}
+
+.searchForm--hasSearchVal {
+    margin: 0;
+    justify-content: flex-end;
+
+    .searchForm__submit {
+        border-radius: 0;
+    }
+}
+
+@include breakpoint(smOnly) {
+    .searchForm--isClosed {
+        .searchForm__input {
+            width: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: width 0.35s ease-in-out, opacity 0.45s ease-in-out;
+        }
+    }
+}

@@ -3,9 +3,9 @@
 // ----------------------------------------------------------------------------
 // Font
 // ----------------------------------------------------------------------------
-$FONT_DEFAULT: 'Lato', sanserif;
-$FONT_HEADLINE: 'Liberator', sanserif;
-$FONT_ICON: 'yfpp-icons';
+$FONT_DEFAULT: 'Roboto', sans-serif;
+$FONT_HEADLINE: 'Montserrat', sans-serif;
+$FONT_DISPLAY: 'Bebas Neue', cursive;
 $FONT_SIZE_DEFAULT: 16px;
 $FONT_SIZE_MOBILE: 13px;
 
@@ -17,16 +17,22 @@ $COLOR_TEXT_DEFAULT: #4b4b4b;
 $COLOR_LINK_DEFAULT: #000000;
 $COLOR_TEXT_LIGHT: #ffffff;
 
-$WHITE: #f1eeea;
-$GREY_LIGHT: #e4e1dd;
-$GREY_MEDIUM: #bbbbbb;
+$WHITE: #ebeae9;
+$BLACK: #3f3d3c;
+$GREY_LIGHT: #cac9c9;
+$GREY_MEDIUM: #979797;
 $GREY: #b1ada8;
 $GREY_DARK: #3f3d3c;
-$RED: #7d2929;
-$BLUE: #2b3975;
-$BLUE_LIGHT: #AED3E1;
+$RED: #bf1c21;
+$PLUM_LIGHT: #a59da6;
+$PLUM: #463648;
+$PLUM_DARK: darken($PLUM, 4);
+$BLUE: #2eabe1;
 
-$COLOR_PRIMARY: $BLUE;
+$FACEBOOK_BLUE: #3b5998;
+$TWITTER_BLUE: #00a2f9;
+
+$COLOR_PRIMARY: $PLUM;
 $COLOR_SECONDARY: $RED;
 
 // ----------------------------------------------------------------------------
@@ -39,7 +45,6 @@ $HDG_SIZE: 22px;
 $HDG_SIZE: 20px;
 $HDG_SIZE: 18px;
 $HDG_SIZE: 14px;
-
 
 // ----------------------------------------------------------------------------
 // Global Width

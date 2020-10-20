@@ -1,0 +1,53 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.iconLink {
+    padding: 28px;
+    display: inline-flex;
+    align-items: center;
+    font-family: $FONT_HEADLINE;
+    font-weight: 700;
+    font-size: 18px;
+    color: $GREY_LIGHT;
+    fill: $GREY_LIGHT;
+    line-height: 1;
+}
+
+.iconLink__icon {
+    width: 20px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.iconLink:hover,
+.iconLink:focus {
+    color: $BLUE;
+    fill: $BLUE;
+}
+
+// variations
+.iconLink--before {
+    .iconLink__icon {
+        margin-right: 5px;
+        margin-left: 0;
+    }
+}
+
+.iconLink--isStacked {
+    flex-direction: column;
+
+    .iconLink__icon {
+        display: block;
+        width: 140px;
+        margin: 15px auto 0;
+    }
+}
+
+.iconLink--small {
+    font-size: 12px;
+    padding: 10px;
+}
+
+.iconLink--medium {
+    color: $PLUM_LIGHT;
+}

@@ -1,0 +1,77 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.page {
+    padding: 40px;
+    height: 100vh;
+    overflow: scroll;
+}
+
+.page__hd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.page__hdLeft {
+    width: 10%;
+}
+
+.page__hdCtr {
+    width: 80%;
+}
+
+.page__hdRight {
+    width: 10%;
+}
+
+.page__title {
+    margin-bottom: 5px;
+    color: $WHITE;
+    font-family: $FONT_HEADLINE;
+    font-weight: bold;
+    font-size: 48px;
+    text-align: center;
+}
+
+.page__description {
+    margin-bottom: 120px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.page__content {
+    flex: 1;
+}
+
+.page--isNarrow {
+    .page__bd {
+        max-width: 750px;
+        margin: 0 auto;
+    }
+}
+
+@include breakpoint(smOnly) {
+    .page__hdLeft {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: auto;
+    }
+
+    .page__hdCtr {
+        margin-top: 30px;
+    }
+
+    .page__hdRight {
+        position: absolute;
+        width: auto;
+    }
+}
+
+@include breakpoint(md) {
+    .page {
+        padding: 20px 80px 80px 80px;
+    }
+}

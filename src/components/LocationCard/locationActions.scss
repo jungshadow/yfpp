@@ -1,0 +1,92 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.locationActions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.locationActions__btn {
+    @include BUTTON_RESET;
+    border-radius: 8px;
+    height: 43px;
+    padding: 0 15px;
+    font-family: $FONT_HEADLINE;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.locationActions__btn + .locationActions__btn {
+    margin-top: 20px;
+    width: 48%;
+}
+
+.locationActions__btn--mapBtn {
+    background: $COLOR_PRIMARY;
+    color: $WHITE;
+    width: 100%;
+
+    svg {
+        fill: $WHITE;
+    }
+}
+
+.locationActions__btn--facebookBtn {
+    background: $WHITE;
+    color: $FACEBOOK_BLUE;
+    border: 2px solid $FACEBOOK_BLUE;
+    margin-right: 2%;
+
+    svg {
+        fill: $FACEBOOK_BLUE;
+    }
+}
+
+.locationActions__btn--twitterBtn {
+    background: $WHITE;
+    color: $TWITTER_BLUE;
+    border: 2px solid $TWITTER_BLUE;
+    margin-left: 2%;
+
+    svg {
+        fill: $TWITTER_BLUE;
+    }
+}
+
+.locationActions__btnIcon {
+    width: 1.85em;
+    margin-left: 5px;
+}
+
+@include breakpoint(md) {
+    .locationActions {
+        flex-wrap: nowrap;
+    }
+
+    .locationActions__btn {
+        padding: 0 10px;
+        font-size: 12px;
+    }
+
+    .locationActions__btn + .locationActions__btn {
+        margin: 0 0 0 8px;
+    }
+}
+
+@include breakpoint(lg) {
+    .locationActions__btn {
+        padding: 0 32px;
+        font-size: 14px;
+    }
+}
+
+.locationActions--isActive {
+    .locationActions__btn--mapBtn {
+        display: none;
+    }
+}

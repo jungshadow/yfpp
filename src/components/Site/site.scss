@@ -1,0 +1,177 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.site {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: $COLOR_PRIMARY;
+    overflow-x: hidden;
+}
+
+.site__hd {
+    flex: 1;
+    background-color: $COLOR_PRIMARY;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.site__bd {
+    overflow: hidden;
+}
+
+.site__content {
+    overflow: auto;
+    flex: 1;
+}
+
+.site__contentInner {
+    padding: 20px 10px;
+    max-width: 640px;
+    margin: auto;
+}
+
+.site__social {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.site__graphic {
+    width: 30%;
+    max-width: 190px;
+    margin-bottom: 30px;
+}
+
+.site__logo {
+    margin-bottom: 42px;
+}
+
+.site__search {
+    width: 100%;
+    max-width: 560px;
+}
+
+.site__ft {
+    width: 100%;
+}
+
+@include breakpoint(md) {
+    .site__social {
+        justify-self: flex-start;
+    }
+
+    .site__graphic {
+        width: 50%;
+        margin-bottom: 50px;
+    }
+}
+
+.site--hasSearchVal {
+    height: 100vh;
+
+    .site__hd {
+        flex-direction: row;
+        flex: 0 1 auto;
+        justify-content: flex-start;
+        padding: 0;
+        border-bottom: 1px solid $BLACK;
+        position: relative;
+    }
+
+    .site__bd {
+        overflow: auto;
+    }
+
+    .site__secondary {
+        padding: 26px 22px;
+        background-color: $COLOR_PRIMARY;
+        border-top: 1px solid transparentize($WHITE, 0.89);
+    }
+
+    .site__social {
+        display: none;
+    }
+
+    .site__logo {
+        margin-bottom: 0;
+        padding: 32px 15px;
+    }
+
+    .site__graphic {
+        display: none;
+    }
+
+    .site__search {
+        max-width: none;
+    }
+
+    .site__ft {
+        position: relative;
+    }
+
+    @include breakpoint(md) {
+        height: 100vh;
+
+        .site__logo {
+            padding: 10px 53px;
+            max-width: 470px;
+            width: 45%;
+            flex: 1 0 100%;
+        }
+
+        .site__search {
+            flex: 1;
+            position: relative;
+        }
+
+        .site__bd {
+            background-color: $WHITE;
+            display: flex;
+            flex: 1;
+        }
+
+        .site__ft {
+            position: fixed;
+            bottom: 0;
+            width: 45%;
+            max-width: 470px;
+        }
+
+        .site__contentInner {
+            padding: 40px;
+        }
+
+        .site__secondary {
+            flex: 1 0 100%;
+            max-width: 470px;
+            padding: 30px 53px;
+            width: 45%;
+            background-color: $COLOR_PRIMARY;
+            border-top: 1px solid transparentize($WHITE, 0.89);
+        }
+    }
+}
+
+.site--isMobile.site--hasSearchVal {
+    display: block;
+
+    .site__search {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+    }
+
+    .site__ft {
+        position: relative;
+    }
+}
+
+.site--isMobile {
+}
