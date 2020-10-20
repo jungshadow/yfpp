@@ -85,14 +85,14 @@ const LocationCard = ({ data, locationType, slug }) => {
                 )}
                 <motion.div className="locationCard__hd" layout>
                     {renderEarlyVoteSiteBadge()}
-                    <h3 className="locationCard__name">
+                    <motion.h3 className="locationCard__name" layout>
                         {helpers.cleanString(
                             helpers.fucktify(address.locationName || name)
                         )}
-                    </h3>
+                    </motion.h3>
                 </motion.div>
-                <motion.div className="locationCard__bd" layout>
-                    <div className="locationCard__addressBlock">
+                <div className="locationCard__bd">
+                    <motion.div className="locationCard__addressBlock" layout>
                         <div className="locationCard__address locationCard__address--line1">
                             {helpers.lowerCase(address.line1)}
                         </div>
@@ -103,24 +103,24 @@ const LocationCard = ({ data, locationType, slug }) => {
                             {helpers.lowerCase(address.city)}, {address.state}{' '}
                             {address.zip}
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="locationCard__hours">
+                    <motion.div className="locationCard__hours" layout>
                         <strong>Polling Hours:</strong> {pollingHours}
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </div>
                 {isActive && (
                     <motion.div className="locationCard__map" layout>
                         <Map latitude={latitude} longitude={longitude} />
                     </motion.div>
                 )}
-                <div className="locationCard__ft">
+                <motion.div className="locationCard__ft" layout>
                     <LocationActions
                         location={address}
                         onMapItClick={handleMapItClick}
                         isActive={isActive}
                     />
-                </div>
+                </motion.div>
             </motion.div>
             {isActive && (
                 <div
