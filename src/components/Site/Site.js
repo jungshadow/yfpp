@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import classnames from 'classnames';
 
+import Errorator from 'components/Errorator/Errorator';
 import Search from 'components/Search/Search';
 import Logo from 'components/Logo/Logo';
 import { AppContext, DispatchContext } from 'appReducer';
@@ -12,12 +13,13 @@ import useElections from 'hooks/useElections';
 import sticker from 'images/iFuckingVotedSticker.png';
 import SupplementalLinks from 'components/SupplementalLinks/SupplementalLinks';
 import SocialLinks from 'components/SocialLinks/SocialLinks';
+import {AnimatePresence} from 'framer-motion';
 
 const Site = () => {
     const dispatch = useContext(DispatchContext);
     useElections(dispatch);
 
-    const { isActive } = useContext(AppContext);
+    const {isActive, errors} = useContext(AppContext);
     const windowSize = useWindowSize();
 
     useEffect(() => {
@@ -39,6 +41,13 @@ const Site = () => {
 
     return (
         <div className={getSiteClassName()} ref={ref}>
+            <AnimatePresence>
+                {errors && (
+                    <div className="site__error">
+                        <Errorator errors={errors} dispatch={dispatch} />
+                    </div>
+                )}
+            </AnimatePresence>
             <div className="site__hd">
                 <div className="site__social">
                     <SocialLinks />
