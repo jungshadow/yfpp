@@ -1,6 +1,6 @@
 {
     "name": "yfpp",
-    "version": "0.1.0",
+    "version": "4.0.0",
     "private": true,
     "homepage": "https://yourfuckingpollingplace.com",
     "author": {
@@ -63,7 +63,7 @@
     },
     "scripts": {
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d build",
+        "deploy": "gh-pages --dotfiles --add --dist build",
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
