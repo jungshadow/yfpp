@@ -5,7 +5,7 @@
     background: $WHITE;
     padding: 20px;
     border-radius: 11px;
-    border: 1px solid $COLOR_PRIMARY;
+    border: 1px solid $GREY_LIGHT;
     z-index: 1;
 }
 
@@ -34,7 +34,7 @@
     font-weight: 700;
     font-size: 14px;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 }
 
 .locationCard__badgeTitle {
@@ -50,14 +50,14 @@
 
 .locationCard__name {
     font-family: $FONT_HEADLINE;
-    font-size: 18px;
+    font-size: 22px;
     color: $BLACK;
     font-weight: 700;
     text-transform: capitalize;
 }
 
 .locationCard__hd {
-    margin-bottom: 22px;
+    margin-bottom: 16px;
 }
 
 .locationCard__bd {
@@ -94,7 +94,7 @@
 
 @include breakpoint(md) {
     .locationCard {
-        padding: 26px 48px 48px;
+        padding: 36px 48px 40px;
     }
 }
 
