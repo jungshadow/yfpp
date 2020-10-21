@@ -8,6 +8,8 @@ import {DemocratIcon, RepublicanIcon} from 'components/Icons';
 const Representative = ({data}) => {
     // eslint-disable-next-line
     const {name, party, office, urls, photoUrl, channels} = data;
+    const imgHttpsRegex = /^https:/i;
+    const congressImgRegex = /^http:\/\/bioguide\.congress\.gov\/bioguide\//i;
 
     const getRepClass = (party) => {
         let partySlug = party;
@@ -22,7 +24,20 @@ const Representative = ({data}) => {
     };
 
     function getImgUrl(photoUrl) {
-        return photoUrl ? photoUrl : avatar;
+        if (photoUrl) {
+            if(imgHttpsRegex.test(photoUrl)){
+                return photoUrl;
+            } else {
+                if(congressImgRegex.test(photoUrl)) {
+                    return photoUrl.replace(congressImgRegex,
+                        'https://bioguideretro.congress.gov/Static_Files/data/');
+                } else {
+                    return photoUrl;
+                }
+            }
+        } else {
+            return avatar;
+        }
     }
 
     function renderPartyIcon(party) {
