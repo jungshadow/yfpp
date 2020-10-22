@@ -5,3 +5,28 @@
     left: 0;
     right: 0;
 }
+
+// mapbox overrides
+.mapboxgl-ctrl-top-left {
+    height: 100%;
+    padding-bottom: 25px; // leave space for mapbox logo
+}
+
+.mapboxgl-ctrl-top-left .mapboxgl-ctrl {
+    float: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.directions-control {
+    overflow: auto;
+}
+
+.directions-control-inputs {
+    flex: 1 0 auto;
+}
+
+.mapbox-directions-step {
+    font-weight: normal;
+}
