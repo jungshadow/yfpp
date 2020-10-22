@@ -38,8 +38,6 @@ const Map = ({ latitude, longitude, originAddress, destinationAddress }) => {
         // to the directions inputs on the map because they only
         // seem to get populated with origin/destination strings
         // one time on page load even though our Map component is mounting and unmounting
-        let originInput = null;
-        let destinationInput = null;
 
         map.on('move', () => {
             setLng(map.getCenter().lng.toFixed(4));
@@ -82,8 +80,6 @@ const Map = ({ latitude, longitude, originAddress, destinationAddress }) => {
             map = null;
             directions = null;
             navControl = null;
-            originInput = null;
-            destinationInput = null;
         };
     }, [originAddress, destinationAddress]); // eslint-disable-line react-hooks/exhaustive-deps
 
