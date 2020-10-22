@@ -129,6 +129,8 @@ const LocationCard = ({ data, locationType, slug }) => {
                 <motion.div className="locationCard__ft" layout>
                     <LocationActions
                         location={address}
+                        latitude={latitude}
+                        longitude={longitude}
                         onMapItClick={handleMapItClick}
                         isActive={isActive}
                     />
