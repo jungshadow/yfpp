@@ -9,7 +9,6 @@ import helpers from 'helpers';
 import useWindowSize from 'hooks/useWindowSize';
 
 const LocationActions = ({ latitude, longitude, location, onMapItClick, isActive }) => {
-    //const { state, locationName, city, zip, line1, line2, latitude, longitude } = location;
     const { state, locationName, city, zip, line1 } = location;
     const windowSize = useWindowSize();
 
@@ -83,11 +82,6 @@ const LocationActions = ({ latitude, longitude, location, onMapItClick, isActive
         const isAppleMobileDevice = /\b(iPad|iPhone|iPod)\b/.test(UA);
         const googleUrl = 'https://www.google.com/maps/search/?api=1&query=';
         const appleUrl = `https://maps.apple.com/${isLngLat ? '?sll=' : '?daddr='}`;
-
-        // if locationName exists, make that shit title cased
-        // if (locationName) {
-        //     casedLocationName = helpers.titlecase(locationName);
-        // }
 
         // set up url components to build google maps url
         const components = [
