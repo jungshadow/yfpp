@@ -5,7 +5,7 @@ import './map.scss';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN;
 
-const Map = ({ latitude, longitude }) => {
+const Map = ({ latitude, longitude, originAddress, destinationAddress }) => {
     const mapContainerRef = useRef(null);
 
     const [lng, setLng] = useState(longitude);
@@ -25,8 +25,8 @@ const Map = ({ latitude, longitude }) => {
             accessToken: mapboxgl.accessToken,
             geocoder: {
                 countries: ['US'],
-                proximity: [lng, lat]
-            }
+                proximity: [lng, lat],
+            },
         });
 
         // Add navigation control (the +/- zoom buttons)
@@ -43,7 +43,8 @@ const Map = ({ latitude, longitude }) => {
         });
 
         map.on('load', () => {
-            directions.setDestination([lng, lat]);
+            directions.setOrigin(Object.values(originAddress).join(' '));
+            directions.setDestination(destinationAddress);
         });
 
         // Clean up on unmount

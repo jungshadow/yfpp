@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import classnames from 'classnames';
@@ -12,6 +12,7 @@ import Map from 'components/Map/Map';
 import { CloseIcon } from 'components/Icons';
 import { motion } from 'framer-motion';
 import useOutsideClick from 'hooks/useOutsideClick';
+import { AppContext } from 'appReducer';
 
 const LocationCard = ({ data, locationType, slug }) => {
     const {
@@ -27,6 +28,8 @@ const LocationCard = ({ data, locationType, slug }) => {
     const locationCardRef = useRef();
 
     useOutsideClick(locationCardRef, handleCloseMap);
+    const { normalizedAddress } = useContext(AppContext);
+
     const openSpring = { type: 'spring', stiffness: 200, damping: 30 };
     const closeSpring = { type: 'spring', stiffness: 300, damping: 35 };
 
@@ -111,7 +114,14 @@ const LocationCard = ({ data, locationType, slug }) => {
                 </div>
                 {isActive && (
                     <motion.div className="locationCard__map" layout>
-                        <Map latitude={latitude} longitude={longitude} />
+                        <Map
+                            latitude={latitude}
+                            longitude={longitude}
+                            originAddress={normalizedAddress}
+                            destinationAddress={Object.values(address).join(
+                                ' '
+                            )}
+                        />
                     </motion.div>
                 )}
                 <motion.div className="locationCard__ft" layout>
