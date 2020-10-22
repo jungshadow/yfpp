@@ -8,7 +8,13 @@ import analytics from 'analytics';
 import helpers from 'helpers';
 import useWindowSize from 'hooks/useWindowSize';
 
-const LocationActions = ({ latitude, longitude, location, onMapItClick, isActive }) => {
+const LocationActions = ({
+    latitude,
+    longitude,
+    location,
+    onMapItClick,
+    isActive,
+}) => {
     const { state, locationName, city, zip, line1 } = location;
     const windowSize = useWindowSize();
 
@@ -75,28 +81,29 @@ const LocationActions = ({ latitude, longitude, location, onMapItClick, isActive
     };
 
     const buildMap = () => {
-        // set variable for correctly cased locationName
-        //let casedLocationName = '';
         const UA = navigator.userAgent;
         const isLngLat = !!(longitude && latitude);
         const isAppleMobileDevice = /\b(iPad|iPhone|iPod)\b/.test(UA);
         const googleUrl = 'https://www.google.com/maps/search/?api=1&query=';
-        const appleUrl = `https://maps.apple.com/${isLngLat ? '?sll=' : '?daddr='}`;
+        const appleUrl = `https://maps.apple.com/${
+            isLngLat ? '?sll=' : '?daddr='
+        }`;
 
         // set up url components to build google maps url
-        const components = [
-            //casedLocationName,
-            line1,
-            //line2 || '',
-            city,
-            state,
-            zip,
-        ];
+        const components = [line1, city, state, zip];
 
         // figure out if lat/long combination or needs an address
-        const queryString = `${isLngLat ? `${latitude},${longitude}` : encodeURI(components.join(' '))}`;
+        const queryString = `${
+            isLngLat
+                ? `${latitude},${longitude}`
+                : encodeURI(components.join(' '))
+        }`;
 
-        return `${isAppleMobileDevice ? `${appleUrl}${queryString}` : `${googleUrl}${queryString}`}`;
+        return `${
+            isAppleMobileDevice
+                ? `${appleUrl}${queryString}`
+                : `${googleUrl}${queryString}`
+        }`;
     };
 
     return (
@@ -155,7 +162,7 @@ const LocationActions = ({ latitude, longitude, location, onMapItClick, isActive
 LocationActions.propTypes = {
     locations: PropTypes.array,
     latitude: PropTypes.number,
-    longitude: PropTypes.number
+    longitude: PropTypes.number,
 };
 
 export default LocationActions;

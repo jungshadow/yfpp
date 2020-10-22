@@ -33,7 +33,8 @@ const Map = ({ latitude, longitude, originAddress, destinationAddress }) => {
         // Add navigation control (the +/- zoom buttons)
 
         new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
-
+        let originInput = null;
+        let destinationInput = null;
         // unfortunately, we're going to have to grab references
         // to the directions inputs on the map because they only
         // seem to get populated with origin/destination strings
@@ -47,11 +48,11 @@ const Map = ({ latitude, longitude, originAddress, destinationAddress }) => {
 
         map.on('load', () => {
             directions.setOrigin(originAddress);
-            const originInput = document.querySelector(
+            originInput = document.querySelector(
                 '#mapbox-directions-origin-input input'
             );
 
-            const destinationInput = document.querySelector(
+            destinationInput = document.querySelector(
                 '#mapbox-directions-destination-input input'
             );
 
@@ -80,6 +81,8 @@ const Map = ({ latitude, longitude, originAddress, destinationAddress }) => {
             map = null;
             directions = null;
             navControl = null;
+            originInput = null;
+            destinationInput = null;
         };
     }, [originAddress, destinationAddress]); // eslint-disable-line react-hooks/exhaustive-deps
 
