@@ -8,8 +8,8 @@ import analytics from 'analytics';
 import helpers from 'helpers';
 import useWindowSize from 'hooks/useWindowSize';
 
-const LocationActions = ({ location, onMapItClick, isActive }) => {
-    const { state, locationName, city, zip, line1, line2 } = location;
+const LocationActions = ({ latitude, longitude, location, onMapItClick, isActive }) => {
+    const { state, locationName, city, zip, line1 } = location;
     const windowSize = useWindowSize();
 
     const isMobile = windowSize.width < 768;
@@ -24,10 +24,10 @@ const LocationActions = ({ location, onMapItClick, isActive }) => {
         const shareObj = {
             method: 'feed',
             link:
-                'http://yourfuckingpollingplace.com/?utm_source=facebook&utm_medium=social&utm_campaign=YFPP_2016_USER_' +
+                'https://yourfuckingpollingplace.com/?utm_source=facebook&utm_medium=social&utm_campaign=YFPP_2020_USER_' +
                 state,
             picture:
-                'http://yourfuckingpollingplace.com/web/images/social/social_2x.png',
+                'https://yourfuckingpollingplace.com/images/social/social_2x.png',
             name: 'I Vote At ' + locationName,
             caption: 'YourFuckingPollingPlace.com',
             description: `I vote at ${helpers.titlecase(
@@ -66,7 +66,7 @@ const LocationActions = ({ location, onMapItClick, isActive }) => {
         }
 
         const related = authorTwitter.join(',');
-        const url = encodeURI('http://yourfuckingpollingplace.com');
+        const url = encodeURI('https://yourfuckingpollingplace.com');
 
         const params = { text, url, related, via: 'fnpollingplace' };
         const tweetParams = helpers.buildQueryString(params);
@@ -76,28 +76,27 @@ const LocationActions = ({ location, onMapItClick, isActive }) => {
 
     const buildMap = () => {
         // set variable for correctly cased locationName
-        let casedLocationName = '';
-
-        // if locationName exists, make that shit title cased
-        if (locationName) {
-            casedLocationName = helpers.titlecase(locationName);
-        }
+        //let casedLocationName = '';
+        const UA = navigator.userAgent;
+        const isLngLat = !!(longitude && latitude);
+        const isAppleMobileDevice = /\b(iPad|iPhone|iPod)\b/.test(UA);
+        const googleUrl = 'https://www.google.com/maps/search/?api=1&query=';
+        const appleUrl = `https://maps.apple.com/${isLngLat ? '?sll=' : '?daddr='}`;
 
         // set up url components to build google maps url
         const components = [
-            casedLocationName,
+            //casedLocationName,
             line1,
-            line2 || '',
+            //line2 || '',
             city,
             state,
             zip,
         ];
 
-        // build google maps url from components array
-        const url =
-            'https://maps.google.com/maps?q=' + encodeURI(components.join(' '));
+        // figure out if lat/long combination or needs an address
+        const queryString = `${isLngLat ? `${latitude},${longitude}` : encodeURI(components.join(' '))}`;
 
-        return url;
+        return `${isAppleMobileDevice ? `${appleUrl}${queryString}` : `${googleUrl}${queryString}`}`;
     };
 
     return (
@@ -155,6 +154,8 @@ const LocationActions = ({ location, onMapItClick, isActive }) => {
 
 LocationActions.propTypes = {
     locations: PropTypes.array,
+    latitude: PropTypes.number,
+    longitude: PropTypes.number
 };
 
 export default LocationActions;
