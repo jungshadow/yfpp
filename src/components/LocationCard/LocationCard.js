@@ -117,9 +117,11 @@ const LocationCard = ({ data, locationType, slug }) => {
                         <Map
                             latitude={latitude}
                             longitude={longitude}
-                            originAddress={normalizedAddress}
-                            destinationAddress={Object.values(address).join(
-                                ' '
+                            originAddress={helpers.getAddressStringFromObject(
+                                normalizedAddress
+                            )}
+                            destinationAddress={helpers.getAddressStringFromObject(
+                                address
                             )}
                         />
                     </motion.div>

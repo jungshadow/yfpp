@@ -14,13 +14,6 @@ const Map = ({ latitude, longitude, originAddress, destinationAddress }) => {
 
     // Initialize map when component mounts
     useEffect(() => {
-        const map = new mapboxgl.Map({
-            container: mapContainerRef.current,
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [lng, lat],
-            zoom: zoom,
-        });
-
         let directions = new MapboxDirections({
             accessToken: mapboxgl.accessToken,
             geocoder: {
@@ -29,12 +22,24 @@ const Map = ({ latitude, longitude, originAddress, destinationAddress }) => {
             },
         });
 
+        let map = new mapboxgl.Map({
+            container: mapContainerRef.current,
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [lng, lat],
+            zoom: zoom,
+        });
+
+        let navControl = new mapboxgl.NavigationControl();
         // Add navigation control (the +/- zoom buttons)
-        map.addControl(new mapboxgl.NavigationControl(), 'top-right');
-        // Add directions
-        map.addControl(directions, 'top-left');
 
         new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
+
+        // unfortunately, we're going to have to grab references
+        // to the directions inputs on the map because they only
+        // seem to get populated with origin/destination strings
+        // one time on page load even though our Map component is mounting and unmounting
+        let originInput = null;
+        let destinationInput = null;
 
         map.on('move', () => {
             setLng(map.getCenter().lng.toFixed(4));
@@ -43,13 +48,44 @@ const Map = ({ latitude, longitude, originAddress, destinationAddress }) => {
         });
 
         map.on('load', () => {
-            directions.setOrigin(Object.values(originAddress).join(' '));
-            directions.setDestination(destinationAddress);
-        });
+            directions.setOrigin(originAddress);
+            const originInput = document.querySelector(
+                '#mapbox-directions-origin-input input'
+            );
 
+            const destinationInput = document.querySelector(
+                '#mapbox-directions-destination-input input'
+            );
+
+            directions.setDestination(destinationAddress);
+
+            // this is not ideal, but we need to wait and see if the
+            // directions inputs will get set by the setOrigin/setDestination
+            // calls, but if they don't we're gonna force that shit
+            setTimeout(() => {
+                if (!originInput.value) {
+                    originInput.value = originAddress;
+                }
+                if (!destinationInput.value) {
+                    destinationInput.value = destinationAddress;
+                }
+            }, 500);
+        });
+        map.addControl(navControl, 'top-right');
+        // Add directions
+        map.addControl(directions, 'top-left');
         // Clean up on unmount
-        return () => map.remove();
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+        return () => {
+            map.removeControl(navControl);
+            map.removeControl(directions);
+            map.remove();
+            map = null;
+            directions = null;
+            navControl = null;
+            originInput = null;
+            destinationInput = null;
+        };
+    }, [originAddress, destinationAddress]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return <div className="map" ref={mapContainerRef} />;
 };
