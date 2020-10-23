@@ -10,12 +10,6 @@ const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const baseClient = mbxClient({ accessToken: MBX_ACCESS_TOKEN });
 const geocodingService = mbxGeocoding(baseClient);
 
-/**
- * Autocomplete Form Component
- *
- * @class Autocomplete
- * @extends React.Component
- */
 class Autocomplete extends React.Component {
     constructor(props) {
         super(props);
@@ -81,6 +75,7 @@ class Autocomplete extends React.Component {
         this.setState({ dataSource: [] }, () => {
             this.logValue();
         });
+        this.props.onSubmit(null, this.state.dataSource[index].location);
     };
 
     handleInputKeyDown = event => {
@@ -94,8 +89,11 @@ class Autocomplete extends React.Component {
                 break;
 
             case 'Escape':
+                this.handleCloseAutoComplete();
+                break;
             case 'Enter':
                 this.handleCloseAutoComplete();
+                this.props.onSubmit(event);
                 break;
 
             default:

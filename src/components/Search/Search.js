@@ -25,41 +25,63 @@ function Search(props) {
     const [searchValue, setsearchValue] = useState('');
     const windowSize = useWindowSize();
 
-    const handleOnSearch = (val) => {
+    const handleOnSearch = val => {
         setsearchValue(val);
     };
 
-    const fetchData = async (e) => {
-        e.preventDefault();
-        const relevantElections = getRelevantElections(searchValue);
+    const fetchData = async (e, searchVal) => {
+        const searchQuery = searchVal ? searchVal : searchValue;
+        if (e) {
+            e.preventDefault();
+        }
+        const relevantElections = getRelevantElections(searchQuery);
         const electionId = getElectionId(relevantElections);
 
-        const requests = [getLocations(searchValue, electionId), getRepresentatives(searchValue)];
+        const requests = [
+            getLocations(searchQuery, electionId),
+            getRepresentatives(searchQuery),
+        ];
 
         let [locations, representatives] = await Promise.all(requests);
 
         // TODO let's maybe move this outta here into a function
         if (locations.error) {
             analytics.failure(locations.error);
-            dispatch({ type: 'SET_ERROR', error: { locations: locations.error } });
+            dispatch({
+                type: 'SET_ERROR',
+                error: { locations: locations.error },
+            });
         } else {
             analytics.success(locations);
-            dispatch({ type: 'UPDATE_SEARCH_RESULTS', data: { ...locations, relevantElections, searchQuery: searchValue } });
+            dispatch({
+                type: 'UPDATE_SEARCH_RESULTS',
+                data: {
+                    ...locations,
+                    relevantElections,
+                    searchQuery: searchQuery,
+                },
+            });
         }
 
         if (representatives.error) {
             analytics.failure(representatives.error);
-            dispatch({ type: 'SET_ERROR', error: { representatives: representatives.error } });
+            dispatch({
+                type: 'SET_ERROR',
+                error: { representatives: representatives.error },
+            });
         } else {
             analytics.success(representatives);
-            dispatch({ type: 'UPDATE_REPRESENTATIVES_RESULTS', data: representatives });
+            dispatch({
+                type: 'UPDATE_REPRESENTATIVES_RESULTS',
+                data: representatives,
+            });
         }
 
         console.log(locations, representatives);
         // this.showEasterEgg(searchValue);
     };
 
-    const getRelevantElections = (searchValue) => {
+    const getRelevantElections = searchValue => {
         if (!elections.length) {
             return;
         }
@@ -68,7 +90,7 @@ function Search(props) {
         let searchValueSegments = searchValue
             .replace(/,|[0-9]|United States/gi, '')
             .split(' ')
-            .filter((segment) => segment !== '')
+            .filter(segment => segment !== '')
             .slice(-2);
 
         // grabbing the last 2 items in this array since some states can have 2 words in their names
@@ -76,14 +98,27 @@ function Search(props) {
         // if the length is greater than 2 the input probably contains the full name of the state, not an abbreviation
         // so we need to look only at the values in our states map
         if (searchValueSegments[1] && searchValueSegments[1].length > 2) {
-            usersState = Object.values(statesMap).filter((state) => state.toLowerCase().includes(searchValueSegments[1].toLowerCase()));
+            usersState = Object.values(statesMap).filter(state =>
+                state
+                    .toLowerCase()
+                    .includes(searchValueSegments[1].toLowerCase())
+            );
             if (usersState && usersState.length > 1) {
-                usersState = Object.values(statesMap).filter((state) => state.toLowerCase().includes(`${searchValueSegments[0].toLowerCase()} ${searchValueSegments[1].toLowerCase()}`));
+                usersState = Object.values(statesMap).filter(state =>
+                    state
+                        .toLowerCase()
+                        .includes(
+                            `${searchValueSegments[0].toLowerCase()} ${searchValueSegments[1].toLowerCase()}`
+                        )
+                );
             }
-            usersState = Object.keys(statesMap).find((state) => {
+            usersState = Object.keys(statesMap).find(state => {
                 return statesMap[state] === usersState[0];
             });
-        } else if (searchValueSegments[1] && searchValueSegments[1].length === 2) {
+        } else if (
+            searchValueSegments[1] &&
+            searchValueSegments[1].length === 2
+        ) {
             usersState = searchValueSegments[1].toUpperCase();
         }
 
@@ -94,8 +129,10 @@ function Search(props) {
         // }
 
         // get rid of all elections that are not in this state and not national
-        const relevantElections = elections.filter((election) => {
-            const stateSegment = election.ocdDivisionId.split('/').find((segment) => segment.includes('state:'));
+        const relevantElections = elections.filter(election => {
+            const stateSegment = election.ocdDivisionId
+                .split('/')
+                .find(segment => segment.includes('state:'));
 
             // if there's no state segment, then this is a national election so return it
             if (!stateSegment) {
@@ -112,9 +149,11 @@ function Search(props) {
         return relevantElections;
     };
 
-    const getElectionId = (relevantElections) => {
+    const getElectionId = relevantElections => {
         if (relevantElections && relevantElections.length > 1) {
-            relevantElections.sort((a, b) => new Date(a.electionDay) - new Date(b.electionDay));
+            relevantElections.sort(
+                (a, b) => new Date(a.electionDay) - new Date(b.electionDay)
+            );
             return relevantElections[0].id;
         } else if (relevantElections && relevantElections.length === 1) {
             return relevantElections[0].id;
@@ -126,19 +165,33 @@ function Search(props) {
     };
 
     const getSearchClassName = () => {
-        return classnames({ searchForm: true, 'searchForm--hasSearchVal': isActive, 'searchForm--isClosed': !searchToggleIsOpen && isActive });
+        return classnames({
+            searchForm: true,
+            'searchForm--hasSearchVal': isActive,
+            'searchForm--isClosed': !searchToggleIsOpen && isActive,
+        });
     };
 
     const shouldShowSearchToggle = isActive && windowSize.width < 768;
 
     const setsearchToggleIsOpen = () => {
-        dispatch({ type: 'SET_SEARCH_TOGGLE_STATUS', status: !searchToggleIsOpen });
+        dispatch({
+            type: 'SET_SEARCH_TOGGLE_STATUS',
+            status: !searchToggleIsOpen,
+        });
     };
 
     return (
         <form className={getSearchClassName()} action="" onSubmit={fetchData}>
             <div className="searchForm__input">
-                <Autocomplete placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006" onSearch={handleOnSearch} onChange={errorRemove} value={searchValue} isActive={isActive} />
+                <Autocomplete
+                    placeholder="EG. 1600 Pennsylvania Ave NW, Washington, DC 20006"
+                    onSearch={handleOnSearch}
+                    onSubmit={fetchData}
+                    onChange={errorRemove}
+                    value={searchValue}
+                    isActive={isActive}
+                />
                 <button className="searchForm__submit" type="submit">
                     <span className="searchForm__text">Search</span>
                     <span className="searchForm__icon">
@@ -147,8 +200,14 @@ function Search(props) {
                 </button>
             </div>
             {shouldShowSearchToggle && (
-                <button type="button" className="searchForm__searchToggle" onClick={setsearchToggleIsOpen}>
-                    <span className="searchForm__icon">{searchToggleIsOpen ? <CloseIcon /> : <SearchIcon />}</span>
+                <button
+                    type="button"
+                    className="searchForm__searchToggle"
+                    onClick={setsearchToggleIsOpen}
+                >
+                    <span className="searchForm__icon">
+                        {searchToggleIsOpen ? <CloseIcon /> : <SearchIcon />}
+                    </span>
                 </button>
             )}
         </form>
