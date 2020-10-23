@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { debounce } from 'lodash';
 import classnames from 'classnames';
 import './autocomplete.scss';
+import useOutsideClick from 'hooks/useOutsideClick';
 
 const MBX_ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN;
 const mbxClient = require('@mapbox/mapbox-sdk');
@@ -10,35 +11,29 @@ const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const baseClient = mbxClient({ accessToken: MBX_ACCESS_TOKEN });
 const geocodingService = mbxGeocoding(baseClient);
 
-class Autocomplete extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            dataSource: [],
-        };
-        this.geocodingClient = {};
-        this.searchInputRef = React.createRef();
-        this.refsArray = [];
-    }
+const Autocomplete = ({ isActive, onSubmit, onSearch, placeholder, value }) => {
+    const [dataSource, setDataSource] = useState([]);
+    const refsArray = [];
+    const searchInputRef = React.createRef();
+    useOutsideClick(searchInputRef, handleCloseAutoComplete);
 
-    getAutoCompleteClassNames = () => {
+    const getAutoCompleteClassNames = () => {
         return classnames({
             autocomplete: true,
-            'autocomplete--hasSearchVal': this.props.isActive,
+            'autocomplete--hasSearchVal': isActive,
         });
     };
 
-    logValue() {
-        const { value } = this.state;
+    const logValue = () => {
         console.log(`Last value: ${value}`);
-    }
+    };
 
-    debouncedGetAutoCompleteAddresses = debounce(
-        async val => this.getAutoCompleteAddresses(val),
+    const debouncedGetAutoCompleteAddresses = debounce(
+        async val => getAutoCompleteAddresses(val),
         200
     );
 
-    getAutoCompleteAddresses = async value => {
+    const getAutoCompleteAddresses = async value => {
         const searchQuery = value;
         if (!searchQuery) {
             return;
@@ -61,39 +56,38 @@ class Autocomplete extends React.Component {
             };
         });
 
-        this.setState({ dataSource: matches });
+        setDataSource(matches);
     };
 
-    handleOnChange = e => {
+    const handleOnChange = e => {
         const val = e.target.value;
-        this.debouncedGetAutoCompleteAddresses(val);
-        this.props.onSearch(val);
+        debouncedGetAutoCompleteAddresses(val);
+        onSearch(val);
     };
 
-    handleSelectItem = index => {
-        this.props.onSearch(this.state.dataSource[index].location);
-        this.setState({ dataSource: [] }, () => {
-            this.logValue();
-        });
-        this.props.onSubmit(null, this.state.dataSource[index].location);
+    const handleSelectItem = index => {
+        onSearch(dataSource[index].location);
+        setDataSource([]);
+        logValue();
+        onSubmit(null, dataSource[index].location);
     };
 
-    handleInputKeyDown = event => {
-        if (!this.state.dataSource.length) {
+    const handleInputKeyDown = event => {
+        if (!dataSource.length) {
             return;
         }
         switch (event.key) {
             case 'ArrowDown':
                 event.preventDefault();
-                this.refsArray[0].focus();
+                refsArray[0].focus();
                 break;
 
             case 'Escape':
-                this.handleCloseAutoComplete();
+                handleCloseAutoComplete();
                 break;
             case 'Enter':
-                this.handleCloseAutoComplete();
-                this.props.onSubmit(event);
+                handleCloseAutoComplete();
+                onSubmit(event);
                 break;
 
             default:
@@ -101,11 +95,11 @@ class Autocomplete extends React.Component {
         }
     };
 
-    handleCloseAutoComplete = () => {
-        this.setState({ dataSource: [] });
-    };
+    function handleCloseAutoComplete() {
+        setDataSource([]);
+    }
 
-    handleActionKeyDown = (event, index, results) => {
+    const handleActionKeyDown = (event, index, results) => {
         event.preventDefault();
 
         switch (event.key) {
@@ -113,8 +107,8 @@ class Autocomplete extends React.Component {
                 {
                     const nextIndex =
                         index < results.length ? index + 1 : index;
-                    if (this.refsArray[nextIndex]) {
-                        this.refsArray[nextIndex].focus();
+                    if (refsArray[nextIndex]) {
+                        refsArray[nextIndex].focus();
                     }
                 }
                 break;
@@ -122,28 +116,28 @@ class Autocomplete extends React.Component {
             case 'ArrowUp':
                 {
                     const nextIndex = index > 0 ? index - 1 : index;
-                    if (this.refsArray[nextIndex]) {
-                        this.refsArray[nextIndex].focus();
+                    if (refsArray[nextIndex]) {
+                        refsArray[nextIndex].focus();
                     }
                 }
                 break;
 
             case 'Enter':
-                this.handleSelectItem(index);
-                this.handleCloseAutoComplete();
-                this.searchInputRef.current.focus();
+                handleSelectItem(index);
+                handleCloseAutoComplete();
+                searchInputRef.current.focus();
                 break;
 
             case 'Escape':
-                this.handleCloseAutoComplete();
+                handleCloseAutoComplete();
                 break;
 
             default:
-                this.searchInputRef.current.focus();
+                searchInputRef.current.focus();
         }
     };
 
-    getHighlightedMatches = locationData => {
+    const getHighlightedMatches = locationData => {
         const { location, query } = locationData;
         const term = new RegExp(query.join('|'), 'gi');
         const newStr = location.replace(
@@ -154,56 +148,48 @@ class Autocomplete extends React.Component {
         return { __html: newStr };
     };
 
-    render() {
-        const { dataSource } = this.state;
+    return (
+        <div className={getAutoCompleteClassNames()}>
+            <input
+                className="autocomplete__input"
+                id="searchFormInput"
+                name="searchFormInput"
+                onChange={handleOnChange}
+                // onBlur={handleCloseAutoComplete}
+                onKeyDown={handleInputKeyDown}
+                placeholder={placeholder}
+                ref={searchInputRef}
+                type="search"
+                value={value}
+            />
 
-        return (
-            <div className={this.getAutoCompleteClassNames()}>
-                <input
-                    className="autocomplete__input"
-                    id="searchFormInput"
-                    name="searchFormInput"
-                    onChange={this.handleOnChange}
-                    // onBlur={this.handleCloseAutoComplete}
-                    onKeyDown={this.handleInputKeyDown}
-                    placeholder={this.props.placeholder}
-                    ref={this.searchInputRef}
-                    type="search"
-                    value={this.props.value}
-                />
-
-                {dataSource.length > 0 && (
-                    <ul className="autocomplete__list">
-                        {dataSource.map((item, index, results) => (
-                            <li
-                                key={`autocomplete${index}`}
-                                className="autocomplete__listItem"
-                            >
-                                <button
-                                    className="autocomplete__action"
-                                    dangerouslySetInnerHTML={this.getHighlightedMatches(
-                                        item
-                                    )}
-                                    id={`autocomplete${index}`}
-                                    onClick={() => this.handleSelectItem(index)}
-                                    onKeyDown={e =>
-                                        this.handleActionKeyDown(
-                                            e,
-                                            index,
-                                            results
-                                        )
-                                    }
-                                    ref={ref => (this.refsArray[index] = ref)}
-                                    type="button"
-                                ></button>
-                            </li>
-                        ))}
-                    </ul>
-                )}
-            </div>
-        );
-    }
-}
+            {dataSource.length > 0 && (
+                <ul className="autocomplete__list">
+                    {dataSource.map((item, index, results) => (
+                        <li
+                            key={`autocomplete${index}`}
+                            className="autocomplete__listItem"
+                        >
+                            <button
+                                className="autocomplete__action"
+                                dangerouslySetInnerHTML={getHighlightedMatches(
+                                    item
+                                )}
+                                id={`autocomplete${index}`}
+                                onClick={() => handleSelectItem(index)}
+                                onKeyDown={e =>
+                                    handleActionKeyDown(e, index, results)
+                                }
+                                ref={ref => (refsArray[index] = ref)}
+                                type="button"
+                            ></button>
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
+    );
+};
 
 Autocomplete.propTypes = {
     placeholder: PropTypes.string.isRequired,
