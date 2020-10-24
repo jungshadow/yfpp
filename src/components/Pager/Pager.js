@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './pager.scss';
 import { motion } from 'framer-motion';
 
-const PAGER_OFFSET = 5;
+const PAGER_OFFSET = 3;
 const Pager = props => {
     const [pageIndex, setPageIndex] = useState(1);
 
