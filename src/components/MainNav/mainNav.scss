@@ -66,14 +66,13 @@
 }
 
 @include breakpoint(md) {
-
     .mainNav__listItemIcon {
         margin-right: 24px;
     }
 
     .mainNav__list {
         display: block;
-        overflow: auto;
+        overflow: initial;
     }
 
     .mainNav__listItem + .mainNav__listItem {
