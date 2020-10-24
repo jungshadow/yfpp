@@ -5,22 +5,21 @@ import PropTypes from 'prop-types';
 import CandidateCard from 'components/CandidateCard/CandidateCard';
 import ReferendumCard from 'components/ReferendumCard/ReferendumCard';
 
-/**
- * Contest Results Component
- *
- * @class PollingPlaceResults
- * @extends React.Component
- */
-
-function ContestResults(props) {
-    const getResults = (contest) => {
-        return contest.type === 'Referendum' ? <ReferendumCard contest={contest} /> : <CandidateCard contest={contest} />;
+function ContestResults({ data }) {
+    if (!data && !data.length) {
+        return null;
+    }
+    const getResults = data => {
+        return data.type === 'Referendum' ? (
+            <ReferendumCard contest={data} />
+        ) : (
+            <CandidateCard contest={data} />
+        );
     };
 
-    return <li className={'results_contest ' + props.contest.primaryParty}>{getResults(props.contest)}</li>;
+    return <>{getResults(data)}</>;
 }
 
-// set up propType validation
 ContestResults.propTypes = {
     currentContest: PropTypes.object,
     filterBy: PropTypes.string,
