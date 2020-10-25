@@ -1,0 +1,44 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.tabsNavLink {
+    display: flex;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    justify-content: center;
+    color: darken($COLOR_PRIMARY, 10);
+    background: lighten($COLOR_PRIMARY, 10);
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.tabsNavLink--isActive {
+    color: $WHITE;
+    background: darken($COLOR_PRIMARY, 10);
+
+    .tabsNavLink__icon {
+        transform: rotate(90deg);
+        transform-origin: center;
+    }
+}
+
+@include breakpoint(md) {
+    .tabsNavLink:not(.tabsNavLink--isActive) {
+        &:hover,
+        &:focus {
+            background: darken($COLOR_PRIMARY, 15);
+            color: $BLUE;
+        }
+    }
+}
+
+.tabsNavLink__icon {
+    transition: transform 0.35s ease-in-out;
+
+    svg {
+        display: block;
+        fill: #cccccc;
+    }
+}

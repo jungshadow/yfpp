@@ -1,0 +1,33 @@
+@import './_tabsNavLink.scss';
+
+.tabs__nav {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 20px;
+    list-style: none;
+}
+.tabs__nav > *:first-of-type a {
+    border-radius: 8px 0 0 8px;
+}
+
+.tabs__nav > *:last-of-type a {
+    border-radius: 0 8px 8px 0;
+}
+
+.tabs__panels {
+}
+
+.tabs__panel {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.tabs__panel--isActive {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+}
+
+.tabs__panelContent {
+}

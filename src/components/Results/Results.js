@@ -11,6 +11,8 @@ import BallotResults from 'components/BallotResults/BallotResults';
 import ResultsErrorBoundry from 'components/ResultsErrorBoundry/ResultsErrorBoundry';
 import ElectionSelect from 'components/ElectionSelect/ElectionSelect';
 import ResultMessage from 'components/ResultMessage/ResultMessage';
+import Tabs from 'components/Tabs/Tabs';
+import TabPanel from 'components/Tabs/TabPanel';
 
 function Results() {
     const {
@@ -69,8 +71,18 @@ function Results() {
                                 </p>
                             </ResultMessage>
                             <ElectionSelect />
-                            <EarlyVoteResults locations={earlyVoteSites} />
-                            <PollingPlaceResults locations={pollingLocations} />
+                            <Tabs>
+                                <TabPanel label="Early Voting Sites">
+                                    <EarlyVoteResults
+                                        locations={earlyVoteSites}
+                                    />
+                                </TabPanel>
+                                <TabPanel label="Polling Locations">
+                                    <PollingPlaceResults
+                                        locations={pollingLocations}
+                                    />
+                                </TabPanel>
+                            </Tabs>
                         </ResultsErrorBoundry>
                     </motion.div>
                 </Route>
