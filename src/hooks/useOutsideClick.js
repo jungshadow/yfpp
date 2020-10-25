@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 
 const useOutsideClick = (ref, callback) => {
-    const handleClick = (e) => {
+    const handleClick = e => {
         if (ref.current && !ref.current.contains(e.target)) {
             callback(ref, 'click');
         }
     };
 
-    const handleEscKey = (e) => {
+    const handleEscKey = e => {
         if (e.key === 'Escape') {
             callback(ref, 'esc');
         }
@@ -15,12 +15,10 @@ const useOutsideClick = (ref, callback) => {
 
     useEffect(() => {
         document.addEventListener('click', handleClick);
-        document.addEventListener('touchstart', handleClick);
         document.addEventListener('keydown', handleEscKey);
 
         return () => {
             document.removeEventListener('click', handleClick);
-            document.removeEventListener('touchstart', handleClick);
             document.removeEventListener('keydown', handleEscKey);
         };
     });
