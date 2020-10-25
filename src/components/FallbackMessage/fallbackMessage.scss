@@ -1,0 +1,12 @@
+@import 'scss/helpers/_globalVars';
+@import 'scss/helpers/_mixins';
+
+.fallbackMessage {
+    color: $WHITE;
+}
+
+@include breakpoint(md) {
+    .fallbackMessage {
+        color: $BLACK;
+    }
+}

@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import KitchenSink from 'components/KitchenSink/KitchenSink';
+import './fallbackMessage.scss';
 
-const FallbackMessage = ({message}) => {
-    return <div className="fallbackMessage">{message}</div>;
+const FallbackMessage = ({ message }) => {
+    return (
+        <div className="fallbackMessage">
+            <KitchenSink>{message}</KitchenSink>
+        </div>
+    );
 };
 
-FallbackMessage.propTypes = {message: PropTypes.string};
+FallbackMessage.propTypes = { message: PropTypes.string };
 
 export default FallbackMessage;
