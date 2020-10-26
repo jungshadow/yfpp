@@ -3,7 +3,7 @@
 
 .tabsNavLink {
     display: flex;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: bold;
     text-transform: uppercase;
     justify-content: center;
@@ -25,6 +25,10 @@
 }
 
 @include breakpoint(md) {
+    .tabsNavLink {
+        font-size: 16px;
+    }
+
     .tabsNavLink:not(.tabsNavLink--isActive) {
         &:hover,
         &:focus {

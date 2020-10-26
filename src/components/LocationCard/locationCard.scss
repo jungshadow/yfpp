@@ -82,6 +82,17 @@
     color: $BLACK;
 }
 
+.locationCard__hoursList {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    font-size: 12px;
+}
+
+.locationCard__hoursListItem {
+    width: 50%;
+}
+
 .locationCard__map {
     position: relative;
     width: 100%;
@@ -95,6 +106,10 @@
 @include breakpoint(md) {
     .locationCard {
         padding: 36px 48px 40px;
+    }
+
+    .locationCard__hoursList {
+        font-size: 16px;
     }
 }
 

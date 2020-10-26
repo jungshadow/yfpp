@@ -13,6 +13,7 @@ import { CloseIcon } from 'components/Icons';
 import { motion } from 'framer-motion';
 import useOutsideClick from 'hooks/useOutsideClick';
 import { AppContext } from 'appReducer';
+import { camelCase } from 'lodash';
 
 const LocationCard = ({ data, locationType, slug }) => {
     const {
@@ -49,11 +50,11 @@ const LocationCard = ({ data, locationType, slug }) => {
         }
     };
 
-    const handleMapItClick = async e => {
+    const handleMapItClick = async () => {
         setIsActive(true);
     };
 
-    function handleCloseMap(e) {
+    function handleCloseMap() {
         setIsActive(false);
     }
 
@@ -63,6 +64,22 @@ const LocationCard = ({ data, locationType, slug }) => {
             'locationCard--isActive': isActive,
             'locationCard--isSlug': slug,
         });
+    }
+
+    function parsePollingHours(hours) {
+        const hoursArray = hours.split('\n');
+        return (
+            <ul className="locationCard__hoursList">
+                {hoursArray.map((hours, index) => (
+                    <li
+                        key={`${camelCase(hours)}_${index}`}
+                        className="locationCard__hoursListItem"
+                    >
+                        {hours}
+                    </li>
+                ))}
+            </ul>
+        );
     }
 
     return (
@@ -109,7 +126,8 @@ const LocationCard = ({ data, locationType, slug }) => {
                     </motion.div>
 
                     <motion.div className="locationCard__hours" layout>
-                        <strong>Polling Hours:</strong> {pollingHours}
+                        <strong>Polling Hours:</strong>
+                        {parsePollingHours(pollingHours)}
                     </motion.div>
                 </div>
                 {isActive && (
