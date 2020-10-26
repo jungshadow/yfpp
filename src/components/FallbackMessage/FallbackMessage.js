@@ -11,6 +11,8 @@ const FallbackMessage = ({ message }) => {
     );
 };
 
-FallbackMessage.propTypes = { message: PropTypes.string };
+FallbackMessage.propTypes = {
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+};
 
 export default FallbackMessage;

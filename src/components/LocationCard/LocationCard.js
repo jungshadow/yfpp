@@ -66,7 +66,7 @@ const LocationCard = ({ data, locationType, slug }) => {
         });
     }
 
-    function parsePollingHours(hours) {
+    function parsePollingHours(hours = '') {
         const hoursArray = hours.split('\n');
         return (
             <ul className="locationCard__hoursList">
