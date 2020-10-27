@@ -5,9 +5,6 @@
     position: relative;
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
     width: 100%;
     cursor: pointer;
@@ -26,8 +23,7 @@
     border-radius: 150px;
     overflow: hidden;
     border: 6px solid $PLUM_DARK;
-    margin-bottom: 10px;
-    flex: 1 0 auto;
+    margin: 0 auto 10px;
 }
 
 .bio__social {
@@ -59,6 +55,9 @@
 }
 
 .bio--isActive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 350px;
     height: auto;
     max-height: 95%;
@@ -89,6 +88,7 @@
     }
 
     .bio__img {
+        flex: 1 0 auto;
         align-self: center;
         border-color: $PLUM;
     }
