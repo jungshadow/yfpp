@@ -1,6 +1,6 @@
-import useQuery from 'hooks/useQuery';
+//import useQuery from 'hooks/useQuery';
 // global helper functions
-const isDevelopmentMode = useQuery().get('development');
+const isDevelopmentMode = false;//useQuery().get('development');
 const API_DEV_VOTER_INFO_URL =
     process.env.PUBLIC_URL + process.env.REACT_APP_API_DEV_VOTER_INFO_URL;
 const API_DEV_REPRESENTATIVES_URL =

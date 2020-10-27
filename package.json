@@ -46,19 +46,19 @@
         "@mapbox/mapbox-gl-directions": "^4.1.0",
         "@mapbox/mapbox-sdk": "^0.11.0",
         "classnames": "^2.2.6",
-        "framer-motion": "^2.7.8",
+        "framer-motion": "^2.9.4",
         "fs": "0.0.1-security",
         "hammerjs": "^2.0.8",
         "jquery": "^3.5.1",
         "lodash": "^4.17.20",
         "mapbox-gl": "^1.12.0",
-        "moment": "^2.27.0",
+        "moment": "^2.29.1",
         "node-sass": "^4.14.1",
-        "react": "^16.13.1",
+        "react": "^16.14.0",
         "react-addons-css-transition-group": "^15.6.2",
-        "react-dom": "^16.13.1",
+        "react-dom": "^16.14.0",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "3.4.3"
+        "react-scripts": "4.0.0"
     },
     "resolutions": {
         "**/**/node-gyp": "5.0.0"
@@ -72,7 +72,7 @@
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
-        "extends": "react-app, prettier"
+        "extends": ["react-app", "prettier"]
     },
     "browserslist": [
         ">0.2%",
@@ -81,13 +81,13 @@
         "not op_mini all"
     ],
     "devDependencies": {
-        "ajv": "^6.12.3",
-        "eslint-config-prettier": "^6.11.0",
-        "eslint-plugin-import": "^2.22.0",
-        "eslint-plugin-jsx-a11y": "^6.3.1",
+        "ajv": "^6.12.6",
+        "eslint-config-prettier": "^6.14.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
         "eslint-plugin-prettier": "^3.1.4",
-        "eslint-plugin-react": "^7.20.6",
-        "gh-pages": "^2.2.0",
+        "eslint-plugin-react": "^7.21.5",
+        "gh-pages": "^3.1.0",
         "prettier": "^1.19.1"
     }
 }
