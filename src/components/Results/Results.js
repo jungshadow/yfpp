@@ -72,16 +72,20 @@ function Results() {
                             </ResultMessage>
                             <ElectionSelect />
                             <Tabs>
-                                <TabPanel label="Early Voting Sites">
-                                    <EarlyVoteResults
-                                        locations={earlyVoteSites}
-                                    />
-                                </TabPanel>
-                                <TabPanel label="Polling Locations">
-                                    <PollingPlaceResults
-                                        locations={pollingLocations}
-                                    />
-                                </TabPanel>
+                                {earlyVoteSites && earlyVoteSites.length && (
+                                    <TabPanel label="Early Voting Sites">
+                                        <EarlyVoteResults
+                                            locations={earlyVoteSites}
+                                        />
+                                    </TabPanel>
+                                )}
+                                {pollingLocations && pollingLocations.length && (
+                                    <TabPanel label="Polling Locations">
+                                        <PollingPlaceResults
+                                            locations={pollingLocations}
+                                        />
+                                    </TabPanel>
+                                )}
                             </Tabs>
                         </ResultsErrorBoundry>
                     </motion.div>
