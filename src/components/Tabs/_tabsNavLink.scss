@@ -5,18 +5,18 @@
     display: flex;
     font-size: 13px;
     font-weight: bold;
-    text-transform: uppercase;
+    font-family: $FONT_HEADLINE ;
     justify-content: center;
-    color: darken($COLOR_PRIMARY, 10);
-    background: lighten($COLOR_PRIMARY, 10);
+    color: $GREY_MEDIUM;
+    background: darken($PLUM, 5);
     padding: 10px 20px;
     cursor: pointer;
     text-decoration: none;
 }
 
 .tabsNavLink--isActive {
-    color: $WHITE;
-    background: darken($COLOR_PRIMARY, 10);
+    color: $PLUM;
+    background: darken($PLUM_LIGHT, 3);
 
     .tabsNavLink__icon {
         transform: rotate(90deg);
@@ -27,13 +27,19 @@
 @include breakpoint(md) {
     .tabsNavLink {
         font-size: 16px;
+        color: $GREY_MEDIUM;
+        background: #F2f2f2;
     }
 
+    .tabsNavLink--isActive {
+        color: $PLUM;
+        background: $WHITE;
+    }
     .tabsNavLink:not(.tabsNavLink--isActive) {
         &:hover,
         &:focus {
-            background: darken($COLOR_PRIMARY, 15);
-            color: $BLUE;
+            background: darken($GREY_LIGHT, 1%);
+            color: $PLUM;
         }
     }
 }

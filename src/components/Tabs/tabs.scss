@@ -3,16 +3,40 @@
 .tabs__nav {
     display: flex;
     justify-content: center;
+    align-items: stretch;
     padding: 0;
     margin-bottom: 20px;
     list-style: none;
+
 }
+
+.tabs__nav li {
+    width:50%;
+}
+
 .tabs__nav > *:first-of-type a {
     border-radius: 8px 0 0 8px;
+    border: 2px solid darken($PLUM_DARK, 5);
+    border-width: 2px 0 2px 2px;
 }
 
 .tabs__nav > *:last-of-type a {
     border-radius: 0 8px 8px 0;
+    border: 2px solid darken($PLUM_DARK, 5);
+    border-width: 2px 2px 2px 0;
+}
+
+@include breakpoint(md) {
+
+    .tabs__nav > *:first-of-type a {
+        border: 2px solid $GREY_LIGHT;
+        border-width: 2px 0 2px 2px;
+    }
+    .tabs__nav > *:last-of-type a {
+        border-radius: 0 8px 8px 0;
+        border: 2px solid $GREY_LIGHT;
+        border-width: 2px 2px 2px 0;
+    }
 }
 
 .tabs__panels {

@@ -89,9 +89,10 @@
     }
 
     .site__secondary {
-        padding: 26px 22px;
+        padding: 26px 22px 10px 22px;
         background-color: $COLOR_PRIMARY;
         border-top: 1px solid transparentize($WHITE, 0.89);
+        
     }
 
     .site__social {
