@@ -86,7 +86,7 @@ const LocationActions = ({
         const isAppleMobileDevice = /\b(iPad|iPhone|iPod)\b/.test(UA);
         const googleUrl = 'https://www.google.com/maps/search/?api=1&query=';
         const appleUrl = `https://maps.apple.com/${
-            isLngLat ? '?sll=' : '?daddr='
+            isLngLat ? '?ll=' : '?daddr='
         }`;
 
         // set up url components to build google maps url
@@ -101,7 +101,11 @@ const LocationActions = ({
 
         return `${
             isAppleMobileDevice
-                ? `${appleUrl}${queryString}`
+                ? `${appleUrl}${queryString}&z=20&q=${
+                    !!locationName ? `${encodeURI(
+                        helpers.titlecase(
+                            helpers.fucktify(locationName)
+                        ))}` : 'This fucking place'}`
                 : `${googleUrl}${queryString}`
         }`;
     };
