@@ -140,7 +140,7 @@ function Search(props) {
             }
             const electionState = stateSegment.split(':')[1];
 
-            if (electionState === usersState.toLowerCase()) {
+            if (usersState && electionState === usersState.toLowerCase()) {
                 return true;
             }
             return false;
