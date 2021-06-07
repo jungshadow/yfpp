@@ -34,15 +34,13 @@ function Search(props) {
         if (e) {
             e.preventDefault();
         }
-        const relevantElections = getRelevantElections(searchQuery);
+
+        let representatives = await getRepresentatives(searchQuery);
+
+        const relevantElections = getRelevantElections(representatives);
         const electionId = getElectionId(relevantElections);
 
-        const requests = [
-            getLocations(searchQuery, electionId),
-            getRepresentatives(searchQuery),
-        ];
-
-        let [locations, representatives] = await Promise.all(requests);
+        let locations = await getLocations(searchQuery, electionId);
 
         // TODO let's maybe move this outta here into a function
         if (locations.error) {
@@ -81,46 +79,12 @@ function Search(props) {
         // this.showEasterEgg(searchValue);
     };
 
-    const getRelevantElections = searchValue => {
+    const getRelevantElections = representatives => {
         if (!elections.length) {
             return;
         }
-        let usersState = null;
-        // this is pretty gross, but it's parsing the search string and trying to determine the state
-        let searchValueSegments = searchValue
-            .replace(/,|[0-9]|United States/gi, '')
-            .split(' ')
-            .filter(segment => segment !== '')
-            .slice(-2);
 
-        // grabbing the last 2 items in this array since some states can have 2 words in their names
-        // first we'll check the last word to see if it matches anything
-        // if the length is greater than 2 the input probably contains the full name of the state, not an abbreviation
-        // so we need to look only at the values in our states map
-        if (searchValueSegments[1] && searchValueSegments[1].length > 2) {
-            usersState = Object.values(statesMap).filter(state =>
-                state
-                    .toLowerCase()
-                    .includes(searchValueSegments[1].toLowerCase())
-            );
-            if (usersState && usersState.length > 1) {
-                usersState = Object.values(statesMap).filter(state =>
-                    state
-                        .toLowerCase()
-                        .includes(
-                            `${searchValueSegments[0].toLowerCase()} ${searchValueSegments[1].toLowerCase()}`
-                        )
-                );
-            }
-            usersState = Object.keys(statesMap).find(state => {
-                return statesMap[state] === usersState[0];
-            });
-        } else if (
-            searchValueSegments[1] &&
-            searchValueSegments[1].length === 2
-        ) {
-            usersState = searchValueSegments[1].toUpperCase();
-        }
+        const usersState = representatives.normalizedInput.state;
 
         // once we have the user's state figured out, we need to check the current elections and see if there's anything specific to their state in there
 
