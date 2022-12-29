@@ -43,7 +43,7 @@
         "url": "https://github.com/jungshadow/yfpp/issues"
     },
     "dependencies": {
-        "@mapbox/mapbox-gl-directions": "^4.1.0",
+        "@mapbox/mapbox-gl-directions": "^4.1.1",
         "@mapbox/mapbox-sdk": "^0.11.0",
         "classnames": "^2.2.6",
         "framer-motion": "^2.9.4",
@@ -58,7 +58,7 @@
         "react-addons-css-transition-group": "^15.6.2",
         "react-dom": "^16.14.0",
         "react-router-dom": "^5.2.0",
-        "react-scripts": "4.0.0"
+        "react-scripts": "5.0.1"
     },
     "resolutions": {
         "**/**/node-gyp": "5.0.0"
