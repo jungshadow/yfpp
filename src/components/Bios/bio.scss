@@ -2,7 +2,11 @@
 @import 'scss/helpers/_mixins';
 
 .bio {
+    --bio-image-size: 130px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100%;
     width: 100%;
     text-align: center;
@@ -17,10 +21,23 @@
     }
 }
 
+.bios--legacyMembers {
+    .bio {
+        pointer-events: none;
+
+    }
+}
+
+.bio__legacyText {
+    margin-top: 20px;
+    font-size: 20px;
+    max-width: 643px;
+}
+
 .bio__img {
-    height: 150px;
-    width: 150px;
-    border-radius: 150px;
+    height: auto;
+    width: var(--bio-image-size);
+    border-radius: 100%;
     overflow: hidden;
     border: 6px solid $PLUM_DARK;
     margin: 0 auto 10px;
@@ -30,6 +47,9 @@
     padding: 0 40px;
     margin-top: 10px;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bio__name {
@@ -55,15 +75,16 @@
 }
 
 .bio--isActive {
+    --bio-width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 350px;
+    max-width: var(--bio-width);
     height: auto;
     max-height: 95%;
     top: 0;
     padding: 40px 0;
-    left: calc(50% - 175px);
+    left: calc(50% - calc(var(--bio-width) / 2));
     right: 0;
     position: fixed;
     z-index: 1;
@@ -170,11 +191,8 @@
 
 @include breakpoint(md) {
     .bio__img {
-        height: 120px;
-        width: 120px;
-        border-radius: 120px;
+        --bio-image-size: 100px;
     }
-
     .bio--isActive {
         width: 450px;
         height: auto;
@@ -185,8 +203,6 @@
 
 @include breakpoint(lg) {
     .bio__img {
-        height: 180px;
-        width: 180px;
-        border-radius: 180px;
+        --bio-image-size: 130px;
     }
 }
