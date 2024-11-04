@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.175b6c2a.chunk.css",
-    "main.js": "/static/js/main.d53533e2.chunk.js",
-    "main.js.map": "/static/js/main.d53533e2.chunk.js.map",
+    "main.css": "/static/css/main.4010d1ea.chunk.css",
+    "main.js": "/static/js/main.7d966c6b.chunk.js",
+    "main.js.map": "/static/js/main.7d966c6b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d11892f9.js",
     "runtime-main.js.map": "/static/js/runtime-main.d11892f9.js.map",
-    "static/js/2.2c0b7931.chunk.js": "/static/js/2.2c0b7931.chunk.js",
-    "static/js/2.2c0b7931.chunk.js.map": "/static/js/2.2c0b7931.chunk.js.map",
+    "static/js/2.8710d022.chunk.js": "/static/js/2.8710d022.chunk.js",
+    "static/js/2.8710d022.chunk.js.map": "/static/js/2.8710d022.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.175b6c2a.chunk.css.map": "/static/css/main.175b6c2a.chunk.css.map",
-    "static/js/2.2c0b7931.chunk.js.LICENSE.txt": "/static/js/2.2c0b7931.chunk.js.LICENSE.txt",
+    "static/css/main.4010d1ea.chunk.css.map": "/static/css/main.4010d1ea.chunk.css.map",
+    "static/js/2.8710d022.chunk.js.LICENSE.txt": "/static/js/2.8710d022.chunk.js.LICENSE.txt",
     "static/media/electionSelect.scss": "/static/media/chevron-down.5c24ce18.svg",
+    "static/media/bios.scss": "/static/media/heart.1c876c59.svg",
     "static/media/iFuckingVotedSticker.9cc4fa7a.png": "/static/media/iFuckingVotedSticker.9cc4fa7a.png"
   },
   "entrypoints": [
     "static/js/runtime-main.d11892f9.js",
-    "static/js/2.2c0b7931.chunk.js",
-    "static/css/main.175b6c2a.chunk.css",
-    "static/js/main.d53533e2.chunk.js"
+    "static/js/2.8710d022.chunk.js",
+    "static/css/main.4010d1ea.chunk.css",
+    "static/js/main.7d966c6b.chunk.js"
   ]
 }
