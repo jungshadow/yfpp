@@ -85,12 +85,13 @@
 .locationCard__hoursList {
     display: flex;
     width: 100%;
+    gap: 8px;
     flex-wrap: wrap;
     font-size: 12px;
 }
 
 .locationCard__hoursListItem {
-    width: 50%;
+    width: 100%;
 }
 
 .locationCard__map {

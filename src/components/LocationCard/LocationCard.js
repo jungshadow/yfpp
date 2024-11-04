@@ -68,9 +68,24 @@ const LocationCard = ({ data, locationType, slug }) => {
 
     function parsePollingHours(hours = '') {
         const hoursArray = hours.split('\n');
+        const currentDate = moment().startOf('day');
+
+        const futureHours = hoursArray.filter(hourString => {
+            // Extract date string (e.g., "Mon, Sep 23")
+            const [datePart] = hourString.split(':');
+            // Remove day of week for more reliable parsing
+            const dateStr = datePart.split(', ')[1];
+            const date = moment(dateStr, 'MMM D');
+
+            // Set year since the date string doesn't include it
+            date.year(currentDate.year());
+
+            return date.isSameOrAfter(currentDate);
+        });
+
         return (
             <ul className="locationCard__hoursList">
-                {hoursArray.map((hours, index) => (
+                {futureHours.map((hours, index) => (
                     <li
                         key={`${camelCase(hours)}_${index}`}
                         className="locationCard__hoursListItem"
