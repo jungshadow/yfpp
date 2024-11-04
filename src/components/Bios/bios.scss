@@ -13,6 +13,7 @@ $BIOS_COUNT: 6;
 .bios--legacyMembers {
     margin-top: 40px;
 
+
     &::before {
         content: '';
         display: block;
@@ -35,6 +36,10 @@ $BIOS_COUNT: 6;
         flex: 1;
         margin-bottom: 15px;
         max-width: none;
+    }
+
+    .bio__img {
+        --bio-image-size: 145px
     }
 
 
