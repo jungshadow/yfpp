@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { debounce } from 'lodash';
 import classnames from 'classnames';
 import './autocomplete.scss';
 import useOutsideClick from 'hooks/useOutsideClick';
+import mbxClient from '@mapbox/mapbox-sdk';
+import mbxGeocoding from '@mapbox/mapbox-sdk/services/geocoding';
 
-const MBX_ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN;
-const mbxClient = require('@mapbox/mapbox-sdk');
-const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
+const MBX_ACCESS_TOKEN = import.meta.env.VITE_MAPBOX_API_ACCESS_TOKEN;
 const baseClient = mbxClient({ accessToken: MBX_ACCESS_TOKEN });
 const geocodingService = mbxGeocoding(baseClient);
 
@@ -16,6 +15,7 @@ const Autocomplete = ({ isActive, onSubmit, onSearch, placeholder, value }) => {
     const refsArray = [];
     const searchInputRef = React.createRef();
     useOutsideClick(searchInputRef, handleCloseAutoComplete);
+    const debounceRef = useRef(null);
 
     const getAutoCompleteClassNames = () => {
         return classnames({
@@ -28,10 +28,10 @@ const Autocomplete = ({ isActive, onSubmit, onSearch, placeholder, value }) => {
         console.log(`Last value: ${value}`);
     };
 
-    const debouncedGetAutoCompleteAddresses = debounce(
-        async val => getAutoCompleteAddresses(val),
-        200
-    );
+    const debouncedGetAutoCompleteAddresses = useCallback((val) => {
+        if (debounceRef.current) clearTimeout(debounceRef.current);
+        debounceRef.current = setTimeout(() => getAutoCompleteAddresses(val), 200);
+    }, []);
 
     const getAutoCompleteAddresses = async value => {
         const searchQuery = value;

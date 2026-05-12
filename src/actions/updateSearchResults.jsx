@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { isAfter, startOfDay } from 'date-fns';
 
 export default function updateSearchResults(state, action) {
     const {data} = action;
@@ -53,7 +53,7 @@ export default function updateSearchResults(state, action) {
     // about being closed
     var i = earlyVoteSites.length;
     while (i--) {
-        if (!earlyVoteSites[i].endDate || moment().isAfter(moment(earlyVoteSites[i].endDate), 'day')) {
+        if (!earlyVoteSites[i].endDate || isAfter(startOfDay(new Date()), startOfDay(new Date(earlyVoteSites[i].endDate)))) {
             earlyVoteSites.splice(i, 1);
         }
     }

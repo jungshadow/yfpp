@@ -21,11 +21,16 @@ function useElections(dispatch) {
                     }
                 });
 
+                if (!response.ok) {
+                    console.error('Elections API returned', response.status);
+                    return;
+                }
+
                 response = await response.json();
 
                 dispatch({
                     type: 'UPDATE_ELECTION_RESULTS',
-                    elections: response.elections
+                    elections: response.elections || []
                 });
             } catch (error) {
                 console.error('error in get Elections call:', error);

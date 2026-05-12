@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext } from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import { format } from 'date-fns';
 import classnames from 'classnames';
 
 import helpers from 'helpers';
@@ -13,7 +13,6 @@ import { CloseIcon } from 'components/Icons';
 import { motion } from 'framer-motion';
 import useOutsideClick from 'hooks/useOutsideClick';
 import { AppContext } from 'appReducer';
-import { camelCase } from 'lodash';
 
 const LocationCard = ({ data, locationType, slug }) => {
     const {
@@ -42,8 +41,8 @@ const LocationCard = ({ data, locationType, slug }) => {
                         Early Polling Location
                     </span>
                     <span className="locationCard__badgeDate">
-                        {moment(startDate).format('MMMM Do')} -{' '}
-                        {moment(endDate).format('MMMM Do')}
+                        {format(new Date(startDate), 'MMMM do')} -{' '}
+                        {format(new Date(endDate), 'MMMM do')}
                     </span>
                 </motion.div>
             );
@@ -72,7 +71,7 @@ const LocationCard = ({ data, locationType, slug }) => {
             <ul className="locationCard__hoursList">
                 {hoursArray.map((hours, index) => (
                     <li
-                        key={`${camelCase(hours)}_${index}`}
+                        key={`${hours.replace(/\W+/g, '_')}_${index}`}
                         className="locationCard__hoursListItem"
                     >
                         {hours}

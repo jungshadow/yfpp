@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 import './map.scss';
 
-mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN;
+mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_API_ACCESS_TOKEN;
 
 const Map = ({ latitude, longitude, originAddress, destinationAddress }) => {
     const mapContainerRef = useRef(null);

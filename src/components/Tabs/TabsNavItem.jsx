@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CamelCase from 'lodash/camelCase';
+
+function camelCase(str) {
+    return str
+        .replace(/[^a-zA-Z0-9]+(.)/g, (_, c) => c.toUpperCase())
+        .replace(/^[A-Z]/, c => c.toLowerCase());
+}
 
 // helper function to dynamically build classnames
 function getClassNames(selected, currentIndex) {
@@ -11,7 +16,7 @@ function getClassNames(selected, currentIndex) {
 
 const TabsNavItem = props => {
     const { label, icon, selected, index, onClick } = props;
-    const elemID = CamelCase(label);
+    const elemID = camelCase(label);
     const isSelected = selected === index;
 
     return (

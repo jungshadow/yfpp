@@ -1,9 +1,8 @@
 import React, {useReducer} from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Routes, Route, Navigate} from 'react-router-dom';
 
 import {appReducer, initialState, AppContext, DispatchContext} from 'appReducer';
 import Site from 'components/Site/Site';
-import {Redirect} from 'react-router-dom';
 import {Page, PageSection} from 'components/Page';
 import {AnimatePresence, motion} from 'framer-motion';
 import Bios from 'components/Bios/Bios';
@@ -20,25 +19,22 @@ const App = () => {
         initial: {
             opacity: 0,
             height: '100%'
-            // x: '-50%'
         },
         in: {
             opacity: 1
-            // x: 0,
         },
         out: {
             opacity: 0
-            // x: '-50%'
         }
     };
 
     return (
         <AppContext.Provider value={state}>
             <DispatchContext.Provider value={dispatch}>
-                {state.isActive && <Redirect to={`/${redirectDestination}`} />}
+                {state.isActive && <Navigate to={`/${redirectDestination}`} replace />}
                 <AnimatePresence>
-                    <Switch>
-                        <Route path="/about">
+                    <Routes>
+                        <Route path="/about" element={
                             <motion.div
                                 initial="initial"
                                 animate="in"
@@ -55,8 +51,8 @@ const App = () => {
                                     </PageSection>
                                 </Page>
                             </motion.div>
-                        </Route>
-                        <Route path="/privacy-policy">
+                        } />
+                        <Route path="/privacy-policy" element={
                             <motion.div
                                 initial="initial"
                                 animate="in"
@@ -68,20 +64,19 @@ const App = () => {
                                     <PrivacyPolicy />
                                 </Page>
                             </motion.div>
-                        </Route>
-                        <Route path="/">
+                        } />
+                        <Route path="/*" element={
                             <motion.div
                                 initial="initial"
                                 animate="in"
                                 exit="out"
-                                transitionEnd="transitionEnd"
                                 variants={pageVariants}
                                 key="homeRoute"
                             >
                                 <Site />
                             </motion.div>
-                        </Route>
-                    </Switch>
+                        } />
+                    </Routes>
                 </AnimatePresence>
             </DispatchContext.Provider>
         </AppContext.Provider>

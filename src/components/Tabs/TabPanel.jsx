@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import TabIcon from './TabIcon';
-import CamelCase from 'lodash/camelCase';
+
+function camelCase(str) {
+    return str
+        .replace(/[^a-zA-Z0-9]+(.)/g, (_, c) => c.toUpperCase())
+        .replace(/^[A-Z]/, c => c.toLowerCase());
+}
 
 class TabPanel extends Component {
     constructor(props) {
@@ -16,7 +21,7 @@ class TabPanel extends Component {
             ? 'tabs__panel tabs__panel--isActive'
             : 'tabs__panel';
 
-        const panelID = CamelCase(this.props.label);
+        const panelID = camelCase(this.props.label);
 
         return (
             <div

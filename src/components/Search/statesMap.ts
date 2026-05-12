@@ -1,4 +1,4 @@
-const statesMap = {
+const statesMap: Record<string, string> = {
     AL: 'Alabama',
     AK: 'Alaska',
     AS: 'American Samoa',

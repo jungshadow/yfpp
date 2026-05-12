@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import { AppContext } from 'appReducer';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import EarlyVoteResults from 'components/EarlyVoteResults/EarlyVoteResults';
 import PollingPlaceResults from 'components/PollingPlaceResults/PollingPlaceResults';
 import DropOffLocationResults from 'components/DropOffLocationResults/DropOffLocationResults';
@@ -43,9 +43,8 @@ function Results() {
 
     return (
         <AnimatePresence>
-            {/* eslint-disable-next-line */}
-            <Switch key={location.pathname}>
-                <Route path="/polling-place">
+            <Routes>
+                <Route path="/polling-place" element={
                     <motion.div
                         initial="initial"
                         animate="in"
@@ -72,14 +71,14 @@ function Results() {
                             </ResultMessage>
                             <ElectionSelect />
                             <Tabs>
-                                {earlyVoteSites && earlyVoteSites.length && (
+                                {earlyVoteSites && earlyVoteSites.length > 0 && (
                                     <TabPanel label="Early Voting Sites">
                                         <EarlyVoteResults
                                             locations={earlyVoteSites}
                                         />
                                     </TabPanel>
                                 )}
-                                {pollingLocations && pollingLocations.length && (
+                                {pollingLocations && pollingLocations.length > 0 && (
                                     <TabPanel label="Polling Locations">
                                         <PollingPlaceResults
                                             locations={pollingLocations}
@@ -89,8 +88,8 @@ function Results() {
                             </Tabs>
                         </ResultsErrorBoundry>
                     </motion.div>
-                </Route>
-                <Route path="/ballot">
+                } />
+                <Route path="/ballot" element={
                     <motion.div
                         initial="initial"
                         animate="in"
@@ -109,8 +108,8 @@ function Results() {
                             />
                         </ResultsErrorBoundry>
                     </motion.div>
-                </Route>
-                <Route path="/representatives">
+                } />
+                <Route path="/representatives" element={
                     <motion.div
                         initial="initial"
                         animate="in"
@@ -136,8 +135,8 @@ function Results() {
                             />
                         </ResultsErrorBoundry>
                     </motion.div>
-                </Route>
-                <Route path="/drop-off-sites">
+                } />
+                <Route path="/drop-off-sites" element={
                     <motion.div
                         initial="initial"
                         animate="in"
@@ -168,8 +167,8 @@ function Results() {
                             />
                         </ResultsErrorBoundry>
                     </motion.div>
-                </Route>
-            </Switch>
+                } />
+            </Routes>
         </AnimatePresence>
     );
 }
