@@ -21,13 +21,18 @@ const analytics = {
         window.ga('send', 'social', social_network, action, label);
         window.ga('send', 'event', social_network, action, label);
     },
-    success(result: { normalizedInput: { state: string } }): void {
-        this.send_event('Address', 'Lookup', result.normalizedInput.state);
+    success(result: { normalizedInput?: { state: string } }): void {
+        this.send_event('Address', 'Lookup', result.normalizedInput?.state || 'unknown');
     },
-    failure(result: string | { error?: { message?: string } }): void {
-        const error = typeof result === 'string'
-            ? result
-            : result?.error?.message || 'Unknown error';
+    failure(result: unknown): void {
+        let error = 'Unknown error';
+        if (typeof result === 'string') {
+            error = result;
+        } else if (result && typeof result === 'object') {
+            const r = result as Record<string, unknown>;
+            if (typeof r.message === 'string') error = r.message;
+            else if (r.error && typeof (r.error as Record<string, unknown>).message === 'string') error = (r.error as Record<string, unknown>).message as string;
+        }
         this.send_event('Address', 'Failure', error);
     },
 };

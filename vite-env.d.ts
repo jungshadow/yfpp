@@ -12,3 +12,53 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+// Untyped third-party modules
+declare module '@mapbox/mapbox-sdk' {
+  const mbxClient: (config: { accessToken: string }) => unknown;
+  export default mbxClient;
+}
+
+declare module '@mapbox/mapbox-sdk/services/geocoding' {
+  const mbxGeocoding: (client: unknown) => {
+    forwardGeocode: (config: {
+      query: string;
+      limit?: number;
+      types?: string[];
+      countries?: string[];
+    }) => { send: () => Promise<{
+      body: {
+        query: string[];
+        features: Array<{ place_name: string }>;
+      };
+    }> };
+  };
+  export default mbxGeocoding;
+}
+
+declare module '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions' {
+  import type { IControl } from 'mapbox-gl';
+  class MapboxDirections implements IControl {
+    constructor(options?: Record<string, unknown>);
+    onAdd(map: mapboxgl.Map): HTMLElement;
+    onRemove(): void;
+    setOrigin(origin: [number, number] | string): this;
+    setDestination(destination: [number, number] | string): this;
+  }
+  export default MapboxDirections;
+}
+
+declare module '*.png' {
+  const src: string;
+  export default src;
+}
+
+declare module '*.jpg' {
+  const src: string;
+  export default src;
+}
+
+declare module '*.json' {
+  const value: unknown;
+  export default value;
+}

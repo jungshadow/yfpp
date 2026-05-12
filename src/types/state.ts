@@ -40,9 +40,9 @@ export interface AppState {
 }
 
 export interface AppErrors {
-  locations?: string;
-  representatives?: string;
-  [key: string]: string | undefined;
+  locations?: { message: string; [key: string]: unknown };
+  representatives?: { message: string; [key: string]: unknown };
+  [key: string]: { message: string; [key: string]: unknown } | undefined;
 }
 
 // Action types

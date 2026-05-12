@@ -72,7 +72,9 @@
         "not op_mini all"
     ],
     "devDependencies": {
+        "@types/mapbox-gl": "^3.5.0",
         "@types/node": "^25.7.0",
+        "@types/prop-types": "^15.7.15",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
         "@vitejs/plugin-react": "^6.0.1",
