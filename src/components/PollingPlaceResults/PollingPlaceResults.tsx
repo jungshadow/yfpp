@@ -12,7 +12,7 @@ interface PollingPlaceResultsProps {
 const PollingPlaceResults = ({ locations }: PollingPlaceResultsProps) => {
     const fallbackMessage = (
         <p>
-            <strong>We didn't get any fucking polling place results</strong>,
+            <strong>We didn&apos;t get any fucking polling place results</strong>,
             but check with your local election official if you think you should
             have some.
         </p>

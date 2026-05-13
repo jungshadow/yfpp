@@ -36,7 +36,7 @@ const LocationActions = ({
     const handleFacebookShare = (e: React.MouseEvent) => {
         e.preventDefault();
 
-        function facebook_callback(response: unknown) {
+        function facebook_callback(_response: unknown) {
             analytics.social_action('facebook', 'post', '');
         }
 
@@ -70,11 +70,9 @@ const LocationActions = ({
             'sixBcreative',
         ]);
 
-        // setup empty variable to store tweet text
-        let text = '';
-
         // if locationName exists setup text string including location name
         // else use predefined string
+        let text: string;
         if (locationName) {
             text = `I vote at ${helpers.titlecase(
                 helpers.fucktify(locationName)
@@ -115,7 +113,7 @@ const LocationActions = ({
         return `${
             isAppleMobileDevice
                 ? `${appleUrl}${queryString}&z=20&q=${
-                    !!locationName ? `${encodeURI(
+                    locationName ? `${encodeURI(
                         helpers.titlecase(
                             helpers.fucktify(locationName)
                         ))}` : 'This fucking place'}`

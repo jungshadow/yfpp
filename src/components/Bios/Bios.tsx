@@ -18,7 +18,11 @@ const Bios = () => {
     }, []);
 
     const handleOnClick = (index: number) => {
-        index === isActive ? setIsActive(null) : setIsActive(index);
+        if (index === isActive) {
+            setIsActive(null);
+        } else {
+            setIsActive(index);
+        }
     };
     return (
         <ul className="bios">

@@ -18,10 +18,8 @@ export default function updateSearchResults(state: AppState, action: Extract<App
     const contests = data.contests || [];
     const errors = data.error ? { locations: data.error as { message: string } } : false;
     const relevantElections = data.relevantElections || [];
-    let partyList: string[] = [];
+    const partyList: string[] = [];
     const searchQuery = data.searchQuery;
-
-    let isActive = false;
 
     if (
         contests.length > 0 ||
@@ -38,20 +36,14 @@ export default function updateSearchResults(state: AppState, action: Extract<App
                 partyList.push(contest.primaryParty);
             }
         });
-
-        isActive = true;
     }
-    if (data.normalizedInput) {
-        isActive = true;
-    } else {
-        isActive = false;
-    }
+    const isActive = !!data.normalizedInput;
 
     // TODO: I'd rather not filter sites by when they're open here, but
     // I'm going to for expediency
     // Early vote sites _should_ be the only sites that we need to worry
     // about being closed
-    var i = earlyVoteSites.length;
+    let i = earlyVoteSites.length;
     while (i--) {
         const endDate = earlyVoteSites[i].endDate;
         if (!endDate || isAfter(startOfDay(new Date()), startOfDay(new Date(endDate)))) {

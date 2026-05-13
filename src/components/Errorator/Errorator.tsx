@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { AppContext, DispatchContext } from 'appReducer';
 import { motion } from 'framer-motion';
 
@@ -9,40 +9,36 @@ import useOutsideClick from 'hooks/useOutsideClick';
 
 const Errorator = () => {
     const dispatch = useContext(DispatchContext);
-    const { errors, leoInfo } = useContext(AppContext);
-    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const { errors } = useContext(AppContext);
     const erroratorRef = useRef<HTMLDivElement>(null);
     useOutsideClick(erroratorRef, handleRemoveError);
 
-    useEffect(() => {
-        let errorMessage = '';
-        if (errors) {
-            Object.keys(errors).forEach(key => {
-                const errorEntry = errors[key];
-                if (!errorEntry) return;
-                switch (key) {
-                    case 'locations':
-                        errorMessage = `${errorEntry.message}`;
+    let errorMessage: string | null = null;
+    if (errors) {
+        let msg = '';
+        Object.keys(errors).forEach(key => {
+            const errorEntry = errors[key];
+            if (!errorEntry) return;
+            switch (key) {
+                case 'locations':
+                    msg = `${errorEntry.message}`;
 
-                        if (errorEntry.message === 'Election unknown') {
-                            errorMessage =
-                                "<b>We didn't get any fucking polling place results</b>, but check with your local election official if you think you should have some.";
-                        }
-                        break;
-                    case 'representatives':
-                        errorMessage = `${errorEntry.message} fucker`;
-                        break;
-                    default:
-                        console.log('In default');
-                        console.log(errors);
-                        break;
-                }
-            });
-
-            // set error message
-            setErrorMessage(errorMessage);
-        }
-    }, [errors, leoInfo]);
+                    if (errorEntry.message === 'Election unknown') {
+                        msg =
+                            "<b>We didn't get any fucking polling place results</b>, but check with your local election official if you think you should have some.";
+                    }
+                    break;
+                case 'representatives':
+                    msg = `${errorEntry.message} fucker`;
+                    break;
+                default:
+                    console.log('In default');
+                    console.log(errors);
+                    break;
+            }
+        });
+        errorMessage = msg;
+    }
 
     function handleRemoveError() {
         dispatch({

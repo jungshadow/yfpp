@@ -15,7 +15,7 @@ const Logo = ({isCompact}: LogoProps) => {
         <header role="banner">
             <h1 className={getLogoClassName()}>
                 <span className="logo_seg1">
-                    Where's My <span className="logo__accent">Fucking</span>
+                    Where&apos;s My <span className="logo__accent">Fucking</span>
                 </span>{' '}
                 <span className="logo__seg2">Polling Place?</span>
             </h1>

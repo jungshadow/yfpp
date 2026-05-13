@@ -4,7 +4,7 @@ function useThrottledCallback<T extends (...args: unknown[]) => void>(fn: T, del
     const lastRun = useRef(0);
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const fnRef = useRef(fn);
-    fnRef.current = fn;
+    useEffect(() => { fnRef.current = fn; });
 
     const throttled = useCallback((...args: Parameters<T>) => {
         const now = Date.now();

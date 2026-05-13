@@ -26,7 +26,7 @@ class ResultsErrorBoundry extends Component<ResultsErrorBoundryProps, ResultsErr
         return { hasError: true };
     }
 
-    componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    componentDidCatch(_error: Error, _errorInfo: React.ErrorInfo) {
         // You can also log the error to an error reporting service
         // logErrorToMyService(error, errorInfo);
     }
@@ -34,7 +34,7 @@ class ResultsErrorBoundry extends Component<ResultsErrorBoundryProps, ResultsErr
     render() {
         if (this.state.hasError) {
             // You can render any custom fallback UI
-            return <h1>Some shit ain't right.</h1>;
+            return <h1>Some shit ain&apos;t right.</h1>;
         }
 
         return this.props.children;

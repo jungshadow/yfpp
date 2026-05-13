@@ -17,7 +17,7 @@ interface RepresentativeProps {
 }
 
 const Representative = ({data}: RepresentativeProps) => {
-    const {name, party, office, urls, photoUrl, channels} = data || {} as NonNullable<RepresentativeProps['data']>;
+    const {name, party, office, urls: _urls, photoUrl, channels: _channels} = data || {} as NonNullable<RepresentativeProps['data']>;
     const imgHttpsRegex = /^https:/i;
     const congressImgRegex = /^http:\/\/bioguide\.congress\.gov\/bioguide\//i;
 

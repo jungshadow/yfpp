@@ -18,7 +18,7 @@ interface IconLinkProps {
     [key: string]: unknown;
 }
 
-const IconLink = ({to, icon, label, iconPosition = 'after', size, color, href, isStacked, children, ...additionalProps}: IconLinkProps) => {
+const IconLink = ({to, icon, label, iconPosition = 'after', size, color, href, isStacked, children: _children, ...additionalProps}: IconLinkProps) => {
     const getIconClassName = () => {
         return classnames({
             iconLink: true,

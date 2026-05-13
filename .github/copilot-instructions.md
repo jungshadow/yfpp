@@ -31,6 +31,8 @@ YFPP (Your Fucking Polling Place) is a static SPA hosted on GitHub Pages. It acc
 - **Unit/integration tests**: `pnpm test:unit` (Vitest + React Testing Library)
 - **E2E tests**: `pnpm test:e2e` (Playwright)
 - **Type check**: `pnpm tsc --noEmit`
+- **Lint**: `pnpm lint` (ESLint 9, flat config). Fix auto-fixable issues with `pnpm lint:fix`.
+- **Format**: `pnpm format:check` to verify, `pnpm format` to auto-format. Run lint and format checks before committing.
 
 ## Conventions
 

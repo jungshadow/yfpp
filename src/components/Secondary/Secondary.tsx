@@ -17,12 +17,16 @@ const Secondary = ({getRef}: SecondaryProps) => {
     const [initialHeaderScrollPos, setInitialHeaderScrollPos] = useState<DOMRect | null>(null);
     const {electionInfo} = useContext(AppContext);
     const secondaryRef = useRef<HTMLDivElement>(null);
-    let initialHeaderScrollPosRef = useRef<DOMRect | null>(null);
-    let isStickyRef = useRef<boolean>(false);
+    const initialHeaderScrollPosRef = useRef<DOMRect | null>(null);
+    const isStickyRef = useRef<boolean>(false);
     const siteRef = getRef();
 
-    initialHeaderScrollPosRef.current = initialHeaderScrollPos;
-    isStickyRef.current = isSticky;
+    useEffect(() => {
+        initialHeaderScrollPosRef.current = initialHeaderScrollPos;
+    }, [initialHeaderScrollPos]);
+    useEffect(() => {
+        isStickyRef.current = isSticky;
+    }, [isSticky]);
 
     useEffect(() => {
         if (secondaryRef.current) {
@@ -74,11 +78,9 @@ const Secondary = ({getRef}: SecondaryProps) => {
 
     return (
         <div className={getSecondaryClassname()}>
-            {true && (
-                <div className="secondary__heading">
-                    <ElectionTitle electionInfo={electionInfo} />
-                </div>
-            )}
+            <div className="secondary__heading">
+                <ElectionTitle electionInfo={electionInfo} />
+            </div>
             <div className="secondary__nav" ref={secondaryRef}>
                 <MainNav />
             </div>

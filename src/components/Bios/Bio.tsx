@@ -31,8 +31,7 @@ const Bio = ({data, isActive, onClick, index, slug}: BioProps) => {
     const bioRef = useRef<HTMLDivElement>(null);
     useOutsideClick(bioRef, handleClickBio);
 
-    const openSpring = {type: 'spring', stiffness: 200, damping: 30};
-    const closeSpring = {type: 'spring', stiffness: 300, damping: 35};
+
 
     function handleClickBio(ref: React.RefObject<HTMLElement | null>) {
         if (ref.current?.classList.contains('bio--isActive')) {

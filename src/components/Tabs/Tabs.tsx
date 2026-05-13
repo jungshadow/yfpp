@@ -40,7 +40,7 @@ class Tabs extends Component<TabsProps, TabsState> {
         return (event: React.MouseEvent) => {
             event.preventDefault();
 
-            this.setState(prevState => {
+            this.setState(() => {
                 return { selected: index };
             });
         };

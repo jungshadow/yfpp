@@ -22,7 +22,7 @@ const Map = ({ latitude, longitude, originAddress, destinationAddress }: MapProp
 
     // Initialize map when component mounts
     useEffect(() => {
-        let directions = new MapboxDirections({
+        const directions = new MapboxDirections({
             accessToken: mapboxgl.accessToken,
             geocoder: {
                 countries: ['US'],
@@ -30,14 +30,14 @@ const Map = ({ latitude, longitude, originAddress, destinationAddress }: MapProp
             },
         });
 
-        let map = new mapboxgl.Map({
+        const map = new mapboxgl.Map({
             container: mapContainerRef.current!,
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [lng, lat],
             zoom: zoom,
         });
 
-        let navControl = new mapboxgl.NavigationControl();
+        const navControl = new mapboxgl.NavigationControl();
         // Add navigation control (the +/- zoom buttons)
 
         new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);

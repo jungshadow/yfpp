@@ -17,7 +17,7 @@ class ErrorMessage extends React.Component<ErrorMessageProps> {
      * @return {object} returns error message based on available info
      */
     createMessageFragment(message: string, href: string, anchorText: string, messageType: string) {
-        let ElementFrag: React.ReactNode = '';
+        let ElementFrag: React.ReactNode;
 
         switch (messageType) {
             case 'tel':
@@ -34,7 +34,7 @@ class ErrorMessage extends React.Component<ErrorMessageProps> {
                     </span>
                 );
                 break;
-            case 'addr':
+            case 'addr': {
                 const url = 'https://maps.google.com/?q=' + href;
                 ElementFrag = (
                     <span>
@@ -42,6 +42,7 @@ class ErrorMessage extends React.Component<ErrorMessageProps> {
                     </span>
                 );
                 break;
+            }
             default:
                 ElementFrag = <span>You&apos;re not calling this method correctly.</span>;
         }
@@ -62,13 +63,13 @@ class ErrorMessage extends React.Component<ErrorMessageProps> {
         const leoPhone = this.props.leoPhone;
         const seoInfo = this.props.seoInfo as any;
 
-        var phoneMessage = 'call this fucking number,';
-        var urlMessage = 'visit this fucking website,';
-        var addrMessage = 'visit this fucking place,';
+        const phoneMessage = 'call this fucking number,';
+        const urlMessage = 'visit this fucking website,';
+        const addrMessage = 'visit this fucking place,';
 
-        var sentence = `If you want to get to the bottom of this bullshit, you may want to `;
+        const sentence = `If you want to get to the bottom of this bullshit, you may want to `;
 
-        var reasons: React.ReactNode[] = [];
+        const reasons: React.ReactNode[] = [];
 
         if (Object.getOwnPropertyNames(leoInfo).length > 0) {
             if (leoInfo.electionOfficials && leoInfo.electionOfficials.length > 0 && leoInfo.electionOfficials[0].officePhoneNumber) {
@@ -113,7 +114,7 @@ class ErrorMessage extends React.Component<ErrorMessageProps> {
                         return (
                             <p>
                                 There are currently no elections associated with the fucking address you&apos;re trying to use.{' '}
-                                <a href="https://www.fvap.gov/search-offices">Look up your local election official</a> and find out if you're fucking voting.
+                                <a href="https://www.fvap.gov/search-offices">Look up your local election official</a> and find out if you&apos;re fucking voting.
                             </p>
                         );
                     } else if (reasons.length === 1) {

@@ -26,8 +26,13 @@ const Autocomplete = ({ isActive, onSubmit, onSearch, placeholder, value }: Auto
     const [dataSource, setDataSource] = useState<AutocompleteDataItem[]>([]);
     const refsArray: (HTMLButtonElement | null)[] = [];
     const searchInputRef = React.createRef<HTMLInputElement>();
-    useOutsideClick(searchInputRef, handleCloseAutoComplete);
     const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    function handleCloseAutoComplete() {
+        setDataSource([]);
+    }
+
+    useOutsideClick(searchInputRef, handleCloseAutoComplete);
 
     const getAutoCompleteClassNames = () => {
         return classnames({
@@ -39,11 +44,6 @@ const Autocomplete = ({ isActive, onSubmit, onSearch, placeholder, value }: Auto
     const logValue = () => {
         console.log(`Last value: ${value}`);
     };
-
-    const debouncedGetAutoCompleteAddresses = useCallback((val: string) => {
-        if (debounceRef.current) clearTimeout(debounceRef.current);
-        debounceRef.current = setTimeout(() => getAutoCompleteAddresses(val), 200);
-    }, []);
 
     const getAutoCompleteAddresses = async (value: string) => {
         const searchQuery = value;
@@ -70,6 +70,11 @@ const Autocomplete = ({ isActive, onSubmit, onSearch, placeholder, value }: Auto
 
         setDataSource(matches);
     };
+
+    const debouncedGetAutoCompleteAddresses = useCallback((val: string) => {
+        if (debounceRef.current) clearTimeout(debounceRef.current);
+        debounceRef.current = setTimeout(() => getAutoCompleteAddresses(val), 200);
+    }, []);
 
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const val = e.target.value;
@@ -106,10 +111,6 @@ const Autocomplete = ({ isActive, onSubmit, onSearch, placeholder, value }: Auto
                 return;
         }
     };
-
-    function handleCloseAutoComplete() {
-        setDataSource([]);
-    }
 
     const handleActionKeyDown = (event: React.KeyboardEvent, index: number, results: AutocompleteDataItem[]) => {
         event.preventDefault();

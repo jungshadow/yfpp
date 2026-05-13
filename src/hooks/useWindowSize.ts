@@ -8,7 +8,7 @@ interface WindowSize {
 function useDebouncedCallback<T extends (...args: unknown[]) => void>(fn: T, delay: number): (...args: Parameters<T>) => void {
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const fnRef = useRef(fn);
-    fnRef.current = fn;
+    useEffect(() => { fnRef.current = fn; });
 
     const debounced = useCallback((...args: Parameters<T>) => {
         if (timeoutRef.current) clearTimeout(timeoutRef.current);

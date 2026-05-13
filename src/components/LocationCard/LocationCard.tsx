@@ -36,6 +36,12 @@ interface LocationCardProps {
 }
 
 const LocationCard = ({ data, locationType, slug }: LocationCardProps) => {
+    const [isActive, setIsActive] = useState(false);
+    const locationCardRef = useRef<HTMLDivElement>(null);
+
+    useOutsideClick(locationCardRef, handleCloseMap);
+    const { normalizedAddress } = useContext(AppContext);
+
     if (!data) return null;
     const {
         startDate,
@@ -46,14 +52,6 @@ const LocationCard = ({ data, locationType, slug }: LocationCardProps) => {
         latitude,
         longitude,
     } = data;
-    const [isActive, setIsActive] = useState(false);
-    const locationCardRef = useRef<HTMLDivElement>(null);
-
-    useOutsideClick(locationCardRef, handleCloseMap);
-    const { normalizedAddress } = useContext(AppContext);
-
-    const openSpring = { type: 'spring', stiffness: 200, damping: 30 };
-    const closeSpring = { type: 'spring', stiffness: 300, damping: 35 };
 
     const renderEarlyVoteSiteBadge = () => {
         if (locationType === 'early-vote') {
@@ -178,10 +176,8 @@ const LocationCard = ({ data, locationType, slug }: LocationCardProps) => {
                 <div
                     className="locationCard locationCard__isSlug"
                     style={{
-                        height: `${
-                            locationCardRef.current!.getBoundingClientRect()
-                                .height
-                        }px`,
+                        // eslint-disable-next-line react-hooks/refs -- ref is guaranteed set when isActive (user interaction)
+                        height: `${locationCardRef.current!.getBoundingClientRect().height}px`,
                     }}
                 ></div>
             )}
