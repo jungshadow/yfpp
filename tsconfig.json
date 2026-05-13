@@ -24,7 +24,7 @@
       "types": ["./src/types/index"],
       "types/*": ["./src/types/*"]
     },
-    "types": ["node"]
+    "types": ["node", "vitest/globals"]
   },
   "include": ["src", "vite-env.d.ts"],
   "exclude": ["node_modules", "build"]

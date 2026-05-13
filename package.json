@@ -68,7 +68,11 @@
         "lint": "eslint src/",
         "lint:fix": "eslint src/ --fix",
         "format": "prettier --write \"src/**/*.{ts,tsx,scss}\"",
-        "format:check": "prettier --check \"src/**/*.{ts,tsx,scss}\""
+        "format:check": "prettier --check \"src/**/*.{ts,tsx,scss}\"",
+        "test:unit": "vitest run",
+        "test:unit:watch": "vitest",
+        "test:e2e": "playwright test",
+        "test:e2e:ui": "playwright test --ui"
     },
     "browserslist": [
         ">0.2%",
@@ -78,6 +82,10 @@
     ],
     "devDependencies": {
         "@eslint/js": "^10.0.1",
+        "@playwright/test": "^1.60.0",
+        "@testing-library/jest-dom": "^6.9.1",
+        "@testing-library/react": "^16.3.2",
+        "@testing-library/user-event": "^14.6.1",
         "@types/mapbox-gl": "^3.5.0",
         "@types/node": "^25.7.0",
         "@types/prop-types": "^15.7.15",
@@ -91,10 +99,13 @@
         "eslint-plugin-react-hooks": "^7.1.1",
         "gh-pages": "^3.1.0",
         "globals": "^17.6.0",
+        "jsdom": "^29.1.1",
+        "msw": "^2.14.6",
         "prettier": "^3.8.3",
         "sass": "^1.99.0",
         "typescript": "^6.0.3",
         "typescript-eslint": "^8.59.3",
-        "vite": "^8.0.12"
+        "vite": "^8.0.12",
+        "vitest": "^4.1.6"
     }
 }

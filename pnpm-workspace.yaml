@@ -4,3 +4,4 @@ allowBuilds:
   ejs: true
   es5-ext: true
   fsevents: true
+  msw: true
