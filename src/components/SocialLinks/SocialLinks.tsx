@@ -1,4 +1,3 @@
-import React from 'react';
 import {TwitterIcon, FacebookIcon} from 'components/Icons';
 
 import './socialLinks.scss';

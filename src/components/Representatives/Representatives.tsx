@@ -1,4 +1,3 @@
-import React from 'react';
 
 import RepresentativeCard from 'components/Representatives/RepresentativeCard';
 import FallbackMessage from 'components/FallbackMessage/FallbackMessage';

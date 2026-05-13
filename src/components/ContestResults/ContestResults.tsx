@@ -1,4 +1,3 @@
-import React from 'react';
 
 import CandidateCard from 'components/CandidateCard/CandidateCard';
 import ReferendumCard from 'components/ReferendumCard/ReferendumCard';

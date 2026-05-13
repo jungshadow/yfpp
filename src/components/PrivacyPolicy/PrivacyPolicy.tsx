@@ -1,5 +1,4 @@
 import KitchenSink from 'components/KitchenSink/KitchenSink';
-import React from 'react';
 
 const PrivacyPolicy = () => {
     return (

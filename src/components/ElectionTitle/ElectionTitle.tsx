@@ -1,5 +1,4 @@
 // Import dependencies
-import React from 'react';
 
 import { format } from 'date-fns';
 import helpers from 'helpers';

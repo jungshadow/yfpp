@@ -1,4 +1,3 @@
-import React from 'react';
 import helpers from 'helpers';
 
 import avatar from 'images/avatar.jpg';

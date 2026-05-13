@@ -1,4 +1,3 @@
-import React from 'react';
 import Pager from 'components/Pager/Pager';
 import LocationCard from 'components/LocationCard/LocationCard';
 import FallbackMessage from 'components/FallbackMessage/FallbackMessage';

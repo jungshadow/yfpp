@@ -1,4 +1,3 @@
-import React from 'react';
 import classnames from 'classnames';
 import IconLink from 'components/IconLink/IconLink';
 import {MapBoxIcon, PointingIconRight} from 'components/Icons';
