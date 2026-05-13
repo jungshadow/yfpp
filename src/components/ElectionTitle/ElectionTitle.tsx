@@ -11,10 +11,16 @@ interface ElectionTitleProps {
 }
 
 const ElectionTitle = (props: ElectionTitleProps) => {
+    const { electionDay, name } = props.electionInfo;
+    const dateStr = electionDay ? format(new Date(electionDay), 'MMMM do, yyyy') : '';
+
     return (
         <div className="electionTitle">
-            <div className="electionTitle__date">{format(new Date(props.electionInfo.electionDay || ''), 'MMMM do, yyyy')}</div>
-            <h2 className="electionTitle__text">{helpers.fucktify(props.electionInfo.name || '')}</h2>
+            {dateStr && <div className="electionTitle__date">{dateStr}</div>}
+            {/* TODO: When there's no election name, this just says "Fucking" via fucktify('').
+               Revisit with a more helpful phrase — something that acknowledges the voter
+               might actually have an election that the API doesn't cover yet. */}
+            <h2 className="electionTitle__text">{helpers.fucktify(name || '')}</h2>
         </div>
     );
 };

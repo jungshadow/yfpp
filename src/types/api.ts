@@ -116,3 +116,46 @@ export interface ElectionsApiResponse {
   kind?: string;
   elections?: ElectionInfo[];
 }
+
+// Open States API types
+
+export interface OpenStatesCurrentRole {
+  title: string;
+  org_classification: string;
+  district?: string | number;
+  division_id?: string;
+}
+
+export interface OpenStatesOffice {
+  name: string;
+  fax?: string;
+  voice?: string;
+  address?: string;
+  classification?: string;
+}
+
+export interface OpenStatesPerson {
+  id: string;
+  name: string;
+  party: string;
+  current_role?: OpenStatesCurrentRole;
+  jurisdiction?: { id: string; name: string; classification: string };
+  given_name?: string;
+  family_name?: string;
+  image?: string;
+  email?: string;
+  gender?: string;
+  openstates_url?: string;
+  links?: Array<{ url: string; note?: string }>;
+  offices?: OpenStatesOffice[];
+}
+
+export interface OpenStatesPeopleResponse {
+  results: OpenStatesPerson[];
+  pagination: {
+    per_page: number;
+    page: number;
+    max_page: number;
+    total_items: number;
+  };
+}

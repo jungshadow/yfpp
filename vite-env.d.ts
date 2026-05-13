@@ -29,7 +29,7 @@ declare module '@mapbox/mapbox-sdk/services/geocoding' {
     }) => { send: () => Promise<{
       body: {
         query: string[];
-        features: Array<{ place_name: string }>;
+        features: Array<{ place_name: string; center: [number, number] }>;
       };
     }> };
   };
