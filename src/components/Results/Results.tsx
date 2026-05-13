@@ -9,7 +9,7 @@ import DropOffLocationResults from 'components/DropOffLocationResults/DropOffLoc
 import Representatives from 'components/Representatives/Representatives';
 import BallotResults from 'components/BallotResults/BallotResults';
 import ResultsErrorBoundry from 'components/ResultsErrorBoundry/ResultsErrorBoundry';
-import ElectionSelect from 'components/ElectionSelect/ElectionSelect';
+import ElectionPicker from 'components/ElectionPicker/ElectionPicker';
 import ResultMessage from 'components/ResultMessage/ResultMessage';
 import Tabs from 'components/Tabs/Tabs';
 import TabPanel from 'components/Tabs/TabPanel';
@@ -69,7 +69,7 @@ function Results() {
                                     .
                                 </p>
                             </ResultMessage>
-                            <ElectionSelect />
+                            <ElectionPicker />
                             <Tabs>
                                 {earlyVoteSites && earlyVoteSites.length > 0 && (
                                     <TabPanel label="Early Voting Sites">
@@ -101,7 +101,7 @@ function Results() {
                             errorType="locations"
                             errors={errors}
                         >
-                            <ElectionSelect />
+                            <ElectionPicker />
                             <BallotResults
                                 primaryParties={primaryParties}
                                 contests={contests}
@@ -117,6 +117,7 @@ function Results() {
                         variants={pageVariants}
                         key="representatives"
                     >
+                        <ElectionPicker />
                         <ResultMessage>
                             <p>
                                 <strong>
@@ -161,7 +162,7 @@ function Results() {
                                     .
                                 </p>
                             </ResultMessage>
-                            <ElectionSelect />
+                            <ElectionPicker />
                             <DropOffLocationResults
                                 locations={dropOffLocations}
                             />

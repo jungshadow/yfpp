@@ -26,6 +26,15 @@ export function appReducer(state: AppState, action: AppAction): AppState {
         case 'SET_ERROR': {
             return setError(state, action);
         }
+        case 'SET_PENDING_ELECTIONS': {
+            return {
+                ...state,
+                pendingElections: action.elections,
+                searchQuery: action.searchQuery,
+                isActive: true,
+                isFuckOff: false,
+            };
+        }
 
         default:
             return state;
@@ -54,5 +63,6 @@ export const initialState: AppState = {
     searchToggleIsOpen: true,
     representatives: [],
     offices: [],
+    pendingElections: undefined,
     searchQuery: null
 };

@@ -1,0 +1,72 @@
+@import 'scss/helpers/_globalVars';
+
+.electionPicker {
+    padding: 20px 0;
+}
+
+.electionPicker--inline {
+    background: $PLUM;
+    border-radius: 11px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+}
+
+.electionPicker__heading {
+    font-family: $FONT_HEADLINE;
+    font-weight: 900;
+    font-size: 20px;
+    color: $WHITE;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.electionPicker__date {
+    font-family: $FONT_DEFAULT;
+    font-size: 13px;
+    color: $GREY_LIGHT;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    margin-top: 16px;
+
+    &:first-of-type {
+        margin-top: 0;
+    }
+}
+
+.electionPicker__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.electionPicker__item {
+    margin-bottom: 8px;
+}
+
+.electionPicker__button {
+    display: block;
+    width: 100%;
+    padding: 14px 18px;
+    background: $PLUM_DARK;
+    border: 1px solid $GREY_MEDIUM;
+    border-radius: 11px;
+    color: $WHITE;
+    font-family: $FONT_HEADLINE;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+
+    &:hover,
+    &:focus {
+        background: $RED;
+        border-color: $RED;
+        outline: none;
+    }
+}
+
+.electionPicker__button--active {
+    background: $RED;
+    border-color: $RED;
+}

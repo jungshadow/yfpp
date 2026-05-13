@@ -29,6 +29,32 @@ function Search() {
             e.preventDefault();
         }
         const relevantElections = getRelevantElections(searchQuery);
+
+        // If multiple relevant elections, let the user pick before fetching locations
+        if (relevantElections && relevantElections.length > 1) {
+            const representatives = await getRepresentatives(searchQuery);
+
+            if (representatives?.error) {
+                analytics.failure(representatives.error);
+                dispatch({
+                    type: 'SET_ERROR',
+                    error: { representatives: representatives.error as { message: string } },
+                });
+            } else if (representatives) {
+                dispatch({
+                    type: 'UPDATE_REPRESENTATIVES_RESULTS',
+                    data: representatives,
+                });
+            }
+
+            dispatch({
+                type: 'SET_PENDING_ELECTIONS',
+                elections: relevantElections,
+                searchQuery,
+            });
+            return;
+        }
+
         const electionId = getElectionId(relevantElections);
 
         const [locations, representatives] = await Promise.all([

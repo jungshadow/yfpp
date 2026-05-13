@@ -31,7 +31,7 @@ const App = () => {
     return (
         <AppContext.Provider value={state}>
             <DispatchContext.Provider value={dispatch}>
-                {state.isActive && <Navigate to={`/${redirectDestination}`} replace />}
+                {state.isActive && redirectDestination && <Navigate to={`/${redirectDestination}`} replace />}
                 <AnimatePresence>
                     <Routes>
                         <Route path="/about" element={

@@ -36,6 +36,7 @@ export interface AppState {
   representatives: Official[];
   offices: Office[];
   relevantElections?: ElectionInfo[];
+  pendingElections?: ElectionInfo[];
   searchQuery: string | null;
 }
 
@@ -51,6 +52,7 @@ export type AppAction =
   | { type: 'UPDATE_REPRESENTATIVES_RESULTS'; data: RepresentativesApiResponse }
   | { type: 'UPDATE_ELECTION_RESULTS'; elections?: ElectionInfo[] }
   | { type: 'SET_SEARCH_TOGGLE_STATUS'; status: boolean }
-  | { type: 'SET_ERROR'; error?: Partial<AppErrors> | false };
+  | { type: 'SET_ERROR'; error?: Partial<AppErrors> | false }
+  | { type: 'SET_PENDING_ELECTIONS'; elections: ElectionInfo[]; searchQuery: string };
 
 export type AppDispatch = Dispatch<AppAction>;

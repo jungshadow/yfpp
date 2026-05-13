@@ -57,4 +57,40 @@ describe('appReducer', () => {
         expect(result.representatives[0].name).toBe('Jane Doe');
         expect(result.offices).toHaveLength(1);
     });
+
+    it('handles SET_PENDING_ELECTIONS', () => {
+        const elections = [
+            { id: '11098', name: 'Texas Democratic Primary', electionDay: '2026-05-26', ocdDivisionId: 'ocd-division/country:us/state:tx' },
+            { id: '11256', name: 'Texas Republican Primary', electionDay: '2026-05-26', ocdDivisionId: 'ocd-division/country:us/state:tx' },
+        ];
+        const result = appReducer(initialState, {
+            type: 'SET_PENDING_ELECTIONS',
+            elections,
+            searchQuery: '123 Main St, Austin, TX',
+        });
+        expect(result.pendingElections).toEqual(elections);
+        expect(result.searchQuery).toBe('123 Main St, Austin, TX');
+        expect(result.isActive).toBe(true);
+    });
+
+    it('clears pendingElections on SET_PENDING_ELECTIONS followed by UPDATE_SEARCH_RESULTS', () => {
+        const stateWithPending = {
+            ...initialState,
+            pendingElections: [
+                { id: '11098', name: 'Texas Democratic Primary', electionDay: '2026-05-26', ocdDivisionId: 'ocd-division/country:us/state:tx' },
+            ],
+            isActive: true,
+        };
+        const result = appReducer(stateWithPending, {
+            type: 'UPDATE_SEARCH_RESULTS',
+            data: {
+                normalizedInput: { line1: '123 Main St', line2: '', city: 'Austin', state: 'TX', zip: '78701' },
+                election: { id: '11098', name: 'Texas Democratic Primary', electionDay: '2026-05-26' },
+                pollingLocations: [],
+                searchQuery: '123 Main St, Austin, TX',
+            },
+        });
+        expect(result.pendingElections).toBeUndefined();
+        expect(result.electionInfo.id).toBe('11098');
+    });
 });

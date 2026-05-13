@@ -64,6 +64,7 @@ export default function updateSearchResults(state: AppState, action: Extract<App
         isFuckOff: false,
         leoInfo,
         normalizedAddress,
+        pendingElections: undefined,
         pollingLocations,
         pollingLocationsIndex: 0,
         primaryParties: partyList,

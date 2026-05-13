@@ -8,6 +8,7 @@ import { AppContext, DispatchContext } from 'appReducer';
 import './site.scss';
 import Results from 'components/Results/Results';
 import Secondary from 'components/Secondary/Secondary';
+import ElectionPicker from 'components/ElectionPicker/ElectionPicker';
 import useWindowSize from 'hooks/useWindowSize';
 import useElections from 'hooks/useElections';
 import sticker from 'images/iFuckingVotedSticker.png';
@@ -19,7 +20,7 @@ const Site = () => {
     const dispatch = useContext(DispatchContext);
     useElections(dispatch);
 
-    const {isActive, errors} = useContext(AppContext);
+    const {isActive, errors, pendingElections} = useContext(AppContext);
     const windowSize = useWindowSize();
 
     useEffect(() => {
@@ -63,7 +64,15 @@ const Site = () => {
                 </div>
             </div>
 
-            {isActive && (
+            {isActive && pendingElections && (
+                <div className="site__bd">
+                    <div className="site__secondary">
+                        <ElectionPicker />
+                    </div>
+                </div>
+            )}
+
+            {isActive && !pendingElections && (
                 <div className="site__bd">
                     <div className="site__secondary">
                         <Secondary getRef={() => ref} />
