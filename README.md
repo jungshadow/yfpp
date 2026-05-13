@@ -7,7 +7,7 @@ A static single-page app that helps voters find their fucking polling place. Ent
 ## Prerequisites
 
 - **Node.js** ≥ 22
-- **pnpm** ≥ 9
+- **pnpm** ≥ 11
 - **1Password CLI** (`op`) — used to inject API keys at runtime
 
 ## Setup
@@ -49,6 +49,24 @@ pnpm build
 ```
 
 Production output goes to `build/`.
+
+## Quality Checks
+
+```bash
+pnpm tsc --noEmit    # Type check
+pnpm lint            # ESLint (flat config)
+pnpm lint:fix        # Auto-fix lint issues
+pnpm format:check    # Prettier check
+pnpm format          # Auto-format
+```
+
+Run lint and format checks before committing.
+
+## Deploy
+
+Production deploys use GitHub Actions Pages via manual dispatch (`workflow_dispatch`). The workflow runs type checking and linting before building. API keys are injected from GitHub Secrets.
+
+Required repository secrets: `VITE_API_KEY`, `VITE_MAPBOX_API_ACCESS_TOKEN`, `VITE_OPENSTATES_API_KEY`.
 
 ## Tech Stack
 
