@@ -1,19 +1,16 @@
 import React, {useReducer} from 'react';
-import {Routes, Route, Navigate} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 
 import {appReducer, initialState, AppContext, DispatchContext} from 'appReducer';
 import Site from 'components/Site/Site';
 import {Page, PageSection} from 'components/Page';
 import {AnimatePresence, motion} from 'framer-motion';
 import Bios from 'components/Bios/Bios';
-import useRedirectDestination from 'hooks/useRedirectDestination';
 import PrivacyPolicy from 'components/PrivacyPolicy/PrivacyPolicy';
 import SiteInfo from 'components/SiteInfo/SiteInfo';
 
 const App = () => {
     const [state, dispatch] = useReducer(appReducer, initialState);
-
-    const redirectDestination = useRedirectDestination(state);
 
     const pageVariants = {
         initial: {
@@ -31,7 +28,6 @@ const App = () => {
     return (
         <AppContext.Provider value={state}>
             <DispatchContext.Provider value={dispatch}>
-                {state.isActive && redirectDestination && <Navigate to={`/${redirectDestination}`} replace />}
                 <AnimatePresence>
                     <Routes>
                         <Route path="/about" element={

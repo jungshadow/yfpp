@@ -1,5 +1,7 @@
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
+import { navigateToResultsRoute } from 'helpers/getResultsRoute';
 import { AppContext, DispatchContext } from 'appReducer';
 import getLocations from 'requests/getLocations';
 import analytics from 'analytics';
@@ -21,7 +23,8 @@ function groupByDate(elections: ElectionInfo[]): Map<string, ElectionInfo[]> {
 }
 
 const ElectionPicker = () => {
-    const { pendingElections, relevantElections, searchQuery, electionInfo } =
+    const navigate = useNavigate();
+    const { pendingElections, relevantElections, searchQuery, electionInfo, representatives } =
         useContext(AppContext);
     const dispatch = useContext(DispatchContext);
 
@@ -45,6 +48,13 @@ const ElectionPicker = () => {
                     relevantElections: elections,
                     searchQuery: searchQuery ?? '',
                 },
+            });
+            navigateToResultsRoute(navigate, {
+                earlyVoteSites: locations.earlyVoteSites ?? [],
+                pollingLocations: locations.pollingLocations ?? [],
+                contests: locations.contests ?? [],
+                dropOffLocations: locations.dropOffLocations ?? [],
+                representatives,
             });
         }
     };
