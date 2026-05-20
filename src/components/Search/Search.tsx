@@ -3,6 +3,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import classnames from 'classnames';
 import { navigateToResultsRoute } from 'helpers/getResultsRoute';
+import { getRelevantElections } from 'helpers/getRelevantElections';
 import analytics from 'analytics';
 import Autocomplete from 'components/Autocomplete/Autocomplete';
 import { AppContext, DispatchContext } from 'appReducer';
@@ -10,7 +11,6 @@ import useWindowSize from 'hooks/useWindowSize';
 import SearchIcon from 'components/Icons/SearchIcon';
 import CloseIcon from 'components/Icons/CloseIcon';
 import './search.scss';
-import statesMap from './statesMap';
 import getLocations from 'requests/getLocations';
 import getRepresentatives from 'requests/getRepresentatives';
 import type { ElectionInfo } from 'types/index';
@@ -31,7 +31,7 @@ function Search() {
         if (e) {
             e.preventDefault();
         }
-        const relevantElections = getRelevantElections(searchQuery);
+        const relevantElections = getRelevantElections(elections, searchQuery);
 
         // If multiple relevant elections, let the user pick before fetching locations
         if (relevantElections && relevantElections.length > 1) {
@@ -105,55 +105,6 @@ function Search() {
             dropOffLocations: locations?.dropOffLocations ?? [],
             representatives: representatives?.officials ?? [],
         });
-    };
-
-    const getRelevantElections = (searchValue: string): ElectionInfo[] | undefined => {
-        if (!elections.length) {
-            return;
-        }
-        let usersState: string | null | undefined = null;
-        const searchValueSegments = searchValue
-            .replace(/,|[0-9]|United States/gi, '')
-            .split(' ')
-            .filter(segment => segment !== '')
-            .slice(-2);
-
-        if (searchValueSegments[1] && searchValueSegments[1].length > 2) {
-            let matchedStates = Object.values(statesMap).filter(state =>
-                state.toLowerCase().includes(searchValueSegments[1].toLowerCase()),
-            );
-            if (matchedStates && matchedStates.length > 1) {
-                matchedStates = Object.values(statesMap).filter(state =>
-                    state
-                        .toLowerCase()
-                        .includes(
-                            `${searchValueSegments[0].toLowerCase()} ${searchValueSegments[1].toLowerCase()}`,
-                        ),
-                );
-            }
-            usersState = Object.keys(statesMap).find(state => {
-                return statesMap[state] === matchedStates[0];
-            });
-        } else if (searchValueSegments[1] && searchValueSegments[1].length === 2) {
-            usersState = searchValueSegments[1].toUpperCase();
-        }
-
-        const relevantElections = elections.filter(election => {
-            const ocdId = election.ocdDivisionId || '';
-            const stateSegment = ocdId.split('/').find(segment => segment.includes('state:'));
-
-            if (!stateSegment) {
-                return true;
-            }
-            const electionState = stateSegment.split(':')[1];
-
-            if (usersState && electionState === usersState.toLowerCase()) {
-                return true;
-            }
-            return false;
-        });
-
-        return relevantElections;
     };
 
     const getElectionId = (relevantElections?: ElectionInfo[]): string | undefined => {
