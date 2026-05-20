@@ -36,6 +36,10 @@
     margin: auto;
 }
 
+.site__contentInner:has(.locationCard) {
+ max-width: 800px;
+}
+
 .site__social {
     position: absolute;
     top: 20px;
@@ -92,7 +96,7 @@
         padding: 26px 22px 10px 22px;
         background-color: $COLOR_PRIMARY;
         border-top: 1px solid transparentize($WHITE, 0.89);
-        
+
     }
 
     .site__social {
