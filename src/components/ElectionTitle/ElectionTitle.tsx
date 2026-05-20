@@ -11,7 +11,7 @@ interface ElectionTitleProps {
 
 const ElectionTitle = (props: ElectionTitleProps) => {
     const { electionDay, name } = props.electionInfo;
-    const dateStr = electionDay ? format(new Date(electionDay), 'MMMM do, yyyy') : '';
+    const dateStr = electionDay ? format(new Date(electionDay + 'T00:00:00'), 'MMMM do, yyyy') : '';
 
     return (
         <div className="electionTitle">
