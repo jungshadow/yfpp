@@ -3,7 +3,11 @@ import ElectionTitle from './ElectionTitle';
 
 describe('ElectionTitle', () => {
     it('renders election name with fucktify', () => {
-        render(<ElectionTitle electionInfo={{ name: 'General Election', electionDay: '2024-11-05' }} />);
+        render(
+            <ElectionTitle
+                electionInfo={{ name: 'General Election', electionDay: '2024-11-05' }}
+            />,
+        );
         expect(screen.getByText(/general fucking election/i)).toBeInTheDocument();
     });
 

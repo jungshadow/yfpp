@@ -23,26 +23,19 @@ const BallotResults = ({ contests, primaryParties }: BallotResultsProps) => {
 
     const getFilteredContests = (contests: Contest[]) => {
         if (currentPartyFilter !== 'all') {
-            return contests.filter(
-                contest => contest.primaryParty === currentPartyFilter
-            );
+            return contests.filter(contest => contest.primaryParty === currentPartyFilter);
         }
         return contests;
     };
 
     if (!contests.length) {
-        return (
-            <FallbackMessage message="No fucking ballot results for that address" />
-        );
+        return <FallbackMessage message="No fucking ballot results for that address" />;
     }
 
     return (
         <div className="ballotResults">
             <div className="ballotResults__hd">
-                <PartySelect
-                    onSelect={handleOnFilterChange}
-                    primaryParties={primaryParties}
-                />
+                <PartySelect onSelect={handleOnFilterChange} primaryParties={primaryParties} />
             </div>
             <div className="ballotResults__bd">
                 <Pager data={getFilteredContests(contests)}>

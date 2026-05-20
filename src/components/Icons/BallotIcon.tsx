@@ -4,7 +4,14 @@ const BallotIcon = () => {
     return (
         <div className="icon ballotIcon">
             <div className="inner">
-                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2">
+                <svg
+                    viewBox="0 0 32 32"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    strokeLinejoin="round"
+                    strokeMiterlimit="2"
+                >
                     <path fill="none" d="M0 0h32.962v33.224H0z" />
                     <clipPath id="a">
                         <path d="M0 0h32.962v33.224H0z" />

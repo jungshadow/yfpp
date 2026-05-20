@@ -1,14 +1,17 @@
 import type { AppState, AppAction } from '../types';
 
-export default function setError(state: AppState, action: Extract<AppAction, { type: 'SET_ERROR' }>): AppState {
+export default function setError(
+    state: AppState,
+    action: Extract<AppAction, { type: 'SET_ERROR' }>,
+): AppState {
     if (!action.error) {
         return {
             ...state,
-            errors: false
+            errors: false,
         };
     }
     return {
         ...state,
-        errors: {...(state.errors || {}), ...action.error}
+        errors: { ...(state.errors || {}), ...action.error },
     };
 }

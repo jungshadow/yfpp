@@ -2,7 +2,10 @@ import analytics from 'analytics';
 import helpers from 'helpers';
 import type { CivicApiResponse } from '../types/api';
 
-async function getLocations(searchValue: string, electionId?: string): Promise<CivicApiResponse | undefined> {
+async function getLocations(
+    searchValue: string,
+    electionId?: string,
+): Promise<CivicApiResponse | undefined> {
     const requestParams: Record<string, string> = {
         address: searchValue,
     };

@@ -64,5 +64,5 @@ export const initialState: AppState = {
     representatives: [],
     offices: [],
     pendingElections: undefined,
-    searchQuery: null
+    searchQuery: null,
 };

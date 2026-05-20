@@ -30,9 +30,17 @@ class Modal extends React.Component<ModalProps> {
         const activeClassName = this.props.showModal === true ? ACTIVE_CLASS : '';
 
         return (
-            <div className={'modal modal_full ' + activeClassName} aria-hidden={!this.props.showModal} role="dialog">
+            <div
+                className={'modal modal_full ' + activeClassName}
+                aria-hidden={!this.props.showModal}
+                role="dialog"
+            >
                 <div className="modal-inner">
-                    <div className="modal-btn" onClick={this.props.onModalCloseHandler.bind(this)} aria-label="close">
+                    <div
+                        className="modal-btn"
+                        onClick={this.props.onModalCloseHandler.bind(this)}
+                        aria-label="close"
+                    >
                         <button className="iconBtn">
                             <span className="iconBtn-txt">Close</span>
                             <span className="iconBtn-icon">

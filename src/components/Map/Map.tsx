@@ -56,13 +56,9 @@ const Map = ({ latitude, longitude, originAddress, destinationAddress }: MapProp
 
         map.on('load', () => {
             directions.setOrigin(originAddress);
-            originInput = document.querySelector(
-                '#mapbox-directions-origin-input input'
-            );
+            originInput = document.querySelector('#mapbox-directions-origin-input input');
 
-            destinationInput = document.querySelector(
-                '#mapbox-directions-destination-input input'
-            );
+            destinationInput = document.querySelector('#mapbox-directions-destination-input input');
 
             directions.setDestination(destinationAddress);
 

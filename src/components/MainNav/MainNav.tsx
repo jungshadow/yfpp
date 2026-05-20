@@ -9,7 +9,14 @@ const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
     `mainNav__listItemLink${isActive ? ' mainNav__listItemLink--isActive' : ''}`;
 
 const MainNav = () => {
-    const { dropOffLocations, earlyVoteSites, pollingLocations, primaryParties, contests, representatives } = useContext(AppContext);
+    const {
+        dropOffLocations,
+        earlyVoteSites,
+        pollingLocations,
+        primaryParties,
+        contests,
+        representatives,
+    } = useContext(AppContext);
 
     return (
         <nav className="mainNav">
@@ -26,7 +33,10 @@ const MainNav = () => {
                 )}
                 {(primaryParties.length > 0 || contests.length > 0) && (
                     <li className="mainNav__listItem">
-                        <NavLink className={getNavLinkClass} to={{ pathname: '/ballot', search: window.location.search }}>
+                        <NavLink
+                            className={getNavLinkClass}
+                            to={{ pathname: '/ballot', search: window.location.search }}
+                        >
                             <span className="mainNav__listItemIcon">
                                 <BallotIcon />
                             </span>

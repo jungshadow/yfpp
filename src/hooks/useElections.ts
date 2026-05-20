@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 
 import helpers from 'helpers';
 import type { AppDispatch } from '../types';
@@ -9,18 +9,15 @@ function useElections(dispatch: AppDispatch): void {
         async function getElections() {
             const requestParams = {};
 
-            const requestURL = helpers.getRequestURL(
-                'elections',
-                requestParams
-            );
+            const requestURL = helpers.getRequestURL('elections', requestParams);
 
             try {
                 const response = await fetch(requestURL, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        Accept: 'application/json'
-                    }
+                        Accept: 'application/json',
+                    },
                 });
 
                 if (!response.ok) {
@@ -32,7 +29,7 @@ function useElections(dispatch: AppDispatch): void {
 
                 dispatch({
                     type: 'UPDATE_ELECTION_RESULTS',
-                    elections: data.elections || []
+                    elections: data.elections || [],
                 });
             } catch (error) {
                 console.error('error in get Elections call:', error);

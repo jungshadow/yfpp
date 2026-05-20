@@ -45,18 +45,21 @@ const LocationActions = ({
             link:
                 'https://yourfuckingpollingplace.com/?utm_source=facebook&utm_medium=social&utm_campaign=YFPP_2020_USER_' +
                 state,
-            picture:
-                'https://yourfuckingpollingplace.com/images/social/social_2x.png',
+            picture: 'https://yourfuckingpollingplace.com/images/social/social_2x.png',
             name: 'I Vote At ' + locationName,
             caption: 'YourFuckingPollingPlace.com',
             description: `I vote at ${helpers.titlecase(
-                helpers.fucktify(locationName)
+                helpers.fucktify(locationName),
             )} in ${helpers.titlecase(
-                location.city || ''
+                location.city || '',
             )} ${state}, where the fuck do you vote? Visit YourFuckingPollingPlace.com to find out.`,
         };
 
-        (window as unknown as { FB: { ui: (obj: Record<string, unknown>, cb: (r: unknown) => void) => void } }).FB.ui(shareObj, facebook_callback);
+        (
+            window as unknown as {
+                FB: { ui: (obj: Record<string, unknown>, cb: (r: unknown) => void) => void };
+            }
+        ).FB.ui(shareObj, facebook_callback);
     };
 
     const buildTweet = () => {
@@ -75,11 +78,10 @@ const LocationActions = ({
         let text: string;
         if (locationName) {
             text = `I vote at ${helpers.titlecase(
-                helpers.fucktify(locationName)
+                helpers.fucktify(locationName),
             )}. Where the fuck do you vote? Find out at`;
         } else {
-            text =
-                'I found my fucking polling location. Where the fuck do you vote? Find out at';
+            text = 'I found my fucking polling location. Where the fuck do you vote? Find out at';
         }
 
         const related = authorTwitter.join(',');
@@ -96,37 +98,29 @@ const LocationActions = ({
         const isLngLat = !!(longitude && latitude);
         const isAppleMobileDevice = /\b(iPad|iPhone|iPod)\b/.test(UA);
         const googleUrl = 'https://www.google.com/maps/search/?api=1&query=';
-        const appleUrl = `https://maps.apple.com/${
-            isLngLat ? '?ll=' : '?daddr='
-        }`;
+        const appleUrl = `https://maps.apple.com/${isLngLat ? '?ll=' : '?daddr='}`;
 
         // set up url components to build google maps url
         const components = [line1, city, state, zip];
 
         // figure out if lat/long combination or needs an address
         const queryString = `${
-            isLngLat
-                ? `${latitude},${longitude}`
-                : encodeURI(components.join(' '))
+            isLngLat ? `${latitude},${longitude}` : encodeURI(components.join(' '))
         }`;
 
         return `${
             isAppleMobileDevice
                 ? `${appleUrl}${queryString}&z=20&q=${
-                    locationName ? `${encodeURI(
-                        helpers.titlecase(
-                            helpers.fucktify(locationName)
-                        ))}` : 'This fucking place'}`
+                      locationName
+                          ? `${encodeURI(helpers.titlecase(helpers.fucktify(locationName)))}`
+                          : 'This fucking place'
+                  }`
                 : `${googleUrl}${queryString}`
         }`;
     };
 
     return (
-        <div
-            className={`locationActions ${
-                isActive ? 'locationActions--isActive' : ''
-            }`}
-        >
+        <div className={`locationActions ${isActive ? 'locationActions--isActive' : ''}`}>
             {isMobile && (
                 <a
                     className="locationActions__btn locationActions__btn--mapBtn"

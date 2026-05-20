@@ -1,10 +1,6 @@
 import type { AppState, Contest } from '../types';
 
-export type ResultsRoute =
-    | 'polling-place'
-    | 'ballot'
-    | 'representatives'
-    | 'drop-off-sites';
+export type ResultsRoute = 'polling-place' | 'ballot' | 'representatives' | 'drop-off-sites';
 
 export const RESULTS_PATHNAMES = new Set<string>([
     '/polling-place',
@@ -17,11 +13,7 @@ const LAST_RESULTS_PATH_KEY = 'yfpp:lastResultsPath';
 
 type ResultsRouteInput = Pick<
     AppState,
-    | 'earlyVoteSites'
-    | 'pollingLocations'
-    | 'contests'
-    | 'representatives'
-    | 'dropOffLocations'
+    'earlyVoteSites' | 'pollingLocations' | 'contests' | 'representatives' | 'dropOffLocations'
 >;
 
 function getPrimaryParties(contests: Contest[]): string[] {

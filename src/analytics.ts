@@ -31,7 +31,8 @@ const analytics = {
         } else if (result && typeof result === 'object') {
             const r = result as Record<string, unknown>;
             if (typeof r.message === 'string') error = r.message;
-            else if (r.error && typeof (r.error as Record<string, unknown>).message === 'string') error = (r.error as Record<string, unknown>).message as string;
+            else if (r.error && typeof (r.error as Record<string, unknown>).message === 'string')
+                error = (r.error as Record<string, unknown>).message as string;
         }
         this.send_event('Address', 'Failure', error);
     },

@@ -1,8 +1,11 @@
 import { isAfter, startOfDay } from 'date-fns';
 import type { AppState, AppAction } from '../types';
 
-export default function updateSearchResults(state: AppState, action: Extract<AppAction, { type: 'UPDATE_SEARCH_RESULTS' }>): AppState {
-    const {data} = action;
+export default function updateSearchResults(
+    state: AppState,
+    action: Extract<AppAction, { type: 'UPDATE_SEARCH_RESULTS' }>,
+): AppState {
+    const { data } = action;
     const leoInfo =
         (data.state &&
             data.state[0] &&
@@ -70,6 +73,6 @@ export default function updateSearchResults(state: AppState, action: Extract<App
         primaryParties: partyList,
         relevantElections,
         searchQuery,
-        seoInfo
+        seoInfo,
     };
 }

@@ -34,12 +34,29 @@ class ErrorReportForm extends React.Component<ErrorReportFormProps> {
 
         return (
             <div className="tabs-panel-errorLink">
-                <button type="button" className="link" id="error-feedback-link" data-state={normalizedAddress.state} onClick={this.onClickHandler}>
+                <button
+                    type="button"
+                    className="link"
+                    id="error-feedback-link"
+                    data-state={normalizedAddress.state}
+                    onClick={this.onClickHandler}
+                >
                     This fucking thing wrong? <strong>Report it here.</strong>
                 </button>
-                <form className="hidden" style={{ display: 'none' }} method="post" action="https://voter-info-tool.appspot.com/feedback" ref={this.errorFeedbackFormRef} id="error-feedback-form">
+                <form
+                    className="hidden"
+                    style={{ display: 'none' }}
+                    method="post"
+                    action="https://voter-info-tool.appspot.com/feedback"
+                    ref={this.errorFeedbackFormRef}
+                    id="error-feedback-form"
+                >
                     <input type="hidden" defaultValue={electionInfo.id} name="electionId" />
-                    <input type="hidden" defaultValue={helpers.concatStreetAddress(normalizedAddress)} name="address" />
+                    <input
+                        type="hidden"
+                        defaultValue={helpers.concatStreetAddress(normalizedAddress)}
+                        name="address"
+                    />
                     <input type="submit" id="error-feedback-link-submit" value="" />
                 </form>
             </div>

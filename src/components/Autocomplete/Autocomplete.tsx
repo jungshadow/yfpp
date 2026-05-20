@@ -112,14 +112,17 @@ const Autocomplete = ({ isActive, onSubmit, onSearch, placeholder, value }: Auto
         }
     };
 
-    const handleActionKeyDown = (event: React.KeyboardEvent, index: number, results: AutocompleteDataItem[]) => {
+    const handleActionKeyDown = (
+        event: React.KeyboardEvent,
+        index: number,
+        results: AutocompleteDataItem[],
+    ) => {
         event.preventDefault();
 
         switch (event.key) {
             case 'ArrowDown':
                 {
-                    const nextIndex =
-                        index < results.length ? index + 1 : index;
+                    const nextIndex = index < results.length ? index + 1 : index;
                     if (refsArray[nextIndex]) {
                         refsArray[nextIndex].focus();
                     }
@@ -153,10 +156,7 @@ const Autocomplete = ({ isActive, onSubmit, onSearch, placeholder, value }: Auto
     const getHighlightedMatches = (locationData: AutocompleteDataItem) => {
         const { location, query } = locationData;
         const term = new RegExp(query.join('|'), 'gi');
-        const newStr = location.replace(
-            new RegExp(term, 'gi'),
-            match => `<b>${match}</b>`
-        );
+        const newStr = location.replace(new RegExp(term, 'gi'), match => `<b>${match}</b>`);
 
         return { __html: newStr };
     };
@@ -179,21 +179,16 @@ const Autocomplete = ({ isActive, onSubmit, onSearch, placeholder, value }: Auto
             {dataSource.length > 0 && (
                 <ul className="autocomplete__list">
                     {dataSource.map((item, index, results) => (
-                        <li
-                            key={`autocomplete${index}`}
-                            className="autocomplete__listItem"
-                        >
+                        <li key={`autocomplete${index}`} className="autocomplete__listItem">
                             <button
                                 className="autocomplete__action"
-                                dangerouslySetInnerHTML={getHighlightedMatches(
-                                    item
-                                )}
+                                dangerouslySetInnerHTML={getHighlightedMatches(item)}
                                 id={`autocomplete${index}`}
                                 onClick={() => handleSelectItem(index)}
-                                onKeyDown={e =>
-                                    handleActionKeyDown(e, index, results)
-                                }
-                                ref={ref => { refsArray[index] = ref; }}
+                                onKeyDown={e => handleActionKeyDown(e, index, results)}
+                                ref={ref => {
+                                    refsArray[index] = ref;
+                                }}
                                 type="button"
                             ></button>
                         </li>

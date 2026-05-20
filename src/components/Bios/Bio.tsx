@@ -1,9 +1,9 @@
-import React, {useRef} from 'react';
-import {motion} from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion } from 'framer-motion';
 import classnames from 'classnames';
 
 import './bio.scss';
-import {CloseIcon, LinkedInIcon} from 'components/Icons';
+import { CloseIcon, LinkedInIcon } from 'components/Icons';
 import useOutsideClick from 'hooks/useOutsideClick';
 import IconLink from 'components/IconLink/IconLink';
 import KitchenSink from 'components/KitchenSink/KitchenSink';
@@ -27,11 +27,9 @@ interface BioProps {
     slug?: boolean;
 }
 
-const Bio = ({data, isActive, onClick, index, slug}: BioProps) => {
+const Bio = ({ data, isActive, onClick, index, slug }: BioProps) => {
     const bioRef = useRef<HTMLDivElement>(null);
     useOutsideClick(bioRef, handleClickBio);
-
-
 
     function handleClickBio(ref: React.RefObject<HTMLElement | null>) {
         if (ref.current?.classList.contains('bio--isActive')) {
@@ -43,7 +41,7 @@ const Bio = ({data, isActive, onClick, index, slug}: BioProps) => {
         return classnames({
             bio: true,
             'bio--isActive': isActive,
-            'bio--isSlug': slug
+            'bio--isSlug': slug,
         });
     }
 
@@ -65,19 +63,24 @@ const Bio = ({data, isActive, onClick, index, slug}: BioProps) => {
             )}
             <motion.div className="bio__img" layout>
                 <div className="inner">
-                    <img src={data.image} alt={data.firstname + ' ' + data.lastname + ' head shot'} />
+                    <img
+                        src={data.image}
+                        alt={data.firstname + ' ' + data.lastname + ' head shot'}
+                    />
                 </div>
             </motion.div>
 
             <motion.div className="bio__heading" layout>
                 <h4 className="bio__name">
                     {data.firstname}{' '}
-                    {isActive && data.nickname && <span className="bio__nickName">{'"' + data.nickname + '"'}</span>}{' '}
+                    {isActive && data.nickname && (
+                        <span className="bio__nickName">{'"' + data.nickname + '"'}</span>
+                    )}{' '}
                     {data.lastname}
                 </h4>
                 {isActive && <div className="bio__title">{data.title}</div>}
             </motion.div>
-            <motion.div layout style={{width: '100%'}}>
+            <motion.div layout style={{ width: '100%' }}>
                 <div className="bio__social">
                     <ul className="bio__socialLinks">
                         <li className="bio__socialLink">
@@ -108,7 +111,7 @@ const Bio = ({data, isActive, onClick, index, slug}: BioProps) => {
             {isActive && (
                 <motion.div className="bio__bd" key={`bio_bd_${data.firstname}`} layout>
                     <KitchenSink isReversed>
-                        <p dangerouslySetInnerHTML={{__html: data.description}} />
+                        <p dangerouslySetInnerHTML={{ __html: data.description }} />
                     </KitchenSink>
                 </motion.div>
             )}

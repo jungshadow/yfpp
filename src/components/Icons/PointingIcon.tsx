@@ -1,7 +1,7 @@
 import React from 'react';
 import './icons.scss';
 
-const PointingIcon = ({style: _style}: {style?: React.CSSProperties}) => {
+const PointingIcon = ({ style: _style }: { style?: React.CSSProperties }) => {
     return (
         <div className="icon pointingIcon">
             <div className="inner">

@@ -120,34 +120,27 @@ function Search() {
 
         if (searchValueSegments[1] && searchValueSegments[1].length > 2) {
             let matchedStates = Object.values(statesMap).filter(state =>
-                state
-                    .toLowerCase()
-                    .includes(searchValueSegments[1].toLowerCase())
+                state.toLowerCase().includes(searchValueSegments[1].toLowerCase()),
             );
             if (matchedStates && matchedStates.length > 1) {
                 matchedStates = Object.values(statesMap).filter(state =>
                     state
                         .toLowerCase()
                         .includes(
-                            `${searchValueSegments[0].toLowerCase()} ${searchValueSegments[1].toLowerCase()}`
-                        )
+                            `${searchValueSegments[0].toLowerCase()} ${searchValueSegments[1].toLowerCase()}`,
+                        ),
                 );
             }
             usersState = Object.keys(statesMap).find(state => {
                 return statesMap[state] === matchedStates[0];
             });
-        } else if (
-            searchValueSegments[1] &&
-            searchValueSegments[1].length === 2
-        ) {
+        } else if (searchValueSegments[1] && searchValueSegments[1].length === 2) {
             usersState = searchValueSegments[1].toUpperCase();
         }
 
         const relevantElections = elections.filter(election => {
             const ocdId = election.ocdDivisionId || '';
-            const stateSegment = ocdId
-                .split('/')
-                .find(segment => segment.includes('state:'));
+            const stateSegment = ocdId.split('/').find(segment => segment.includes('state:'));
 
             if (!stateSegment) {
                 return true;
@@ -166,7 +159,7 @@ function Search() {
     const getElectionId = (relevantElections?: ElectionInfo[]): string | undefined => {
         if (relevantElections && relevantElections.length > 1) {
             relevantElections.sort(
-                (a, b) => new Date(a.electionDay).getTime() - new Date(b.electionDay).getTime()
+                (a, b) => new Date(a.electionDay).getTime() - new Date(b.electionDay).getTime(),
             );
             return relevantElections[0].id;
         } else if (relevantElections && relevantElections.length === 1) {

@@ -8,9 +8,7 @@ function camelCase(str: string) {
 
 // helper function to dynamically build classnames
 function getClassNames(selected: number, currentIndex: number) {
-    return selected === currentIndex
-        ? 'tabsNavLink tabsNavLink--isActive'
-        : 'tabsNavLink';
+    return selected === currentIndex ? 'tabsNavLink tabsNavLink--isActive' : 'tabsNavLink';
 }
 
 interface TabsNavItemProps {

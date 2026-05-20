@@ -1,7 +1,7 @@
 import React from 'react';
 
 import classnames from 'classnames';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './iconLink.scss';
 
@@ -18,14 +18,25 @@ interface IconLinkProps {
     [key: string]: unknown;
 }
 
-const IconLink = ({to, icon, label, iconPosition = 'after', size, color, href, isStacked, children: _children, ...additionalProps}: IconLinkProps) => {
+const IconLink = ({
+    to,
+    icon,
+    label,
+    iconPosition = 'after',
+    size,
+    color,
+    href,
+    isStacked,
+    children: _children,
+    ...additionalProps
+}: IconLinkProps) => {
     const getIconClassName = () => {
         return classnames({
             iconLink: true,
             [`iconLink--${iconPosition}`]: true,
             'iconLink--isStacked': isStacked,
             [`iconLink--${size}`]: size,
-            [`iconLink--${color}`]: color
+            [`iconLink--${color}`]: color,
         });
     };
 

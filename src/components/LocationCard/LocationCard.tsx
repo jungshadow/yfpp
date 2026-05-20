@@ -43,23 +43,13 @@ const LocationCard = ({ data, locationType, slug }: LocationCardProps) => {
     const { normalizedAddress } = useContext(AppContext);
 
     if (!data) return null;
-    const {
-        startDate,
-        endDate,
-        address,
-        pollingHours,
-        name,
-        latitude,
-        longitude,
-    } = data;
+    const { startDate, endDate, address, pollingHours, name, latitude, longitude } = data;
 
     const renderEarlyVoteSiteBadge = () => {
         if (locationType === 'early-vote') {
             return (
                 <motion.div className="locationCard__badge" layout>
-                    <span className="locationCard__badgeTitle">
-                        Early Polling Location
-                    </span>
+                    <span className="locationCard__badgeTitle">Early Polling Location</span>
                     <span className="locationCard__badgeDate">
                         {startDate && format(new Date(startDate), 'MMMM do')} -{' '}
                         {endDate && format(new Date(endDate), 'MMMM do')}
@@ -103,12 +93,7 @@ const LocationCard = ({ data, locationType, slug }: LocationCardProps) => {
 
     return (
         <>
-            <motion.div
-                className={getCardClassName()}
-                key={name}
-                ref={locationCardRef}
-                layout
-            >
+            <motion.div className={getCardClassName()} key={name} ref={locationCardRef} layout>
                 {isActive && (
                     <button
                         className="locationCard__closeBtn"
@@ -124,9 +109,7 @@ const LocationCard = ({ data, locationType, slug }: LocationCardProps) => {
                 <motion.div className="locationCard__hd" layout>
                     {renderEarlyVoteSiteBadge()}
                     <motion.h3 className="locationCard__name" layout>
-                        {helpers.cleanString(
-                            helpers.fucktify(address.locationName || name)
-                        )}
+                        {helpers.cleanString(helpers.fucktify(address.locationName || name))}
                     </motion.h3>
                 </motion.div>
                 <div className="locationCard__bd">
@@ -138,8 +121,7 @@ const LocationCard = ({ data, locationType, slug }: LocationCardProps) => {
                             {helpers.lowerCase(address.line2)}
                         </div>
                         <div className="locationCard__address locationCard__address--cityStateZip">
-                            {helpers.lowerCase(address.city)}, {address.state}{' '}
-                            {address.zip}
+                            {helpers.lowerCase(address.city)}, {address.state} {address.zip}
                         </div>
                     </motion.div>
 
@@ -154,10 +136,10 @@ const LocationCard = ({ data, locationType, slug }: LocationCardProps) => {
                             latitude={latitude || 0}
                             longitude={longitude || 0}
                             originAddress={helpers.getAddressStringFromObject(
-                                normalizedAddress as NormalizedAddress
+                                normalizedAddress as NormalizedAddress,
                             )}
                             destinationAddress={helpers.getAddressStringFromObject(
-                                address as NormalizedAddress
+                                address as NormalizedAddress,
                             )}
                         />
                     </motion.div>

@@ -5,9 +5,9 @@ interface LogoProps {
     isCompact?: boolean;
 }
 
-const Logo = ({isCompact}: LogoProps) => {
+const Logo = ({ isCompact }: LogoProps) => {
     const getLogoClassName = () => {
-        return classnames({logo: true, 'logo--isCompact': isCompact});
+        return classnames({ logo: true, 'logo--isCompact': isCompact });
     };
 
     return (

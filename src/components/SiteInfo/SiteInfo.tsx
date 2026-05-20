@@ -1,5 +1,5 @@
 import KitchenSink from 'components/KitchenSink/KitchenSink';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './siteInfo.scss';
 
@@ -45,11 +45,12 @@ const SiteInfo = () => {
                         .
                     </p>
                     <p>
-                        Data from states that do not provide direct feeds only include addresses with registered voters
+                        Data from states that do not provide direct feeds only include addresses
+                        with registered voters
                     </p>
                     <p>
-                        Election officials sometimes revise data in the last few days before an election. Check back on
-                        Election Day for the latest information.
+                        Election officials sometimes revise data in the last few days before an
+                        election. Check back on Election Day for the latest information.
                     </p>
                 </KitchenSink>
             </div>

@@ -55,131 +55,114 @@ function Results() {
         <AnimatePresence>
             <Routes>
                 <Route index element={<ResultsIndexRedirect />} />
-                <Route path="/polling-place" element={
-                    <motion.div
-                        initial="initial"
-                        animate="in"
-                        exit="out"
-                        variants={pageVariants}
-                        key="polling-places"
-                    >
-                        <ResultsErrorBoundry
-                            errorType="locations"
-                            errors={errors}
+                <Route
+                    path="/polling-place"
+                    element={
+                        <motion.div
+                            initial="initial"
+                            animate="in"
+                            exit="out"
+                            variants={pageVariants}
+                            key="polling-places"
                         >
+                            <ResultsErrorBoundry errorType="locations" errors={errors}>
+                                <ResultMessage>
+                                    <p>
+                                        <strong>You have the right to vote.</strong> If anyone tries
+                                        to stop you, call or text the National Election Protection
+                                        Hotline. Their number is 866-OUR-VOTE
+                                        <a href="tel:866-687-8683"> (866-687-8683)</a>.
+                                    </p>
+                                </ResultMessage>
+                                <ElectionPicker />
+                                <Tabs>
+                                    {earlyVoteSites && earlyVoteSites.length > 0 && (
+                                        <TabPanel label="Early Voting Sites">
+                                            <EarlyVoteResults locations={earlyVoteSites} />
+                                        </TabPanel>
+                                    )}
+                                    {pollingLocations && pollingLocations.length > 0 && (
+                                        <TabPanel label="Polling Locations">
+                                            <PollingPlaceResults locations={pollingLocations} />
+                                        </TabPanel>
+                                    )}
+                                </Tabs>
+                            </ResultsErrorBoundry>
+                        </motion.div>
+                    }
+                />
+                <Route
+                    path="/ballot"
+                    element={
+                        <motion.div
+                            initial="initial"
+                            animate="in"
+                            exit="out"
+                            variants={pageVariants}
+                            key="ballot"
+                        >
+                            <ResultsErrorBoundry errorType="locations" errors={errors}>
+                                <ElectionPicker />
+                                <BallotResults
+                                    primaryParties={primaryParties}
+                                    contests={contests}
+                                />
+                            </ResultsErrorBoundry>
+                        </motion.div>
+                    }
+                />
+                <Route
+                    path="/representatives"
+                    element={
+                        <motion.div
+                            initial="initial"
+                            animate="in"
+                            exit="out"
+                            variants={pageVariants}
+                            key="representatives"
+                        >
+                            <ElectionPicker />
                             <ResultMessage>
                                 <p>
-                                    <strong>You have the right to vote.</strong>{' '}
-                                    If anyone tries to stop you, call or text
-                                    the National Election Protection Hotline.
-                                    Their number is 866-OUR-VOTE
-                                    <a href="tel:866-687-8683">
-                                        {' '}
-                                        (866-687-8683)
-                                    </a>
-                                    .
+                                    <strong>
+                                        These are the fuckers that currently represent you.
+                                    </strong>
                                 </p>
                             </ResultMessage>
-                            <ElectionPicker />
-                            <Tabs>
-                                {earlyVoteSites && earlyVoteSites.length > 0 && (
-                                    <TabPanel label="Early Voting Sites">
-                                        <EarlyVoteResults
-                                            locations={earlyVoteSites}
-                                        />
-                                    </TabPanel>
-                                )}
-                                {pollingLocations && pollingLocations.length > 0 && (
-                                    <TabPanel label="Polling Locations">
-                                        <PollingPlaceResults
-                                            locations={pollingLocations}
-                                        />
-                                    </TabPanel>
-                                )}
-                            </Tabs>
-                        </ResultsErrorBoundry>
-                    </motion.div>
-                } />
-                <Route path="/ballot" element={
-                    <motion.div
-                        initial="initial"
-                        animate="in"
-                        exit="out"
-                        variants={pageVariants}
-                        key="ballot"
-                    >
-                        <ResultsErrorBoundry
-                            errorType="locations"
-                            errors={errors}
+                            <ResultsErrorBoundry errorType="representatives" errors={errors}>
+                                <Representatives
+                                    representatives={representatives}
+                                    offices={offices}
+                                />
+                            </ResultsErrorBoundry>
+                        </motion.div>
+                    }
+                />
+                <Route
+                    path="/drop-off-sites"
+                    element={
+                        <motion.div
+                            initial="initial"
+                            animate="in"
+                            exit="out"
+                            variants={pageVariants}
+                            key="drop-off-sites"
                         >
-                            <ElectionPicker />
-                            <BallotResults
-                                primaryParties={primaryParties}
-                                contests={contests}
-                            />
-                        </ResultsErrorBoundry>
-                    </motion.div>
-                } />
-                <Route path="/representatives" element={
-                    <motion.div
-                        initial="initial"
-                        animate="in"
-                        exit="out"
-                        variants={pageVariants}
-                        key="representatives"
-                    >
-                        <ElectionPicker />
-                        <ResultMessage>
-                            <p>
-                                <strong>
-                                    These are the fuckers that currently
-                                    represent you.
-                                </strong>
-                            </p>
-                        </ResultMessage>
-                        <ResultsErrorBoundry
-                            errorType="representatives"
-                            errors={errors}
-                        >
-                            <Representatives
-                                representatives={representatives}
-                                offices={offices}
-                            />
-                        </ResultsErrorBoundry>
-                    </motion.div>
-                } />
-                <Route path="/drop-off-sites" element={
-                    <motion.div
-                        initial="initial"
-                        animate="in"
-                        exit="out"
-                        variants={pageVariants}
-                        key="drop-off-sites"
-                    >
-                        <ResultsErrorBoundry
-                            errorType="locations"
-                            errors={errors}
-                        >
-                            <ResultMessage>
-                                <p>
-                                    <strong>You have the right to vote.</strong>{' '}
-                                    If anyone tries to stop you, call or text
-                                    the National Election Protection Hotline.
-                                    Their number is 866-OUR-VOTE
-                                    <a href="tel:866-687-8683">
-                                        {' '}
-                                        (866-687-8683)
-                                    </a>
-                                    .
-                                </p>
-                            </ResultMessage>
-                            <ElectionPicker />
-                            <DropOffLocationResults
-                                locations={dropOffLocations}
-                            />
-                        </ResultsErrorBoundry>
-                    </motion.div>
-                } />
+                            <ResultsErrorBoundry errorType="locations" errors={errors}>
+                                <ResultMessage>
+                                    <p>
+                                        <strong>You have the right to vote.</strong> If anyone tries
+                                        to stop you, call or text the National Election Protection
+                                        Hotline. Their number is 866-OUR-VOTE
+                                        <a href="tel:866-687-8683"> (866-687-8683)</a>.
+                                    </p>
+                                </ResultMessage>
+                                <ElectionPicker />
+                                <DropOffLocationResults locations={dropOffLocations} />
+                            </ResultsErrorBoundry>
+                        </motion.div>
+                    }
+                />
             </Routes>
         </AnimatePresence>
     );

@@ -6,7 +6,7 @@ interface ResultMessageProps {
     children: React.ReactNode;
 }
 
-const ResultMessage = ({children}: ResultMessageProps) => {
+const ResultMessage = ({ children }: ResultMessageProps) => {
     return (
         <div className="resultMessage">
             <KitchenSink>{children}</KitchenSink>

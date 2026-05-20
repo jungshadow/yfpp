@@ -18,7 +18,12 @@ const TabsHorz = ({ onClick, selected, tabs, showIconsHorz = false }: TabsHorzPr
                 <TabsNav
                     onClick={onClick}
                     selected={selected}
-                    tabs={filteredTabs as React.ReactElement<{ label: string; icon?: React.ReactNode }>[]}
+                    tabs={
+                        filteredTabs as React.ReactElement<{
+                            label: string;
+                            icon?: React.ReactNode;
+                        }>[]
+                    }
                     showIconsHorz={showIconsHorz}
                 />
             )}

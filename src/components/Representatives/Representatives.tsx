@@ -1,4 +1,3 @@
-
 import RepresentativeCard from 'components/Representatives/RepresentativeCard';
 import FallbackMessage from 'components/FallbackMessage/FallbackMessage';
 import Pager from 'components/Pager/Pager';
@@ -10,21 +9,24 @@ interface RepresentativesProps {
 }
 
 const Representatives = (props: RepresentativesProps) => {
-    const {representatives, offices} = props;
+    const { representatives, offices } = props;
 
     function buildRepresentativesList(offices: Office[], representatives: Official[]) {
-        const transformedReps = offices.reduce((acc: Array<Official & { office: string }>, currentValue) => {
-            const officialIndices = currentValue.officialIndices;
+        const transformedReps = offices.reduce(
+            (acc: Array<Official & { office: string }>, currentValue) => {
+                const officialIndices = currentValue.officialIndices;
 
-            officialIndices.forEach((index: number) => {
-                const transformedRep = {
-                    ...representatives[index],
-                    office: currentValue.name
-                };
-                acc.push(transformedRep);
-            });
-            return acc;
-        }, []);
+                officialIndices.forEach((index: number) => {
+                    const transformedRep = {
+                        ...representatives[index],
+                        office: currentValue.name,
+                    };
+                    acc.push(transformedRep);
+                });
+                return acc;
+            },
+            [],
+        );
         return transformedReps;
     }
 

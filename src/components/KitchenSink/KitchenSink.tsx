@@ -9,12 +9,12 @@ interface KitchenSinkProps {
     isCentered?: boolean;
 }
 
-const KitchenSink = ({children, isReversed, isCentered}: KitchenSinkProps) => {
+const KitchenSink = ({ children, isReversed, isCentered }: KitchenSinkProps) => {
     const getKitchenSinkClassnames = () => {
         return classnames({
             kitchenSink: true,
             'kitchenSink--reversed': isReversed,
-            'kitchenSink--centered': isCentered
+            'kitchenSink--centered': isCentered,
         });
     };
     return <div className={getKitchenSinkClassnames()}>{children}</div>;

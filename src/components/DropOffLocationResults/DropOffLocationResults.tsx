@@ -10,9 +10,7 @@ interface DropOffLocationResultsProps {
 
 const DropOffLocationResults = ({ locations, ...additionalProps }: DropOffLocationResultsProps) => {
     if (!locations.length) {
-        return (
-            <FallbackMessage message="No fucking drop off results for that address" />
-        );
+        return <FallbackMessage message="No fucking drop off results for that address" />;
     }
     return (
         <Pager data={locations} {...additionalProps}>

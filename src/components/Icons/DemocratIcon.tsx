@@ -4,7 +4,14 @@ const DemocratIcon = () => {
     return (
         <div className="icon democratIcon">
             <div className="inner">
-                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2">
+                <svg
+                    viewBox="0 0 32 32"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    strokeLinejoin="round"
+                    strokeMiterlimit="2"
+                >
                     <g transform="matrix(2.11181 0 0 1.27866 -1.258 -.97)">
                         <path fill="none" d="M.596.759h15.153v25.026H.596z" />
                         <clipPath id="a">

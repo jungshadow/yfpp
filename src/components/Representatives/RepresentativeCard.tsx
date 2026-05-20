@@ -2,7 +2,7 @@ import helpers from 'helpers';
 
 import avatar from 'images/avatar.jpg';
 import './representativeCard.scss';
-import {DemocratIcon, RepublicanIcon} from 'components/Icons';
+import { DemocratIcon, RepublicanIcon } from 'components/Icons';
 
 interface RepresentativeProps {
     data?: {
@@ -15,8 +15,15 @@ interface RepresentativeProps {
     };
 }
 
-const Representative = ({data}: RepresentativeProps) => {
-    const {name, party, office, urls: _urls, photoUrl, channels: _channels} = data || {} as NonNullable<RepresentativeProps['data']>;
+const Representative = ({ data }: RepresentativeProps) => {
+    const {
+        name,
+        party,
+        office,
+        urls: _urls,
+        photoUrl,
+        channels: _channels,
+    } = data || ({} as NonNullable<RepresentativeProps['data']>);
     const imgHttpsRegex = /^https:/i;
     const congressImgRegex = /^http:\/\/bioguide\.congress\.gov\/bioguide\//i;
 
@@ -34,12 +41,14 @@ const Representative = ({data}: RepresentativeProps) => {
 
     function getImgUrl(photoUrl?: string) {
         if (photoUrl) {
-            if(imgHttpsRegex.test(photoUrl)){
+            if (imgHttpsRegex.test(photoUrl)) {
                 return photoUrl;
             } else {
-                if(congressImgRegex.test(photoUrl)) {
-                    return photoUrl.replace(congressImgRegex,
-                        'https://bioguideretro.congress.gov/Static_Files/data/');
+                if (congressImgRegex.test(photoUrl)) {
+                    return photoUrl.replace(
+                        congressImgRegex,
+                        'https://bioguideretro.congress.gov/Static_Files/data/',
+                    );
                 } else {
                     return photoUrl;
                 }
@@ -68,7 +77,10 @@ const Representative = ({data}: RepresentativeProps) => {
     }
     return (
         <div className={getRepClass(party)}>
-            <div className="representativeCard__img" style={{backgroundImage: `url(${getImgUrl(photoUrl)})`}}></div>
+            <div
+                className="representativeCard__img"
+                style={{ backgroundImage: `url(${getImgUrl(photoUrl)})` }}
+            ></div>
             <div className="representativeCard__details">
                 <div className="representativeCard__detailsParty">
                     {renderPartyIcon(party)}

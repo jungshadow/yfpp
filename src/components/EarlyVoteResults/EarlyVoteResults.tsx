@@ -10,9 +10,7 @@ interface EarlyVoteResultsProps {
 
 const EarlyVoteResults = ({ locations }: EarlyVoteResultsProps) => {
     if (!locations.length) {
-        return (
-            <FallbackMessage message="No fucking early voting results for that address" />
-        );
+        return <FallbackMessage message="No fucking early voting results for that address" />;
     }
     return (
         <Pager data={locations} numberPerPage={5}>

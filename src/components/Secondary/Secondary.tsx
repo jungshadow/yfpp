@@ -1,7 +1,7 @@
-import React, {useContext, useRef, useState, useEffect} from 'react';
+import React, { useContext, useRef, useState, useEffect } from 'react';
 import classnames from 'classnames';
 
-import {AppContext} from 'appReducer';
+import { AppContext } from 'appReducer';
 import MainNav from 'components/MainNav/MainNav';
 import ElectionTitle from 'components/ElectionTitle/ElectionTitle';
 
@@ -12,10 +12,10 @@ interface SecondaryProps {
     getRef: () => React.RefObject<HTMLDivElement | null>;
 }
 
-const Secondary = ({getRef}: SecondaryProps) => {
+const Secondary = ({ getRef }: SecondaryProps) => {
     const [isSticky, setIsSticky] = useState(false);
     const [initialHeaderScrollPos, setInitialHeaderScrollPos] = useState<DOMRect | null>(null);
-    const {electionInfo} = useContext(AppContext);
+    const { electionInfo } = useContext(AppContext);
     const secondaryRef = useRef<HTMLDivElement>(null);
     const initialHeaderScrollPosRef = useRef<DOMRect | null>(null);
     const isStickyRef = useRef<boolean>(false);
@@ -60,11 +60,7 @@ const Secondary = ({getRef}: SecondaryProps) => {
                 return;
             }
             setIsSticky(true);
-        } else if (
-            currentScrollTop < (pos.top - pos.height < 0
-                ? 0
-                : pos.top - pos.height)
-        ) {
+        } else if (currentScrollTop < (pos.top - pos.height < 0 ? 0 : pos.top - pos.height)) {
             if (!isStickyRef.current) {
                 return;
             }
@@ -74,7 +70,8 @@ const Secondary = ({getRef}: SecondaryProps) => {
 
     useScrollPosition(handleOnScroll);
 
-    const getSecondaryClassname = () => classnames({secondary: true, 'secondary--isSticky': isSticky});
+    const getSecondaryClassname = () =>
+        classnames({ secondary: true, 'secondary--isSticky': isSticky });
 
     return (
         <div className={getSecondaryClassname()}>

@@ -1,29 +1,40 @@
 import { useEffect, useRef, useCallback } from 'react';
 
-function useThrottledCallback<T extends (...args: unknown[]) => void>(fn: T, delay: number): (...args: Parameters<T>) => void {
+function useThrottledCallback<T extends (...args: unknown[]) => void>(
+    fn: T,
+    delay: number,
+): (...args: Parameters<T>) => void {
     const lastRun = useRef(0);
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const fnRef = useRef(fn);
-    useEffect(() => { fnRef.current = fn; });
+    useEffect(() => {
+        fnRef.current = fn;
+    });
 
-    const throttled = useCallback((...args: Parameters<T>) => {
-        const now = Date.now();
-        const remaining = delay - (now - lastRun.current);
-        if (remaining <= 0) {
-            lastRun.current = now;
-            fnRef.current(...args);
-        } else if (!timeoutRef.current) {
-            timeoutRef.current = setTimeout(() => {
-                lastRun.current = Date.now();
-                timeoutRef.current = null;
+    const throttled = useCallback(
+        (...args: Parameters<T>) => {
+            const now = Date.now();
+            const remaining = delay - (now - lastRun.current);
+            if (remaining <= 0) {
+                lastRun.current = now;
                 fnRef.current(...args);
-            }, remaining);
-        }
-    }, [delay]);
+            } else if (!timeoutRef.current) {
+                timeoutRef.current = setTimeout(() => {
+                    lastRun.current = Date.now();
+                    timeoutRef.current = null;
+                    fnRef.current(...args);
+                }, remaining);
+            }
+        },
+        [delay],
+    );
 
-    useEffect(() => () => {
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    }, []);
+    useEffect(
+        () => () => {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        },
+        [],
+    );
 
     return throttled;
 }

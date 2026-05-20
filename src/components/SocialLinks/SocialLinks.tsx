@@ -1,4 +1,4 @@
-import {TwitterIcon, FacebookIcon} from 'components/Icons';
+import { TwitterIcon, FacebookIcon } from 'components/Icons';
 
 import './socialLinks.scss';
 

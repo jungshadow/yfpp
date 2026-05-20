@@ -4,7 +4,18 @@ import Bio from 'components/Bios/Bio';
 import biosData from './bios.json';
 import './bios.scss';
 
-const bios = biosData as { bios: Array<{ firstname: string; lastname: string; nickname?: string; title?: string; image: string; twitter: string; linkedIn: string; description: string }> };
+const bios = biosData as {
+    bios: Array<{
+        firstname: string;
+        lastname: string;
+        nickname?: string;
+        title?: string;
+        image: string;
+        twitter: string;
+        linkedIn: string;
+        description: string;
+    }>;
+};
 
 const Bios = () => {
     const [isActive, setIsActive] = useState<number | null>(null);
@@ -35,12 +46,7 @@ const Bios = () => {
                         isActive={isActive === index}
                     />
                     {index === isActive && (
-                        <Bio
-                            slug
-                            data={bio}
-                            onClick={handleOnClick}
-                            index={index}
-                        />
+                        <Bio slug data={bio} onClick={handleOnClick} index={index} />
                     )}
                 </li>
             ))}

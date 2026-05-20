@@ -50,7 +50,13 @@ describe('appReducer', () => {
                         address: [],
                     },
                 ],
-                offices: [{ name: 'Governor', divisionId: 'ocd-division/country:us/state:me', officialIndices: [0] }],
+                offices: [
+                    {
+                        name: 'Governor',
+                        divisionId: 'ocd-division/country:us/state:me',
+                        officialIndices: [0],
+                    },
+                ],
             },
         });
         expect(result.representatives).toHaveLength(1);
@@ -60,8 +66,18 @@ describe('appReducer', () => {
 
     it('handles SET_PENDING_ELECTIONS', () => {
         const elections = [
-            { id: '11098', name: 'Texas Democratic Primary', electionDay: '2026-05-26', ocdDivisionId: 'ocd-division/country:us/state:tx' },
-            { id: '11256', name: 'Texas Republican Primary', electionDay: '2026-05-26', ocdDivisionId: 'ocd-division/country:us/state:tx' },
+            {
+                id: '11098',
+                name: 'Texas Democratic Primary',
+                electionDay: '2026-05-26',
+                ocdDivisionId: 'ocd-division/country:us/state:tx',
+            },
+            {
+                id: '11256',
+                name: 'Texas Republican Primary',
+                electionDay: '2026-05-26',
+                ocdDivisionId: 'ocd-division/country:us/state:tx',
+            },
         ];
         const result = appReducer(initialState, {
             type: 'SET_PENDING_ELECTIONS',
@@ -77,15 +93,30 @@ describe('appReducer', () => {
         const stateWithPending = {
             ...initialState,
             pendingElections: [
-                { id: '11098', name: 'Texas Democratic Primary', electionDay: '2026-05-26', ocdDivisionId: 'ocd-division/country:us/state:tx' },
+                {
+                    id: '11098',
+                    name: 'Texas Democratic Primary',
+                    electionDay: '2026-05-26',
+                    ocdDivisionId: 'ocd-division/country:us/state:tx',
+                },
             ],
             isActive: true,
         };
         const result = appReducer(stateWithPending, {
             type: 'UPDATE_SEARCH_RESULTS',
             data: {
-                normalizedInput: { line1: '123 Main St', line2: '', city: 'Austin', state: 'TX', zip: '78701' },
-                election: { id: '11098', name: 'Texas Democratic Primary', electionDay: '2026-05-26' },
+                normalizedInput: {
+                    line1: '123 Main St',
+                    line2: '',
+                    city: 'Austin',
+                    state: 'TX',
+                    zip: '78701',
+                },
+                election: {
+                    id: '11098',
+                    name: 'Texas Democratic Primary',
+                    electionDay: '2026-05-26',
+                },
                 pollingLocations: [],
                 searchQuery: '123 Main St, Austin, TX',
             },

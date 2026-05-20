@@ -1,4 +1,3 @@
-
 interface PartySelectOptionsProps {
     value: string;
     label: string;

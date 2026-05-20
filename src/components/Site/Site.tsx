@@ -16,13 +16,13 @@ import useElections from 'hooks/useElections';
 import sticker from 'images/iFuckingVotedSticker.png';
 import SupplementalLinks from 'components/SupplementalLinks/SupplementalLinks';
 import SocialLinks from 'components/SocialLinks/SocialLinks';
-import {AnimatePresence} from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 const Site = () => {
     const dispatch = useContext(DispatchContext);
     useElections(dispatch);
 
-    const {isActive, errors, pendingElections} = useContext(AppContext);
+    const { isActive, errors, pendingElections } = useContext(AppContext);
     const { pathname } = useLocation();
     const windowSize = useWindowSize();
 

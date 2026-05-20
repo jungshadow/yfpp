@@ -17,9 +17,7 @@ const geocodingService = mbxGeocoding(baseClient);
 /**
  * Geocode an address string to lat/lng using Mapbox.
  */
-async function geocodeAddress(
-    address: string,
-): Promise<{ lat: number; lng: number } | null> {
+async function geocodeAddress(address: string): Promise<{ lat: number; lng: number } | null> {
     const response = await geocodingService
         .forwardGeocode({
             query: address,
@@ -40,9 +38,7 @@ async function geocodeAddress(
  * Transform Open States Person objects into the existing Official/Office
  * shape so downstream components don't need to change.
  */
-function transformOpenStatesResponse(
-    people: OpenStatesPerson[],
-): RepresentativesApiResponse {
+function transformOpenStatesResponse(people: OpenStatesPerson[]): RepresentativesApiResponse {
     const officials = people.map(person => ({
         name: person.name,
         party: person.party || undefined,

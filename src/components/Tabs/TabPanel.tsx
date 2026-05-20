@@ -27,9 +27,7 @@ class TabPanel extends Component<TabPanelProps> {
 
     render() {
         const isSelected = this.props.selected === this.props.index;
-        const panelClassName = isSelected
-            ? 'tabs__panel tabs__panel--isActive'
-            : 'tabs__panel';
+        const panelClassName = isSelected ? 'tabs__panel tabs__panel--isActive' : 'tabs__panel';
 
         const panelID = camelCase(this.props.label);
 

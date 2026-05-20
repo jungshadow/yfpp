@@ -65,9 +65,7 @@ describe('ElectionPicker', () => {
     it('renders election buttons from relevantElections when no pending', () => {
         renderWithContext({ relevantElections: mockElections });
         expect(screen.getByText(/upcoming fucking elections/i)).toBeInTheDocument();
-        expect(
-            screen.getByRole('button', { name: /Texas Democratic/i }),
-        ).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: /Texas Democratic/i })).toBeInTheDocument();
     });
 
     it('groups elections by date', () => {

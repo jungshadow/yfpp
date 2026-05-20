@@ -9,7 +9,7 @@ interface PagerProps {
 }
 
 const PAGER_OFFSET = 3;
-const Pager = ({data, numberPerPage = 5, children}: PagerProps) => {
+const Pager = ({ data, numberPerPage = 5, children }: PagerProps) => {
     const [pageIndex, setPageIndex] = useState(1);
 
     const container = {
@@ -39,9 +39,7 @@ const Pager = ({data, numberPerPage = 5, children}: PagerProps) => {
         }
 
         function getPagerLinkClass(index: number) {
-            return index === pageIndex
-                ? 'pager__link pager__link--isActive'
-                : 'pager__link';
+            return index === pageIndex ? 'pager__link pager__link--isActive' : 'pager__link';
         }
         const pagesCount = Math.ceil(data.length / numberPerPage);
         let pagingLinks = [];
@@ -55,7 +53,7 @@ const Pager = ({data, numberPerPage = 5, children}: PagerProps) => {
                     >
                         {index}
                     </button>
-                </li>
+                </li>,
             );
         }
 
@@ -68,14 +66,11 @@ const Pager = ({data, numberPerPage = 5, children}: PagerProps) => {
                 endingPageOffset = pageIndex + (PAGER_OFFSET * 2 - pageIndex);
             }
             if (pageIndex > pagesCount - PAGER_OFFSET) {
-                beginningPageOffset =
-                    pageIndex - (PAGER_OFFSET * 2 - (pagesCount - pageIndex));
+                beginningPageOffset = pageIndex - (PAGER_OFFSET * 2 - (pagesCount - pageIndex));
             }
 
             pagingLinks = pagingLinks.filter(
-                (link, index) =>
-                    index + 1 > beginningPageOffset &&
-                    index + 1 <= endingPageOffset
+                (link, index) => index + 1 > beginningPageOffset && index + 1 <= endingPageOffset,
             );
         }
 
@@ -89,9 +84,7 @@ const Pager = ({data, numberPerPage = 5, children}: PagerProps) => {
                         {'<'}
                     </button>
                 )}
-                <ol className="pager__links">
-                    {pagingLinks.map(link => link)}
-                </ol>
+                <ol className="pager__links">{pagingLinks.map(link => link)}</ol>
                 {pageIndex < pagesCount && (
                     <button
                         className="pager__link pager__link--next"
@@ -107,9 +100,7 @@ const Pager = ({data, numberPerPage = 5, children}: PagerProps) => {
     const getNextResults = () => {
         const nextResultsFilter = (_item: unknown, index: number) => {
             const fromValue =
-                pageIndex === 1
-                    ? pageIndex
-                    : pageIndex * numberPerPage - numberPerPage + 1;
+                pageIndex === 1 ? pageIndex : pageIndex * numberPerPage - numberPerPage + 1;
             const toValue = pageIndex * numberPerPage;
 
             return index + 1 >= fromValue && index + 1 <= toValue;
@@ -120,10 +111,7 @@ const Pager = ({data, numberPerPage = 5, children}: PagerProps) => {
         return (
             <React.Fragment>
                 {nextResults.map((result, index) => (
-                    <motion.li
-                        key={`result_${index}_${pageIndex}`}
-                        variants={item}
-                    >
+                    <motion.li key={`result_${index}_${pageIndex}`} variants={item}>
                         {React.cloneElement(children, { data: result } as Record<string, unknown>)}
                     </motion.li>
                 ))}

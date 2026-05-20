@@ -5,19 +5,30 @@ interface WindowSize {
     height: number;
 }
 
-function useDebouncedCallback<T extends (...args: unknown[]) => void>(fn: T, delay: number): (...args: Parameters<T>) => void {
+function useDebouncedCallback<T extends (...args: unknown[]) => void>(
+    fn: T,
+    delay: number,
+): (...args: Parameters<T>) => void {
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const fnRef = useRef(fn);
-    useEffect(() => { fnRef.current = fn; });
+    useEffect(() => {
+        fnRef.current = fn;
+    });
 
-    const debounced = useCallback((...args: Parameters<T>) => {
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-        timeoutRef.current = setTimeout(() => fnRef.current(...args), delay);
-    }, [delay]);
+    const debounced = useCallback(
+        (...args: Parameters<T>) => {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            timeoutRef.current = setTimeout(() => fnRef.current(...args), delay);
+        },
+        [delay],
+    );
 
-    useEffect(() => () => {
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    }, []);
+    useEffect(
+        () => () => {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        },
+        [],
+    );
 
     return debounced;
 }

@@ -72,49 +72,108 @@ class ErrorMessage extends React.Component<ErrorMessageProps> {
         const reasons: React.ReactNode[] = [];
 
         if (Object.getOwnPropertyNames(leoInfo).length > 0) {
-            if (leoInfo.electionOfficials && leoInfo.electionOfficials.length > 0 && leoInfo.electionOfficials[0].officePhoneNumber) {
-                reasons.push(this.createMessageFragment(phoneMessage, leoInfo.electionOfficials[0].officePhoneNumber, leoInfo.electionOfficials[0].officePhoneNumber, 'tel'));
+            if (
+                leoInfo.electionOfficials &&
+                leoInfo.electionOfficials.length > 0 &&
+                leoInfo.electionOfficials[0].officePhoneNumber
+            ) {
+                reasons.push(
+                    this.createMessageFragment(
+                        phoneMessage,
+                        leoInfo.electionOfficials[0].officePhoneNumber,
+                        leoInfo.electionOfficials[0].officePhoneNumber,
+                        'tel',
+                    ),
+                );
             }
 
             if (leoInfo.electionInfoUrl) {
-                reasons.push(this.createMessageFragment(urlMessage, leoInfo.electionInfoUrl, 'Local Election Information', 'url'));
+                reasons.push(
+                    this.createMessageFragment(
+                        urlMessage,
+                        leoInfo.electionInfoUrl,
+                        'Local Election Information',
+                        'url',
+                    ),
+                );
             }
 
             if (leoInfo.physicalAddress) {
                 const flattenedAddr = helpers.concatStreetAddress(leoInfo.physicalAddress);
 
-                reasons.push(this.createMessageFragment(addrMessage, encodeURIComponent(flattenedAddr), flattenedAddr, 'addr'));
+                reasons.push(
+                    this.createMessageFragment(
+                        addrMessage,
+                        encodeURIComponent(flattenedAddr),
+                        flattenedAddr,
+                        'addr',
+                    ),
+                );
             }
         }
 
         // we favor local election information first
-        if (Object.getOwnPropertyNames(seoInfo).length > 0 && Object.getOwnPropertyNames(leoInfo).length === 0) {
-            if (seoInfo.electionOfficials && seoInfo.electionOfficials.length > 0 && seoInfo.electionOfficials[0].officePhoneNumber && !leoPhone) {
-                reasons.push(this.createMessageFragment(phoneMessage, seoInfo.electionOfficials[0].officePhoneNumber, seoInfo.electionOfficials[0].officePhoneNumber, 'tel'));
+        if (
+            Object.getOwnPropertyNames(seoInfo).length > 0 &&
+            Object.getOwnPropertyNames(leoInfo).length === 0
+        ) {
+            if (
+                seoInfo.electionOfficials &&
+                seoInfo.electionOfficials.length > 0 &&
+                seoInfo.electionOfficials[0].officePhoneNumber &&
+                !leoPhone
+            ) {
+                reasons.push(
+                    this.createMessageFragment(
+                        phoneMessage,
+                        seoInfo.electionOfficials[0].officePhoneNumber,
+                        seoInfo.electionOfficials[0].officePhoneNumber,
+                        'tel',
+                    ),
+                );
             }
 
             if (seoInfo.electionInfoUrl) {
-                reasons.push(this.createMessageFragment(urlMessage, seoInfo.electionInfoUrl, 'State Election Information', 'url'));
+                reasons.push(
+                    this.createMessageFragment(
+                        urlMessage,
+                        seoInfo.electionInfoUrl,
+                        'State Election Information',
+                        'url',
+                    ),
+                );
             }
 
             if (seoInfo.physicalAddress) {
                 const flattenedAddr = helpers.concatStreetAddress(seoInfo.physicalAddress);
 
-                reasons.push(this.createMessageFragment(addrMessage, encodeURIComponent(flattenedAddr), flattenedAddr, 'addr'));
+                reasons.push(
+                    this.createMessageFragment(
+                        addrMessage,
+                        encodeURIComponent(flattenedAddr),
+                        flattenedAddr,
+                        'addr',
+                    ),
+                );
             }
         }
 
         return (
             <div className="userContent userContent_reversed">
                 <p>
-                    We couldn&apos;t find any fucking data. In the immortal words of The Great Bard, DJ Khaled, <em>&quot;Congratulations! You played yourself.&quot;</em>
+                    We couldn&apos;t find any fucking data. In the immortal words of The Great Bard,
+                    DJ Khaled, <em>&quot;Congratulations! You played yourself.&quot;</em>
                 </p>
                 {(() => {
                     if (reasons.length === 0) {
                         return (
                             <p>
-                                There are currently no elections associated with the fucking address you&apos;re trying to use.{' '}
-                                <a href="https://www.fvap.gov/search-offices">Look up your local election official</a> and find out if you&apos;re fucking voting.
+                                There are currently no elections associated with the fucking address
+                                you&apos;re trying to use.{' '}
+                                <a href="https://www.fvap.gov/search-offices">
+                                    Look up your local election official
+                                </a>{' '}
+                                and find out if you&apos;re fucking voting.
                             </p>
                         );
                     } else if (reasons.length === 1) {

@@ -1,15 +1,18 @@
 import classnames from 'classnames';
 import IconLink from 'components/IconLink/IconLink';
-import {MapBoxIcon, PointingIconRight} from 'components/Icons';
+import { MapBoxIcon, PointingIconRight } from 'components/Icons';
 import './supplementalLinks.scss';
 
 interface SupplementalLinksProps {
     searchIsActive: boolean;
 }
 
-const SupplementalLinks = ({searchIsActive}: SupplementalLinksProps) => {
+const SupplementalLinks = ({ searchIsActive }: SupplementalLinksProps) => {
     const getSupplementalLinksClassName = () => {
-        return classnames({supplementalLinks: true, 'supplementalLinks--searchIsActive': searchIsActive});
+        return classnames({
+            supplementalLinks: true,
+            'supplementalLinks--searchIsActive': searchIsActive,
+        });
     };
 
     return (

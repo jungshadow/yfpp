@@ -32,18 +32,28 @@ class Footer extends React.Component<FooterProps> {
         return (
             <footer id="footer" className="footer">
                 <div className="wrapper wrapper_large">
-                    <h3 className="hdg hdg_1 mix-hdg_light mix-hdg_uppercase mix-hdg_headline mix-hdg_centered">This Shit Was Made By These Motherfuckers</h3>{' '}
+                    <h3 className="hdg hdg_1 mix-hdg_light mix-hdg_uppercase mix-hdg_headline mix-hdg_centered">
+                        This Shit Was Made By These Motherfuckers
+                    </h3>{' '}
                     <i className="icon icon_star-full mix-icon_centered mix-icon_hr" />
                     <div className="team">
                         <ul className="blocks blocks_2upSM blocks_4upMD blocks_6up js-carouselNav">
                             <li>
                                 <div className="group group_sm">
                                     <div>
-                                        <a href="#mo" className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>
+                                        <a
+                                            href="#mo"
+                                            className="txtBtn js-carouselNav-link"
+                                            onClick={this.props.onModalClickHandler.bind(this)}
+                                        >
                                             <div className="group group_md">
                                                 <div className="group-img">
                                                     {' '}
-                                                    <img className="imgSize imgSize_sm" src={moMaraqa} alt="Mo Maraqa" />{' '}
+                                                    <img
+                                                        className="imgSize imgSize_sm"
+                                                        src={moMaraqa}
+                                                        alt="Mo Maraqa"
+                                                    />{' '}
                                                 </div>
                                                 <div className="group-txt">Mo Maraqa</div>
                                             </div>
@@ -65,11 +75,19 @@ class Footer extends React.Component<FooterProps> {
                             <li>
                                 <div className="group group_sm">
                                     <div>
-                                        <a href="#jared" className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>
+                                        <a
+                                            href="#jared"
+                                            className="txtBtn js-carouselNav-link"
+                                            onClick={this.props.onModalClickHandler.bind(this)}
+                                        >
                                             <div className="group group_md">
                                                 <div className="group-img">
                                                     {' '}
-                                                    <img className="imgSize imgSize_sm" src={jaredMarcotte} alt="Jared Marcotte" />{' '}
+                                                    <img
+                                                        className="imgSize imgSize_sm"
+                                                        src={jaredMarcotte}
+                                                        alt="Jared Marcotte"
+                                                    />{' '}
                                                 </div>
                                                 <div className="group-txt">Jared Marcotte</div>
                                             </div>
@@ -91,11 +109,19 @@ class Footer extends React.Component<FooterProps> {
                             <li>
                                 <div className="group group_sm">
                                     <div>
-                                        <a href="#jay" className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>
+                                        <a
+                                            href="#jay"
+                                            className="txtBtn js-carouselNav-link"
+                                            onClick={this.props.onModalClickHandler.bind(this)}
+                                        >
                                             <div className="group group_md">
                                                 <div className="group-img">
                                                     {' '}
-                                                    <img className="imgSize imgSize_sm" src={jayJohnson} alt="Jay Johnson" />{' '}
+                                                    <img
+                                                        className="imgSize imgSize_sm"
+                                                        src={jayJohnson}
+                                                        alt="Jay Johnson"
+                                                    />{' '}
                                                 </div>
                                                 <div className="group-txt">Jay Johnson</div>
                                             </div>
@@ -117,11 +143,19 @@ class Footer extends React.Component<FooterProps> {
                             <li>
                                 <div className="group group_sm">
                                     <div>
-                                        <a href="#nick" className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>
+                                        <a
+                                            href="#nick"
+                                            className="txtBtn js-carouselNav-link"
+                                            onClick={this.props.onModalClickHandler.bind(this)}
+                                        >
                                             <div className="group group_md">
                                                 <div className="group-img">
                                                     {' '}
-                                                    <img className="imgSize imgSize_sm" src={nickCatalano} alt="Nick Catalano" />{' '}
+                                                    <img
+                                                        className="imgSize imgSize_sm"
+                                                        src={nickCatalano}
+                                                        alt="Nick Catalano"
+                                                    />{' '}
                                                 </div>
                                                 <div className="group-txt">Nick Catalano</div>
                                             </div>
@@ -143,13 +177,23 @@ class Footer extends React.Component<FooterProps> {
                             <li>
                                 <div className="group group_sm">
                                     <div>
-                                        <a href="#anastasia" className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>
+                                        <a
+                                            href="#anastasia"
+                                            className="txtBtn js-carouselNav-link"
+                                            onClick={this.props.onModalClickHandler.bind(this)}
+                                        >
                                             <div className="group group_md">
                                                 <div className="group-img">
                                                     {' '}
-                                                    <img className="imgSize imgSize_sm" src={anastasiaGolovashkina} alt="Anastasia Golovashkina" />{' '}
+                                                    <img
+                                                        className="imgSize imgSize_sm"
+                                                        src={anastasiaGolovashkina}
+                                                        alt="Anastasia Golovashkina"
+                                                    />{' '}
                                                 </div>
-                                                <div className="group-txt">Anastasia Golovashkina</div>
+                                                <div className="group-txt">
+                                                    Anastasia Golovashkina
+                                                </div>
                                             </div>
                                         </a>
                                     </div>
@@ -169,11 +213,19 @@ class Footer extends React.Component<FooterProps> {
                             <li>
                                 <div className="group group_sm">
                                     <div>
-                                        <a href="#josh" className="txtBtn js-carouselNav-link" onClick={this.props.onModalClickHandler.bind(this)}>
+                                        <a
+                                            href="#josh"
+                                            className="txtBtn js-carouselNav-link"
+                                            onClick={this.props.onModalClickHandler.bind(this)}
+                                        >
                                             <div className="group group_md">
                                                 <div className="group-img">
                                                     {' '}
-                                                    <img className="imgSize imgSize_sm" src={joshTurner} alt="Josh Turner" />{' '}
+                                                    <img
+                                                        className="imgSize imgSize_sm"
+                                                        src={joshTurner}
+                                                        alt="Josh Turner"
+                                                    />{' '}
                                                 </div>
                                                 <div className="group-txt">Josh Turner</div>
                                             </div>
@@ -223,17 +275,32 @@ class Footer extends React.Component<FooterProps> {
                                 </p>
                                 <p>
                                     Data via the{' '}
-                                    <a href="https://developers.google.com/civic-information/" target="_blank" rel="noopener noreferrer">
+                                    <a
+                                        href="https://developers.google.com/civic-information/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         Google Civic Information API
                                     </a>
                                     . Use of this site also binds you to the{' '}
-                                    <a href="https://www.google.com/intl/en/policies/terms/" target="_blank" rel="noopener noreferrer">
+                                    <a
+                                        href="https://www.google.com/intl/en/policies/terms/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
                                         Google Terms of Use
                                     </a>
                                     .
                                 </p>
-                                <p>Data from states that do not provide direct feeds only include addresses with registered voters</p>
-                                <p>Election officials sometimes revise data in the last few days before an election. Check back on Election Day for the latest information.</p>
+                                <p>
+                                    Data from states that do not provide direct feeds only include
+                                    addresses with registered voters
+                                </p>
+                                <p>
+                                    Election officials sometimes revise data in the last few days
+                                    before an election. Check back on Election Day for the latest
+                                    information.
+                                </p>
                             </div>
                         </section>
                     </div>
