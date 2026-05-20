@@ -18,6 +18,7 @@
       "appReducer": ["./src/appReducer"],
       "components/*": ["./src/components/*"],
       "helpers": ["./src/helpers"],
+      "helpers/*": ["./src/helpers/*"],
       "hooks/*": ["./src/hooks/*"],
       "images/*": ["./src/images/*"],
       "requests/*": ["./src/requests/*"],
