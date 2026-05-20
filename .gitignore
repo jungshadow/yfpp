@@ -27,3 +27,4 @@ pnpm-debug.log*
 \.vscode/
 .env
 package-lock.json
+.pnpm-store/

@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { AppContext, DispatchContext } from 'appReducer';
 import ElectionPicker from './ElectionPicker';
 import type { AppState } from 'types/state';
@@ -26,11 +27,13 @@ const renderWithContext = (stateOverrides: Partial<AppState> = {}) => {
     return {
         dispatch,
         ...render(
-            <AppContext.Provider value={state}>
-                <DispatchContext.Provider value={dispatch}>
-                    <ElectionPicker />
-                </DispatchContext.Provider>
-            </AppContext.Provider>,
+            <MemoryRouter>
+                <AppContext.Provider value={state}>
+                    <DispatchContext.Provider value={dispatch}>
+                        <ElectionPicker />
+                    </DispatchContext.Provider>
+                </AppContext.Provider>
+            </MemoryRouter>,
         ),
     };
 };

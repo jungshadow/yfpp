@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import { AppContext } from 'appReducer';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { getLastResultsPath } from 'helpers/getResultsRoute';
 import EarlyVoteResults from 'components/EarlyVoteResults/EarlyVoteResults';
 import PollingPlaceResults from 'components/PollingPlaceResults/PollingPlaceResults';
 import DropOffLocationResults from 'components/DropOffLocationResults/DropOffLocationResults';
@@ -13,6 +14,15 @@ import ElectionPicker from 'components/ElectionPicker/ElectionPicker';
 import ResultMessage from 'components/ResultMessage/ResultMessage';
 import Tabs from 'components/Tabs/Tabs';
 import TabPanel from 'components/Tabs/TabPanel';
+
+function ResultsIndexRedirect() {
+    const state = useContext(AppContext);
+    const path = getLastResultsPath(state);
+    if (path === '/') {
+        return null;
+    }
+    return <Navigate to={path} replace />;
+}
 
 function Results() {
     const {
@@ -44,6 +54,7 @@ function Results() {
     return (
         <AnimatePresence>
             <Routes>
+                <Route index element={<ResultsIndexRedirect />} />
                 <Route path="/polling-place" element={
                     <motion.div
                         initial="initial"

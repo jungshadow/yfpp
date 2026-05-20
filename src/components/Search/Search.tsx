@@ -1,6 +1,8 @@
 // Import dependencies
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import classnames from 'classnames';
+import { navigateToResultsRoute } from 'helpers/getResultsRoute';
 import analytics from 'analytics';
 import Autocomplete from 'components/Autocomplete/Autocomplete';
 import { AppContext, DispatchContext } from 'appReducer';
@@ -14,6 +16,7 @@ import getRepresentatives from 'requests/getRepresentatives';
 import type { ElectionInfo } from 'types/index';
 
 function Search() {
+    const navigate = useNavigate();
     const dispatch = useContext(DispatchContext);
     const { isActive, searchToggleIsOpen, elections } = useContext(AppContext);
     const [searchValue, setsearchValue] = useState('');
@@ -95,7 +98,13 @@ function Search() {
             });
         }
 
-        console.log(locations, representatives);
+        navigateToResultsRoute(navigate, {
+            earlyVoteSites: locations?.earlyVoteSites ?? [],
+            pollingLocations: locations?.pollingLocations ?? [],
+            contests: locations?.contests ?? [],
+            dropOffLocations: locations?.dropOffLocations ?? [],
+            representatives: representatives?.officials ?? [],
+        });
     };
 
     const getRelevantElections = (searchValue: string): ElectionInfo[] | undefined => {
