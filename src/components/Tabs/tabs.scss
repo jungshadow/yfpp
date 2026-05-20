@@ -7,11 +7,10 @@
     padding: 0;
     margin-bottom: 20px;
     list-style: none;
-
 }
 
 .tabs__nav li {
-    width:50%;
+    width: 50%;
 }
 
 .tabs__nav > *:first-of-type a {
@@ -27,7 +26,6 @@
 }
 
 @include breakpoint(md) {
-
     .tabs__nav > *:first-of-type a {
         border: 2px solid $GREY_LIGHT;
         border-width: 2px 0 2px 2px;

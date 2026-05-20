@@ -5,7 +5,7 @@
     display: flex;
     font-size: 13px;
     font-weight: bold;
-    font-family: $FONT_HEADLINE ;
+    font-family: $FONT_HEADLINE;
     justify-content: center;
     color: $GREY_MEDIUM;
     background: darken($PLUM, 5);
@@ -28,7 +28,7 @@
     .tabsNavLink {
         font-size: 16px;
         color: $GREY_MEDIUM;
-        background: #F2f2f2;
+        background: #f2f2f2;
     }
 
     .tabsNavLink--isActive {

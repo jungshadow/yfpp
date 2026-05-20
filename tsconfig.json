@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "actions/*": ["./src/actions/*"],
+      "analytics": ["./src/analytics"],
+      "appReducer": ["./src/appReducer"],
+      "components/*": ["./src/components/*"],
+      "helpers": ["./src/helpers"],
+      "hooks/*": ["./src/hooks/*"],
+      "images/*": ["./src/images/*"],
+      "requests/*": ["./src/requests/*"],
+      "types": ["./src/types/index"],
+      "types/*": ["./src/types/*"]
+    },
+    "types": ["node", "vitest/globals"]
+  },
+  "include": ["src", "vite-env.d.ts"],
+  "exclude": ["node_modules", "build"]
+}

@@ -1,0 +1,12 @@
+import { createRoot } from 'react-dom/client';
+import './index.scss';
+import App from './App';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+const YfppApp = () => (
+    <Router>
+        <App />
+    </Router>
+);
+
+createRoot(document.getElementById('root')!).render(<YfppApp />);
