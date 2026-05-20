@@ -26,7 +26,7 @@ jobs:
       - name: Enable Corepack and install pnpm
         run: |
           corepack enable
-          corepack install --global
+          corepack install
           pnpm --version
 
       - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
