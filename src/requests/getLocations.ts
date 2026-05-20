@@ -22,6 +22,7 @@ async function getLocations(
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
             },
+            signal: AbortSignal.timeout(10_000),
         });
 
         const locations: CivicApiResponse = await response.json();

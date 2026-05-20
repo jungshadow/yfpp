@@ -31,11 +31,63 @@ function Search() {
         if (e) {
             e.preventDefault();
         }
+
+        dispatch({ type: 'RESET_SEARCH', searchQuery });
+
         const relevantElections = getRelevantElections(elections, searchQuery);
 
-        // If multiple relevant elections, let the user pick before fetching locations
-        if (relevantElections && relevantElections.length > 1) {
-            const representatives = await getRepresentatives(searchQuery);
+        try {
+            // If multiple relevant elections, let the user pick before fetching locations
+            if (relevantElections && relevantElections.length > 1) {
+                const representatives = await getRepresentatives(searchQuery);
+
+                if (representatives?.error) {
+                    analytics.failure(representatives.error);
+                    dispatch({
+                        type: 'SET_ERROR',
+                        error: {
+                            representatives: representatives.error as { message: string },
+                        },
+                    });
+                } else if (representatives) {
+                    dispatch({
+                        type: 'UPDATE_REPRESENTATIVES_RESULTS',
+                        data: representatives,
+                    });
+                }
+
+                dispatch({
+                    type: 'SET_PENDING_ELECTIONS',
+                    elections: relevantElections,
+                    searchQuery,
+                });
+                return;
+            }
+
+            const electionId = getElectionId(relevantElections);
+
+            const [locations, representatives] = await Promise.all([
+                getLocations(searchQuery, electionId),
+                getRepresentatives(searchQuery),
+            ]);
+
+            if (locations?.error) {
+                analytics.failure(locations.error);
+                dispatch({
+                    type: 'SET_ERROR',
+                    error: { locations: locations.error as { message: string } },
+                });
+            } else if (locations) {
+                analytics.success(locations);
+                dispatch({
+                    type: 'UPDATE_SEARCH_RESULTS',
+                    data: {
+                        ...locations,
+                        relevantElections,
+                        searchQuery: searchQuery,
+                    },
+                });
+            }
 
             if (representatives?.error) {
                 analytics.failure(representatives.error);
@@ -44,67 +96,23 @@ function Search() {
                     error: { representatives: representatives.error as { message: string } },
                 });
             } else if (representatives) {
+                analytics.success(representatives);
                 dispatch({
                     type: 'UPDATE_REPRESENTATIVES_RESULTS',
                     data: representatives,
                 });
             }
 
-            dispatch({
-                type: 'SET_PENDING_ELECTIONS',
-                elections: relevantElections,
-                searchQuery,
+            navigateToResultsRoute(navigate, {
+                earlyVoteSites: locations?.earlyVoteSites ?? [],
+                pollingLocations: locations?.pollingLocations ?? [],
+                contests: locations?.contests ?? [],
+                dropOffLocations: locations?.dropOffLocations ?? [],
+                representatives: representatives?.officials ?? [],
             });
-            return;
+        } finally {
+            dispatch({ type: 'SEARCH_COMPLETE' });
         }
-
-        const electionId = getElectionId(relevantElections);
-
-        const [locations, representatives] = await Promise.all([
-            getLocations(searchQuery, electionId),
-            getRepresentatives(searchQuery),
-        ]);
-
-        // TODO let's maybe move this outta here into a function
-        if (locations?.error) {
-            analytics.failure(locations.error);
-            dispatch({
-                type: 'SET_ERROR',
-                error: { locations: locations.error as { message: string } },
-            });
-        } else if (locations) {
-            analytics.success(locations);
-            dispatch({
-                type: 'UPDATE_SEARCH_RESULTS',
-                data: {
-                    ...locations,
-                    relevantElections,
-                    searchQuery: searchQuery,
-                },
-            });
-        }
-
-        if (representatives?.error) {
-            analytics.failure(representatives.error);
-            dispatch({
-                type: 'SET_ERROR',
-                error: { representatives: representatives.error as { message: string } },
-            });
-        } else if (representatives) {
-            analytics.success(representatives);
-            dispatch({
-                type: 'UPDATE_REPRESENTATIVES_RESULTS',
-                data: representatives,
-            });
-        }
-
-        navigateToResultsRoute(navigate, {
-            earlyVoteSites: locations?.earlyVoteSites ?? [],
-            pollingLocations: locations?.pollingLocations ?? [],
-            contests: locations?.contests ?? [],
-            dropOffLocations: locations?.dropOffLocations ?? [],
-            representatives: representatives?.officials ?? [],
-        });
     };
 
     const getElectionId = (relevantElections?: ElectionInfo[]): string | undefined => {

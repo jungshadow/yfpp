@@ -72,7 +72,7 @@ async function getRepresentatives(
         }
 
         const url = `${OPEN_STATES_API_URL}/people.geo?lat=${encodeURIComponent(coords.lat)}&lng=${encodeURIComponent(coords.lng)}&apikey=${encodeURIComponent(OPEN_STATES_API_KEY)}`;
-        const response = await fetch(url);
+        const response = await fetch(url, { signal: AbortSignal.timeout(10_000) });
 
         if (!response.ok) {
             const errorBody = await response.json().catch(() => ({}));

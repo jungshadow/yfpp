@@ -35,6 +35,22 @@ export function appReducer(state: AppState, action: AppAction): AppState {
                 isFuckOff: false,
             };
         }
+        case 'RESET_SEARCH': {
+            return {
+                ...initialState,
+                elections: state.elections,
+                searchQuery: action.searchQuery,
+                searchToggleIsOpen: state.searchToggleIsOpen,
+                isActive: true,
+                isSearching: true,
+            };
+        }
+        case 'SEARCH_COMPLETE': {
+            return {
+                ...state,
+                isSearching: false,
+            };
+        }
 
         default:
             return state;
@@ -65,4 +81,5 @@ export const initialState: AppState = {
     offices: [],
     pendingElections: undefined,
     searchQuery: null,
+    isSearching: false,
 };

@@ -38,6 +38,7 @@ export interface AppState {
     relevantElections?: ElectionInfo[];
     pendingElections?: ElectionInfo[];
     searchQuery: string | null;
+    isSearching: boolean;
 }
 
 export interface AppErrors {
@@ -56,6 +57,8 @@ export type AppAction =
     | { type: 'UPDATE_ELECTION_RESULTS'; elections?: ElectionInfo[] }
     | { type: 'SET_SEARCH_TOGGLE_STATUS'; status: boolean }
     | { type: 'SET_ERROR'; error?: Partial<AppErrors> | false }
-    | { type: 'SET_PENDING_ELECTIONS'; elections: ElectionInfo[]; searchQuery: string };
+    | { type: 'SET_PENDING_ELECTIONS'; elections: ElectionInfo[]; searchQuery: string }
+    | { type: 'RESET_SEARCH'; searchQuery: string }
+    | { type: 'SEARCH_COMPLETE' };
 
 export type AppDispatch = Dispatch<AppAction>;
