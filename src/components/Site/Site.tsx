@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import classnames from 'classnames';
+import { rememberResultsPath } from 'helpers/getResultsRoute';
 
 import Errorator from 'components/Errorator/Errorator';
 import Search from 'components/Search/Search';
@@ -21,7 +23,12 @@ const Site = () => {
     useElections(dispatch);
 
     const {isActive, errors, pendingElections} = useContext(AppContext);
+    const { pathname } = useLocation();
     const windowSize = useWindowSize();
+
+    useEffect(() => {
+        rememberResultsPath(pathname);
+    }, [pathname]);
 
     useEffect(() => {
         dispatch({

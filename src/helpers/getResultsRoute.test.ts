@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { getResultsRoute } from './getResultsRoute';
+import {
+    getResultsRoute,
+    getLastResultsPath,
+    rememberResultsPath,
+    RESULTS_PATHNAMES,
+} from './getResultsRoute';
 
 describe('getResultsRoute', () => {
     it('prefers polling place when locations exist', () => {
@@ -37,5 +42,32 @@ describe('getResultsRoute', () => {
 
     it('returns undefined when there is no results data', () => {
         expect(getResultsRoute({})).toBeUndefined();
+    });
+});
+
+describe('getLastResultsPath', () => {
+    beforeEach(() => {
+        sessionStorage.clear();
+    });
+
+    it('returns the last visited results pathname', () => {
+        rememberResultsPath('/representatives');
+        expect(
+            getLastResultsPath({
+                pollingLocations: [{ address: {} } as never],
+            }),
+        ).toBe('/representatives');
+    });
+
+    it('falls back to getResultsRoute when nothing is stored', () => {
+        expect(
+            getLastResultsPath({
+                representatives: [{ name: 'Jane' } as never],
+            }),
+        ).toBe('/representatives');
+    });
+
+    it('exports all results pathnames', () => {
+        expect(RESULTS_PATHNAMES.size).toBe(4);
     });
 });
