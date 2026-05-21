@@ -48,7 +48,9 @@
             "description": "Anastasia is obsessed&mdash;ob-fucking-sessed&mdash;with social media. In 2014, she enthusiastically spammed her social networks with links to this site. Little did she know, the team would soon reach out to her about working with it next cycle. In her current role as a Senior Digital Strategist at Trilogy Interactive, she runs the social media department, helping political, nonprofit, and ballot proposition clients run high-impact digital campaigns. Her hobbies include curating concert tickets, writing personal bios, and channeling her inner Ocasio-Cortez on <del><a href=\"https://twitter.com/golovashkina\">Twitter</a></del> <del>Snapchat</del> &#8220;Instagram Stories.&#8221; But forget Instagram&mdash;tweet her your favorite cat GIF instead: <a href\"https://twitter.com/golovashkina\">@golovashkina</a>",
             "twitter": "https://twitter.com/golovashkina",
             "linkedIn": "https://www.linkedin.com/in/golovashkina",
-            "image": "../images/bios/anastasia-golovashkina.jpg"
+            "image": "../images/bios/anastasia-golovashkina.jpg",
+            "isLegacy": true,
+            "legacyText": "On July 18th, 2022 we lost our beloved team member and friend Anastasia. Anastasia was the voice of YFPP on social media as well the one who made sure we all had our shit together when tackling projects. Anastasia always had a huge smile on her face and her positivity was contagious. We will miss her dearly."
         },
         {
             "firstname": "Josh",

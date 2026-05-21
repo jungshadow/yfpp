@@ -8,7 +8,7 @@ import useOutsideClick from 'hooks/useOutsideClick';
 import IconLink from 'components/IconLink/IconLink';
 import KitchenSink from 'components/KitchenSink/KitchenSink';
 
-interface BioData {
+export interface BioData {
     firstname: string;
     lastname: string;
     nickname?: string;
@@ -17,6 +17,8 @@ interface BioData {
     twitter: string;
     linkedIn: string;
     description: string;
+    isLegacy?: boolean;
+    legacyText?: string;
 }
 
 interface BioProps {
@@ -80,21 +82,17 @@ const Bio = ({ data, isActive, onClick, index, slug }: BioProps) => {
                 </h4>
                 {isActive && <div className="bio__title">{data.title}</div>}
             </motion.div>
+            {data.isLegacy && !isActive && (
+                <motion.div className="bio__legacyText">
+                    <KitchenSink isReversed>
+                        <p>{data.legacyText}</p>
+                    </KitchenSink>
+                </motion.div>
+            )}
             <motion.div layout style={{ width: '100%' }}>
                 <div className="bio__social">
-                    <ul className="bio__socialLinks">
-                        <li className="bio__socialLink">
-                            <a
-                                className="twitter-follow-button"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href={data.twitter}
-                                data-show-count="false"
-                            >
-                                <span className="isVisuallyHidden">{data.twitter}</span>
-                            </a>
-                        </li>
-                        {isActive && (
+                    {!data.isLegacy && (
+                        <ul className="bio__socialLinks">
                             <li className="bio__socialLink">
                                 <IconLink
                                     href={data.linkedIn}
@@ -104,8 +102,8 @@ const Bio = ({ data, isActive, onClick, index, slug }: BioProps) => {
                                     size="small"
                                 />
                             </li>
-                        )}
-                    </ul>
+                        </ul>
+                    )}
                 </div>
             </motion.div>
             {isActive && (
