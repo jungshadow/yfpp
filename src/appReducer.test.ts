@@ -124,4 +124,106 @@ describe('appReducer', () => {
         expect(result.pendingElections).toBeUndefined();
         expect(result.electionInfo.id).toBe('11098');
     });
+
+    it('handles RESET_SEARCH: clears stale data but preserves elections and searchToggleIsOpen', () => {
+        const stateWithData = {
+            ...initialState,
+            elections: [
+                {
+                    id: '11098',
+                    name: 'Texas Democratic Primary',
+                    electionDay: '2026-05-26',
+                    ocdDivisionId: 'ocd-division/country:us/state:tx',
+                },
+            ],
+            electionInfo: {
+                id: '11098',
+                name: 'Texas Democratic Primary',
+                electionDay: '2026-05-26',
+            },
+            relevantElections: [
+                {
+                    id: '11098',
+                    name: 'Texas Democratic Primary',
+                    electionDay: '2026-05-26',
+                    ocdDivisionId: 'ocd-division/country:us/state:tx',
+                },
+            ],
+            representatives: [{ name: 'Jane Doe', party: 'Independent' }],
+            offices: [
+                {
+                    name: 'Governor',
+                    divisionId: 'ocd-division/country:us/state:tx',
+                    officialIndices: [0],
+                },
+            ],
+            pollingLocations: [
+                {
+                    address: {
+                        line1: '100 Main St',
+                        city: 'Austin',
+                        state: 'TX',
+                        zip: '78701',
+                    },
+                },
+            ],
+            contests: [{ type: 'General', office: 'US Senate' }],
+            leoInfo: { name: 'Travis County Elections' },
+            seoInfo: { name: 'Texas Secretary of State' },
+            normalizedAddress: {
+                line1: '123 Main St',
+                city: 'Austin',
+                state: 'TX',
+                zip: '78701',
+            },
+            searchQuery: '123 Main St, Austin, TX',
+            searchToggleIsOpen: false,
+            isActive: true,
+            errors: { locations: { message: 'Some error' } },
+        };
+
+        const result = appReducer(stateWithData, {
+            type: 'RESET_SEARCH',
+            searchQuery: '456 Elm St, Baltimore, MD 21201',
+        });
+
+        // Preserved
+        expect(result.elections).toEqual(stateWithData.elections);
+        expect(result.searchToggleIsOpen).toBe(false);
+        expect(result.isActive).toBe(true);
+        expect(result.searchQuery).toBe('456 Elm St, Baltimore, MD 21201');
+
+        // Cleared
+        expect(result.electionInfo).toEqual({});
+        expect(result.relevantElections).toBeUndefined();
+        expect(result.pendingElections).toBeUndefined();
+        expect(result.representatives).toEqual([]);
+        expect(result.offices).toEqual([]);
+        expect(result.pollingLocations).toEqual([]);
+        expect(result.earlyVoteSites).toEqual([]);
+        expect(result.dropOffLocations).toEqual([]);
+        expect(result.contests).toEqual([]);
+        expect(result.leoInfo).toEqual({});
+        expect(result.seoInfo).toEqual({});
+        expect(result.normalizedAddress).toEqual({});
+        expect(result.errors).toBe(false);
+        expect(result.primaryParties).toEqual([]);
+        expect(result.isSearching).toBe(true);
+    });
+
+    it('handles RESET_SEARCH followed by SEARCH_COMPLETE: sets isSearching false', () => {
+        const resetState = appReducer(initialState, {
+            type: 'RESET_SEARCH',
+            searchQuery: '123 Main St, Austin, TX',
+        });
+        expect(resetState.isSearching).toBe(true);
+
+        const result = appReducer(resetState, { type: 'SEARCH_COMPLETE' });
+        expect(result.isSearching).toBe(false);
+    });
+
+    it('handles SEARCH_COMPLETE: is a no-op when not searching', () => {
+        const result = appReducer(initialState, { type: 'SEARCH_COMPLETE' });
+        expect(result.isSearching).toBe(false);
+    });
 });

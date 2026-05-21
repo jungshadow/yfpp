@@ -12,6 +12,7 @@ import BallotResults from 'components/BallotResults/BallotResults';
 import ResultsErrorBoundry from 'components/ResultsErrorBoundry/ResultsErrorBoundry';
 import ElectionPicker from 'components/ElectionPicker/ElectionPicker';
 import ResultMessage from 'components/ResultMessage/ResultMessage';
+import FallbackMessage from 'components/FallbackMessage/FallbackMessage';
 import Tabs from 'components/Tabs/Tabs';
 import TabPanel from 'components/Tabs/TabPanel';
 
@@ -34,6 +35,7 @@ function Results() {
         representatives,
         offices,
         errors,
+        isSearching,
     } = useContext(AppContext);
 
     const pageVariants = {
@@ -50,6 +52,10 @@ function Results() {
             left: '-10%',
         },
     };
+
+    if (isSearching) {
+        return <FallbackMessage message="Looking up your fucking election info..." />;
+    }
 
     return (
         <AnimatePresence>

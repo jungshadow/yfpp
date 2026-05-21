@@ -3,6 +3,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import classnames from 'classnames';
 import { navigateToResultsRoute } from 'helpers/getResultsRoute';
+import { getRelevantElections } from 'helpers/getRelevantElections';
 import analytics from 'analytics';
 import Autocomplete from 'components/Autocomplete/Autocomplete';
 import { AppContext, DispatchContext } from 'appReducer';
@@ -10,7 +11,6 @@ import useWindowSize from 'hooks/useWindowSize';
 import SearchIcon from 'components/Icons/SearchIcon';
 import CloseIcon from 'components/Icons/CloseIcon';
 import './search.scss';
-import statesMap from './statesMap';
 import getLocations from 'requests/getLocations';
 import getRepresentatives from 'requests/getRepresentatives';
 import type { ElectionInfo } from 'types/index';
@@ -31,11 +31,63 @@ function Search() {
         if (e) {
             e.preventDefault();
         }
-        const relevantElections = getRelevantElections(searchQuery);
 
-        // If multiple relevant elections, let the user pick before fetching locations
-        if (relevantElections && relevantElections.length > 1) {
-            const representatives = await getRepresentatives(searchQuery);
+        dispatch({ type: 'RESET_SEARCH', searchQuery });
+
+        const relevantElections = getRelevantElections(elections, searchQuery);
+
+        try {
+            // If multiple relevant elections, let the user pick before fetching locations
+            if (relevantElections && relevantElections.length > 1) {
+                const representatives = await getRepresentatives(searchQuery);
+
+                if (representatives?.error) {
+                    analytics.failure(representatives.error);
+                    dispatch({
+                        type: 'SET_ERROR',
+                        error: {
+                            representatives: representatives.error as { message: string },
+                        },
+                    });
+                } else if (representatives) {
+                    dispatch({
+                        type: 'UPDATE_REPRESENTATIVES_RESULTS',
+                        data: representatives,
+                    });
+                }
+
+                dispatch({
+                    type: 'SET_PENDING_ELECTIONS',
+                    elections: relevantElections,
+                    searchQuery,
+                });
+                return;
+            }
+
+            const electionId = getElectionId(relevantElections);
+
+            const [locations, representatives] = await Promise.all([
+                getLocations(searchQuery, electionId),
+                getRepresentatives(searchQuery),
+            ]);
+
+            if (locations?.error) {
+                analytics.failure(locations.error);
+                dispatch({
+                    type: 'SET_ERROR',
+                    error: { locations: locations.error as { message: string } },
+                });
+            } else if (locations) {
+                analytics.success(locations);
+                dispatch({
+                    type: 'UPDATE_SEARCH_RESULTS',
+                    data: {
+                        ...locations,
+                        relevantElections,
+                        searchQuery: searchQuery,
+                    },
+                });
+            }
 
             if (representatives?.error) {
                 analytics.failure(representatives.error);
@@ -44,116 +96,23 @@ function Search() {
                     error: { representatives: representatives.error as { message: string } },
                 });
             } else if (representatives) {
+                analytics.success(representatives);
                 dispatch({
                     type: 'UPDATE_REPRESENTATIVES_RESULTS',
                     data: representatives,
                 });
             }
 
-            dispatch({
-                type: 'SET_PENDING_ELECTIONS',
-                elections: relevantElections,
-                searchQuery,
+            navigateToResultsRoute(navigate, {
+                earlyVoteSites: locations?.earlyVoteSites ?? [],
+                pollingLocations: locations?.pollingLocations ?? [],
+                contests: locations?.contests ?? [],
+                dropOffLocations: locations?.dropOffLocations ?? [],
+                representatives: representatives?.officials ?? [],
             });
-            return;
+        } finally {
+            dispatch({ type: 'SEARCH_COMPLETE' });
         }
-
-        const electionId = getElectionId(relevantElections);
-
-        const [locations, representatives] = await Promise.all([
-            getLocations(searchQuery, electionId),
-            getRepresentatives(searchQuery),
-        ]);
-
-        // TODO let's maybe move this outta here into a function
-        if (locations?.error) {
-            analytics.failure(locations.error);
-            dispatch({
-                type: 'SET_ERROR',
-                error: { locations: locations.error as { message: string } },
-            });
-        } else if (locations) {
-            analytics.success(locations);
-            dispatch({
-                type: 'UPDATE_SEARCH_RESULTS',
-                data: {
-                    ...locations,
-                    relevantElections,
-                    searchQuery: searchQuery,
-                },
-            });
-        }
-
-        if (representatives?.error) {
-            analytics.failure(representatives.error);
-            dispatch({
-                type: 'SET_ERROR',
-                error: { representatives: representatives.error as { message: string } },
-            });
-        } else if (representatives) {
-            analytics.success(representatives);
-            dispatch({
-                type: 'UPDATE_REPRESENTATIVES_RESULTS',
-                data: representatives,
-            });
-        }
-
-        navigateToResultsRoute(navigate, {
-            earlyVoteSites: locations?.earlyVoteSites ?? [],
-            pollingLocations: locations?.pollingLocations ?? [],
-            contests: locations?.contests ?? [],
-            dropOffLocations: locations?.dropOffLocations ?? [],
-            representatives: representatives?.officials ?? [],
-        });
-    };
-
-    const getRelevantElections = (searchValue: string): ElectionInfo[] | undefined => {
-        if (!elections.length) {
-            return;
-        }
-        let usersState: string | null | undefined = null;
-        const searchValueSegments = searchValue
-            .replace(/,|[0-9]|United States/gi, '')
-            .split(' ')
-            .filter(segment => segment !== '')
-            .slice(-2);
-
-        if (searchValueSegments[1] && searchValueSegments[1].length > 2) {
-            let matchedStates = Object.values(statesMap).filter(state =>
-                state.toLowerCase().includes(searchValueSegments[1].toLowerCase()),
-            );
-            if (matchedStates && matchedStates.length > 1) {
-                matchedStates = Object.values(statesMap).filter(state =>
-                    state
-                        .toLowerCase()
-                        .includes(
-                            `${searchValueSegments[0].toLowerCase()} ${searchValueSegments[1].toLowerCase()}`,
-                        ),
-                );
-            }
-            usersState = Object.keys(statesMap).find(state => {
-                return statesMap[state] === matchedStates[0];
-            });
-        } else if (searchValueSegments[1] && searchValueSegments[1].length === 2) {
-            usersState = searchValueSegments[1].toUpperCase();
-        }
-
-        const relevantElections = elections.filter(election => {
-            const ocdId = election.ocdDivisionId || '';
-            const stateSegment = ocdId.split('/').find(segment => segment.includes('state:'));
-
-            if (!stateSegment) {
-                return true;
-            }
-            const electionState = stateSegment.split(':')[1];
-
-            if (usersState && electionState === usersState.toLowerCase()) {
-                return true;
-            }
-            return false;
-        });
-
-        return relevantElections;
     };
 
     const getElectionId = (relevantElections?: ElectionInfo[]): string | undefined => {
