@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import classnames from 'classnames';
 import { navigateToResultsRoute } from 'helpers/getResultsRoute';
 import { getRelevantElections } from 'helpers/getRelevantElections';
-import analytics from 'analytics';
 import Autocomplete from 'components/Autocomplete/Autocomplete';
 import { AppContext, DispatchContext } from 'appReducer';
 import useWindowSize from 'hooks/useWindowSize';
@@ -42,7 +41,6 @@ function Search() {
                 const representatives = await getRepresentatives(searchQuery);
 
                 if (representatives?.error) {
-                    analytics.failure(representatives.error);
                     dispatch({
                         type: 'SET_ERROR',
                         error: {
@@ -72,13 +70,11 @@ function Search() {
             ]);
 
             if (locations?.error) {
-                analytics.failure(locations.error);
                 dispatch({
                     type: 'SET_ERROR',
                     error: { locations: locations.error as { message: string } },
                 });
             } else if (locations) {
-                analytics.success(locations);
                 dispatch({
                     type: 'UPDATE_SEARCH_RESULTS',
                     data: {
@@ -90,13 +86,11 @@ function Search() {
             }
 
             if (representatives?.error) {
-                analytics.failure(representatives.error);
                 dispatch({
                     type: 'SET_ERROR',
                     error: { representatives: representatives.error as { message: string } },
                 });
             } else if (representatives) {
-                analytics.success(representatives);
                 dispatch({
                     type: 'UPDATE_REPRESENTATIVES_RESULTS',
                     data: representatives,

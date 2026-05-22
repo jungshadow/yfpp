@@ -1,4 +1,3 @@
-import analytics from 'analytics';
 import mbxClient from '@mapbox/mapbox-sdk';
 import mbxGeocoding from '@mapbox/mapbox-sdk/services/geocoding';
 import type {
@@ -91,7 +90,6 @@ async function getRepresentatives(
         return transformOpenStatesResponse(data.results);
     } catch (error) {
         console.error('error in getRepresentatives call:', error);
-        analytics.failure(error as string);
     }
 }
 

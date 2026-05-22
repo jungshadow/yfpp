@@ -1,4 +1,3 @@
-import analytics from 'analytics';
 import helpers from 'helpers';
 import type { CivicApiResponse } from '../types/api';
 
@@ -29,7 +28,6 @@ async function getLocations(
         return locations;
     } catch (error) {
         console.error('error in getLocations call:', error);
-        analytics.failure(error as string);
     }
 }
 

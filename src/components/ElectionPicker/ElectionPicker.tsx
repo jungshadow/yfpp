@@ -4,7 +4,6 @@ import { format } from 'date-fns';
 import { navigateToResultsRoute } from 'helpers/getResultsRoute';
 import { AppContext, DispatchContext } from 'appReducer';
 import getLocations from 'requests/getLocations';
-import analytics from 'analytics';
 import type { ElectionInfo } from 'types/index';
 import './electionPicker.scss';
 
@@ -34,13 +33,11 @@ const ElectionPicker = () => {
     const handleSelect = async (election: ElectionInfo) => {
         const locations = await getLocations(searchQuery ?? '', election.id);
         if (locations?.error) {
-            analytics.failure(locations.error);
             dispatch({
                 type: 'SET_ERROR',
                 error: { locations: locations.error as { message: string } },
             });
         } else if (locations) {
-            analytics.success(locations);
             dispatch({
                 type: 'UPDATE_SEARCH_RESULTS',
                 data: {

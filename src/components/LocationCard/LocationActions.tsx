@@ -1,9 +1,7 @@
 import React from 'react';
 
 import './locationActions.scss';
-import { FacebookIcon, MapIcon } from 'components/Icons';
-import TwitterIcon from 'components/Icons/TwitterIcon';
-import analytics from 'analytics';
+import { MapIcon } from 'components/Icons';
 import helpers from 'helpers';
 import useWindowSize from 'hooks/useWindowSize';
 
@@ -32,66 +30,6 @@ const LocationActions = ({
     const windowSize = useWindowSize();
 
     const isMobile = windowSize.width < 768;
-
-    const handleFacebookShare = (e: React.MouseEvent) => {
-        e.preventDefault();
-
-        function facebook_callback(_response: unknown) {
-            analytics.social_action('facebook', 'post', '');
-        }
-
-        const shareObj = {
-            method: 'feed',
-            link:
-                'https://yourfuckingpollingplace.com/?utm_source=facebook&utm_medium=social&utm_campaign=YFPP_2020_USER_' +
-                state,
-            picture: 'https://yourfuckingpollingplace.com/images/social/social_2x.png',
-            name: 'I Vote At ' + locationName,
-            caption: 'YourFuckingPollingPlace.com',
-            description: `I vote at ${helpers.titlecase(
-                helpers.fucktify(locationName),
-            )} in ${helpers.titlecase(
-                location.city || '',
-            )} ${state}, where the fuck do you vote? Visit YourFuckingPollingPlace.com to find out.`,
-        };
-
-        (
-            window as unknown as {
-                FB: { ui: (obj: Record<string, unknown>, cb: (r: unknown) => void) => void };
-            }
-        ).FB.ui(shareObj, facebook_callback);
-    };
-
-    const buildTweet = () => {
-        // Shuffle the author twitter accounts for optimal fairness
-        const authorTwitter = helpers.shuffle([
-            'golovashkina',
-            'joshualturner',
-            'jungshadow',
-            'momaraqa',
-            'nickcatal',
-            'sixBcreative',
-        ]);
-
-        // if locationName exists setup text string including location name
-        // else use predefined string
-        let text: string;
-        if (locationName) {
-            text = `I vote at ${helpers.titlecase(
-                helpers.fucktify(locationName),
-            )}. Where the fuck do you vote? Find out at`;
-        } else {
-            text = 'I found my fucking polling location. Where the fuck do you vote? Find out at';
-        }
-
-        const related = authorTwitter.join(',');
-        const url = encodeURI('https://yourfuckingpollingplace.com');
-
-        const params = { text, url, related, via: 'fnpollingplace' };
-        const tweetParams = helpers.buildQueryString(params);
-
-        return `https://twitter.com/intent/tweet?${tweetParams}`;
-    };
 
     const buildMap = () => {
         const UA = navigator.userAgent;
@@ -145,25 +83,6 @@ const LocationActions = ({
                     </i>
                 </button>
             )}
-            <button
-                className="locationActions__btn locationActions__btn--facebookBtn"
-                type="button"
-                onClick={handleFacebookShare}
-            >
-                Share
-                <i className="locationActions__btnIcon">
-                    <FacebookIcon />
-                </i>
-            </button>
-            <a
-                className="locationActions__btn locationActions__btn--twitterBtn twitter-share-button"
-                href={buildTweet()}
-            >
-                Share
-                <i className="locationActions__btnIcon">
-                    <TwitterIcon />
-                </i>
-            </a>
         </div>
     );
 };

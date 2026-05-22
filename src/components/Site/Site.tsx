@@ -15,7 +15,6 @@ import useWindowSize from 'hooks/useWindowSize';
 import useElections from 'hooks/useElections';
 import sticker from 'images/iFuckingVotedSticker.png';
 import SupplementalLinks from 'components/SupplementalLinks/SupplementalLinks';
-import SocialLinks from 'components/SocialLinks/SocialLinks';
 import { AnimatePresence } from 'framer-motion';
 
 const Site = () => {
@@ -57,9 +56,6 @@ const Site = () => {
                 )}
             </AnimatePresence>
             <div className="site__hd">
-                <div className="site__social">
-                    <SocialLinks />
-                </div>
                 <div className="site__graphic">
                     <img src={sticker} alt="I fucking voted today sticker" />
                 </div>
