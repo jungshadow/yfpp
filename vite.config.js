@@ -7,7 +7,6 @@ export default defineConfig({
   resolve: {
     alias: {
       actions: path.resolve(__dirname, 'src/actions'),
-      analytics: path.resolve(__dirname, 'src/analytics'),
       appReducer: path.resolve(__dirname, 'src/appReducer'),
       components: path.resolve(__dirname, 'src/components'),
       helpers: path.resolve(__dirname, 'src/helpers'),

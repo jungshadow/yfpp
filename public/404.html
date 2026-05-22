@@ -25,13 +25,20 @@
       var pathSegmentsToKeep = 0;
 
       var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+
+      // Don't redirect requests for static assets — let them 404 cleanly
+      // so the browser can handle the failure gracefully.
+      if (/\.(js|css|png|jpg|jpeg|gif|svg|ico|json|woff2?|ttf|eot|map)$/i.test(l.pathname)) {
+        // Stop here; the browser will see a normal 404 for this asset.
+      } else {
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+          l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        );
+      }
 
     </script>
   </head>

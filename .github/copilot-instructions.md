@@ -26,8 +26,8 @@ YFPP (Your Fucking Polling Place) is a static SPA hosted on GitHub Pages. It acc
 
 - **Package manager**: pnpm (never npm or yarn)
 - **Build tool**: Vite
-- **Dev server**: `op run --env-file=".env.local" pnpm dev`
-- **Build**: `pnpm build`
+- **Dev server**: `op run --env-file=".env.local" -- pnpm dev`
+- **Build**: `op run --env-file=".env.local" -- pnpm build`
 - **Unit/integration tests**: `pnpm test:unit` (Vitest + React Testing Library)
 - **E2E tests**: `pnpm test:e2e` (Playwright)
 - **Type check**: `pnpm tsc --noEmit`
@@ -36,10 +36,12 @@ YFPP (Your Fucking Polling Place) is a static SPA hosted on GitHub Pages. It acc
 
 ## Conventions
 
+- **Terminal commands**: Always use relative paths. Never prefix commands with `cd /absolute/path &&`. The working directory is already set to the project root.
 - **Environment variables**: Use `import.meta.env.VITE_*` (Vite convention). Never `process.env`.
 - **API keys**: Never commit secrets. Development uses 1Password CLI (`op run --env-file=".env.local"`) to inject secrets at runtime from 1Password references (`op://` URIs). Production builds use GitHub Secrets injected via GitHub Actions. Keys are in the client bundle (static SPA) — they must be restricted by domain/referrer in their respective dashboards.
 - **Error handling**: API failures must degrade gracefully. A failed representatives call must not block polling place results. If an API returns invalid data, log the error and display a user-friendly message indicating that some information may be missing. Dispatch granular errors per API call.
 - **No legacy libraries in new code**: No jQuery, lodash, moment.js, or prop-types. Use native JS/TS equivalents and TypeScript interfaces.
+- **Removed integrations**: Google Analytics, Facebook SDK, and Twitter widgets have been removed. Do not re-add these or reference `analytics`, `FB`, `twttr`, `SocialLinks`, `FacebookIcon`, or `TwitterIcon`.
 - **Date handling**: Use `date-fns` instead of moment.js.
 - **Testing**: New code must include tests. Place test files alongside source files (`Component.test.tsx`). Use MSW for API mocking.
 - **Security**: Validate and sanitize all external data at system boundaries. Follow OWASP Top 10 guidelines. Use `encodeURIComponent` for URL parameters.
