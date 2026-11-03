@@ -5,3 +5,6 @@ allowBuilds:
   es5-ext: true
   fsevents: true
   msw: true
+
+# Refuse package versions published less than 1 day ago (minutes). Explicit value enables strict mode.
+minimumReleaseAge: 1440

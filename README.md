@@ -62,6 +62,51 @@ pnpm format          # Auto-format
 
 Run lint and format checks before committing.
 
+### Dependency Security
+
+Run before committing (includes production and development dependencies):
+
+```bash
+pnpm audit
+pnpm audit --audit-level=high    # Focus on high/critical findings
+```
+
+Checks are advisory for now; no hook blocks commits. Report high/critical findings.
+An audit service or network failure is not a clean result: report it and retry.
+
+Update policy:
+
+1. **Direct dependencies**: patch and minor updates are fine, one package (or related group) at a time, with the full check suite. Majors get their own planned change.
+2. **Transitive dependencies**: only move within the ranges their parents declare (update the parent or refresh the lockfile). No `overrides` by default.
+3. **Overrides**: last resort, only for high/critical advisories in shipped runtime code when no compatible parent release exists. Comment the reason and removal condition.
+4. **Prioritize** runtime dependencies over build/dev tooling.
+
+```bash
+pnpm outdated                    # Available updates for direct dependencies
+pnpm why form-data               # Trace who pulls in a transitive dependency
+pnpm update react-router-dom     # Update within the package.json range
+pnpm update vite@^8              # Or set an explicit range within the current major
+pnpm update --depth Infinity form-data # Refresh a transitive within its parents' ranges
+pnpm update                      # Refresh all dependencies within declared ranges
+git diff -- package.json pnpm-lock.yaml   # Check for unexpected jumps
+pnpm audit
+pnpm test:unit
+pnpm tsc --noEmit
+pnpm lint
+pnpm format:check
+op run --env-file=".env.local" -- pnpm build
+pnpm test:e2e
+```
+
+Avoid `pnpm update --latest` and `pnpm audit --fix`: they cross majors or add overrides.
+
+`pnpm-workspace.yaml` sets `minimumReleaseAge: 1440`, so pnpm won't install versions under one day old.
+This limits exposure to compromised releases. To take an urgent fix earlier, add it to
+`minimumReleaseAgeExclude` (e.g. `- vite@8.1.6`) and remove the entry afterward.
+
+Report findings that need a major upgrade or an override for separate remediation.
+Keep generated audit reports out of commits unless intentionally requested.
+
 ## Deploy
 
 Production deploys use GitHub Actions Pages via manual dispatch (`workflow_dispatch`). The workflow runs type checking and linting before building. API keys are injected from GitHub Secrets.

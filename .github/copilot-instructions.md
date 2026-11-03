@@ -33,10 +33,12 @@ YFPP (Your Fucking Polling Place) is a static SPA hosted on GitHub Pages. It acc
 - **Type check**: `pnpm tsc --noEmit`
 - **Lint**: `pnpm lint` (ESLint 9, flat config). Fix auto-fixable issues with `pnpm lint:fix`.
 - **Format**: `pnpm format:check` to verify, `pnpm format` to auto-format. Run lint and format checks before committing.
+- **Dependency security**: Before committing, follow the [manual audit workflow](../README.md#dependency-security). Report high/critical findings and audit failures; checks are advisory, not a commit gate. Direct deps: patch/minor only (majors planned separately). Transitive deps: only within parent ranges; no `overrides` without approval.
 
 ## Conventions
 
 - **Terminal commands**: Always use relative paths. Never prefix commands with `cd /absolute/path &&`. The working directory is already set to the project root.
+- **Documentation**: Favor commands and concise explanations for seasoned developers.
 - **Environment variables**: Use `import.meta.env.VITE_*` (Vite convention). Never `process.env`.
 - **API keys**: Never commit secrets. Development uses 1Password CLI (`op run --env-file=".env.local"`) to inject secrets at runtime from 1Password references (`op://` URIs). Production builds use GitHub Secrets injected via GitHub Actions. Keys are in the client bundle (static SPA) — they must be restricted by domain/referrer in their respective dashboards.
 - **Error handling**: API failures must degrade gracefully. A failed representatives call must not block polling place results. If an API returns invalid data, log the error and display a user-friendly message indicating that some information may be missing. Dispatch granular errors per API call.
